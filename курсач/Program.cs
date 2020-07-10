@@ -19,6 +19,6 @@ namespace курсач
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form2());
             
-    }
+        }
     }
 }
