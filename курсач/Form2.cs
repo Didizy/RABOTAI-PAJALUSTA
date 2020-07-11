@@ -88,6 +88,7 @@ namespace курсач
         private void button6_Click(object sender, EventArgs e)
         {
             tariph.delete(tariph_del_title.Text, provider.find(tariph_del_provider.Text));
+            tariph_del_title.Text = tariph_del_provider.Text = "";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -175,6 +176,7 @@ namespace курсач
         private void button8_Click(object sender, EventArgs e)
         {
             user.add(user.get_hash(user_login.Text), user_login.Text, user_date.Text, tariph.find(user_tariph.Text, provider.find(user_provider.Text)));
+            user_login.Text = user_date.Text = user_tariph.Text = user_provider.Text = "";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -193,13 +195,16 @@ namespace курсач
         }
 
         private void add_sale_Click(object sender, EventArgs e)
+
         {
-            sales.add_sale(sale_length.Text);
+            spisok_tariph.nest a = tariph.find(sale_tariph.Text, provider.find(sale_provider.Text));
+            sales.add_sale(sale_num.Text, sale_length.Text, a, a.provider);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             provider.delete(provider_del_title.Text);
+            provider_del_title.Text = "";
         }
 
         private void find_provider_Click(object sender, EventArgs e)
@@ -210,6 +215,11 @@ namespace курсач
         private void Provider_title_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void del_user_Click(object sender, EventArgs e)
+        {
+           // spisok_users.nest a = user.search()
         }
     }
 }
