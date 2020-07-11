@@ -52,7 +52,7 @@ namespace курсач
 
         private void label6_Click(object sender, EventArgs e)
         {
-
+            //прихуярить текст боксы!!! для вида услуги
         }
 
         private void textBox9_TextChanged(object sender, EventArgs e)
