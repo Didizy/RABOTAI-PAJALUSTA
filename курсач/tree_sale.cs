@@ -158,7 +158,7 @@ namespace курсач
                 }
             }
         }
-        public void delete(string size)//удаление 
+        public void delete(string size, spisok_tariph.nest tariph)//удаление 
         {
             bool left = true;
             root parent = main;
@@ -216,25 +216,16 @@ namespace курсач
                     if (swap == null)
                     {
                         if (left)
-                        {
                             parent.left = curr.right;
-                        }
                         else
-                        {
                             parent.right = curr.right;
-                        }
-
                     }
                     else
                     {
                         if (left)
-                        {
                             parent.left = swap;
-                        }
                         else
-                        {
                             parent.right = swap;
-                        }
                     }
 
                 }
