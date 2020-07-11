@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace курсач
 {
-    public class spisok_tariph
+    public class spisok_tariph//фффффффффффффффффф
     {
         //Тёма-пиодр
 
