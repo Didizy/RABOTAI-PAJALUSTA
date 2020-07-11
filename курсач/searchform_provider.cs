@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace курсач
 {
-    public partial class error_form : Form
+    public partial class searchform_provider : Form
     {
-        public error_form()
+        public searchform_provider()
         {
             InitializeComponent();
         }
@@ -23,6 +23,11 @@ namespace курсач
         }
 
         private void error_mes1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void compare_number_Click(object sender, EventArgs e)
         {
 
         }
