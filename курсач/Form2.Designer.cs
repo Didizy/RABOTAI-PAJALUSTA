@@ -121,6 +121,7 @@
             this.sale_find_provider = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -134,7 +135,7 @@
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage8.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -144,11 +145,11 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(458, 548);
+            this.tabControl1.Size = new System.Drawing.Size(458, 524);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage7
@@ -160,7 +161,7 @@
             this.tabPage7.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage7.Size = new System.Drawing.Size(450, 522);
+            this.tabPage7.Size = new System.Drawing.Size(450, 498);
             this.tabPage7.TabIndex = 4;
             this.tabPage7.Text = "Просмотр";
             // 
@@ -172,11 +173,11 @@
             this.Провайдеры.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.Провайдеры.Items.AddRange(new object[] {
             "Провайдер Тариф Тип Скорость Цена"});
-            this.Провайдеры.Location = new System.Drawing.Point(0, 24);
+            this.Провайдеры.Location = new System.Drawing.Point(0, -1);
             this.Провайдеры.Margin = new System.Windows.Forms.Padding(2);
             this.Провайдеры.MultiColumn = true;
             this.Провайдеры.Name = "Провайдеры";
-            this.Провайдеры.Size = new System.Drawing.Size(449, 498);
+            this.Провайдеры.Size = new System.Drawing.Size(449, 511);
             this.Провайдеры.TabIndex = 0;
             this.Провайдеры.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -616,17 +617,17 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Size = new System.Drawing.Size(468, 522);
+            this.tabPage1.Size = new System.Drawing.Size(468, 498);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Просмотр";
             // 
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(2, 24);
+            this.listBox2.Location = new System.Drawing.Point(2, -2);
             this.listBox2.Margin = new System.Windows.Forms.Padding(2);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(466, 498);
+            this.listBox2.Size = new System.Drawing.Size(466, 524);
             this.listBox2.TabIndex = 1;
             // 
             // tabControl2
@@ -637,12 +638,12 @@
             this.tabControl2.Controls.Add(this.tabPage4);
             this.tabControl2.Controls.Add(this.tabPage8);
             this.tabControl2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tabControl2.Location = new System.Drawing.Point(458, 0);
+            this.tabControl2.Location = new System.Drawing.Point(458, 24);
             this.tabControl2.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl2.Multiline = true;
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(476, 548);
+            this.tabControl2.Size = new System.Drawing.Size(476, 524);
             this.tabControl2.TabIndex = 1;
             // 
             // tabPage3
@@ -1153,13 +1154,21 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.файлToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(2, 2);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(446, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.файлToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(934, 24);
+            this.menuStrip2.TabIndex = 2;
+            this.menuStrip2.Text = "menuStrip2";
             // 
             // файлToolStripMenuItem
             // 
@@ -1168,14 +1177,13 @@
             this.загрузитьToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.файлToolStripMenuItem.Text = "Файл";
+            this.файлToolStripMenuItem.Text = "файл";
             // 
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
             this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
-            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // загрузитьToolStripMenuItem
             // 
@@ -1190,6 +1198,7 @@
             this.ClientSize = new System.Drawing.Size(934, 548);
             this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.menuStrip2);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form2";
@@ -1212,9 +1221,10 @@
             this.tabPage4.PerformLayout();
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1313,6 +1323,7 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.TextBox sale_find_provider;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
