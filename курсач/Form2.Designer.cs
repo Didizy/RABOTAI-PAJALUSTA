@@ -140,7 +140,6 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Bottom;
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage6);
@@ -157,7 +156,7 @@
             this.tabPage7.BackColor = System.Drawing.Color.Gainsboro;
             this.tabPage7.Controls.Add(this.Провайдеры);
             this.tabPage7.Controls.Add(this.menuStrip1);
-            this.tabPage7.Location = new System.Drawing.Point(4, 4);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(2);
@@ -200,11 +199,11 @@
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.Provider_title);
-            this.tabPage2.Location = new System.Drawing.Point(4, 4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Size = new System.Drawing.Size(450, 522);
+            this.tabPage2.Size = new System.Drawing.Size(450, 498);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Добавить";
             // 
@@ -381,10 +380,10 @@
             this.tabPage6.Controls.Add(this.provider_find_title);
             this.tabPage6.Controls.Add(this.label11);
             this.tabPage6.Controls.Add(this.label10);
-            this.tabPage6.Location = new System.Drawing.Point(4, 4);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(450, 522);
+            this.tabPage6.Size = new System.Drawing.Size(450, 498);
             this.tabPage6.TabIndex = 3;
             this.tabPage6.Text = "Найти";
             // 
@@ -501,10 +500,10 @@
             this.tabPage5.Controls.Add(this.provider_del_title);
             this.tabPage5.Controls.Add(this.label15);
             this.tabPage5.Controls.Add(this.label14);
-            this.tabPage5.Location = new System.Drawing.Point(4, 4);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(450, 522);
+            this.tabPage5.Size = new System.Drawing.Size(450, 498);
             this.tabPage5.TabIndex = 2;
             this.tabPage5.Text = "Удалить";
             // 
@@ -613,7 +612,7 @@
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Gainsboro;
             this.tabPage1.Controls.Add(this.listBox2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
@@ -632,7 +631,6 @@
             // 
             // tabControl2
             // 
-            this.tabControl2.Alignment = System.Windows.Forms.TabAlignment.Bottom;
             this.tabControl2.Controls.Add(this.tabPage1);
             this.tabControl2.Controls.Add(this.tabPage3);
             this.tabControl2.Controls.Add(this.tabPage4);
@@ -669,11 +667,11 @@
             this.tabPage3.Controls.Add(this.label20);
             this.tabPage3.Controls.Add(this.label21);
             this.tabPage3.Controls.Add(this.label22);
-            this.tabPage3.Location = new System.Drawing.Point(4, 4);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage3.Size = new System.Drawing.Size(468, 522);
+            this.tabPage3.Size = new System.Drawing.Size(468, 498);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Добавить";
             // 
@@ -887,11 +885,11 @@
             this.tabPage4.Controls.Add(this.button10);
             this.tabPage4.Controls.Add(this.label27);
             this.tabPage4.Controls.Add(this.label28);
-            this.tabPage4.Location = new System.Drawing.Point(4, 4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage4.Size = new System.Drawing.Size(468, 522);
+            this.tabPage4.Size = new System.Drawing.Size(468, 498);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Найти";
             // 
@@ -1010,10 +1008,10 @@
             this.tabPage8.Controls.Add(this.del_user);
             this.tabPage8.Controls.Add(this.label34);
             this.tabPage8.Controls.Add(this.label35);
-            this.tabPage8.Location = new System.Drawing.Point(4, 4);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(468, 522);
+            this.tabPage8.Size = new System.Drawing.Size(468, 498);
             this.tabPage8.TabIndex = 2;
             this.tabPage8.Text = "Удалить";
             // 
