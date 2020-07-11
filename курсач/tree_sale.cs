@@ -70,7 +70,7 @@ namespace курсач
                         }
                         else
                             curr = curr.left;
-                    else if (i == 1)
+                    else if ((i == 1) | (i == 0)) 
                         if (curr.right == null)
                         {
                             root temp = new root(size, date, tariph, provider);
@@ -79,10 +79,7 @@ namespace курсач
                         }
                         else
                             curr = curr.right;
-                    else if (i == 0)
-                    {
-                        //error, уже существует
-                    }
+                   
 
 
                 }
@@ -104,12 +101,13 @@ namespace курсач
                     //int j = compare(tariph, curr.tariph);
                     if (i == 0)
                     {
-                        //bool check_tariph = 0;
-                        if (curr.tariph == tariph)
-
-
-
-                        return curr;
+                        while (curr != null) 
+                        {
+                            if (curr.tariph == tariph)
+                                return curr;
+                            curr = curr.right;
+                        }
+                        return null;
                     }
                     else if (i == -1)
                         if (curr.left != null)
