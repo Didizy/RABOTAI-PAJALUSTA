@@ -264,10 +264,10 @@ namespace курсач
                 }
 
         }
-        public root.info get_tariph(root pr,int ind)
+   /*     public root.info get_tariph(root pr, int ind)
         {
             return pr.arr[ind];
-        }
+        }*/
         public root print_provider(int ind,root parent,ref int curr)
         {
             if (parent.left != null)

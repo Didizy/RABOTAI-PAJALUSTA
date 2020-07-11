@@ -23,9 +23,9 @@ namespace курсач
             }
             public info[] arr = new info[5];
 
-            public root(string size, string _date, spisok_tariph.nest _tariph, tree_providers.root _provider)
+            public root(string _size, string _date, spisok_tariph.nest _tariph, tree_providers.root _provider)
             {
-                this.size = size;
+                this.size = _size;
                 this.provider = _provider;
                 this.tariph = _tariph;
                 this.date = _date;   
@@ -33,9 +33,7 @@ namespace курсач
             }
         }
         public root main = null;
-
         public tree_sale() { }
-
         public int compare(string a, string b)//сравнение строк
         {
             if (a == b)
@@ -90,7 +88,7 @@ namespace курсач
                 }
             }
         }
-        public root find(string size)//поиск
+        public root find(string size, spisok_tariph.nest tariph)//поиск
         {
             if (main == null)
             {
@@ -103,6 +101,7 @@ namespace курсач
                 while (true)
                 {
                     int i = compare(size, curr.size);
+                    //int j = compare(tariph, curr.tariph);
                     if (i == 0)
                         return curr;
                     else if (i == -1)
@@ -115,8 +114,6 @@ namespace курсач
                             curr = curr.right;
                         else
                             return null;
-
-
                 }
             }
 
