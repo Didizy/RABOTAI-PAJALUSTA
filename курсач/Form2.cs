@@ -16,6 +16,10 @@ namespace курсач
         spisok_tariph tariph;
         spisok_users user;
         tree_sale sales;
+        //переменные для окон//лучше будет загнать в отдельный файлл
+        int error_number;
+        DialogResult message_choise_resilt;
+
         public Form2()
         {
             InitializeComponent();
@@ -24,6 +28,29 @@ namespace курсач
             user = new spisok_users();
             sales = new tree_sale();
         }
+
+        public void message_box(int error_number)
+        {
+            int switch_on = error_number;//код ошибки или ее отсутсвие
+
+            switch (switch_on)
+            {
+                case 0://ошибок нет
+                    MessageBox.Show("Элемент добавлен", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                case 1://заполнены не все поля
+                    message_choise_resilt = MessageBox.Show("Заполнены не все поля", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                case 2://некоректный ввод данных
+                    MessageBox.Show("Введены некореектные данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                default: break;
+            }
+
+
+            
+        }
+
 
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -168,6 +195,12 @@ namespace курсач
         {
             provider.add_Provider(Provider_title.Text);
             Provider_title.Text = "";
+
+            error_number = 1;
+            message_box(error_number);
+
+                
+
         }
 
         private void label38_Click(object sender, EventArgs e)
