@@ -267,5 +267,10 @@ namespace курсач
             sales.find(sale_find_size.Text, tariph.find(sale_find_tariph.Text, provider.find(sale_find_provider.Text)));
             sale_find_provider.Text = sale_find_size.Text = sale_find_tariph.Text = "";
         }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
