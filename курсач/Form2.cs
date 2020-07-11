@@ -258,6 +258,9 @@ namespace курсач
         {
             tree_providers.root a = provider.find(find_provider.Text);
             find_provider.Text = "";
+
+            searchform_provider searchform = new searchform_provider();
+            searchform.Show();
         }
 
         private void Provider_title_TextChanged(object sender, EventArgs e)
