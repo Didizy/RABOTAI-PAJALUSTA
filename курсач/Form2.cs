@@ -219,7 +219,10 @@ namespace курсач
 
         private void del_user_Click(object sender, EventArgs e)
         {
-           // spisok_users.nest a = user.search()
+            spisok_users.nest a = user.find(user_del_login.Text);
+            provider.delete_user(user_del_login.Text, a.tariph.provider.title);
+            user.delete(user_del_login.Text);
+            user_del_login.Text = "";
         }
     }
 }

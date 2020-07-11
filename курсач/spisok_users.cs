@@ -118,7 +118,7 @@ namespace курсач
             }
         }
 
-        public nest find(string login, spisok_tariph.nest tariph)
+        public nest find(string login /*spisok_tariph.nest tariph*/)
         {
             //int hash = getkey(login);
             int j = 0;
@@ -130,7 +130,7 @@ namespace курсач
                 {
                     curr = curr.next;
                 }
-                if ((curr.login == login && curr.tariph == tariph))
+                if ((curr.login == login))/* && curr.tariph == tariph))*/
                 {
                     return curr;
                 }
@@ -141,9 +141,9 @@ namespace курсач
             }
         }
 
-        public void delete(string login, spisok_tariph.nest tariph)
+        public void delete(string login/*, spisok_tariph.nest tariph*/)
         {
-            nest curr = find(login, tariph);
+            nest curr = find(login);
             if (curr != null)
             {
                 if (curr == curr.chain_prev)
@@ -156,7 +156,7 @@ namespace курсач
                 {
                     curr.chain_next = curr.chain_prev;
                     curr.chain_prev = curr.chain_next;
-                    free(curr);//вроде как free удаляет
+                    //free(curr);//вроде как free удаляет
                 }
 
             }
