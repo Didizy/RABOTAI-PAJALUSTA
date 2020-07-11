@@ -74,6 +74,10 @@
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.sale_provider = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.user_provider = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.sale_length = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -116,10 +120,6 @@
             this.button12 = new System.Windows.Forms.Button();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.user_provider = new System.Windows.Forms.TextBox();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.sale_provider = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -143,7 +143,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(458, 548);
+            this.tabControl1.Size = new System.Drawing.Size(462, 548);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage7
@@ -154,7 +154,7 @@
             this.tabPage7.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage7.Size = new System.Drawing.Size(450, 522);
+            this.tabPage7.Size = new System.Drawing.Size(454, 522);
             this.tabPage7.TabIndex = 4;
             this.tabPage7.Text = "Просмотр";
             // 
@@ -195,7 +195,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Size = new System.Drawing.Size(450, 522);
+            this.tabPage2.Size = new System.Drawing.Size(454, 522);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Добавить";
             // 
@@ -375,7 +375,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(450, 522);
+            this.tabPage6.Size = new System.Drawing.Size(454, 522);
             this.tabPage6.TabIndex = 3;
             this.tabPage6.Text = "Найти";
             // 
@@ -495,7 +495,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(450, 522);
+            this.tabPage5.Size = new System.Drawing.Size(454, 522);
             this.tabPage5.TabIndex = 2;
             this.tabPage5.Text = "Удалить";
             // 
@@ -665,6 +665,44 @@
             this.tabPage3.Size = new System.Drawing.Size(468, 522);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Добавить";
+            // 
+            // sale_provider
+            // 
+            this.sale_provider.Location = new System.Drawing.Point(207, 389);
+            this.sale_provider.Margin = new System.Windows.Forms.Padding(2);
+            this.sale_provider.Name = "sale_provider";
+            this.sale_provider.Size = new System.Drawing.Size(199, 20);
+            this.sale_provider.TabIndex = 45;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(68, 392);
+            this.label40.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(120, 13);
+            this.label40.TabIndex = 44;
+            this.label40.Text = "Название провайдера";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(62, 159);
+            this.label39.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(120, 13);
+            this.label39.TabIndex = 43;
+            this.label39.Text = "Название провайдера";
+            this.label39.Click += new System.EventHandler(this.label39_Click);
+            // 
+            // user_provider
+            // 
+            this.user_provider.Location = new System.Drawing.Point(206, 152);
+            this.user_provider.Margin = new System.Windows.Forms.Padding(2);
+            this.user_provider.Name = "user_provider";
+            this.user_provider.Size = new System.Drawing.Size(199, 20);
+            this.user_provider.TabIndex = 42;
+            this.user_provider.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label19
             // 
@@ -1096,44 +1134,6 @@
             this.label35.Size = new System.Drawing.Size(124, 13);
             this.label35.TabIndex = 26;
             this.label35.Text = "Удалить пользователя";
-            // 
-            // user_provider
-            // 
-            this.user_provider.Location = new System.Drawing.Point(206, 152);
-            this.user_provider.Margin = new System.Windows.Forms.Padding(2);
-            this.user_provider.Name = "user_provider";
-            this.user_provider.Size = new System.Drawing.Size(199, 20);
-            this.user_provider.TabIndex = 42;
-            this.user_provider.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(62, 159);
-            this.label39.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(120, 13);
-            this.label39.TabIndex = 43;
-            this.label39.Text = "Название провайдера";
-            this.label39.Click += new System.EventHandler(this.label39_Click);
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(68, 392);
-            this.label40.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(120, 13);
-            this.label40.TabIndex = 44;
-            this.label40.Text = "Название провайдера";
-            // 
-            // sale_provider
-            // 
-            this.sale_provider.Location = new System.Drawing.Point(207, 389);
-            this.sale_provider.Margin = new System.Windows.Forms.Padding(2);
-            this.sale_provider.Name = "sale_provider";
-            this.sale_provider.Size = new System.Drawing.Size(199, 20);
-            this.sale_provider.TabIndex = 45;
             // 
             // Form2
             // 

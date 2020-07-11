@@ -13,8 +13,11 @@ namespace курсач
         {
             public string title;
             public root left, right;
-            public int current ;
-            public int max;
+            public int current_tariph ;
+            public int max_tariph;
+            public int current_user;
+            public int max_user;
+            public string[] users = new string[5];
             public struct info
             {
                public string name;
@@ -22,11 +25,14 @@ namespace курсач
             }
             public info[] arr = new info[5];
 
+
             public root(string name) {
                 this.title = name;
-                current = 0;
+                current_tariph = 0;
                 left = right = null;
-                max = 5;
+                max_tariph = 5;
+                max_user = 5;
+                current_user = 0;
             }
         }
         public root main = null;
@@ -231,30 +237,40 @@ namespace курсач
                 
             }          
         }
-        public void add_tariph(string name, int cost,root pr)
+        public bool add_tariph(string name, int cost,string provider_name)
         {
-            if (pr.current == pr.max)
+            root pr = find(provider_name);
+            if (pr.current_tariph == pr.max_tariph)
             {
-                Array.Resize(ref pr.arr, pr.max + 10);
-                pr.max += 10;
+                Array.Resize(ref pr.arr, pr.max_tariph + 10);
+                pr.max_tariph += 10;
             }
-            pr.arr[pr.current].name = name;
-            pr.arr[pr.current].cost = cost;
-            pr.current++;
+            for(int i =0; i< pr.max_tariph; i++)
+            {
+                if (pr.arr[i].name == name)
+                    return false;
+            }
+            pr.arr[pr.current_tariph].name = name;
+            pr.arr[pr.current_tariph].cost = cost;
+            pr.current_tariph++;
+            return true;
         }
-        public void del_tariph(string name, int cost, root pr)
+        public bool del_tariph(string name, root pr)
         {
-            for (int i = 0; i < pr.current; i++) 
-                if ((pr.arr[i].name == name) && (pr.arr[i].cost == cost))
+            for (int i = 0; i < pr.current_tariph; i++) 
+                if ((pr.arr[i].name == name))
                 {
-                    for (int j = i; j < pr.current - 1; j++)
+                    for (int j = i; j < pr.current_tariph - 1; j++)
                         pr.arr[j] = pr.arr[j + 1];
+                    pr.current_tariph--;
+                    return true;
                 }
-            pr.current--;
+            return false;
+           
         }
         public void change_tariph(string name,int cost, string new_name,int new_cost, root pr)
         {
-            for(int i = 0; i<pr.current;i++)
+            for(int i = 0; i<pr.current_tariph;i++)
                 if ((pr.arr[i].name == name) && (pr.arr[i].cost == cost))
                 {
                     if (new_name != "")
@@ -264,10 +280,10 @@ namespace курсач
                 }
 
         }
-        public root.info get_tariph(root pr,int ind)
+        /*private root.info get_tariph(root pr,int ind)
         {
             return pr.arr[ind];
-        }
+        }*/
         public root print_provider(int ind,root parent,ref int curr)
         {
             if (parent.left != null)
@@ -290,7 +306,43 @@ namespace курсач
             return null;
 
         }
-
+        public bool add_user(string login, string provider_name)
+        {
+            root a = find(provider_name);
+           if (a.current_user == a.max_user)
+            {
+                Array.Resize(ref a.users, a.max_user + 5);
+                a.max_user += 5;
+                
+            }
+           for(int i = 0; i < a.max_user; i++)
+            {
+                if (a.users[i] == login)
+                    return false;
+            }
+            a.users[a.current_user] = login;
+            a.current_user++;
+            return true;
+                
+        }
+        //public void change_user()
+        public bool delete_user(string login, string provider_name)
+        {
+            root pr = find(provider_name);
+            for (int i = 0; i < pr.max_user; i++)
+            {
+                if (pr.users[i] == login)
+                {
+                    for(int j = i; j < pr.max_user - 1; j++)
+                    {
+                        pr.users[j] = pr.users[j + 1];
+                    }
+                    pr.current_user--;
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
 

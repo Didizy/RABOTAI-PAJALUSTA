@@ -104,7 +104,7 @@ namespace курсач
 
                 return;
             }
-            provider.add_tariph(tariph_title.Text,Convert.ToInt32(tariph_cost.Text), provider.find(tariph_provider.Text));
+            provider.add_tariph(tariph_title.Text,Convert.ToInt32(tariph_cost.Text),tariph_provider.Text);
             tariph.add(tariph.getkey(tariph_title.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));
             tariph_title.Text = tariph_cost.Text=tariph_provider.Text = tariph_speed.Text=tariph_type.Text="" ;
         }
