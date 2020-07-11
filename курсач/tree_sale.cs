@@ -14,7 +14,7 @@ namespace курсач
             public string size;// размер скидки
             public string date;// срок пользования тарифом
             public spisok_tariph.nest tariph;
-            public tree_providers.root provider;
+            //public tree_providers.root provider;
             public root left, right;
             public struct info
             {
@@ -23,10 +23,10 @@ namespace курсач
             }
             public info[] arr = new info[5];
 
-            public root(string _size, string _date, spisok_tariph.nest _tariph, tree_providers.root _provider)
+            public root(string _size, string _date, spisok_tariph.nest _tariph)//, tree_providers.root _provider)
             {
                 this.size = _size;
-                this.provider = _provider;
+                //this.provider = _provider;
                 this.tariph = _tariph;
                 this.date = _date;   
                 left = right = null;
@@ -54,7 +54,7 @@ namespace курсач
         {
             bool placed = false;
             if (main == null)
-                main = new root(size, date, tariph, provider);   
+                main = new root(size, date, tariph);//, provider);   
             else
             {
                 root curr = main;
@@ -64,7 +64,7 @@ namespace курсач
                     if (i == -1)
                         if (curr.left == null)
                         {
-                            root temp = new root(size, date, tariph, provider);
+                            root temp = new root(size, date, tariph);//, provider);
                             curr.left = temp;
                             placed = true;
                         }
@@ -73,7 +73,7 @@ namespace курсач
                     else if ((i == 1) | (i == 0)) 
                         if (curr.right == null)
                         {
-                            root temp = new root(size, date, tariph, provider);
+                            root temp = new root(size, date, tariph);//, provider);
                             curr.right = temp;
                             placed = true;
                         }
