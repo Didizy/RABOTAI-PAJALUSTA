@@ -103,7 +103,14 @@ namespace курсач
                     int i = compare(size, curr.size);
                     //int j = compare(tariph, curr.tariph);
                     if (i == 0)
+                    {
+                        //bool check_tariph = 0;
+                        if (curr.tariph == tariph)
+
+
+
                         return curr;
+                    }
                     else if (i == -1)
                         if (curr.left != null)
                             curr = curr.left;
