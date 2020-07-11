@@ -153,7 +153,7 @@ namespace курсач
             }
 
         }
-        public void delete(string name)//удаление 
+        public bool delete(string name)//удаление 
         {
             bool left = true;
             root parent = main;
@@ -171,7 +171,7 @@ namespace курсач
                     swap.right = main.right;
                     main = swap;
                 }
-                return;
+                return true;
             }
             else if (i == -1)
             {
@@ -231,11 +231,15 @@ namespace курсач
                             parent.right = swap;
                         }
                     }
-
+                    return true;
                 }
+                if (curr == null)
+                    return false;
+                
 
                 
-            }          
+            }
+            return false;
         }
         public bool add_tariph(string name, int cost,string provider_name)
         {

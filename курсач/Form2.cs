@@ -68,6 +68,7 @@ namespace курсач
         private void button4_Click(object sender, EventArgs e)
         {
             spisok_tariph.nest a = tariph.find(tariph_find_title.Text, provider.find(tariph_find_provider.Text));
+            tariph_find_title.Text = tariph_find_provider.Text = "";
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -87,6 +88,7 @@ namespace курсач
 
         private void button6_Click(object sender, EventArgs e)
         {
+            sales.delete_tariph(tariph.find(tariph_del_title.Text, provider.find(tariph_del_provider.Text)),sales.main);
             tariph.delete(tariph_del_title.Text, provider.find(tariph_del_provider.Text));
             tariph_del_title.Text = tariph_del_provider.Text = "";
         }
@@ -203,6 +205,18 @@ namespace курсач
 
         private void button5_Click(object sender, EventArgs e)
         {
+            tree_providers.root pr = provider.find(provider_del_title.Text);
+
+            while (pr.current_user > 0)
+            {
+                user.delete(pr.users[0]);
+                provider.delete_user(pr.users[0], pr.title);
+            }
+            while (pr.current_tariph > 0) {
+                sales.delete_tariph(tariph.find(pr.arr[0].name,pr), sales.main);
+                tariph.delete(pr.arr[0].name, pr);
+                provider.del_tariph(pr.arr[0].name, pr);
+            }
             provider.delete(provider_del_title.Text);
             provider_del_title.Text = "";
         }
@@ -210,6 +224,7 @@ namespace курсач
         private void find_provider_Click(object sender, EventArgs e)
         {
             tree_providers.root a = provider.find(find_provider.Text);
+            find_provider.Text = "";
         }
 
         private void Provider_title_TextChanged(object sender, EventArgs e)
@@ -223,6 +238,34 @@ namespace курсач
             provider.delete_user(user_del_login.Text, a.tariph.provider.title);
             user.delete(user_del_login.Text);
             user_del_login.Text = "";
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            sales.delete(sale_del_size.Text, tariph.find(sale_del_tar.Text, provider.find(sale_del_provider.Text)));
+            sale_del_tar.Text = sale_del_size.Text = sale_del_provider.Text = "";
+        }
+
+        private void user_login_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void user_del_login_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            user.find(user_find_login.Text);
+            user_find_login.Text = "";
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            sales.find(sale_find_size.Text, tariph.find(sale_find_tariph.Text, provider.find(sale_find_provider.Text)));
+            sale_find_provider.Text = sale_find_size.Text = sale_find_tariph.Text = "";
         }
     }
 }

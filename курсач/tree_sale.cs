@@ -14,7 +14,7 @@ namespace курсач
             public string size;// размер скидки
             public string date;// срок пользования тарифом
             public spisok_tariph.nest tariph;
-            public tree_providers.root provider;
+            //public tree_providers.root provider;
             public root left, right;
             public struct info
             {
@@ -26,7 +26,7 @@ namespace курсач
             public root(string _size, string _date, spisok_tariph.nest _tariph, tree_providers.root _provider)
             {
                 this.size = _size;
-                this.provider = _provider;
+                //this.provider = _provider;
                 this.tariph = _tariph;
                 this.date = _date;   
                 left = right = null;
@@ -233,7 +233,15 @@ namespace курсач
 
             }
         }
-
+        public void delete_tariph(spisok_tariph.nest tar,tree_sale.root current)
+        {
+            if (current == null)
+                return;
+            delete_tariph(tar, current.left);
+            delete_tariph(tar, current.right);
+            if (current.tariph == tar)
+                delete(current.size, current.tariph);
+        }
 
     }
 }
