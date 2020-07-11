@@ -159,7 +159,7 @@ namespace курсач
             }
         }
         public void delete(string size, spisok_tariph.nest tariph)//удаление 
-        {
+        {//
             bool left = true;
             root parent = main;
             bool deleted = false;
