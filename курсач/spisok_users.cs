@@ -143,7 +143,7 @@ namespace курсач
 
         public void delete(string login, spisok_tariph.nest tariph)
         {
-            nest curr = search(login, tariph);
+            nest curr = find(login, tariph);
             if (curr != null)
             {
                 if (curr == curr.chain_prev)
