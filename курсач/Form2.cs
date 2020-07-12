@@ -7,15 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace курсач
 {
     public partial class Form2 : Form
     {
-        tree_providers provider;
-        spisok_tariph tariph;
-        spisok_users user;
-        tree_sale sales;
+       public tree_providers provider;
+       public spisok_tariph tariph;
+       public spisok_users user;
+       public tree_sale sales;
         //переменные для окон//лучше будет загнать в отдельный файлл
         int error_number;
         DialogResult message_choise_resilt;
@@ -28,6 +29,16 @@ namespace курсач
             user = new spisok_users();
             sales = new tree_sale();
         }
+
+        public bool check_for_int(string a)
+        {
+            for(int i = 0; i<a.Length;i++)
+                if(((int)a[i]<48)||((int)a[i]>57))
+                    return false;
+            return true;
+        }
+        
+
 
         public void message_box(int error_number)
         {
@@ -122,22 +133,44 @@ namespace курсач
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //тут прописать чек боксы
-            /*int type = 0;
-            if (tariph_type.Text == "Интернет")
-                type = 1;
-            else if (tariph_type.Text == "Интернет и ТВ")
-                type = 2;
-            else if (tariph_type.Text == "ТВ")
-                type = 3;
-            else
+            int type = 0;
+            if ((checkBoxAddTariphInternet.Checked) && (checkBoxAddTariphTV.Checked))
             {
-
-                return;
+                type = 2;
             }
+            else if ((checkBoxAddTariphInternet.Checked) && !(checkBoxAddTariphTV.Checked))
+            {
+                type = 1;
+            }
+            else if (!(checkBoxAddTariphInternet.Checked) && (checkBoxAddTariphTV.Checked))
+            {
+                type = 3;
+            }
+            else {
+                error_number = 1;
+                message_box(error_number);
+            }
+            if (!check_for_int(tariph_cost.Text))
+            {
+                error_number = 2;
+                message_box(error_number);
+            }
+            if (!check_for_int(tariph_speed.Text))
+            {
+                error_number = 2;
+                message_box(error_number);
+            }
+
+      
             provider.add_tariph(tariph_title.Text,Convert.ToInt32(tariph_cost.Text),tariph_provider.Text);
+            
             tariph.add(tariph.getkey(tariph_title.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));
-            tariph_title.Text = tariph_cost.Text=tariph_provider.Text = tariph_speed.Text=tariph_type.Text="" ;*/
+            error_number = 0;
+            message_box(error_number);
+            tariph_title.Text = tariph_cost.Text=tariph_provider.Text = tariph_speed.Text="" ;
+            checkBoxAddTariphTV.Checked = false;
+            checkBoxAddTariphInternet.Checked = false;
+            //checkBoxAddTariphTV.AutoCheck = false;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -194,11 +227,17 @@ namespace курсач
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (Provider_title.Text == "")
+            {
+                error_number = 1;
+                message_box(error_number);
+            }
             provider.add_Provider(Provider_title.Text);
+            error_number = 0;
+            message_box(error_number);
             Provider_title.Text = "";
 
-            error_number = 1;
-            message_box(error_number);
+           
 
                 
 
@@ -258,14 +297,14 @@ namespace курсач
 
         private void find_provider_Click(object sender, EventArgs e)
         {
-            tree_providers.root a = provider.find(find_provider.Text);
-            find_provider.Text = "";
+            tree_providers.root a = provider.find(provider_find_title.Text);
+            provider_find_title.Text = "";
 
 
-            searchform_provider searchform = new searchform_provider();
+            searchform_provider searchform = new searchform_provider(a,this);
 
-            
-            
+
+            //searchform.Owner = this;
             searchform.Show();
             
         }
@@ -334,6 +373,36 @@ namespace курсач
         private void checkBoxAddTariphTV_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public void output(StreamWriter file, tree_providers.root pr)
+        {
+            if (pr == null)
+                return;
+            file.WriteLine(pr.title);
+           // file.Write("\n");
+            for(int i = 0; i < pr.current_tariph; i++)
+            {
+                string temp = "";
+                temp += pr.arr[i].name;
+                temp += "/";
+                temp += pr.arr[i].cost.ToString();
+                spisok_tariph.nest a = tariph.find(pr.arr[i].name, pr);
+                temp += "/";
+                temp += a.type.ToString();
+                temp += "/";
+                temp += a.speed.ToString();
+                file.WriteLine(temp);
+               // file.Write("\n");
+
+            }
+            output(file, pr.left);
+            output(file, pr.right);
+        }
+        private void to_file_Click(object sender, EventArgs e)
+        {
+            StreamWriter file_out = new StreamWriter(@"a:\gitjub\курсач\output.txt");
+            output(file_out, provider.main);
         }
     }
 }

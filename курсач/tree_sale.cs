@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace курсач
 {
-    class tree_sale
+    public class tree_sale
     {
         public class root
         {
