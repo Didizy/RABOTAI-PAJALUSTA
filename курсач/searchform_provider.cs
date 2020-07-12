@@ -41,7 +41,7 @@ namespace курсач
               
              
             }
-            grid.Rows.
+           // grid.Rows.
             //string[] check = { "test1", "test2", "test3", "test4" };
             //grid.Rows.Add(check);
             //grid.Rows.Add(n);//добивить строку в столбцы

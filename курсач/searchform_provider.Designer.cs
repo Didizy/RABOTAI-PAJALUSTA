@@ -44,7 +44,7 @@
             // 
             this.compare_number.AutoSize = true;
             this.compare_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.compare_number.Location = new System.Drawing.Point(436, 5);
+            this.compare_number.Location = new System.Drawing.Point(526, 176);
             this.compare_number.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.compare_number.Name = "compare_number";
             this.compare_number.Size = new System.Drawing.Size(134, 20);
@@ -61,14 +61,14 @@
             this.Column_speed,
             this.Column_cost,
             this.Column_tariph});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 146);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(644, 198);
+            this.dataGridView1.Size = new System.Drawing.Size(509, 343);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -76,7 +76,7 @@
             // 
             this.label_compare.AutoSize = true;
             this.label_compare.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_compare.Location = new System.Drawing.Point(268, 8);
+            this.label_compare.Location = new System.Drawing.Point(513, 135);
             this.label_compare.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_compare.Name = "label_compare";
             this.label_compare.Size = new System.Drawing.Size(164, 17);
@@ -87,7 +87,7 @@
             // 
             this.label_provider.AutoSize = true;
             this.label_provider.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_provider.Location = new System.Drawing.Point(9, 7);
+            this.label_provider.Location = new System.Drawing.Point(516, 50);
             this.label_provider.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_provider.Name = "label_provider";
             this.label_provider.Size = new System.Drawing.Size(155, 17);
@@ -98,7 +98,7 @@
             // 
             this.Porovider_name.AutoSize = true;
             this.Porovider_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Porovider_name.Location = new System.Drawing.Point(168, 5);
+            this.Porovider_name.Location = new System.Drawing.Point(568, 85);
             this.Porovider_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Porovider_name.Name = "Porovider_name";
             this.Porovider_name.Size = new System.Drawing.Size(51, 20);
@@ -142,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(644, 344);
+            this.ClientSize = new System.Drawing.Size(682, 343);
             this.Controls.Add(this.Porovider_name);
             this.Controls.Add(this.label_provider);
             this.Controls.Add(this.label_compare);
