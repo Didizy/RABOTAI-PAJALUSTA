@@ -69,7 +69,7 @@ namespace курсач
             nest curr = first;
             bool added = false;
 
-            if (free(curr))//
+            if (free(curr))
             {
                 first = curr;
                 curr.date = date;
