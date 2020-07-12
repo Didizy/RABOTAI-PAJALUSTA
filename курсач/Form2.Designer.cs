@@ -118,8 +118,14 @@
             this.del_user = new System.Windows.Forms.Button();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.Провайдеры = new System.Windows.Forms.ListBox();
+            this.dataGridViewProvidersAndTariphs = new System.Windows.Forms.DataGridView();
+            this.dataGridViewUsersAndSells = new System.Windows.Forms.DataGridView();
+            this.ColumnProvidersPaT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnHashOfTariphPaT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTariphPaT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTypePaT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSpeedPaT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCostPaT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -130,6 +136,8 @@
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProvidersAndTariphs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsersAndSells)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -149,7 +157,7 @@
             // tabPage7
             // 
             this.tabPage7.BackColor = System.Drawing.Color.Gainsboro;
-            this.tabPage7.Controls.Add(this.Провайдеры);
+            this.tabPage7.Controls.Add(this.dataGridViewProvidersAndTariphs);
             this.tabPage7.Location = new System.Drawing.Point(4, 25);
             this.tabPage7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage7.Name = "tabPage7";
@@ -571,7 +579,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Gainsboro;
-            this.tabPage1.Controls.Add(this.listBox2);
+            this.tabPage1.Controls.Add(this.dataGridViewUsersAndSells);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
@@ -830,7 +838,7 @@
             this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage4.Size = new System.Drawing.Size(680, 629);
+            this.tabPage4.Size = new System.Drawing.Size(680, 633);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Найти";
             // 
@@ -964,7 +972,7 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 25);
             this.tabPage8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(680, 629);
+            this.tabPage8.Size = new System.Drawing.Size(680, 633);
             this.tabPage8.TabIndex = 2;
             this.tabPage8.Text = "Удалить";
             // 
@@ -1079,31 +1087,77 @@
             this.label35.TabIndex = 26;
             this.label35.Text = "Удалить пользователя";
             // 
-            // listBox2
+            // dataGridViewProvidersAndTariphs
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 16;
-            this.listBox2.Location = new System.Drawing.Point(3, 0);
-            this.listBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(674, 564);
-            this.listBox2.TabIndex = 1;
+            this.dataGridViewProvidersAndTariphs.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dataGridViewProvidersAndTariphs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProvidersAndTariphs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnProvidersPaT,
+            this.ColumnHashOfTariphPaT,
+            this.ColumnTariphPaT,
+            this.ColumnTypePaT,
+            this.ColumnSpeedPaT,
+            this.ColumnCostPaT});
+            this.dataGridViewProvidersAndTariphs.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewProvidersAndTariphs.Name = "dataGridViewProvidersAndTariphs";
+            this.dataGridViewProvidersAndTariphs.RowHeadersWidth = 51;
+            this.dataGridViewProvidersAndTariphs.RowTemplate.Height = 24;
+            this.dataGridViewProvidersAndTariphs.Size = new System.Drawing.Size(646, 558);
+            this.dataGridViewProvidersAndTariphs.TabIndex = 0;
+            this.dataGridViewProvidersAndTariphs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProvidersAndTariphs_CellContentClick);
             // 
-            // Провайдеры
+            // dataGridViewUsersAndSells
             // 
-            this.Провайдеры.BackColor = System.Drawing.SystemColors.Window;
-            this.Провайдеры.FormattingEnabled = true;
-            this.Провайдеры.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.Провайдеры.ItemHeight = 16;
-            this.Провайдеры.Items.AddRange(new object[] {
-            "Провайдер Тариф Тип Скорость Цена"});
-            this.Провайдеры.Location = new System.Drawing.Point(3, 0);
-            this.Провайдеры.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Провайдеры.MultiColumn = true;
-            this.Провайдеры.Name = "Провайдеры";
-            this.Провайдеры.Size = new System.Drawing.Size(649, 564);
-            this.Провайдеры.TabIndex = 0;
-            this.Провайдеры.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.dataGridViewUsersAndSells.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUsersAndSells.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewUsersAndSells.Name = "dataGridViewUsersAndSells";
+            this.dataGridViewUsersAndSells.RowHeadersWidth = 51;
+            this.dataGridViewUsersAndSells.RowTemplate.Height = 24;
+            this.dataGridViewUsersAndSells.Size = new System.Drawing.Size(668, 558);
+            this.dataGridViewUsersAndSells.TabIndex = 0;
+            this.dataGridViewUsersAndSells.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUsersAndSells_CellContentClick);
+            // 
+            // ColumnProvidersPaT
+            // 
+            this.ColumnProvidersPaT.HeaderText = "Провайдер";
+            this.ColumnProvidersPaT.MinimumWidth = 6;
+            this.ColumnProvidersPaT.Name = "ColumnProvidersPaT";
+            this.ColumnProvidersPaT.Width = 125;
+            // 
+            // ColumnHashOfTariphPaT
+            // 
+            this.ColumnHashOfTariphPaT.HeaderText = "Хеш тарифа";
+            this.ColumnHashOfTariphPaT.MinimumWidth = 6;
+            this.ColumnHashOfTariphPaT.Name = "ColumnHashOfTariphPaT";
+            this.ColumnHashOfTariphPaT.Width = 125;
+            // 
+            // ColumnTariphPaT
+            // 
+            this.ColumnTariphPaT.HeaderText = "Тариф";
+            this.ColumnTariphPaT.MinimumWidth = 6;
+            this.ColumnTariphPaT.Name = "ColumnTariphPaT";
+            this.ColumnTariphPaT.Width = 125;
+            // 
+            // ColumnTypePaT
+            // 
+            this.ColumnTypePaT.HeaderText = "Вид услуги";
+            this.ColumnTypePaT.MinimumWidth = 6;
+            this.ColumnTypePaT.Name = "ColumnTypePaT";
+            this.ColumnTypePaT.Width = 125;
+            // 
+            // ColumnSpeedPaT
+            // 
+            this.ColumnSpeedPaT.HeaderText = "Скорость";
+            this.ColumnSpeedPaT.MinimumWidth = 6;
+            this.ColumnSpeedPaT.Name = "ColumnSpeedPaT";
+            this.ColumnSpeedPaT.Width = 125;
+            // 
+            // ColumnCostPaT
+            // 
+            this.ColumnCostPaT.HeaderText = "Стоимость";
+            this.ColumnCostPaT.MinimumWidth = 6;
+            this.ColumnCostPaT.Name = "ColumnCostPaT";
+            this.ColumnCostPaT.Width = 125;
             // 
             // Form2
             // 
@@ -1132,6 +1186,8 @@
             this.tabPage4.PerformLayout();
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProvidersAndTariphs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsersAndSells)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1228,7 +1284,13 @@
         private System.Windows.Forms.TextBox sale_del_provider;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.TextBox sale_find_provider;
-        private System.Windows.Forms.ListBox Провайдеры;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.DataGridView dataGridViewProvidersAndTariphs;
+        private System.Windows.Forms.DataGridView dataGridViewUsersAndSells;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnProvidersPaT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHashOfTariphPaT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTariphPaT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTypePaT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSpeedPaT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCostPaT;
     }
 }

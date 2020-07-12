@@ -17,9 +17,16 @@ namespace курсач
             InitializeComponent();
         }
 
+        public void add_grid_param(string[] n, DataGridView grid)
+        {
+            grid.Rows.Add(n);
+        }
+
         private void error_form_Load(object sender, EventArgs e)
         {
-
+            string[] check = { "test1", "test2", "test3", "test4" };
+            add_grid_param(check, dataGridView1);
+           
         }
 
         private void error_mes1_Click(object sender, EventArgs e)
@@ -30,6 +37,11 @@ namespace курсач
         private void compare_number_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }

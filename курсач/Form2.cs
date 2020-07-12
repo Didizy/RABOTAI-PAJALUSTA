@@ -184,7 +184,7 @@ namespace курсач
             {
                 i = 0;   
                 a = provider.print_provider(ind_to_show, provider.main, ref i);
-                Провайдеры.Items.Add(a.title);
+                //Провайдеры.Items.Add(a.title);
                 ind_to_show++;
                 if (a == null)
                     end = true;
@@ -245,7 +245,8 @@ namespace курсач
                 user.delete(pr.users[0]);
                 provider.delete_user(pr.users[0], pr.title);
             }
-            while (pr.current_tariph > 0) {
+            while (pr.current_tariph > 0) 
+            {
                 sales.delete_tariph(tariph.find(pr.arr[0].name,pr), sales.main);
                 tariph.delete(pr.arr[0].name, pr);
                 provider.del_tariph(pr.arr[0].name, pr);
@@ -259,8 +260,13 @@ namespace курсач
             tree_providers.root a = provider.find(find_provider.Text);
             find_provider.Text = "";
 
+
             searchform_provider searchform = new searchform_provider();
+
+            
+            
             searchform.Show();
+            
         }
 
         private void Provider_title_TextChanged(object sender, EventArgs e)
@@ -305,6 +311,21 @@ namespace курсач
         }
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridViewProvidersAndTariphs_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridViewUsersAndSells_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

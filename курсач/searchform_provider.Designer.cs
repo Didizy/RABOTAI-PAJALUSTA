@@ -30,13 +30,13 @@
         {
             this.compare_number = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label_compare = new System.Windows.Forms.Label();
-            this.provider_name = new System.Windows.Forms.Label();
             this.Column_hash = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_speed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Columntariph = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label_compare = new System.Windows.Forms.Label();
+            this.provider_name = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,26 +69,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(679, 244);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // label_compare
-            // 
-            this.label_compare.AutoSize = true;
-            this.label_compare.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_compare.Location = new System.Drawing.Point(286, 13);
-            this.label_compare.Name = "label_compare";
-            this.label_compare.Size = new System.Drawing.Size(208, 20);
-            this.label_compare.TabIndex = 2;
-            this.label_compare.Text = "Количество сравнений:";
-            // 
-            // provider_name
-            // 
-            this.provider_name.AutoSize = true;
-            this.provider_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.provider_name.Location = new System.Drawing.Point(12, 9);
-            this.provider_name.Name = "provider_name";
-            this.provider_name.Size = new System.Drawing.Size(248, 25);
-            this.provider_name.TabIndex = 3;
-            this.provider_name.Text = "Название провайдера";
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Column_hash
             // 
@@ -130,7 +111,27 @@
             this.Column_type.ReadOnly = true;
             this.Column_type.Width = 125;
             // 
-            // searchform
+            // label_compare
+            // 
+            this.label_compare.AutoSize = true;
+            this.label_compare.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_compare.Location = new System.Drawing.Point(286, 13);
+            this.label_compare.Name = "label_compare";
+            this.label_compare.Size = new System.Drawing.Size(208, 20);
+            this.label_compare.TabIndex = 2;
+            this.label_compare.Text = "Количество сравнений:";
+            // 
+            // provider_name
+            // 
+            this.provider_name.AutoSize = true;
+            this.provider_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.provider_name.Location = new System.Drawing.Point(12, 9);
+            this.provider_name.Name = "provider_name";
+            this.provider_name.Size = new System.Drawing.Size(198, 20);
+            this.provider_name.TabIndex = 3;
+            this.provider_name.Text = "Название провайдера";
+            // 
+            // searchform_provider
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -139,7 +140,7 @@
             this.Controls.Add(this.label_compare);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.compare_number);
-            this.Name = "searchform";
+            this.Name = "searchform_provider";
             this.Text = "Информация по провайдеру";
             this.Load += new System.EventHandler(this.error_form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
