@@ -32,7 +32,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label_compare = new System.Windows.Forms.Label();
             this.label_provider = new System.Windows.Forms.Label();
-            this.Provider_name = new System.Windows.Forms.Label();
+            this.Porovider_name = new System.Windows.Forms.Label();
             this.Column_hash = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_speed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,17 +94,17 @@
             this.label_provider.TabIndex = 3;
             this.label_provider.Text = "Название провайдера";
             // 
-            // Provider_name
+            // Porovider_name
             // 
-            this.Provider_name.AutoSize = true;
-            this.Provider_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Provider_name.Location = new System.Drawing.Point(568, 85);
-            this.Provider_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Provider_name.Name = "Provider_name";
-            this.Provider_name.Size = new System.Drawing.Size(51, 20);
-            this.Provider_name.TabIndex = 4;
-            this.Provider_name.Text = "label1";
-            this.Provider_name.Click += new System.EventHandler(this.Porovider_name_Click);
+            this.Porovider_name.AutoSize = true;
+            this.Porovider_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Porovider_name.Location = new System.Drawing.Point(568, 85);
+            this.Porovider_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Porovider_name.Name = "Porovider_name";
+            this.Porovider_name.Size = new System.Drawing.Size(51, 20);
+            this.Porovider_name.TabIndex = 4;
+            this.Porovider_name.Text = "label1";
+            this.Porovider_name.Click += new System.EventHandler(this.Porovider_name_Click);
             // 
             // Column_hash
             // 
@@ -143,7 +143,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 343);
-            this.Controls.Add(this.Provider_name);
+            this.Controls.Add(this.Porovider_name);
             this.Controls.Add(this.label_provider);
             this.Controls.Add(this.label_compare);
             this.Controls.Add(this.dataGridView1);
@@ -164,7 +164,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label_compare;
         private System.Windows.Forms.Label label_provider;
-        private System.Windows.Forms.Label Provider_name;
+        private System.Windows.Forms.Label Porovider_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_hash;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_speed;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_cost;
