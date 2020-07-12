@@ -32,15 +32,16 @@ namespace курсач
             int curr = 0;
             while (curr < pr.current_tariph)
             {
-                temp[1] = f2.tariph.find(pr.arr[curr].name, pr).hash.ToString();
-                temp[2] = f2.tariph.find(pr.arr[curr].name, pr).speed.ToString();
-                temp[3] = pr.arr[curr].cost.ToString();
-                temp[4] = pr.arr[curr].name;
+                temp[0] = f2.tariph.find(pr.arr[curr].name, pr).hash.ToString();
+                temp[1] = f2.tariph.find(pr.arr[curr].name, pr).speed.ToString();
+                temp[2] = pr.arr[curr].cost.ToString();
+                temp[3] = pr.arr[curr].name;
                 grid.Rows.Add(temp);
                 curr++;
               
              
             }
+            grid.Rows.
             //string[] check = { "test1", "test2", "test3", "test4" };
             //grid.Rows.Add(check);
             //grid.Rows.Add(n);//добивить строку в столбцы
