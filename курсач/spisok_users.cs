@@ -76,7 +76,8 @@ namespace курсач
 
         public int get_hash (string login)
         {
-            int h1 = Convert.ToInt32(login) % max_elements;// на (int)login ругается
+            int help = login.GetHashCode();
+            int h1 = help % max_elements;// на (int)login ругается
             return h1;
         }
 
@@ -90,6 +91,7 @@ namespace курсач
                 int curr_hash = get_hash(login);
                 while (curr.hash != curr_hash)
                 {
+                    if (curr.hash == 0) ;
                     curr = curr.next;
                 }
 
@@ -165,5 +167,6 @@ namespace курсач
                 //error
             }
         }
+      
     }
 }

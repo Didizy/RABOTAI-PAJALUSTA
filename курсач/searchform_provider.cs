@@ -51,6 +51,7 @@ namespace курсач
         {
             //string[] check = { "test1", "test2", "test3", "test4" };//в строку подстроки, котторые будут в столбцах
             add_grid_param( dataGridView1);
+            Provider_name.Text = pr.title;
            
         }
 
