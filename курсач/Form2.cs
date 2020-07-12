@@ -20,6 +20,8 @@ namespace курсач
         int error_number;
         DialogResult message_choise_resilt;
 
+        public class EmptyInput { };
+
         public Form2()
         {
             InitializeComponent();
@@ -27,6 +29,10 @@ namespace курсач
             tariph = new spisok_tariph();
             user = new spisok_users();
             sales = new tree_sale();
+        }
+        public void add_grid_param(string[] n, DataGridView grid)
+        {
+            grid.Rows.Add(n);//добивить строку в столбцы
         }
 
         public void message_box(int error_number)
@@ -54,7 +60,8 @@ namespace курсач
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
+            string[] check = { "test1", "test2", "test3", "test4" };//в строку подстроки, котторые будут в столбцах
+            add_grid_param(check, dataGridViewProvidersAndTariphs);
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -196,8 +203,30 @@ namespace курсач
         {
             provider.add_Provider(Provider_title.Text);
             Provider_title.Text = "";
+            string str;
 
-            error_number = 1;
+            error_number = 0;
+            try
+            {
+                str = Provider_title.Text;
+                
+
+            }   
+            catch(ArgumentException)
+            {
+                error_number = 1;
+            }
+            catch(NullReferenceException)
+            {
+                error_number = 1;
+            }
+            
+
+
+
+
+
+
             message_box(error_number);
 
                 
@@ -323,6 +352,8 @@ namespace курсач
 
         private void dataGridViewProvidersAndTariphs_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+
 
         }
 
