@@ -141,6 +141,7 @@
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.refresh_provider = new System.Windows.Forms.Button();
+            this.refresh_users = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProvidersAndTariphs)).BeginInit();
@@ -718,6 +719,7 @@
             // 
             this.tabPage1.AutoScroll = true;
             this.tabPage1.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage1.Controls.Add(this.refresh_users);
             this.tabPage1.Controls.Add(this.dataGridViewUsersAndSells);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
@@ -1379,6 +1381,16 @@
             this.refresh_provider.UseVisualStyleBackColor = true;
             this.refresh_provider.Click += new System.EventHandler(this.refresh_provider_Click);
             // 
+            // refresh_users
+            // 
+            this.refresh_users.Location = new System.Drawing.Point(805, 257);
+            this.refresh_users.Name = "refresh_users";
+            this.refresh_users.Size = new System.Drawing.Size(167, 44);
+            this.refresh_users.TabIndex = 1;
+            this.refresh_users.Text = "ОБновить";
+            this.refresh_users.UseVisualStyleBackColor = true;
+            this.refresh_users.Click += new System.EventHandler(this.refresh_users_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1529,5 +1541,6 @@
         private System.Windows.Forms.Button load_provider;
         private System.Windows.Forms.Button save_provider;
         private System.Windows.Forms.Button refresh_provider;
+        private System.Windows.Forms.Button refresh_users;
     }
 }

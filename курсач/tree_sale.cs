@@ -124,7 +124,7 @@ namespace курсач
         public root find_max(root from_this)//поиск мин справа, если не находит ищет макс слева
         {
             root curr;
-            root check;
+            //root check;
             if (from_this.right != null)
             {
                 curr = from_this.right;

@@ -83,7 +83,7 @@ namespace курсач
 
         public void add(int k, string login, string date, spisok_tariph.nest tariph)
         {
-            int j = 0;
+            //int j = 0;
             nest curr = first;
             bool added = false;
             while (!added)
@@ -91,7 +91,7 @@ namespace курсач
                 int curr_hash = get_hash(login);
                 while (curr.hash != curr_hash)
                 {
-                    if (curr.hash == 0) ;
+                    //if (curr.hash == 0) ;
                     curr = curr.next;
                 }
 
@@ -166,6 +166,39 @@ namespace курсач
             {
                 //error
             }
+        }
+
+        public bool Can_get_sale(tree_sale.root s,spisok_users.nest u)
+        {
+            int time = Convert.ToInt32(s.size);
+            int user_month = Convert.ToInt32(u.date[3]) * 10 + Convert.ToInt32(u.date[4]);
+            int user_day = Convert.ToInt32(u.date[0]) * 10 + Convert.ToInt32(u.date[1]);
+            int user_year = Convert.ToInt32(u.date[8]) * 10 + Convert.ToInt32(u.date[9]);
+            int compare_day = 1;
+            int compare_month = 1;
+            int compare_year = 20;
+            int years = 0;
+            while(time>12)
+            {
+                years++;
+                time -= 12;
+            }
+            if (user_year + years > compare_year)
+                return false;
+            if (user_month + time > 12)
+            {
+                user_month -= 12+time;
+                user_year++;
+            }
+            if (user_year + years > compare_year)
+            {
+                return false;
+            }
+            if(user_month==compare_month)
+                if (user_day<compare_day)
+                 return false;
+            return true;
+
         }
       
     }

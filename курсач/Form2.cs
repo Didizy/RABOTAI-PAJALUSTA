@@ -543,5 +543,33 @@ namespace курсач
             string[] prov = new string[6];
             get_provider_info(prov, provider.main);
         }
+        public void sale_out(string[] line, tree_sale.root s)
+        {
+            for (int i = 0; i < s.tariph.provider.current_user; i++) {
+                spisok_users.nest u =user.find(s.tariph.provider.users[i]);
+                if (user.Can_get_sale(s, u))
+                {
+                    line[0] = s.size;
+                }
+                else
+                {
+                    line[0] = "0";
+                }
+                line[1] = s.date+"Месяцев";
+                line[2] = u.hash.ToString();
+                line[3] = u.login;
+                line[4] = s.tariph.name;
+                line[5] = u.date;
+                dataGridViewUsersAndSells.Rows.Add(line);
+                
+            }
+            sale_out(line, s.left);
+            sale_out(line, s.right);
+        }
+
+        private void refresh_users_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
