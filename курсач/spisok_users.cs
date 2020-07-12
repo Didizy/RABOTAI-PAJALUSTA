@@ -2,6 +2,7 @@
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,12 +20,13 @@ namespace курсач
             public spisok_users.nest chain;//для метода цепочек
 
             public nest next, prev, chain_next, chain_prev;
-            public nest(int i)
+            /*public nest(int i)
             {
                 hash = i;
                 login = "";
                 date = "";
-            }
+
+            }*/
         }
 
         int num_of_elements, max_elements;
@@ -32,7 +34,9 @@ namespace курсач
 
         public spisok_users()
         {
-            num_of_elements = 0;
+            first = null;
+
+            /*num_of_elements = 0;
             max_elements = 100;
             first = new nest(0);
             nest curr = first;
@@ -45,34 +49,13 @@ namespace курсач
             curr.next = first;
             first.prev = curr;
             curr.chain_next = null;
-            curr.chain_prev = curr;
+            curr.chain_prev = curr;*/
 
         }
         public bool free(nest temp)//проверка на пустую ячейку
         {
-                return ((temp.login == "") && (temp.tariph == null));
+             return ((temp.login == "") && (temp.tariph == null));
         }
-        /*public int gethash_1(int k)//k -ключ, достаём из getkey
-        {
-            int temp = ((k / max_elements) + 1) * (max_elements / 10 + 1);
-            return temp;
-
-        }
-        public int gethash_2(int k)//k -ключ, достаём из getkey
-        {
-
-            int temp = (k % (max_elements - 1) + 1);
-            return temp;
-
-        }
-        public int getkey(string login)//рандомная хеш функция
-        {
-            int temp = 0;
-            for (int i = 0; i < login.Length; i++)
-                temp += (int)login[i] * i;
-            return temp;
-
-        }*/
 
         public int get_hash (string login)
         {
@@ -81,43 +64,55 @@ namespace курсач
             return h1;
         }
 
-        public void add(int k, string login, string date, spisok_tariph.nest tariph)
+        public void add(string login, string date, spisok_tariph.nest tariph)
         {
-            //int j = 0;
+            int j = get_hash(login);
             nest curr = first;
             bool added = false;
-            while (!added)
+
+            if(free(curr))
             {
-                int curr_hash = get_hash(login);
-                while (curr.hash != curr_hash)
-                {
-                    //if (curr.hash == 0) ;
-                    curr = curr.next;
-                }
-
-                if (free(curr))
-                {
-                    curr.login = login;
-                    curr.date = date;
-                    added = true;
-                    num_of_elements++;
-                    curr.tariph = tariph; 
-                }
-                else
-                {
-                    while (!free(curr))
-                        curr = curr.chain_next;
-
-                    curr.login = login;
-                    curr.date = date;
-                    added = true;
-                    num_of_elements++;
-                    curr.tariph = tariph;
-
-                    curr.chain_next = null;
-                    curr.chain_prev = curr;
-                }          
+                first = curr;
+                curr.hash = j;
+                curr.login = login;
+                curr.date = date;
+                curr.next = curr;
+                curr.prev = curr;
             }
+            else
+            {
+                while (!added)
+                {
+                    int curr_hash = get_hash(login);
+                    while (curr.hash != curr_hash)
+                        curr = curr.next;
+
+                        if (free(curr))
+                        {
+                            curr.login = login;
+                            curr.date = date;
+                            added = true;
+                            num_of_elements++;
+                            curr.tariph = tariph;
+                        }
+                        else
+                        {
+                            while (!free(curr))
+                                curr = curr.chain_next;
+
+                            curr.login = login;
+                            curr.date = date;
+                            added = true;
+                            num_of_elements++;
+                            curr.tariph = tariph;
+
+                            curr.chain_next = null;
+                            curr.chain_prev = curr;
+                        }
+                }
+            }
+           
+
         }
 
         public nest find(string login /*spisok_tariph.nest tariph*/)
@@ -166,39 +161,6 @@ namespace курсач
             {
                 //error
             }
-        }
-
-        public bool Can_get_sale(tree_sale.root s,spisok_users.nest u)
-        {
-            int time = Convert.ToInt32(s.size);
-            int user_month = Convert.ToInt32(u.date[3]) * 10 + Convert.ToInt32(u.date[4]);
-            int user_day = Convert.ToInt32(u.date[0]) * 10 + Convert.ToInt32(u.date[1]);
-            int user_year = Convert.ToInt32(u.date[8]) * 10 + Convert.ToInt32(u.date[9]);
-            int compare_day = 1;
-            int compare_month = 1;
-            int compare_year = 20;
-            int years = 0;
-            while(time>12)
-            {
-                years++;
-                time -= 12;
-            }
-            if (user_year + years > compare_year)
-                return false;
-            if (user_month + time > 12)
-            {
-                user_month -= 12+time;
-                user_year++;
-            }
-            if (user_year + years > compare_year)
-            {
-                return false;
-            }
-            if(user_month==compare_month)
-                if (user_day<compare_day)
-                 return false;
-            return true;
-
         }
       
     }

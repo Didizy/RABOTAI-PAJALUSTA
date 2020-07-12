@@ -1,0 +1,7 @@
+pod
+horosho/400/1/40
+ELDORADO/999/2/100
+//
+ros
+chto-to/1000/1/100
+//

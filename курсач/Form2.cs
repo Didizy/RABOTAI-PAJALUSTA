@@ -53,7 +53,13 @@ namespace курсач
                     message_choise_resilt = MessageBox.Show("Заполнены не все поля", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case 2://некоректный ввод данных
-                    MessageBox.Show("Введены некореектные данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    message_choise_resilt = MessageBox.Show("Введены некореектные данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                case 3://элемент не существует
+                    message_choise_resilt = MessageBox.Show("Элемент не существует", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                case 4://элемент уже существует
+                    message_choise_resilt = MessageBox.Show("Элемент уже существует", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 default: break;
             }
@@ -134,6 +140,7 @@ namespace курсач
         private void button1_Click(object sender, EventArgs e)
         {
             int type = 0;
+            int error_number = 0;
             if ((checkBoxAddTariphInternet.Checked) && (checkBoxAddTariphTV.Checked))
             {
                 type = 2;
@@ -146,31 +153,29 @@ namespace курсач
             {
                 type = 3;
             }
-            else {
+            else 
+            {
                 error_number = 1;
-                message_box(error_number);
             }
             if (!check_for_int(tariph_cost.Text))
             {
                 error_number = 2;
-                message_box(error_number);
             }
             if (!check_for_int(tariph_speed.Text))
             {
                 error_number = 2;
-                message_box(error_number);
+            }
+            else
+            {
+                provider.add_tariph(tariph_title.Text, Convert.ToInt32(tariph_cost.Text), tariph_provider.Text);
+
+                tariph.add(tariph.getkey(tariph_title.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));                
+                tariph_title.Text = tariph_cost.Text = tariph_provider.Text = tariph_speed.Text = "";
+                checkBoxAddTariphTV.Checked = false;
+                checkBoxAddTariphInternet.Checked = false;
             }
 
-      
-            provider.add_tariph(tariph_title.Text,Convert.ToInt32(tariph_cost.Text),tariph_provider.Text);
-            
-            tariph.add(tariph.getkey(tariph_title.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));
-            error_number = 0;
             message_box(error_number);
-            tariph_title.Text = tariph_cost.Text=tariph_provider.Text = tariph_speed.Text="" ;
-            checkBoxAddTariphTV.Checked = false;
-            checkBoxAddTariphInternet.Checked = false;
-            //checkBoxAddTariphTV.AutoCheck = false;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -227,20 +232,27 @@ namespace курсач
 
         private void button2_Click(object sender, EventArgs e)
         {
+           
+           // provider.add_Provider(Provider_title.Text);
+            error_number = 0;
+
+            
+            
             if (Provider_title.Text == "")
             {
                 error_number = 1;
-                message_box(error_number);
             }
-            provider.add_Provider(Provider_title.Text);
-            error_number = 0;
+            else if (provider.find(Provider_title.Text) != null)
+            {
+                error_number = 4;
+            }
+            else
+            {
+                provider.add_Provider(Provider_title.Text);
+            }
+
             message_box(error_number);
             Provider_title.Text = "";
-
-           
-
-                
-
         }
 
         private void label38_Click(object sender, EventArgs e)
@@ -250,7 +262,7 @@ namespace курсач
 
         private void button8_Click(object sender, EventArgs e)
         {
-            user.add(user.get_hash(user_login.Text), user_login.Text, user_date.Text, tariph.find(user_tariph.Text, provider.find(user_provider.Text)));
+            user.add(/*user.get_hash(user_login.Text),*/ user_login.Text, user_date.Text, tariph.find(user_tariph.Text, provider.find(user_provider.Text)));
             user_login.Text = user_date.Text = user_tariph.Text = user_provider.Text = "";
         }
 
@@ -300,7 +312,43 @@ namespace курсач
             tree_providers.root a = provider.find(provider_find_title.Text);
             provider_find_title.Text = "";
 
+            int type = 0;
+            int error_number = 0;
+            if ((checkBoxAddTariphInternet.Checked) && (checkBoxAddTariphTV.Checked))
+            {
+                type = 2;
+            }
+            else if ((checkBoxAddTariphInternet.Checked) && !(checkBoxAddTariphTV.Checked))
+            {
+                type = 1;
+            }
+            else if (!(checkBoxAddTariphInternet.Checked) && (checkBoxAddTariphTV.Checked))
+            {
+                type = 3;
+            }
+            else
+            {
+                error_number = 1;
+            }
+            if (!check_for_int(tariph_cost.Text))
+            {
+                error_number = 2;
+            }
+            if (!check_for_int(tariph_speed.Text))
+            {
+                error_number = 2;
+            }
+            else
+            {
+                provider.add_tariph(tariph_title.Text, Convert.ToInt32(tariph_cost.Text), tariph_provider.Text);
 
+                tariph.add(tariph.getkey(tariph_title.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));
+                tariph_title.Text = tariph_cost.Text = tariph_provider.Text = tariph_speed.Text = "";
+                checkBoxAddTariphTV.Checked = false;
+                checkBoxAddTariphInternet.Checked = false;
+            }
+
+            message_box(error_number);
             searchform_provider searchform = new searchform_provider(a,this);
 
 
@@ -524,7 +572,7 @@ namespace курсач
 
         private void save_provider_Click(object sender, EventArgs e)
         {
-            StreamWriter file_out = new StreamWriter(@"a:\gitjub\курсач\output_provider.txt");
+            StreamWriter file_out = new StreamWriter(@"c:\курсач\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"
             //file_out.WriteLine("РАБОТАЙ");
             output_for_provider(file_out, provider.main);
             file_out.Close();
@@ -532,7 +580,7 @@ namespace курсач
 
         private void load_provider_Click(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_provider.txt");
+            StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
             input_for_provider(file_in);
             file_in.Close();
         }
