@@ -35,9 +35,9 @@ namespace курсач
         public spisok_users()
         {
             first = null;
-
-            /*num_of_elements = 0;
             max_elements = 100;
+            num_of_elements = 0;
+            /*max_elements = 100;
             first = new nest(0);
             nest curr = first;
             for (int i = 1; i < max_elements; i++)
@@ -78,6 +78,7 @@ namespace курсач
                 curr.date = date;
                 curr.next = curr;
                 curr.prev = curr;
+                num_of_elements++;
             }
             else
             {

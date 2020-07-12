@@ -312,41 +312,7 @@ namespace курсач
             tree_providers.root a = provider.find(provider_find_title.Text);
             provider_find_title.Text = "";
 
-            int type = 0;
-            int error_number = 0;
-            if ((checkBoxAddTariphInternet.Checked) && (checkBoxAddTariphTV.Checked))
-            {
-                type = 2;
-            }
-            else if ((checkBoxAddTariphInternet.Checked) && !(checkBoxAddTariphTV.Checked))
-            {
-                type = 1;
-            }
-            else if (!(checkBoxAddTariphInternet.Checked) && (checkBoxAddTariphTV.Checked))
-            {
-                type = 3;
-            }
-            else
-            {
-                error_number = 1;
-            }
-            if (!check_for_int(tariph_cost.Text))
-            {
-                error_number = 2;
-            }
-            if (!check_for_int(tariph_speed.Text))
-            {
-                error_number = 2;
-            }
-            else
-            {
-                provider.add_tariph(tariph_title.Text, Convert.ToInt32(tariph_cost.Text), tariph_provider.Text);
-
-                tariph.add(tariph.getkey(tariph_title.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));
-                tariph_title.Text = tariph_cost.Text = tariph_provider.Text = tariph_speed.Text = "";
-                checkBoxAddTariphTV.Checked = false;
-                checkBoxAddTariphInternet.Checked = false;
-            }
+            
 
             message_box(error_number);
             searchform_provider searchform = new searchform_provider(a,this);
