@@ -70,8 +70,9 @@ namespace курсач
             nest curr = first;
             bool added = false;
 
-            if(free(curr))
+            if(curr == null)
             {
+                curr = new nest();
                 first = curr;
                 curr.hash = j;
                 curr.login = login;

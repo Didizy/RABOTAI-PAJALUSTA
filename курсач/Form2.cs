@@ -263,6 +263,7 @@ namespace курсач
         private void button8_Click(object sender, EventArgs e)
         {
             user.add(/*user.get_hash(user_login.Text),*/ user_login.Text, user_date.Text, tariph.find(user_tariph.Text, provider.find(user_provider.Text)));
+            provider.add_user(user_login.Text, user_provider.Text);
             user_login.Text = user_date.Text = user_tariph.Text = user_provider.Text = "";
         }
 
@@ -586,7 +587,8 @@ namespace курсач
 
         private void refresh_users_Click(object sender, EventArgs e)
         {
-
+            string[] line = new string[6];
+            sale_out(line, sales.main);
         }
     }
 }
