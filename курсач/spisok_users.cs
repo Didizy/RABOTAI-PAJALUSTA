@@ -59,7 +59,8 @@ namespace курсач
 
         public int get_hash (string login)
         {
-            int h1 = Convert.ToInt32(login) % max_elements;// на (int)login ругается
+            int help = login.GetHashCode();
+            int h1 = help % max_elements;// на (int)login ругается
             return h1;
         }
 
@@ -68,25 +69,13 @@ namespace курсач
             int j = get_hash(login);
             nest curr = first;
             bool added = false;
-
-            if (free(curr))
+            while (!added)
             {
-                first = curr;
-                curr.date = date;
-                curr.login = login;
-                curr.next = curr;
-                curr.prev = curr;
-                curr.hash = j;
-            }
-            else
-            {
-                while (!added)
+                int curr_hash = get_hash(login);
+                while (curr.hash != curr_hash)
                 {
-                    int curr_hash = get_hash(login);
-                    while (curr.hash != curr_hash)
-                    {
-                        curr = curr.next;
-                    }
+                    curr = curr.next;
+                }
 
                     if (free(curr))
                     {
@@ -166,5 +155,6 @@ namespace курсач
                 //error
             }
         }
+      
     }
 }

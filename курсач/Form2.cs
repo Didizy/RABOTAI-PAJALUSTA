@@ -372,10 +372,28 @@ namespace курсач
         {
 
         }
+        public void get_provider_info(string[] line, tree_providers.root pr)
+        {
+            if (pr == null)
+                return;
+            line[0] = pr.title;
+            for(int i = 0; i < pr.current_tariph; i++)
+            {
+                spisok_tariph.nest a = tariph.find(pr.arr[i].name, pr);
+                line[1] = a.hash.ToString();
+                line[2] = pr.arr[i].name;
+                line[3] = a.type.ToString();
+                line[4] = a.speed.ToString();
+                line[5] = pr.arr[i].cost.ToString();
+                dataGridViewProvidersAndTariphs.Rows.Add(line);
+            }
+            get_provider_info(line, pr.left);
+            get_provider_info(line, pr.right);
+        }
 
         private void dataGridViewProvidersAndTariphs_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
         private void dataGridViewUsersAndSells_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -387,12 +405,54 @@ namespace курсач
         {
 
         }
-        public void output_for_users(StreamWriter file)
+        public void output_for_sales(StreamWriter file,tree_sale.root parent)
         {
-           
+            string output = "";
+            output += parent.size;
+            output += "/";
+            output += parent.date;
+            output += "/";
+            output += parent.tariph.name;
+            file.WriteLine(output);
+            output_for_sales(file, parent.left);
+            output_for_sales(file, parent.right);
         }
+
         private void to_file_Click(object sender, EventArgs e)
         {
+            StreamWriter out_file = new StreamWriter(@"a:\gitjub\курсач\output_user.txt");
+            spisok_users.nest a = user.first;
+            spisok_users.nest temp = a.chain_next;
+            string output;
+            while (true)
+            {
+                output = "";
+                output += a.login;
+                output += "/";
+                output += a.date;
+                output += "/";
+                output += a.tariph.name;
+                out_file.WriteLine(output);
+                while (temp != a)
+                {
+                    output = "";
+                    output += temp.login;
+                    output += "/";
+                    output += temp.date;
+                    output += "/";
+                    output += temp.tariph.name;
+                    out_file.WriteLine(output);
+                    temp = temp.chain_next;
+
+                }
+                a = a.next;
+                if (a == null)
+                    break;
+                temp = a.chain_next;
+            }
+            out_file.WriteLine("//");
+            output_for_sales(out_file, sales.main);
+            out_file.Close();
 
         }
         private void from_file_button_Click(object sender, EventArgs e)
@@ -477,7 +537,7 @@ namespace курсач
 
         private void save_provider_Click(object sender, EventArgs e)
         {
-            StreamWriter file_out = new StreamWriter(@"a:\gitjub\курсач\output.txt");
+            StreamWriter file_out = new StreamWriter(@"a:\gitjub\курсач\output_provider.txt");
             //file_out.WriteLine("РАБОТАЙ");
             output_for_provider(file_out, provider.main);
             file_out.Close();
@@ -485,9 +545,16 @@ namespace курсач
 
         private void load_provider_Click(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output.txt");
+            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_provider.txt");
             input_for_provider(file_in);
             file_in.Close();
+        }
+
+        private void refresh_provider_Click(object sender, EventArgs e)
+        {
+            dataGridViewProvidersAndTariphs.Rows.Clear();
+            string[] prov = new string[6];
+            get_provider_info(prov, provider.main);
         }
     }
 }
