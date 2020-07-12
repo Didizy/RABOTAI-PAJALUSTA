@@ -20,13 +20,13 @@ namespace курсач
             public spisok_users.nest chain;//для метода цепочек
 
             public nest next, prev, chain_next, chain_prev;
-            public nest(int i)
+            /*public nest(int i)
             {
                 hash = i;
                 login = "";
                 date = "";
 
-            }
+            }*/
         }
 
         int num_of_elements, max_elements;
@@ -69,42 +69,49 @@ namespace курсач
             int j = get_hash(login);
             nest curr = first;
             bool added = false;
-            while (!added)
+
+            if(free(curr))
             {
-                int curr_hash = get_hash(login);
-                while (curr.hash != curr_hash)
+                first = curr;
+                curr.hash = j;
+                curr.login = login;
+                curr.date = date;
+                curr.next = curr;
+                curr.prev = curr;
+            }
+            else
+            {
+                while (!added)
                 {
-                    curr = curr.next;
-                }
+                    int curr_hash = get_hash(login);
+                    while (curr.hash != curr_hash)
+                        curr = curr.next;
 
-                    if (free(curr))
-                    {
-                        curr.login = login;
-                        curr.date = date;
-                        added = true;
-                        num_of_elements++;
-                        curr.tariph = tariph;
-                    }
-                    else
-                    {
-                        while (!free(curr))
-                            curr = curr.chain_next;
+                        if (free(curr))
+                        {
+                            curr.login = login;
+                            curr.date = date;
+                            added = true;
+                            num_of_elements++;
+                            curr.tariph = tariph;
+                        }
+                        else
+                        {
+                            while (!free(curr))
+                                curr = curr.chain_next;
 
-                        curr.login = login;
-                        curr.date = date;
-                        added = true;
-                        num_of_elements++;
-                        curr.tariph = tariph;
+                            curr.login = login;
+                            curr.date = date;
+                            added = true;
+                            num_of_elements++;
+                            curr.tariph = tariph;
 
-                        curr.chain_next = null;
-                        curr.chain_prev = curr;
-                    }
+                            curr.chain_next = null;
+                            curr.chain_prev = curr;
+                        }
                 }
             }
-
-
-
-
+           
 
         }
 
