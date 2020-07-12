@@ -53,7 +53,13 @@ namespace курсач
                     message_choise_resilt = MessageBox.Show("Заполнены не все поля", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case 2://некоректный ввод данных
-                    MessageBox.Show("Введены некореектные данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    message_choise_resilt = MessageBox.Show("Введены некореектные данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                case 3://элемент не существует
+                    message_choise_resilt = MessageBox.Show("Элемент не существует", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                case 4://элемент уже существует
+                    message_choise_resilt = MessageBox.Show("Элемент уже существует", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 default: break;
             }
@@ -227,19 +233,26 @@ namespace курсач
 
         private void button2_Click(object sender, EventArgs e)
         {
+           
+            provider.add_Provider(Provider_title.Text);
+            error_number = 0;
+
+            Provider_title.Text = "";
+            
             if (Provider_title.Text == "")
             {
                 error_number = 1;
-                message_box(error_number);
             }
-            provider.add_Provider(Provider_title.Text);
-            error_number = 0;
+            else if (provider.find(Provider_title.Text) != null)
+            {
+                error_number = 4;
+            }
+            else
+            {
+                provider.add_Provider(Provider_title.Text);
+            }
+
             message_box(error_number);
-            Provider_title.Text = "";
-
-           
-
-                
 
         }
 

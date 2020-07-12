@@ -2,6 +2,7 @@
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,6 +25,7 @@ namespace курсач
                 hash = i;
                 login = "";
                 date = "";
+
             }
         }
 
@@ -32,7 +34,9 @@ namespace курсач
 
         public spisok_users()
         {
-            num_of_elements = 0;
+            first = null;
+
+            /*num_of_elements = 0;
             max_elements = 100;
             first = new nest(0);
             nest curr = first;
@@ -45,34 +49,13 @@ namespace курсач
             curr.next = first;
             first.prev = curr;
             curr.chain_next = null;
-            curr.chain_prev = curr;
+            curr.chain_prev = curr;*/
 
         }
         public bool free(nest temp)//проверка на пустую ячейку
         {
-                return ((temp.login == "") && (temp.tariph == null));
+             return ((temp.login == "") && (temp.tariph == null));
         }
-        /*public int gethash_1(int k)//k -ключ, достаём из getkey
-        {
-            int temp = ((k / max_elements) + 1) * (max_elements / 10 + 1);
-            return temp;
-
-        }
-        public int gethash_2(int k)//k -ключ, достаём из getkey
-        {
-
-            int temp = (k % (max_elements - 1) + 1);
-            return temp;
-
-        }
-        public int getkey(string login)//рандомная хеш функция
-        {
-            int temp = 0;
-            for (int i = 0; i < login.Length; i++)
-                temp += (int)login[i] * i;
-            return temp;
-
-        }*/
 
         public int get_hash (string login)
         {
@@ -82,40 +65,58 @@ namespace курсач
 
         public void add(int k, string login, string date, spisok_tariph.nest tariph)
         {
-            int j = 0;
+            int j = get_hash(login);
             nest curr = first;
             bool added = false;
-            while (!added)
+
+            if (free(curr))
             {
-                int curr_hash = get_hash(login);
-                while (curr.hash != curr_hash)
-                {
-                    curr = curr.next;
-                }
-
-                if (free(curr))
-                {
-                    curr.login = login;
-                    curr.date = date;
-                    added = true;
-                    num_of_elements++;
-                    curr.tariph = tariph; 
-                }
-                else
-                {
-                    while (!free(curr))
-                        curr = curr.chain_next;
-
-                    curr.login = login;
-                    curr.date = date;
-                    added = true;
-                    num_of_elements++;
-                    curr.tariph = tariph;
-
-                    curr.chain_next = null;
-                    curr.chain_prev = curr;
-                }          
+                first = curr;
+                curr.date = date;
+                curr.login = login;
+                curr.next = curr;
+                curr.prev = curr;
+                curr.hash = j;
             }
+            else
+            {
+                while (!added)
+                {
+                    int curr_hash = get_hash(login);
+                    while (curr.hash != curr_hash)
+                    {
+                        curr = curr.next;
+                    }
+
+                    if (free(curr))
+                    {
+                        curr.login = login;
+                        curr.date = date;
+                        added = true;
+                        num_of_elements++;
+                        curr.tariph = tariph;
+                    }
+                    else
+                    {
+                        while (!free(curr))
+                            curr = curr.chain_next;
+
+                        curr.login = login;
+                        curr.date = date;
+                        added = true;
+                        num_of_elements++;
+                        curr.tariph = tariph;
+
+                        curr.chain_next = null;
+                        curr.chain_prev = curr;
+                    }
+                }
+            }
+
+
+
+
+
         }
 
         public nest find(string login /*spisok_tariph.nest tariph*/)
