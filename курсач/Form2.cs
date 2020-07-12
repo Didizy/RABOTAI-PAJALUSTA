@@ -374,8 +374,21 @@ namespace курсач
         {
 
         }
+        public void output_for_users(StreamWriter file)
+        {
+           
+        }
+        private void to_file_Click(object sender, EventArgs e)
+        {
 
-        public void output(StreamWriter file, tree_providers.root pr)
+        }
+        private void from_file_button_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        public void output_for_provider(StreamWriter file, tree_providers.root pr)
         {
             if (pr == null)
                 return;
@@ -397,18 +410,12 @@ namespace курсач
 
             }
             file.WriteLine("//");
-            output(file, pr.left);
-            output(file, pr.right);
+            output_for_provider(file, pr.left);
+            output_for_provider(file, pr.right);
         }
-        private void to_file_Click(object sender, EventArgs e)
-        {
-            StreamWriter file_out = new StreamWriter(@"a:\gitjub\курсач\output.txt");
-            //file_out.WriteLine("РАБОТАЙ");
-            output(file_out, provider.main);
-            file_out.Close();
-        }
+       
 
-        public void input(StreamReader file)
+        public void input_for_provider(StreamReader file)
         {
             String temp;
             string provider_name;
@@ -453,12 +460,21 @@ namespace курсач
                 }
             }
         }
-        private void from_file_button_Click(object sender, EventArgs e)
+     
+
+        private void save_provider_Click(object sender, EventArgs e)
+        {
+            StreamWriter file_out = new StreamWriter(@"a:\gitjub\курсач\output.txt");
+            //file_out.WriteLine("РАБОТАЙ");
+            output_for_provider(file_out, provider.main);
+            file_out.Close();
+        }
+
+        private void load_provider_Click(object sender, EventArgs e)
         {
             StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output.txt");
-            input(file_in);
+            input_for_provider(file_in);
             file_in.Close();
-
         }
     }
 }

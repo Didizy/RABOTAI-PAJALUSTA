@@ -138,6 +138,8 @@
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.to_file = new System.Windows.Forms.Button();
             this.from_file_button = new System.Windows.Forms.Button();
+            this.save_provider = new System.Windows.Forms.Button();
+            this.load_provider = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProvidersAndTariphs)).BeginInit();
@@ -570,6 +572,8 @@
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage5.Controls.Add(this.load_provider);
+            this.tabPage5.Controls.Add(this.save_provider);
             this.tabPage5.Controls.Add(this.del_tariph_button);
             this.tabPage5.Controls.Add(this.label4);
             this.tabPage5.Controls.Add(this.tariph_del_title);
@@ -1343,6 +1347,26 @@
             this.from_file_button.UseVisualStyleBackColor = true;
             this.from_file_button.Click += new System.EventHandler(this.from_file_button_Click);
             // 
+            // save_provider
+            // 
+            this.save_provider.Location = new System.Drawing.Point(158, 416);
+            this.save_provider.Name = "save_provider";
+            this.save_provider.Size = new System.Drawing.Size(259, 99);
+            this.save_provider.TabIndex = 26;
+            this.save_provider.Text = "В файл";
+            this.save_provider.UseVisualStyleBackColor = true;
+            this.save_provider.Click += new System.EventHandler(this.save_provider_Click);
+            // 
+            // load_provider
+            // 
+            this.load_provider.Location = new System.Drawing.Point(528, 416);
+            this.load_provider.Name = "load_provider";
+            this.load_provider.Size = new System.Drawing.Size(249, 99);
+            this.load_provider.TabIndex = 27;
+            this.load_provider.Text = "Обратно";
+            this.load_provider.UseVisualStyleBackColor = true;
+            this.load_provider.Click += new System.EventHandler(this.load_provider_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1490,5 +1514,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUserDateUaS;
         private System.Windows.Forms.Button to_file;
         private System.Windows.Forms.Button from_file_button;
+        private System.Windows.Forms.Button load_provider;
+        private System.Windows.Forms.Button save_provider;
     }
 }
