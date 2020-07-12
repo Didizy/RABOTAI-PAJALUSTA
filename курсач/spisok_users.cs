@@ -63,7 +63,7 @@ namespace курсач
             return h1;
         }
 
-        public void add(int k, string login, string date, spisok_tariph.nest tariph)
+        public void add(string login, string date, spisok_tariph.nest tariph)
         {
             int j = get_hash(login);
             nest curr = first;
