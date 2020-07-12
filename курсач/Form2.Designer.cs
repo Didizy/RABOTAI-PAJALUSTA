@@ -40,7 +40,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.tariph_speed = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.tariph_type = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tariph_title = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -126,6 +125,17 @@
             this.ColumnTypePaT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSpeedPaT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCostPaT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabControlMain = new System.Windows.Forms.TabControl();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.ColumnSaleUaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSaleDateUaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnHashOfUserUaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnLoginUaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTariphUaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUserDateUaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkBoxAddTariphInternet = new System.Windows.Forms.CheckBox();
+            this.checkBoxAddTariphTV = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -138,6 +148,9 @@
             this.tabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProvidersAndTariphs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsersAndSells)).BeginInit();
+            this.tabControlMain.SuspendLayout();
+            this.tabPage9.SuspendLayout();
+            this.tabPage10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -146,12 +159,12 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(669, 662);
+            this.tabControl1.Size = new System.Drawing.Size(1315, 732);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage7
@@ -162,13 +175,15 @@
             this.tabPage7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage7.Size = new System.Drawing.Size(661, 633);
+            this.tabPage7.Size = new System.Drawing.Size(1307, 703);
             this.tabPage7.TabIndex = 4;
             this.tabPage7.Text = "Просмотр";
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage2.Controls.Add(this.checkBoxAddTariphTV);
+            this.tabPage2.Controls.Add(this.checkBoxAddTariphInternet);
             this.tabPage2.Controls.Add(this.label38);
             this.tabPage2.Controls.Add(this.tariph_provider);
             this.tabPage2.Controls.Add(this.button1);
@@ -178,7 +193,6 @@
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.tariph_speed);
             this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.tariph_type);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.tariph_title);
             this.tabPage2.Controls.Add(this.label2);
@@ -189,14 +203,14 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(661, 633);
+            this.tabPage2.Size = new System.Drawing.Size(1008, 598);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Добавить";
             // 
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(51, 322);
+            this.label38.Location = new System.Drawing.Point(526, 153);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(155, 17);
             this.label38.TabIndex = 20;
@@ -205,7 +219,7 @@
             // 
             // tariph_provider
             // 
-            this.tariph_provider.Location = new System.Drawing.Point(236, 322);
+            this.tariph_provider.Location = new System.Drawing.Point(711, 153);
             this.tariph_provider.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tariph_provider.Name = "tariph_provider";
             this.tariph_provider.Size = new System.Drawing.Size(264, 22);
@@ -214,7 +228,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button1.Location = new System.Drawing.Point(181, 550);
+            this.button1.Location = new System.Drawing.Point(656, 381);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(173, 42);
@@ -226,7 +240,7 @@
             // Add_provider_button
             // 
             this.Add_provider_button.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.Add_provider_button.Location = new System.Drawing.Point(181, 142);
+            this.Add_provider_button.Location = new System.Drawing.Point(135, 223);
             this.Add_provider_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Add_provider_button.Name = "Add_provider_button";
             this.Add_provider_button.Size = new System.Drawing.Size(173, 42);
@@ -238,7 +252,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(51, 485);
+            this.label8.Location = new System.Drawing.Point(526, 316);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(130, 17);
             this.label8.TabIndex = 15;
@@ -246,7 +260,7 @@
             // 
             // tariph_cost
             // 
-            this.tariph_cost.Location = new System.Drawing.Point(236, 485);
+            this.tariph_cost.Location = new System.Drawing.Point(711, 316);
             this.tariph_cost.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tariph_cost.Name = "tariph_cost";
             this.tariph_cost.Size = new System.Drawing.Size(264, 22);
@@ -255,7 +269,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(51, 444);
+            this.label9.Location = new System.Drawing.Point(526, 275);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(103, 17);
             this.label9.TabIndex = 13;
@@ -263,7 +277,7 @@
             // 
             // tariph_speed
             // 
-            this.tariph_speed.Location = new System.Drawing.Point(236, 444);
+            this.tariph_speed.Location = new System.Drawing.Point(711, 275);
             this.tariph_speed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tariph_speed.Name = "tariph_speed";
             this.tariph_speed.Size = new System.Drawing.Size(264, 22);
@@ -272,26 +286,17 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(51, 402);
+            this.label6.Location = new System.Drawing.Point(526, 233);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 17);
+            this.label6.Size = new System.Drawing.Size(99, 21);
             this.label6.TabIndex = 11;
-            this.label6.Text = "вид услуги";
+            this.label6.Text = "Вид услуги";
             this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // tariph_type
-            // 
-            this.tariph_type.Location = new System.Drawing.Point(236, 402);
-            this.tariph_type.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tariph_type.Name = "tariph_type";
-            this.tariph_type.Size = new System.Drawing.Size(264, 22);
-            this.tariph_type.TabIndex = 10;
-            this.tariph_type.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(51, 364);
+            this.label7.Location = new System.Drawing.Point(526, 195);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(126, 17);
             this.label7.TabIndex = 9;
@@ -300,7 +305,7 @@
             // 
             // tariph_title
             // 
-            this.tariph_title.Location = new System.Drawing.Point(236, 361);
+            this.tariph_title.Location = new System.Drawing.Point(711, 192);
             this.tariph_title.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tariph_title.Name = "tariph_title";
             this.tariph_title.Size = new System.Drawing.Size(264, 22);
@@ -310,7 +315,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(217, 284);
+            this.label2.Location = new System.Drawing.Point(692, 115);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 17);
             this.label2.TabIndex = 5;
@@ -320,7 +325,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(179, 34);
+            this.label5.Location = new System.Drawing.Point(133, 115);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(155, 17);
             this.label5.TabIndex = 4;
@@ -330,7 +335,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 87);
+            this.label1.Location = new System.Drawing.Point(5, 168);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(155, 17);
             this.label1.TabIndex = 1;
@@ -338,7 +343,7 @@
             // 
             // Provider_title
             // 
-            this.Provider_title.Location = new System.Drawing.Point(236, 82);
+            this.Provider_title.Location = new System.Drawing.Point(190, 163);
             this.Provider_title.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Provider_title.Name = "Provider_title";
             this.Provider_title.Size = new System.Drawing.Size(264, 22);
@@ -361,14 +366,14 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
             this.tabPage6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(661, 633);
+            this.tabPage6.Size = new System.Drawing.Size(1008, 598);
             this.tabPage6.TabIndex = 3;
             this.tabPage6.Text = "Найти";
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(64, 466);
+            this.label30.Location = new System.Drawing.Point(543, 261);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(126, 17);
             this.label30.TabIndex = 32;
@@ -376,7 +381,7 @@
             // 
             // tariph_find_title
             // 
-            this.tariph_find_title.Location = new System.Drawing.Point(251, 463);
+            this.tariph_find_title.Location = new System.Drawing.Point(730, 258);
             this.tariph_find_title.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tariph_find_title.Name = "tariph_find_title";
             this.tariph_find_title.Size = new System.Drawing.Size(264, 22);
@@ -384,8 +389,8 @@
             // 
             // find_tariph
             // 
-            this.find_tariph.BackColor = System.Drawing.Color.Lime;
-            this.find_tariph.Location = new System.Drawing.Point(177, 542);
+            this.find_tariph.BackColor = System.Drawing.Color.LightGreen;
+            this.find_tariph.Location = new System.Drawing.Point(656, 337);
             this.find_tariph.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.find_tariph.Name = "find_tariph";
             this.find_tariph.Size = new System.Drawing.Size(173, 42);
@@ -397,7 +402,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(64, 421);
+            this.label13.Location = new System.Drawing.Point(543, 216);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(155, 17);
             this.label13.TabIndex = 22;
@@ -406,7 +411,7 @@
             // 
             // tariph_find_provider
             // 
-            this.tariph_find_provider.Location = new System.Drawing.Point(251, 417);
+            this.tariph_find_provider.Location = new System.Drawing.Point(730, 212);
             this.tariph_find_provider.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tariph_find_provider.Name = "tariph_find_provider";
             this.tariph_find_provider.Size = new System.Drawing.Size(264, 22);
@@ -415,8 +420,8 @@
             // 
             // find_provider
             // 
-            this.find_provider.BackColor = System.Drawing.Color.Lime;
-            this.find_provider.Location = new System.Drawing.Point(177, 176);
+            this.find_provider.BackColor = System.Drawing.Color.LightGreen;
+            this.find_provider.Location = new System.Drawing.Point(136, 284);
             this.find_provider.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.find_provider.Name = "find_provider";
             this.find_provider.Size = new System.Drawing.Size(173, 42);
@@ -428,7 +433,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(45, 122);
+            this.label12.Location = new System.Drawing.Point(4, 230);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(155, 17);
             this.label12.TabIndex = 19;
@@ -436,7 +441,7 @@
             // 
             // provider_find_title
             // 
-            this.provider_find_title.Location = new System.Drawing.Point(232, 118);
+            this.provider_find_title.Location = new System.Drawing.Point(191, 226);
             this.provider_find_title.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.provider_find_title.Name = "provider_find_title";
             this.provider_find_title.Size = new System.Drawing.Size(264, 22);
@@ -445,7 +450,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(211, 370);
+            this.label11.Location = new System.Drawing.Point(690, 165);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(95, 17);
             this.label11.TabIndex = 1;
@@ -454,7 +459,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(195, 57);
+            this.label10.Location = new System.Drawing.Point(154, 165);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(132, 17);
             this.label10.TabIndex = 0;
@@ -476,14 +481,14 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(661, 633);
+            this.tabPage5.Size = new System.Drawing.Size(1008, 598);
             this.tabPage5.TabIndex = 2;
             this.tabPage5.Text = "Удалить";
             // 
             // del_tariph_button
             // 
             this.del_tariph_button.BackColor = System.Drawing.Color.Salmon;
-            this.del_tariph_button.Location = new System.Drawing.Point(176, 543);
+            this.del_tariph_button.Location = new System.Drawing.Point(657, 334);
             this.del_tariph_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.del_tariph_button.Name = "del_tariph_button";
             this.del_tariph_button.Size = new System.Drawing.Size(173, 42);
@@ -495,7 +500,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(53, 486);
+            this.label4.Location = new System.Drawing.Point(534, 277);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(126, 17);
             this.label4.TabIndex = 24;
@@ -503,7 +508,7 @@
             // 
             // tariph_del_title
             // 
-            this.tariph_del_title.Location = new System.Drawing.Point(240, 482);
+            this.tariph_del_title.Location = new System.Drawing.Point(721, 273);
             this.tariph_del_title.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tariph_del_title.Name = "tariph_del_title";
             this.tariph_del_title.Size = new System.Drawing.Size(264, 22);
@@ -512,7 +517,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(53, 446);
+            this.label16.Location = new System.Drawing.Point(534, 237);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(155, 17);
             this.label16.TabIndex = 22;
@@ -520,7 +525,7 @@
             // 
             // tariph_del_provider
             // 
-            this.tariph_del_provider.Location = new System.Drawing.Point(240, 441);
+            this.tariph_del_provider.Location = new System.Drawing.Point(721, 232);
             this.tariph_del_provider.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tariph_del_provider.Name = "tariph_del_provider";
             this.tariph_del_provider.Size = new System.Drawing.Size(264, 22);
@@ -529,7 +534,7 @@
             // del_provider
             // 
             this.del_provider.BackColor = System.Drawing.Color.Salmon;
-            this.del_provider.Location = new System.Drawing.Point(176, 151);
+            this.del_provider.Location = new System.Drawing.Point(147, 288);
             this.del_provider.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.del_provider.Name = "del_provider";
             this.del_provider.Size = new System.Drawing.Size(173, 42);
@@ -541,7 +546,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(53, 94);
+            this.label3.Location = new System.Drawing.Point(24, 231);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(155, 17);
             this.label3.TabIndex = 19;
@@ -550,7 +555,7 @@
             // 
             // provider_del_title
             // 
-            this.provider_del_title.Location = new System.Drawing.Point(240, 94);
+            this.provider_del_title.Location = new System.Drawing.Point(211, 231);
             this.provider_del_title.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.provider_del_title.Name = "provider_del_title";
             this.provider_del_title.Size = new System.Drawing.Size(264, 22);
@@ -560,7 +565,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(197, 385);
+            this.label15.Location = new System.Drawing.Point(678, 176);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(109, 17);
             this.label15.TabIndex = 9;
@@ -570,7 +575,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(187, 39);
+            this.label14.Location = new System.Drawing.Point(158, 176);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(146, 17);
             this.label14.TabIndex = 8;
@@ -578,13 +583,14 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.AutoScroll = true;
             this.tabPage1.BackColor = System.Drawing.Color.Gainsboro;
             this.tabPage1.Controls.Add(this.dataGridViewUsersAndSells);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(680, 633);
+            this.tabPage1.Size = new System.Drawing.Size(1307, 703);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Просмотр";
             // 
@@ -594,13 +600,13 @@
             this.tabControl2.Controls.Add(this.tabPage3);
             this.tabControl2.Controls.Add(this.tabPage4);
             this.tabControl2.Controls.Add(this.tabPage8);
-            this.tabControl2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tabControl2.Location = new System.Drawing.Point(658, 0);
+            this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl2.Location = new System.Drawing.Point(3, 3);
             this.tabControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl2.Multiline = true;
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(688, 662);
+            this.tabControl2.Size = new System.Drawing.Size(1315, 732);
             this.tabControl2.TabIndex = 1;
             // 
             // tabPage3
@@ -630,13 +636,13 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage3.Size = new System.Drawing.Size(680, 633);
+            this.tabPage3.Size = new System.Drawing.Size(1008, 598);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Добавить";
             // 
             // sale_provider
             // 
-            this.sale_provider.Location = new System.Drawing.Point(276, 479);
+            this.sale_provider.Location = new System.Drawing.Point(723, 310);
             this.sale_provider.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sale_provider.Name = "sale_provider";
             this.sale_provider.Size = new System.Drawing.Size(264, 22);
@@ -645,7 +651,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(91, 482);
+            this.label40.Location = new System.Drawing.Point(538, 313);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(155, 17);
             this.label40.TabIndex = 44;
@@ -654,7 +660,7 @@
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(83, 196);
+            this.label39.Location = new System.Drawing.Point(12, 315);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(155, 17);
             this.label39.TabIndex = 43;
@@ -663,7 +669,7 @@
             // 
             // user_provider
             // 
-            this.user_provider.Location = new System.Drawing.Point(275, 187);
+            this.user_provider.Location = new System.Drawing.Point(204, 306);
             this.user_provider.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.user_provider.Name = "user_provider";
             this.user_provider.Size = new System.Drawing.Size(264, 22);
@@ -673,7 +679,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(91, 441);
+            this.label19.Location = new System.Drawing.Point(538, 272);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(129, 17);
             this.label19.TabIndex = 41;
@@ -681,7 +687,7 @@
             // 
             // sale_length
             // 
-            this.sale_length.Location = new System.Drawing.Point(276, 441);
+            this.sale_length.Location = new System.Drawing.Point(723, 272);
             this.sale_length.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sale_length.Name = "sale_length";
             this.sale_length.Size = new System.Drawing.Size(264, 22);
@@ -690,7 +696,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(91, 402);
+            this.label17.Location = new System.Drawing.Point(538, 233);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(126, 17);
             this.label17.TabIndex = 39;
@@ -699,7 +705,7 @@
             // 
             // sale_tariph
             // 
-            this.sale_tariph.Location = new System.Drawing.Point(276, 402);
+            this.sale_tariph.Location = new System.Drawing.Point(723, 233);
             this.sale_tariph.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sale_tariph.Name = "sale_tariph";
             this.sale_tariph.Size = new System.Drawing.Size(264, 22);
@@ -708,7 +714,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(91, 361);
+            this.label18.Location = new System.Drawing.Point(538, 192);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(114, 17);
             this.label18.TabIndex = 37;
@@ -717,7 +723,7 @@
             // 
             // sale_num
             // 
-            this.sale_num.Location = new System.Drawing.Point(276, 361);
+            this.sale_num.Location = new System.Drawing.Point(723, 192);
             this.sale_num.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sale_num.Name = "sale_num";
             this.sale_num.Size = new System.Drawing.Size(264, 22);
@@ -726,7 +732,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(83, 159);
+            this.label24.Location = new System.Drawing.Point(12, 278);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(151, 17);
             this.label24.TabIndex = 35;
@@ -735,7 +741,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(88, 118);
+            this.label23.Location = new System.Drawing.Point(9, 234);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(135, 17);
             this.label23.TabIndex = 33;
@@ -745,7 +751,7 @@
             // add_sale
             // 
             this.add_sale.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.add_sale.Location = new System.Drawing.Point(221, 550);
+            this.add_sale.Location = new System.Drawing.Point(658, 360);
             this.add_sale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.add_sale.Name = "add_sale";
             this.add_sale.Size = new System.Drawing.Size(173, 42);
@@ -757,7 +763,7 @@
             // add_user
             // 
             this.add_user.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.add_user.Location = new System.Drawing.Point(217, 241);
+            this.add_user.Location = new System.Drawing.Point(146, 360);
             this.add_user.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.add_user.Name = "add_user";
             this.add_user.Size = new System.Drawing.Size(173, 42);
@@ -768,7 +774,7 @@
             // 
             // user_tariph
             // 
-            this.user_tariph.Location = new System.Drawing.Point(275, 150);
+            this.user_tariph.Location = new System.Drawing.Point(204, 269);
             this.user_tariph.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.user_tariph.Name = "user_tariph";
             this.user_tariph.Size = new System.Drawing.Size(264, 22);
@@ -776,7 +782,7 @@
             // 
             // user_date
             // 
-            this.user_date.Location = new System.Drawing.Point(275, 110);
+            this.user_date.Location = new System.Drawing.Point(204, 229);
             this.user_date.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.user_date.Name = "user_date";
             this.user_date.Size = new System.Drawing.Size(264, 22);
@@ -784,7 +790,7 @@
             // 
             // user_login
             // 
-            this.user_login.Location = new System.Drawing.Point(275, 68);
+            this.user_login.Location = new System.Drawing.Point(204, 187);
             this.user_login.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.user_login.Name = "user_login";
             this.user_login.Size = new System.Drawing.Size(264, 22);
@@ -794,7 +800,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(244, 305);
+            this.label20.Location = new System.Drawing.Point(689, 153);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(120, 17);
             this.label20.TabIndex = 22;
@@ -803,7 +809,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(216, 34);
+            this.label21.Location = new System.Drawing.Point(145, 153);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(168, 17);
             this.label21.TabIndex = 21;
@@ -813,7 +819,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(91, 76);
+            this.label22.Location = new System.Drawing.Point(12, 192);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(143, 17);
             this.label22.TabIndex = 20;
@@ -838,14 +844,14 @@
             this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage4.Size = new System.Drawing.Size(680, 633);
+            this.tabPage4.Size = new System.Drawing.Size(1008, 598);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Найти";
             // 
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(76, 512);
+            this.label37.Location = new System.Drawing.Point(528, 325);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(155, 17);
             this.label37.TabIndex = 47;
@@ -853,7 +859,7 @@
             // 
             // sale_find_provider
             // 
-            this.sale_find_provider.Location = new System.Drawing.Point(261, 503);
+            this.sale_find_provider.Location = new System.Drawing.Point(713, 316);
             this.sale_find_provider.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sale_find_provider.Name = "sale_find_provider";
             this.sale_find_provider.Size = new System.Drawing.Size(264, 22);
@@ -862,7 +868,7 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(76, 121);
+            this.label36.Location = new System.Drawing.Point(11, 247);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(143, 17);
             this.label36.TabIndex = 45;
@@ -870,7 +876,7 @@
             // 
             // user_find_login
             // 
-            this.user_find_login.Location = new System.Drawing.Point(261, 117);
+            this.user_find_login.Location = new System.Drawing.Point(196, 243);
             this.user_find_login.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.user_find_login.Name = "user_find_login";
             this.user_find_login.Size = new System.Drawing.Size(264, 22);
@@ -879,7 +885,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(76, 464);
+            this.label29.Location = new System.Drawing.Point(528, 277);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(114, 17);
             this.label29.TabIndex = 33;
@@ -887,7 +893,7 @@
             // 
             // sale_find_size
             // 
-            this.sale_find_size.Location = new System.Drawing.Point(261, 464);
+            this.sale_find_size.Location = new System.Drawing.Point(713, 277);
             this.sale_find_size.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sale_find_size.Name = "sale_find_size";
             this.sale_find_size.Size = new System.Drawing.Size(264, 22);
@@ -895,8 +901,8 @@
             // 
             // button9
             // 
-            this.button9.BackColor = System.Drawing.Color.Lime;
-            this.button9.Location = new System.Drawing.Point(207, 542);
+            this.button9.BackColor = System.Drawing.Color.LightGreen;
+            this.button9.Location = new System.Drawing.Point(659, 355);
             this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(173, 42);
@@ -908,7 +914,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(76, 422);
+            this.label25.Location = new System.Drawing.Point(528, 235);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(126, 17);
             this.label25.TabIndex = 30;
@@ -916,7 +922,7 @@
             // 
             // sale_find_tariph
             // 
-            this.sale_find_tariph.Location = new System.Drawing.Point(261, 422);
+            this.sale_find_tariph.Location = new System.Drawing.Point(713, 235);
             this.sale_find_tariph.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sale_find_tariph.Name = "sale_find_tariph";
             this.sale_find_tariph.Size = new System.Drawing.Size(264, 22);
@@ -924,8 +930,8 @@
             // 
             // button10
             // 
-            this.button10.BackColor = System.Drawing.Color.Lime;
-            this.button10.Location = new System.Drawing.Point(224, 162);
+            this.button10.BackColor = System.Drawing.Color.LightGreen;
+            this.button10.Location = new System.Drawing.Point(159, 288);
             this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(173, 42);
@@ -937,7 +943,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(221, 370);
+            this.label27.Location = new System.Drawing.Point(673, 183);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(97, 17);
             this.label27.TabIndex = 25;
@@ -947,7 +953,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(224, 57);
+            this.label28.Location = new System.Drawing.Point(159, 183);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(145, 17);
             this.label28.TabIndex = 24;
@@ -972,14 +978,14 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 25);
             this.tabPage8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(680, 633);
+            this.tabPage8.Size = new System.Drawing.Size(1008, 598);
             this.tabPage8.TabIndex = 2;
             this.tabPage8.Text = "Удалить";
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(87, 502);
+            this.label26.Location = new System.Drawing.Point(528, 300);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(155, 17);
             this.label26.TabIndex = 43;
@@ -987,7 +993,7 @@
             // 
             // sale_del_provider
             // 
-            this.sale_del_provider.Location = new System.Drawing.Point(273, 502);
+            this.sale_del_provider.Location = new System.Drawing.Point(714, 300);
             this.sale_del_provider.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sale_del_provider.Name = "sale_del_provider";
             this.sale_del_provider.Size = new System.Drawing.Size(264, 22);
@@ -996,7 +1002,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(87, 459);
+            this.label31.Location = new System.Drawing.Point(528, 257);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(114, 17);
             this.label31.TabIndex = 41;
@@ -1004,7 +1010,7 @@
             // 
             // sale_del_size
             // 
-            this.sale_del_size.Location = new System.Drawing.Point(273, 459);
+            this.sale_del_size.Location = new System.Drawing.Point(714, 257);
             this.sale_del_size.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sale_del_size.Name = "sale_del_size";
             this.sale_del_size.Size = new System.Drawing.Size(264, 22);
@@ -1013,7 +1019,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(87, 417);
+            this.label32.Location = new System.Drawing.Point(528, 215);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(126, 17);
             this.label32.TabIndex = 39;
@@ -1021,7 +1027,7 @@
             // 
             // sale_del_tar
             // 
-            this.sale_del_tar.Location = new System.Drawing.Point(273, 417);
+            this.sale_del_tar.Location = new System.Drawing.Point(714, 215);
             this.sale_del_tar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sale_del_tar.Name = "sale_del_tar";
             this.sale_del_tar.Size = new System.Drawing.Size(264, 22);
@@ -1030,7 +1036,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(87, 118);
+            this.label33.Location = new System.Drawing.Point(24, 229);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(143, 17);
             this.label33.TabIndex = 37;
@@ -1038,7 +1044,7 @@
             // 
             // user_del_login
             // 
-            this.user_del_login.Location = new System.Drawing.Point(273, 114);
+            this.user_del_login.Location = new System.Drawing.Point(202, 225);
             this.user_del_login.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.user_del_login.Name = "user_del_login";
             this.user_del_login.Size = new System.Drawing.Size(264, 22);
@@ -1048,7 +1054,7 @@
             // button11
             // 
             this.button11.BackColor = System.Drawing.Color.Salmon;
-            this.button11.Location = new System.Drawing.Point(215, 551);
+            this.button11.Location = new System.Drawing.Point(656, 349);
             this.button11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(173, 42);
@@ -1060,7 +1066,7 @@
             // del_user
             // 
             this.del_user.BackColor = System.Drawing.Color.Salmon;
-            this.del_user.Location = new System.Drawing.Point(215, 166);
+            this.del_user.Location = new System.Drawing.Point(144, 277);
             this.del_user.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.del_user.Name = "del_user";
             this.del_user.Size = new System.Drawing.Size(173, 42);
@@ -1072,7 +1078,7 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(224, 370);
+            this.label34.Location = new System.Drawing.Point(665, 168);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(111, 17);
             this.label34.TabIndex = 27;
@@ -1081,7 +1087,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(224, 57);
+            this.label35.Location = new System.Drawing.Point(153, 168);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(159, 17);
             this.label35.TabIndex = 26;
@@ -1098,22 +1104,33 @@
             this.ColumnTypePaT,
             this.ColumnSpeedPaT,
             this.ColumnCostPaT});
-            this.dataGridViewProvidersAndTariphs.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewProvidersAndTariphs.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dataGridViewProvidersAndTariphs.Location = new System.Drawing.Point(3, 2);
             this.dataGridViewProvidersAndTariphs.Name = "dataGridViewProvidersAndTariphs";
             this.dataGridViewProvidersAndTariphs.RowHeadersWidth = 51;
             this.dataGridViewProvidersAndTariphs.RowTemplate.Height = 24;
-            this.dataGridViewProvidersAndTariphs.Size = new System.Drawing.Size(646, 558);
+            this.dataGridViewProvidersAndTariphs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridViewProvidersAndTariphs.Size = new System.Drawing.Size(1072, 699);
             this.dataGridViewProvidersAndTariphs.TabIndex = 0;
             this.dataGridViewProvidersAndTariphs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProvidersAndTariphs_CellContentClick);
             // 
             // dataGridViewUsersAndSells
             // 
             this.dataGridViewUsersAndSells.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUsersAndSells.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewUsersAndSells.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnSaleUaS,
+            this.ColumnSaleDateUaS,
+            this.ColumnHashOfUserUaS,
+            this.ColumnLoginUaS,
+            this.ColumnTariphUaS,
+            this.ColumnUserDateUaS});
+            this.dataGridViewUsersAndSells.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dataGridViewUsersAndSells.Location = new System.Drawing.Point(3, 2);
             this.dataGridViewUsersAndSells.Name = "dataGridViewUsersAndSells";
             this.dataGridViewUsersAndSells.RowHeadersWidth = 51;
             this.dataGridViewUsersAndSells.RowTemplate.Height = 24;
-            this.dataGridViewUsersAndSells.Size = new System.Drawing.Size(668, 558);
+            this.dataGridViewUsersAndSells.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridViewUsersAndSells.Size = new System.Drawing.Size(1063, 699);
             this.dataGridViewUsersAndSells.TabIndex = 0;
             this.dataGridViewUsersAndSells.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUsersAndSells_CellContentClick);
             // 
@@ -1159,13 +1176,108 @@
             this.ColumnCostPaT.Name = "ColumnCostPaT";
             this.ColumnCostPaT.Width = 125;
             // 
+            // tabControlMain
+            // 
+            this.tabControlMain.Controls.Add(this.tabPage9);
+            this.tabControlMain.Controls.Add(this.tabPage10);
+            this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlMain.Location = new System.Drawing.Point(0, 0);
+            this.tabControlMain.Name = "tabControlMain";
+            this.tabControlMain.SelectedIndex = 0;
+            this.tabControlMain.Size = new System.Drawing.Size(1329, 767);
+            this.tabControlMain.TabIndex = 1;
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Controls.Add(this.tabControl1);
+            this.tabPage9.Location = new System.Drawing.Point(4, 25);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(1321, 738);
+            this.tabPage9.TabIndex = 0;
+            this.tabPage9.Text = "Провайдеры и тарифы";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // tabPage10
+            // 
+            this.tabPage10.Controls.Add(this.tabControl2);
+            this.tabPage10.Location = new System.Drawing.Point(4, 25);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage10.Size = new System.Drawing.Size(1321, 738);
+            this.tabPage10.TabIndex = 1;
+            this.tabPage10.Text = "Пользователи и скидки";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // ColumnSaleUaS
+            // 
+            this.ColumnSaleUaS.HeaderText = "Скидка";
+            this.ColumnSaleUaS.MinimumWidth = 6;
+            this.ColumnSaleUaS.Name = "ColumnSaleUaS";
+            this.ColumnSaleUaS.Width = 125;
+            // 
+            // ColumnSaleDateUaS
+            // 
+            this.ColumnSaleDateUaS.HeaderText = "Срок пользования тарифом";
+            this.ColumnSaleDateUaS.MinimumWidth = 6;
+            this.ColumnSaleDateUaS.Name = "ColumnSaleDateUaS";
+            this.ColumnSaleDateUaS.Width = 125;
+            // 
+            // ColumnHashOfUserUaS
+            // 
+            this.ColumnHashOfUserUaS.HeaderText = "Хеш пользователя";
+            this.ColumnHashOfUserUaS.MinimumWidth = 6;
+            this.ColumnHashOfUserUaS.Name = "ColumnHashOfUserUaS";
+            this.ColumnHashOfUserUaS.Width = 125;
+            // 
+            // ColumnLoginUaS
+            // 
+            this.ColumnLoginUaS.HeaderText = "Логин пользователя";
+            this.ColumnLoginUaS.MinimumWidth = 6;
+            this.ColumnLoginUaS.Name = "ColumnLoginUaS";
+            this.ColumnLoginUaS.Width = 125;
+            // 
+            // ColumnTariphUaS
+            // 
+            this.ColumnTariphUaS.HeaderText = "Тариф";
+            this.ColumnTariphUaS.MinimumWidth = 6;
+            this.ColumnTariphUaS.Name = "ColumnTariphUaS";
+            this.ColumnTariphUaS.Width = 125;
+            // 
+            // ColumnUserDateUaS
+            // 
+            this.ColumnUserDateUaS.HeaderText = "Дата подключения";
+            this.ColumnUserDateUaS.MinimumWidth = 6;
+            this.ColumnUserDateUaS.Name = "ColumnUserDateUaS";
+            this.ColumnUserDateUaS.Width = 125;
+            // 
+            // checkBoxAddTariphInternet
+            // 
+            this.checkBoxAddTariphInternet.AutoSize = true;
+            this.checkBoxAddTariphInternet.Location = new System.Drawing.Point(711, 235);
+            this.checkBoxAddTariphInternet.Name = "checkBoxAddTariphInternet";
+            this.checkBoxAddTariphInternet.Size = new System.Drawing.Size(94, 21);
+            this.checkBoxAddTariphInternet.TabIndex = 21;
+            this.checkBoxAddTariphInternet.Text = "Интернет";
+            this.checkBoxAddTariphInternet.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxAddTariphTV
+            // 
+            this.checkBoxAddTariphTV.AutoSize = true;
+            this.checkBoxAddTariphTV.Location = new System.Drawing.Point(854, 235);
+            this.checkBoxAddTariphTV.Name = "checkBoxAddTariphTV";
+            this.checkBoxAddTariphTV.Size = new System.Drawing.Size(124, 21);
+            this.checkBoxAddTariphTV.TabIndex = 22;
+            this.checkBoxAddTariphTV.Text = "Кабельное ТВ";
+            this.checkBoxAddTariphTV.UseVisualStyleBackColor = true;
+            this.checkBoxAddTariphTV.CheckedChanged += new System.EventHandler(this.checkBoxAddTariphTV_CheckedChanged);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1346, 662);
-            this.Controls.Add(this.tabControl2);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(1329, 767);
+            this.Controls.Add(this.tabControlMain);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form2";
             this.Text = "Form2";
@@ -1188,6 +1300,9 @@
             this.tabPage8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProvidersAndTariphs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsersAndSells)).EndInit();
+            this.tabControlMain.ResumeLayout(false);
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1208,7 +1323,6 @@
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox tariph_type;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tariph_title;
         private System.Windows.Forms.Label label2;
@@ -1292,5 +1406,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTypePaT;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSpeedPaT;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCostPaT;
+        private System.Windows.Forms.TabControl tabControlMain;
+        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.TabPage tabPage10;
+        private System.Windows.Forms.CheckBox checkBoxAddTariphTV;
+        private System.Windows.Forms.CheckBox checkBoxAddTariphInternet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSaleUaS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSaleDateUaS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHashOfUserUaS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLoginUaS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTariphUaS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUserDateUaS;
     }
 }

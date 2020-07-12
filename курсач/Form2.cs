@@ -122,7 +122,8 @@ namespace курсач
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int type = 0;
+            //тут прописать чек боксы
+            /*int type = 0;
             if (tariph_type.Text == "Интернет")
                 type = 1;
             else if (tariph_type.Text == "Интернет и ТВ")
@@ -136,7 +137,7 @@ namespace курсач
             }
             provider.add_tariph(tariph_title.Text,Convert.ToInt32(tariph_cost.Text),tariph_provider.Text);
             tariph.add(tariph.getkey(tariph_title.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));
-            tariph_title.Text = tariph_cost.Text=tariph_provider.Text = tariph_speed.Text=tariph_type.Text="" ;
+            tariph_title.Text = tariph_cost.Text=tariph_provider.Text = tariph_speed.Text=tariph_type.Text="" ;*/
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -326,6 +327,11 @@ namespace курсач
         }
 
         private void dataGridViewUsersAndSells_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void checkBoxAddTariphTV_CheckedChanged(object sender, EventArgs e)
         {
 
         }

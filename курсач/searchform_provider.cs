@@ -16,15 +16,15 @@ namespace курсач
         {
             InitializeComponent();
         }
-
+       
         public void add_grid_param(string[] n, DataGridView grid)
         {
-            grid.Rows.Add(n);
+            grid.Rows.Add(n);//добивить строку в столбцы
         }
 
         private void error_form_Load(object sender, EventArgs e)
         {
-            string[] check = { "test1", "test2", "test3", "test4" };
+            string[] check = { "test1", "test2", "test3", "test4" };//в строку подстроки, котторые будут в столбцах
             add_grid_param(check, dataGridView1);
            
         }
