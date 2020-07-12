@@ -137,6 +137,7 @@
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.to_file = new System.Windows.Forms.Button();
+            this.from_file_button = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProvidersAndTariphs)).BeginInit();
@@ -1148,6 +1149,7 @@
             // tabPage8
             // 
             this.tabPage8.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage8.Controls.Add(this.from_file_button);
             this.tabPage8.Controls.Add(this.to_file);
             this.tabPage8.Controls.Add(this.label26);
             this.tabPage8.Controls.Add(this.sale_del_provider);
@@ -1323,13 +1325,23 @@
             // 
             // to_file
             // 
-            this.to_file.Location = new System.Drawing.Point(307, 418);
+            this.to_file.Location = new System.Drawing.Point(118, 418);
             this.to_file.Name = "to_file";
             this.to_file.Size = new System.Drawing.Size(340, 104);
             this.to_file.TabIndex = 44;
             this.to_file.Text = "В файл";
             this.to_file.UseVisualStyleBackColor = true;
             this.to_file.Click += new System.EventHandler(this.to_file_Click);
+            // 
+            // from_file_button
+            // 
+            this.from_file_button.Location = new System.Drawing.Point(536, 418);
+            this.from_file_button.Name = "from_file_button";
+            this.from_file_button.Size = new System.Drawing.Size(352, 104);
+            this.from_file_button.TabIndex = 45;
+            this.from_file_button.Text = "Обратно";
+            this.from_file_button.UseVisualStyleBackColor = true;
+            this.from_file_button.Click += new System.EventHandler(this.from_file_button_Click);
             // 
             // Form2
             // 
@@ -1477,5 +1489,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTariphUaS;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUserDateUaS;
         private System.Windows.Forms.Button to_file;
+        private System.Windows.Forms.Button from_file_button;
     }
 }

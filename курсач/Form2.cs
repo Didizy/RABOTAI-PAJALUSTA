@@ -402,7 +402,14 @@ namespace курсач
         private void to_file_Click(object sender, EventArgs e)
         {
             StreamWriter file_out = new StreamWriter(@"a:\gitjub\курсач\output.txt");
+            file_out.WriteLine("РАБОТАЙ");
             output(file_out, provider.main);
+            file_out.Close();
+        }
+
+        private void from_file_button_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
