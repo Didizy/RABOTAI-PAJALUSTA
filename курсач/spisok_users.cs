@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace курсач
 {
-    class spisok_users
+   public class spisok_users
     {
 
         public class nest
