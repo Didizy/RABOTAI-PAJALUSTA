@@ -28,7 +28,7 @@ namespace курсач
         }
 
         int num_of_elements, max_elements;
-        nest first;
+        public nest first;
 
         public spisok_users()
         {

@@ -374,8 +374,21 @@ namespace курсач
         {
 
         }
+        public void output_for_users(StreamWriter file)
+        {
+           
+        }
+        private void to_file_Click(object sender, EventArgs e)
+        {
 
-        public void output(StreamWriter file, tree_providers.root pr)
+        }
+        private void from_file_button_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        public void output_for_provider(StreamWriter file, tree_providers.root pr)
         {
             if (pr == null)
                 return;
@@ -396,20 +409,72 @@ namespace курсач
                // file.Write("\n");
 
             }
-            output(file, pr.left);
-            output(file, pr.right);
+            file.WriteLine("//");
+            output_for_provider(file, pr.left);
+            output_for_provider(file, pr.right);
         }
-        private void to_file_Click(object sender, EventArgs e)
+       
+
+        public void input_for_provider(StreamReader file)
+        {
+            String temp;
+            string provider_name;
+            string helper = "";
+            string[] info = new string[4];
+            int j = 0;
+            tree_providers.root pr;
+            while (file.Peek() > -1)
+            {
+                temp = file.ReadLine();
+                provider_name = temp;
+                provider.add_Provider(provider_name);
+                pr = provider.find(provider_name);
+                
+                while (true)
+                {
+                    temp = file.ReadLine();
+                    helper = "";
+                    if (temp == "//")
+                        break;
+                    for (int i = 0; i < temp.Length; i++)
+                    {
+                        if (temp[i] == '/')
+                        {
+                            i++;
+                            info[j] = helper;
+                            j++;
+                            helper = "";
+                        }
+                        helper += temp[i];
+                    }
+                    j = 0;
+                    info[3] = helper;
+                    if ((!check_for_int(info[1])) && (!check_for_int(info[2])) && (!check_for_int(info[3])))
+                    {
+                        error_number = 2;
+                        message_box(error_number);
+                    }
+                    provider.add_tariph(info[0], Convert.ToInt32(info[1]), provider_name);
+
+                    tariph.add(tariph.getkey(info[0]), info[0], Convert.ToInt32(info[2]), Convert.ToInt32(info[3]), pr);
+                }
+            }
+        }
+     
+
+        private void save_provider_Click(object sender, EventArgs e)
         {
             StreamWriter file_out = new StreamWriter(@"a:\gitjub\курсач\output.txt");
-            file_out.WriteLine("РАБОТАЙ");
-            output(file_out, provider.main);
+            //file_out.WriteLine("РАБОТАЙ");
+            output_for_provider(file_out, provider.main);
             file_out.Close();
         }
 
-        private void from_file_button_Click(object sender, EventArgs e)
+        private void load_provider_Click(object sender, EventArgs e)
         {
-
+            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output.txt");
+            input_for_provider(file_in);
+            file_in.Close();
         }
     }
 }
