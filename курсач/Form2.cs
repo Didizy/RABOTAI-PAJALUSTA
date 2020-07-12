@@ -311,42 +311,11 @@ namespace курсач
         {
             tree_providers.root a = provider.find(provider_find_title.Text);
             provider_find_title.Text = "";
+            
 
             int type = 0;
             int error_number = 0;
-            if ((checkBoxAddTariphInternet.Checked) && (checkBoxAddTariphTV.Checked))
-            {
-                type = 2;
-            }
-            else if ((checkBoxAddTariphInternet.Checked) && !(checkBoxAddTariphTV.Checked))
-            {
-                type = 1;
-            }
-            else if (!(checkBoxAddTariphInternet.Checked) && (checkBoxAddTariphTV.Checked))
-            {
-                type = 3;
-            }
-            else
-            {
-                error_number = 1;
-            }
-            if (!check_for_int(tariph_cost.Text))
-            {
-                error_number = 2;
-            }
-            if (!check_for_int(tariph_speed.Text))
-            {
-                error_number = 2;
-            }
-            else
-            {
-                provider.add_tariph(tariph_title.Text, Convert.ToInt32(tariph_cost.Text), tariph_provider.Text);
-
-                tariph.add(tariph.getkey(tariph_title.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));
-                tariph_title.Text = tariph_cost.Text = tariph_provider.Text = tariph_speed.Text = "";
-                checkBoxAddTariphTV.Checked = false;
-                checkBoxAddTariphInternet.Checked = false;
-            }
+           
 
             message_box(error_number);
             searchform_provider searchform = new searchform_provider(a,this);
@@ -572,7 +541,7 @@ namespace курсач
 
         private void save_provider_Click(object sender, EventArgs e)
         {
-            StreamWriter file_out = new StreamWriter(@"c:\курсач\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"
+            StreamWriter file_out = new StreamWriter(@"a:\gitjub\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
             //file_out.WriteLine("РАБОТАЙ");
             output_for_provider(file_out, provider.main);
             file_out.Close();
@@ -580,7 +549,7 @@ namespace курсач
 
         private void load_provider_Click(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
+            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
             input_for_provider(file_in);
             file_in.Close();
         }
@@ -595,7 +564,7 @@ namespace курсач
         {
             for (int i = 0; i < s.tariph.provider.current_user; i++) {
                 spisok_users.nest u =user.find(s.tariph.provider.users[i]);
-                if (user.Can_get_sale(s, u))
+                if (user.Can_get_sale(u, s))
                 {
                     line[0] = s.size;
                 }
