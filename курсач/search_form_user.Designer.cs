@@ -142,6 +142,7 @@
             this.Controls.Add(this.dataGridViewSearchUser);
             this.Name = "search_form_user";
             this.Text = "search_form_user";
+            this.Load += new System.EventHandler(this.search_form_user_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearchUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

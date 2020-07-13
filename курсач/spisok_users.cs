@@ -88,55 +88,82 @@ namespace курсач
                     while (curr.hash != curr_hash)
                         curr = curr.next;
 
-                        if (free(curr))
-                        {
-                            curr.login = login;
-                            curr.date = date;
-                            added = true;
-                            num_of_elements++;
-                            curr.tariph = tariph;
-                        }
-                        else
-                        {
-                            while (!free(curr))
-                                curr = curr.chain_next;
+                    if (free(curr))
+                    {
+                        curr.login = login;
+                        curr.date = date;
+                        added = true;
+                        num_of_elements++;
+                        curr.tariph = tariph;
+                        curr.prev = curr;
+                        curr.next = first;
+                    }
+                    else
+                    {
+                        while (!free(curr))
+                            curr = curr.chain_next;
 
-                            curr.login = login;
-                            curr.date = date;
-                            added = true;
-                            num_of_elements++;
-                            curr.tariph = tariph;
+                        curr.login = login;
+                        curr.date = date;
+                        added = true;
+                        num_of_elements++;
+                        curr.tariph = tariph;
 
-                            curr.chain_next = null;
-                            curr.chain_prev = curr;
-                        }
+                        curr.chain_next = null;
+                        curr.chain_prev = curr;
+                    }
                 }
             }
            
 
         }
 
-        public nest find(string login /*spisok_tariph.nest tariph*/)
+        public nest find(string login /*spisok_tariph.nest tariph*/)//исправить, циклится
         {
             //int hash = getkey(login);
-            int j = 0;
+            //int j = 0;
             nest curr = first;
-            while (true)
+            int hash = get_hash(login);
+
+            if (hash==curr.hash)
+            {
+                while(curr!=null)
+                {
+                    if (curr.login == login)
+                        return curr;
+                }
+                return null;
+            }
+            else
+            {
+                //nest check = first;
+                curr = curr.next;
+
+                while (curr != first)
+                {
+                    if (curr.login == login)
+                        return curr;
+                }
+                return null;
+            }
+
+
+            /*while (true)
             {
                 int curr_hash = get_hash(login);
                 while (curr.hash != curr_hash)
                 {
                     curr = curr.next;
                 }
-                if ((curr.login == login))/* && curr.tariph == tariph))*/
+                if ((curr.login == login))*//* && curr.tariph == tariph))*//*
                 {
                     return curr;
                 }
                 else
                     curr = curr.chain_next;
-                if (j == num_of_elements - 1)//такого элемента ещё нет, хз, что пока выводим, но это есть
+                if (j == num_of_elements - 1)
                     return null;
-            }
+            }*/
         }
 
         public void delete(string login/*, spisok_tariph.nest tariph*/)

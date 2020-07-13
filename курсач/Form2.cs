@@ -379,7 +379,23 @@ namespace курсач
 
         private void button10_Click(object sender, EventArgs e)
         {
-            user.find(user_find_login.Text);
+            if (user_find_login.Text == "")
+            {
+                error_number = 1;
+                message_box(error_number);
+            }
+            else if (user.find(user_find_login.Text) == null)
+            {
+                error_number = 3;
+                message_box(error_number);
+            }
+            else
+            {
+                spisok_users.nest a = user.find(user_find_login.Text);
+                search_form_user searchform = new search_form_user(a, this);
+                searchform.Show();
+            }
+
             user_find_login.Text = "";
         }
 
