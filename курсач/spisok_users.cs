@@ -192,14 +192,31 @@ namespace курсач
             {
                 //nest check = first;
                 curr = curr.next;
+                while(curr!=first)
+                {
+                    if (curr.hash==hash)
+                    {
+                        while(curr!=null)
+                        {
+                            if (curr.login == login)
+                                return curr;
+                            curr = curr.chain_next;
+                        }
+                        return null;
 
-                while (curr != first)
+                    }
+                    curr = curr.next;
+                }    
+
+
+
+               /* while (curr != first)
                 {
                     int a = compare(curr.login, login);
                     if (a == 0) 
                         return curr;
                     curr = curr.next;
-                }
+                }*/
                 return null;
             }
 
