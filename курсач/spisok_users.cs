@@ -84,16 +84,16 @@ namespace курсач
             }
             return 0;
         }
-        public void add(string login, string date, spisok_tariph.nest tariph)
+        public bool add(string login, string date, spisok_tariph.nest tariph)
         {
-            int j = get_hash(login);
+            int curr_hash = get_hash(login);
             nest curr = first;
-            bool added = false;
+            
 
             if (curr == null)
             {
                 first = new nest();
-                first.hash = j;
+                first.hash = curr_hash;
                 first.login = login;
                 first.date = date;
                 
@@ -103,24 +103,25 @@ namespace курсач
                 first.chain_next = null;
 
                 num_of_elements++;
+                return true;
             }
             else
             {
-                while (!added)
+                while (true)
                 {
-                    int curr_hash = get_hash(login);
-
-                    int a;
-                    
-                    while ((curr.hash != curr_hash)&&(curr!=first))
+                    curr_hash = get_hash(login);
+                   
+                    while ((curr.hash != curr_hash)&&(curr.next!=first))
                     {
                         /*a = compare(curr.login, first.login);
                         if (a == 0)
                             break;*/
                         curr = curr.next;
-                    }                     
+                    }
+                    /*if (curr.next == first)
+                        curr = curr.next;*/
 
-                    if (curr == first)
+                    if (curr.next == first)
                     {
                         if (num_of_elements != max_elements)
                         {
@@ -129,7 +130,7 @@ namespace курсач
                             temp.login = login;
                             temp.date = date;
                             temp.tariph = tariph;
-                            added = true;
+                           // added = true;
                             num_of_elements++;
 
                             curr.next = temp;
@@ -138,10 +139,11 @@ namespace курсач
                             first.prev = temp;
 
                             temp.chain_next = null;
+                            return true;
                         }
                         else
                         {
-                            //error
+                            return false;
                         }
 
                     }
@@ -153,13 +155,14 @@ namespace курсач
                         nest temp = new nest();
                         temp.login = login;
                         temp.date = date;
-                        added = true;
+                       // added = true;
                         //num_of_elements++;
                         temp.tariph = tariph;
 
                         temp.chain_next = null;
                         temp.chain_prev = curr;
                         curr.chain_next = temp;
+                        return true;
                     }
                     
                 }
@@ -168,10 +171,8 @@ namespace курсач
 
         }
 
-        public nest find(string login /*spisok_tariph.nest tariph*/)//исправить, циклится
+        public nest find(string login)/*spisok_tariph.nest tariph*///исправить, циклится
         {
-            //int hash = getkey(login);
-            //int j = 0;
             nest curr = first;
             int hash = get_hash(login);
 
@@ -210,24 +211,6 @@ namespace курсач
 
                 return null;
             }
-
-
-            /*while (true)
-            {
-                int curr_hash = get_hash(login);
-                while (curr.hash != curr_hash)
-                {
-                    curr = curr.next;
-                }
-                if ((curr.login == login))*//* && curr.tariph == tariph))*//*
-                {
-                    return curr;
-                }
-                else
-                    curr = curr.chain_next;
-                if (j == num_of_elements - 1)
-                    return null;
-            }*/
         }
 
         public void delete(string login/*, spisok_tariph.nest tariph*/)
