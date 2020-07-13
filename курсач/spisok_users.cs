@@ -78,6 +78,8 @@ namespace курсач
                 curr.date = date;
                 curr.next = curr;
                 curr.prev = curr;
+                curr.chain = curr;
+                curr.tariph = tariph;
                 num_of_elements++;
             }
             else
@@ -197,14 +199,14 @@ namespace курсач
         public bool Can_get_sale(spisok_users.nest u, tree_sale.root s)
         {
             int time = Convert.ToInt32(s.date);
-            int user_day = Convert.ToInt32(u.date[0]) * 10 + Convert.ToInt32(u.date[1]);
-            int user_month = Convert.ToInt32(u.date[3]) * 10 + Convert.ToInt32(u.date[4]);
-            int user_year = Convert.ToInt32(u.date[8]) * 10 + Convert.ToInt32(u.date[9]);
+            int user_day = (Convert.ToInt32(u.date[0])-48) * 10 + (Convert.ToInt32(u.date[1])-48);
+            int user_month = (Convert.ToInt32(u.date[3])-48) * 10 + (Convert.ToInt32(u.date[4])-48);
+            int user_year = (Convert.ToInt32(u.date[8])-48) * 10 + (Convert.ToInt32(u.date[9])-48);
             int compare_day = 1;
             int compare_month = 1;
             int compare_year = 20;
             int years = 0;
-            if (time > 12)
+            while (time >= 12)
             {
                 time -= 12;
                 years++;
