@@ -216,29 +216,35 @@ namespace курсач
             }
         }
 
-        public void delete(string login/*, spisok_tariph.nest tariph*/)
+        public bool delete(string login/*, spisok_tariph.nest tariph*/)
         {
             nest curr = find(login);
             if (curr != null)
             {
-                if (curr == curr.chain_prev)
+                if ((curr.chain_next != null) && (curr.chain_prev == null))
                 {
-                    curr.login = "";
-                    curr.date = "";
-                    curr.tariph = null;
+                    nest temp = new nest();
+
+                    curr.chain_next = null;
+                    temp.chain_prev = null;
+                    curr.prev.next = temp;
+                    curr.next.prev = temp;
+                    temp.prev = curr.prev;
+                    temp.next = curr.next;
                 }
                 else
                 {
-                    curr.chain_next = curr.chain_prev;
-                    curr.chain_prev = curr.chain_next;
-                    //free(curr);//вроде как free удаляет
+                    curr.prev.next = curr.next;
+                    curr.next.prev = curr.prev;
                 }
-
+                return true;
             }
             else
             {
-                //error
+                return false;
             }
+
+
         }
         public bool Can_get_sale(spisok_users.nest u, tree_sale.root s)
         {
