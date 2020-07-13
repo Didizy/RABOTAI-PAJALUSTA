@@ -130,6 +130,7 @@ namespace курсач
                             temp.login = login;
                             temp.date = date;
                             temp.tariph = tariph;
+                            temp.hash = curr_hash;
                            // added = true;
                             num_of_elements++;
 
@@ -155,7 +156,8 @@ namespace курсач
                         nest temp = new nest();
                         temp.login = login;
                         temp.date = date;
-                       // added = true;
+                        temp.hash = curr_hash;
+                        // added = true;
                         //num_of_elements++;
                         temp.tariph = tariph;
 
@@ -186,6 +188,7 @@ namespace курсач
                 {
                     if (curr.login == login)
                         return curr;
+                    curr = curr.chain_next;
                 }
                 return null;
             }
@@ -193,7 +196,7 @@ namespace курсач
             {
                 //nest check = first;
                 curr = curr.next;
-                while(curr!=first)
+                while (curr != first)
                 {
                     if (curr.hash==hash)
                     {
