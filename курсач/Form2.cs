@@ -401,6 +401,7 @@ namespace курсач
             }
             else
             {
+                user.comparisons = 0;
                 spisok_users.nest a = user.find(user_find_login.Text);
                 search_form_user searchform = new search_form_user(a, this);
                 searchform.Show();
@@ -411,7 +412,10 @@ namespace курсач
 
         private void button9_Click(object sender, EventArgs e)
         {
-            sales.find(sale_find_size.Text, tariph.find(sale_find_tariph.Text, provider.find(sale_find_provider.Text)));
+            sales.comparisons = 0;
+           tree_sale.root a = sales.find(sale_find_size.Text, tariph.find(sale_find_tariph.Text, provider.find(sale_find_provider.Text)));
+            searchform_sale sale_form = new searchform_sale(a, this);
+            sale_form.Show();
             sale_find_provider.Text = sale_find_size.Text = sale_find_tariph.Text = "";
         }
 

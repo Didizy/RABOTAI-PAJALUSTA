@@ -12,7 +12,7 @@ namespace курсач
 {
     public partial class search_form_user : Form
     {
-        spisok_users.nest pr;
+        spisok_users.nest u;
         Form2 f2;
         public search_form_user()
         {
@@ -22,7 +22,7 @@ namespace курсач
         public search_form_user(spisok_users.nest a, Form2 f2)
         {
             InitializeComponent();
-            pr = a;
+            u = a;
             this.f2 = f2;
         }
 
@@ -33,6 +33,14 @@ namespace курсач
 
         private void search_form_user_Load(object sender, EventArgs e)
         {
+            string[] line = new string[4];
+            line[0] = u.hash.ToString();
+            line[1] = u.login;
+            line[2] = u.tariph.name;
+            line[3] = u.date;
+            dataGridViewSearchUser.Rows.Add(line);
+            labelLogin.Text = u.login;
+            labelCompareNum.Text = f2.user.comparisons.ToString();
 
         }
     }

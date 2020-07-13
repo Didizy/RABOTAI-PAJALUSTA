@@ -895,7 +895,7 @@
             this.sale_provider.Name = "sale_provider";
             this.sale_provider.Size = new System.Drawing.Size(199, 20);
             this.sale_provider.TabIndex = 45;
-            this.sale_provider.TextChanged += new System.EventHandler(this.sale_provider_TextChanged);
+            //this.sale_provider.TextChanged += new System.EventHandler(this.sale_provider_TextChanged);
             // 
             // label40
             // 
@@ -944,7 +944,7 @@
             this.sale_length.Name = "sale_length";
             this.sale_length.Size = new System.Drawing.Size(199, 20);
             this.sale_length.TabIndex = 40;
-            this.sale_length.TextChanged += new System.EventHandler(this.sale_length_TextChanged);
+           // this.sale_length.TextChanged += new System.EventHandler(this.sale_length_TextChanged);
             // 
             // label17
             // 
@@ -964,7 +964,7 @@
             this.sale_tariph.Name = "sale_tariph";
             this.sale_tariph.Size = new System.Drawing.Size(199, 20);
             this.sale_tariph.TabIndex = 38;
-            this.sale_tariph.TextChanged += new System.EventHandler(this.sale_tariph_TextChanged);
+           // this.sale_tariph.TextChanged += new System.EventHandler(this.sale_tariph_TextChanged);
             // 
             // label18
             // 
@@ -984,7 +984,7 @@
             this.sale_num.Name = "sale_num";
             this.sale_num.Size = new System.Drawing.Size(199, 20);
             this.sale_num.TabIndex = 36;
-            this.sale_num.TextChanged += new System.EventHandler(this.sale_num_TextChanged);
+           // this.sale_num.TextChanged += new System.EventHandler(this.sale_num_TextChanged);
             // 
             // label24
             // 
@@ -1038,7 +1038,7 @@
             this.user_tariph.Name = "user_tariph";
             this.user_tariph.Size = new System.Drawing.Size(199, 20);
             this.user_tariph.TabIndex = 27;
-            this.user_tariph.TextChanged += new System.EventHandler(this.user_tariph_TextChanged);
+            //this.user_tariph.TextChanged += new System.EventHandler(this.user_tariph_TextChanged);
             // 
             // user_date
             // 

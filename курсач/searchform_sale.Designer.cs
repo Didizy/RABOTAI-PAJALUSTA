@@ -98,6 +98,7 @@
             this.labelSale.Size = new System.Drawing.Size(58, 22);
             this.labelSale.TabIndex = 2;
             this.labelSale.Text = "label2";
+            this.labelSale.Click += new System.EventHandler(this.labelSale_Click);
             // 
             // labelCompareNum
             // 
@@ -135,6 +136,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "searchform_sale";
             this.Text = "searchform_sale";
+            this.Load += new System.EventHandler(this.searchform_sale_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearchSale)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
