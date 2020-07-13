@@ -36,8 +36,6 @@ namespace курсач
         {
             first = null;
             max_elements = 100;
-            num_of_elements = 0;
-            /*max_elements = 100;
             first = new nest(0);
             nest curr = first;
             for (int i = 1; i < max_elements; i++)
@@ -70,8 +68,9 @@ namespace курсач
             nest curr = first;
             bool added = false;
 
-            if(free(curr))
+            if(curr == null)
             {
+                curr = new nest();
                 first = curr;
                 curr.hash = j;
                 curr.login = login;
@@ -162,6 +161,42 @@ namespace курсач
             {
                 //error
             }
+        }
+        public bool Can_get_sale(spisok_users.nest u, tree_sale.root s)
+        {
+            int time = Convert.ToInt32(s.date);
+            int user_day = Convert.ToInt32(u.date[0]) * 10 + Convert.ToInt32(u.date[1]);
+            int user_month = Convert.ToInt32(u.date[3]) * 10 + Convert.ToInt32(u.date[4]);
+            int user_year = Convert.ToInt32(u.date[8]) * 10 + Convert.ToInt32(u.date[9]);
+            int compare_day = 1;
+            int compare_month = 1;
+            int compare_year = 20;
+            int years = 0;
+            if (time > 12)
+            {
+                time -= 12;
+                years++;
+
+            }
+            if (compare_year - years < user_year)
+            {
+                return false;
+            }
+            if (user_month + time > 12)
+            {
+                user_month -= 12 + time;
+                user_year++;
+            }
+            if (user_year + years > compare_year)
+            {
+                return false;
+            }
+            if ((user_day > compare_day)&&(user_month>=compare_month))
+            {
+                return false;
+
+            }
+            return true;
         }
       
     }
