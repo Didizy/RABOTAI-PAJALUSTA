@@ -61,6 +61,9 @@ namespace курсач
                 case 4://элемент уже существует
                     message_choise_resilt = MessageBox.Show("Элемент уже существует", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
+                case 10://удаление прошло
+                    MessageBox.Show("Элемент удален", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
                 default: break;
             }
 
@@ -168,8 +171,10 @@ namespace курсач
             {
                 sales.delete_tariph(tariph.find(tariph_del_title.Text, provider.find(tariph_del_provider.Text)), sales.main);
                 tariph.delete(tariph_del_title.Text, provider.find(tariph_del_provider.Text));
-                tariph_del_title.Text = tariph_del_provider.Text = "";
-            }  
+                error_number = 10;
+                message_box(error_number);               
+            }
+            tariph_del_title.Text = tariph_del_provider.Text = "";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -200,17 +205,28 @@ namespace курсач
             {
                 error_number = 2;
             }
+            else if (tariph_title.Text == "" || tariph_provider.Text == "" || tariph_cost.Text == "")
+            {
+                error_number = 1;
+                //message_box(error_number);
+            }
+            else if (checkBoxAddTariphTV.Checked && !(checkBoxAddTariphInternet.Checked))
+            {
+                if (Convert.ToInt32(tariph_speed) != 0 || tariph_speed.Text != "")
+                    error_number = 2;
+            }
+
             else
             {
                 provider.add_tariph(tariph_title.Text, Convert.ToInt32(tariph_cost.Text), tariph_provider.Text);
 
-                tariph.add(tariph.getkey(tariph_title.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));                
-                tariph_title.Text = tariph_cost.Text = tariph_provider.Text = tariph_speed.Text = "";
-                checkBoxAddTariphTV.Checked = false;
-                checkBoxAddTariphInternet.Checked = false;
+                tariph.add(tariph.getkey(tariph_title.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));               
             }
 
             message_box(error_number);
+            tariph_title.Text = tariph_cost.Text = tariph_provider.Text = tariph_speed.Text = "";
+            checkBoxAddTariphTV.Checked = false;
+            checkBoxAddTariphInternet.Checked = false;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -396,6 +412,9 @@ namespace курсач
                     sales.delete_tariph(tariph.find(pr.arr[0].name,pr), sales.main);
                     tariph.delete(pr.arr[0].name, pr);
                     provider.del_tariph(pr.arr[0].name, pr);
+
+                    error_number = 10;
+                    message_box(error_number);
                 }
                 provider.delete(provider_del_title.Text);
                 provider_del_title.Text = "";
@@ -432,14 +451,55 @@ namespace курсач
         private void del_user_Click(object sender, EventArgs e)
         {
             spisok_users.nest a = user.find(user_del_login.Text);
-            provider.delete_user(user_del_login.Text, a.tariph.provider.title);
-            user.delete(user_del_login.Text);
+
+            if (user_del_login.Text == "")
+            {
+                error_number = 1;
+                message_box(error_number);
+            }
+            else if (a == null)
+            {
+                error_number = 3;
+                message_box(error_number);
+            }
+            else
+            {
+                provider.delete_user(user_del_login.Text, a.tariph.provider.title);
+                user.delete(user_del_login.Text);
+                error_number = 10;
+                message_box(error_number);
+            }
             user_del_login.Text = "";
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
-            sales.delete(sale_del_size.Text, tariph.find(sale_del_tar.Text, provider.find(sale_del_provider.Text)));
+            tree_providers.root check1 = provider.find(sale_del_provider.Text);
+            spisok_tariph.nest check = null;
+            if (check1 != null)
+                check = tariph.find(sale_del_tar.Text, provider.find(sale_del_provider.Text));
+
+            if (sale_del_size.Text == "" || sale_del_tar.Text == "" || sale_del_provider.Text == "")
+            {
+                error_number = 1;
+                message_box(error_number);
+            }
+            else if (check1 == null || check == null)
+            {
+                error_number = 3;
+                message_box(error_number);
+            }
+            else if (sales.delete(sale_del_size.Text, tariph.find(sale_del_tar.Text, provider.find(sale_del_provider.Text)))==false)
+            {
+                error_number = 3;
+                message_box(error_number);
+            }
+            else
+            {
+                sales.delete(sale_del_size.Text, tariph.find(sale_del_tar.Text, provider.find(sale_del_provider.Text)));
+                error_number = 10;
+                message_box(error_number);
+            }            
             sale_del_tar.Text = sale_del_size.Text = sale_del_provider.Text = "";
         }
 
@@ -477,9 +537,25 @@ namespace курсач
 
         private void button9_Click(object sender, EventArgs e)
         {
+            tree_providers.root check1 = provider.find(sale_find_provider.Text);
+            spisok_tariph.nest check = null;
+            if (check1 != null)
+                check = tariph.find(sale_find_tariph.Text, provider.find(user_provider.Text));
 
-
-            sales.find(sale_find_size.Text, tariph.find(sale_find_tariph.Text, provider.find(sale_find_provider.Text)));
+            if (sale_find_size.Text == "" || sale_find_tariph.Text == "" || sale_find_provider.Text == "")
+            {
+                error_number = 1;
+                message_box(error_number);
+            }
+            else if (check==null||check1==null)
+            {
+                error_number = 3;
+                message_box(error_number);
+            }
+            else
+            {
+                sales.find(sale_find_size.Text, tariph.find(sale_find_tariph.Text, provider.find(sale_find_provider.Text)));
+            }
             sale_find_provider.Text = sale_find_size.Text = sale_find_tariph.Text = "";
         }
 
@@ -856,6 +932,11 @@ namespace курсач
         }
 
         private void sale_provider_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label37_Click(object sender, EventArgs e)
         {
 
         }

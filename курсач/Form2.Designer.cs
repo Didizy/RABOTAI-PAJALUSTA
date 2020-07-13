@@ -1080,15 +1080,16 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(528, 325);
+            this.label37.Location = new System.Drawing.Point(708, 319);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(155, 17);
             this.label37.TabIndex = 47;
             this.label37.Text = "Название провайдера";
+            this.label37.Click += new System.EventHandler(this.label37_Click);
             // 
             // sale_find_provider
             // 
-            this.sale_find_provider.Location = new System.Drawing.Point(713, 316);
+            this.sale_find_provider.Location = new System.Drawing.Point(893, 316);
             this.sale_find_provider.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sale_find_provider.Name = "sale_find_provider";
             this.sale_find_provider.Size = new System.Drawing.Size(264, 22);
@@ -1097,7 +1098,7 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(11, 247);
+            this.label36.Location = new System.Drawing.Point(52, 247);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(143, 17);
             this.label36.TabIndex = 45;
@@ -1105,7 +1106,7 @@
             // 
             // user_find_login
             // 
-            this.user_find_login.Location = new System.Drawing.Point(196, 242);
+            this.user_find_login.Location = new System.Drawing.Point(237, 242);
             this.user_find_login.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.user_find_login.Name = "user_find_login";
             this.user_find_login.Size = new System.Drawing.Size(264, 22);
@@ -1114,7 +1115,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(528, 277);
+            this.label29.Location = new System.Drawing.Point(708, 277);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(114, 17);
             this.label29.TabIndex = 33;
@@ -1122,7 +1123,7 @@
             // 
             // sale_find_size
             // 
-            this.sale_find_size.Location = new System.Drawing.Point(713, 277);
+            this.sale_find_size.Location = new System.Drawing.Point(893, 277);
             this.sale_find_size.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sale_find_size.Name = "sale_find_size";
             this.sale_find_size.Size = new System.Drawing.Size(264, 22);
@@ -1131,7 +1132,7 @@
             // button9
             // 
             this.button9.BackColor = System.Drawing.Color.LightGreen;
-            this.button9.Location = new System.Drawing.Point(659, 354);
+            this.button9.Location = new System.Drawing.Point(839, 354);
             this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(173, 42);
@@ -1143,7 +1144,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(528, 235);
+            this.label25.Location = new System.Drawing.Point(708, 235);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(126, 17);
             this.label25.TabIndex = 30;
@@ -1151,7 +1152,7 @@
             // 
             // sale_find_tariph
             // 
-            this.sale_find_tariph.Location = new System.Drawing.Point(713, 235);
+            this.sale_find_tariph.Location = new System.Drawing.Point(893, 235);
             this.sale_find_tariph.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sale_find_tariph.Name = "sale_find_tariph";
             this.sale_find_tariph.Size = new System.Drawing.Size(264, 22);
@@ -1160,7 +1161,7 @@
             // button10
             // 
             this.button10.BackColor = System.Drawing.Color.LightGreen;
-            this.button10.Location = new System.Drawing.Point(159, 288);
+            this.button10.Location = new System.Drawing.Point(200, 288);
             this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(173, 42);
@@ -1172,7 +1173,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(673, 183);
+            this.label27.Location = new System.Drawing.Point(853, 183);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(97, 17);
             this.label27.TabIndex = 25;
@@ -1182,7 +1183,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(159, 183);
+            this.label28.Location = new System.Drawing.Point(200, 183);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(145, 17);
             this.label28.TabIndex = 24;
