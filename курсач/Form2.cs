@@ -96,7 +96,7 @@ namespace курсач
 
         private void label6_Click(object sender, EventArgs e)
         {
-            //прихуярить текст боксы!!! для вида услуги
+            
         }
 
         private void textBox9_TextChanged(object sender, EventArgs e)
@@ -109,10 +109,28 @@ namespace курсач
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)//поиск тарифа
         {
-            spisok_tariph.nest a = tariph.find(tariph_find_title.Text, provider.find(tariph_find_provider.Text));
-            tariph_find_title.Text = tariph_find_provider.Text = "";
+            if ((tariph_find_provider.Text == "") || (tariph_find_title.Text == ""))
+            {
+                error_number = 1;
+                message_box(error_number);
+            }
+            else if ((provider.find(tariph_find_provider.Text) == null) || (tariph.find(tariph_find_title.Text, provider.find(tariph_find_provider.Text)) == null))
+            {
+                error_number = 3;
+                message_box(error_number);
+            }
+            else
+            {
+                spisok_tariph.nest a = tariph.find(tariph_find_title.Text, provider.find(tariph_find_provider.Text));
+                search_form_for_tariph searchform = new search_form_for_tariph(a, this);
+
+                searchform.Show();
+            }
+
+            tariph_find_provider.Text = "";
+            tariph_find_title.Text = "";
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -309,53 +327,25 @@ namespace курсач
         }
 
         private void find_provider_Click(object sender, EventArgs e)
-        {
-            tree_providers.root a = provider.find(provider_find_title.Text);
-            provider_find_title.Text = "";
-
-            int type = 0;
-            int error_number = 0;
-            if ((checkBoxAddTariphInternet.Checked) && (checkBoxAddTariphTV.Checked))
-            {
-                type = 2;
-            }
-            else if ((checkBoxAddTariphInternet.Checked) && !(checkBoxAddTariphTV.Checked))
-            {
-                type = 1;
-            }
-            else if (!(checkBoxAddTariphInternet.Checked) && (checkBoxAddTariphTV.Checked))
-            {
-                type = 3;
-            }
-            else
+        {                    
+            if (provider_find_title.Text == "")
             {
                 error_number = 1;
+                message_box(error_number);
             }
-            if (!check_for_int(tariph_cost.Text))
+            else if (provider.find(provider_find_title.Text)==null)
             {
-                error_number = 2;
-            }
-            if (!check_for_int(tariph_speed.Text))
-            {
-                error_number = 2;
+                error_number = 3;
+                message_box(error_number);
             }
             else
             {
-                provider.add_tariph(tariph_title.Text, Convert.ToInt32(tariph_cost.Text), tariph_provider.Text);
+                tree_providers.root a = provider.find(provider_find_title.Text);
+                searchform_provider searchform = new searchform_provider(a, this);
 
-                tariph.add(tariph.getkey(tariph_title.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));
-                tariph_title.Text = tariph_cost.Text = tariph_provider.Text = tariph_speed.Text = "";
-                checkBoxAddTariphTV.Checked = false;
-                checkBoxAddTariphInternet.Checked = false;
+                searchform.Show();
             }
-
-            message_box(error_number);
-            searchform_provider searchform = new searchform_provider(a,this);
-
-
-            //searchform.Owner = this;
-            searchform.Show();
-            
+            provider_find_title.Text = "";
         }
 
         private void Provider_title_TextChanged(object sender, EventArgs e)
@@ -456,7 +446,7 @@ namespace курсач
 
         private void to_file_Click(object sender, EventArgs e)
         {
-            StreamWriter out_file = new StreamWriter(@"a:\gitjub\курсач\output_user.txt");
+            StreamWriter out_file = new StreamWriter(@"c:\курсач\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
             spisok_users.nest a = user.first;
             spisok_users.nest temp = a.chain_next;
             string output;
@@ -573,7 +563,7 @@ namespace курсач
 
         private void save_provider_Click(object sender, EventArgs e)
         {
-            StreamWriter file_out = new StreamWriter(@"a:\gitjub\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
+            StreamWriter file_out = new StreamWriter(@"c:\курсач\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
             //file_out.WriteLine("РАБОТАЙ");
             output_for_provider(file_out, provider.main);
             file_out.Close();
@@ -581,7 +571,7 @@ namespace курсач
 
         private void load_provider_Click(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
+            StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_user.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
             input_for_provider(file_in);
             file_in.Close();
         }
@@ -620,6 +610,16 @@ namespace курсач
         {
             string[] line = new string[6];
             sale_out(line, sales.main);
+        }
+
+        private void provider_find_title_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tariph_find_title_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

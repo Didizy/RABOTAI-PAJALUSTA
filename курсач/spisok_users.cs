@@ -36,7 +36,8 @@ namespace курсач
         {
             first = null;
             max_elements = 100;
-            first = new nest(0);
+            num_of_elements = 0;
+            /*first = new nest(0);
             nest curr = first;
             for (int i = 1; i < max_elements; i++)
             {

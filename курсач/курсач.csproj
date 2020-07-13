@@ -68,6 +68,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="searchform_sale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="searchform_sale.Designer.cs">
+      <DependentUpon>searchform_sale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="search_form_for_tariph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="search_form_for_tariph.Designer.cs">
+      <DependentUpon>search_form_for_tariph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="search_form_user.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="search_form_user.Designer.cs">
+      <DependentUpon>search_form_user.cs</DependentUpon>
+    </Compile>
     <Compile Include="tree_providers.cs" />
     <Compile Include="spisok_tariph.cs" />
     <Compile Include="spisok_users.cs" />
@@ -90,6 +108,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="searchform_sale.resx">
+      <DependentUpon>searchform_sale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="search_form_for_tariph.resx">
+      <DependentUpon>search_form_for_tariph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="search_form_user.resx">
+      <DependentUpon>search_form_user.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

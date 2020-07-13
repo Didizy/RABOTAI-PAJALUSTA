@@ -144,7 +144,6 @@ namespace курсач
                 if ((curr.name == name) &&curr.provider == provider)
                 {
                     return curr;
-
                 }
                 else
                     j++;
