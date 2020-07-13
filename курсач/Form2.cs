@@ -123,6 +123,7 @@ namespace курсач
             }
             else
             {
+                tariph.comparisons = 0;
                 spisok_tariph.nest a = tariph.find(tariph_find_title.Text, provider.find(tariph_find_provider.Text));
                 search_form_for_tariph searchform = new search_form_for_tariph(a, this);
 
@@ -150,8 +151,16 @@ namespace курсач
 
         private void button6_Click(object sender, EventArgs e)
         {
-            sales.delete_tariph(tariph.find(tariph_del_title.Text, provider.find(tariph_del_provider.Text)),sales.main);
-            tariph.delete(tariph_del_title.Text, provider.find(tariph_del_provider.Text));
+            spisok_tariph.nest a = tariph.find(tariph_del_title.Text, provider.find(tariph_del_provider.Text));
+            for(int i = 0; i < a.provider.current_user; i++)
+            {
+                if (user.find(a.provider.users[i]).tariph == a)
+                    user.delete(a.provider.users[i]);
+            }
+            sales.delete_tariph(a,sales.main);
+            
+            tariph.delete(a.name, a.provider);
+            provider.del_tariph(a.name, a.provider);
             tariph_del_title.Text = tariph_del_provider.Text = "";
         }
 

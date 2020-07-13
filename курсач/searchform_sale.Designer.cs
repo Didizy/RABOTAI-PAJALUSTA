@@ -48,10 +48,11 @@
             this.ColumnDateOfUse});
             this.dataGridViewSearchSale.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridViewSearchSale.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewSearchSale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewSearchSale.Name = "dataGridViewSearchSale";
             this.dataGridViewSearchSale.RowHeadersWidth = 51;
             this.dataGridViewSearchSale.RowTemplate.Height = 24;
-            this.dataGridViewSearchSale.Size = new System.Drawing.Size(542, 438);
+            this.dataGridViewSearchSale.Size = new System.Drawing.Size(428, 356);
             this.dataGridViewSearchSale.TabIndex = 0;
             // 
             // ColumnSale
@@ -79,9 +80,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.label1.Location = new System.Drawing.Point(687, 28);
+            this.label1.Location = new System.Drawing.Point(515, 23);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 24);
+            this.label1.Size = new System.Drawing.Size(120, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "Процент скидки";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -90,9 +92,10 @@
             // 
             this.labelSale.AutoSize = true;
             this.labelSale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
-            this.labelSale.Location = new System.Drawing.Point(723, 87);
+            this.labelSale.Location = new System.Drawing.Point(542, 71);
+            this.labelSale.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSale.Name = "labelSale";
-            this.labelSale.Size = new System.Drawing.Size(70, 26);
+            this.labelSale.Size = new System.Drawing.Size(58, 22);
             this.labelSale.TabIndex = 2;
             this.labelSale.Text = "label2";
             // 
@@ -100,9 +103,10 @@
             // 
             this.labelCompareNum.AutoSize = true;
             this.labelCompareNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
-            this.labelCompareNum.Location = new System.Drawing.Point(723, 318);
+            this.labelCompareNum.Location = new System.Drawing.Point(542, 258);
+            this.labelCompareNum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCompareNum.Name = "labelCompareNum";
-            this.labelCompareNum.Size = new System.Drawing.Size(70, 26);
+            this.labelCompareNum.Size = new System.Drawing.Size(58, 22);
             this.labelCompareNum.TabIndex = 3;
             this.labelCompareNum.Text = "label2";
             // 
@@ -110,23 +114,25 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.label2.Location = new System.Drawing.Point(658, 244);
+            this.label2.Location = new System.Drawing.Point(494, 198);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(219, 24);
+            this.label2.Size = new System.Drawing.Size(168, 18);
             this.label2.TabIndex = 4;
             this.label2.Text = "Количество сравнений";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // searchform_sale
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(921, 438);
+            this.ClientSize = new System.Drawing.Size(691, 356);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelCompareNum);
             this.Controls.Add(this.labelSale);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewSearchSale);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "searchform_sale";
             this.Text = "searchform_sale";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearchSale)).EndInit();
