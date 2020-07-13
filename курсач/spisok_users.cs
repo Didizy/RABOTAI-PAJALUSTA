@@ -10,7 +10,7 @@ namespace курсач
 {
    public class spisok_users
     {
-
+        public int comparisons = 0;
         public class nest
         {
             public int hash;
@@ -186,8 +186,10 @@ namespace курсач
             {
                 while(curr!=null)
                 {
+                    comparisons++;
                     if (curr.login == login)
                         return curr;
+
                     curr = curr.chain_next;
                 }
                 return null;
@@ -202,6 +204,7 @@ namespace курсач
                     {
                         while(curr!=null)
                         {
+                            comparisons++;
                             if (curr.login == login)
                                 return curr;
                             curr = curr.chain_next;
