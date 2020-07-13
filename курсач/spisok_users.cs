@@ -124,11 +124,12 @@ namespace курсач
             //int j = 0;
             nest curr = first;
             int hash = get_hash(login);
-            if (curr == null) 
+
+            if (curr == null)
             {
                 return null;
             }
-            else if (hash==curr.hash)
+            else if (hash == curr.hash)
             {
                 while(curr!=null)
                 {
