@@ -8,6 +8,7 @@ namespace курсач
 {
     public class spisok_tariph
     {
+      public int comparisons = 0;
 
         public class nest
         {
@@ -143,6 +144,7 @@ namespace курсач
                 }
                 if ((curr.name == name) &&curr.provider == provider)
                 {
+                    comparisons++;
                     return curr;
                 }
                 else

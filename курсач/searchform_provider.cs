@@ -26,21 +26,26 @@ namespace курсач
         }
        
        
-        public void add_grid_param( DataGridView grid)
+        public int add_grid_param( DataGridView grid)
         {
             string[] temp = new string[4];
             int curr = 0;
+            int comp = 0;
+            f2.tariph.comparisons = 0;
             while (curr < pr.current_tariph)
             {
-                temp[0] = f2.tariph.find(pr.arr[curr].name, pr).hash.ToString();
-                temp[1] = f2.tariph.find(pr.arr[curr].name, pr).speed.ToString();
-                temp[2] = pr.arr[curr].cost.ToString();
-                temp[3] = pr.arr[curr].name;
+                spisok_tariph.nest a = f2.tariph.find(pr.arr[curr].name, pr);
+                comp += f2.tariph.comparisons;
+                temp[0] = a.hash.ToString();
+                temp[1] = pr.arr[curr].name;
+                temp[2] = a.speed.ToString();
+                temp[3] = pr.arr[curr].cost.ToString();
                 grid.Rows.Add(temp);
                 curr++;
-              
+                
              
             }
+            return comp;
            // grid.Rows.
             //string[] check = { "test1", "test2", "test3", "test4" };
             //grid.Rows.Add(check);
@@ -50,8 +55,9 @@ namespace курсач
         private void error_form_Load(object sender, EventArgs e)
         {
             //string[] check = { "test1", "test2", "test3", "test4" };//в строку подстроки, котторые будут в столбцах
-            add_grid_param( dataGridView1);
+            int comp = add_grid_param( dataGridView1);
             Provider_name.Text = pr.title;
+            compare_number.Text = comp.ToString();
            
         }
 
