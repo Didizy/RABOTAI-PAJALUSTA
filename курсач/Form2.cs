@@ -305,6 +305,7 @@ namespace курсач
         {
             spisok_tariph.nest a = tariph.find(sale_tariph.Text, provider.find(sale_provider.Text));
             sales.add_sale(sale_num.Text, sale_length.Text, a, a.provider);
+            sale_num.Text = sale_tariph.Text = sale_provider.Text = sale_length.Text = "";
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -449,12 +450,16 @@ namespace курсач
         }
         public void output_for_sales(StreamWriter file,tree_sale.root parent)
         {
+            if (parent == null)
+                return;
             string output = "";
             output += parent.size;
             output += "/";
             output += parent.date;
             output += "/";
             output += parent.tariph.name;
+            output += "/";
+            output += parent.tariph.provider.title;
             file.WriteLine(output);
             output_for_sales(file, parent.left);
             output_for_sales(file, parent.right);
@@ -600,22 +605,29 @@ namespace курсач
         }
         public void sale_out(string[] line, tree_sale.root s)
         {
-            for (int i = 0; i < s.tariph.provider.current_user; i++) {
-                spisok_users.nest u =user.find(s.tariph.provider.users[i]);
-                if (user.Can_get_sale(u, s))
+            if (s == null)
+                return;
+            for (int i = 0; i < s.tariph.provider.current_user; i++)
+            {
+                spisok_users.nest u = user.find(s.tariph.provider.users[i]);
+                if (s.tariph == u.tariph)
                 {
-                    line[0] = s.size;
+                    if (user.Can_get_sale(u, s))
+                    {
+                        line[0] = s.size;
+                    }
+                    else
+                    {
+                        line[0] = "0";
+                    }
+                    line[1] = s.date + " Месяцев";
+                    line[2] = u.hash.ToString();
+                    line[3] = u.login;
+                    line[4] = s.tariph.name;
+                    line[5] = u.date;
+                    dataGridViewUsersAndSells.Rows.Add(line);
+
                 }
-                else
-                {
-                    line[0] = "0";
-                }
-                line[1] = s.date+"Месяцев";
-                line[2] = u.hash.ToString();
-                line[3] = u.login;
-                line[4] = s.tariph.name;
-                line[5] = u.date;
-                dataGridViewUsersAndSells.Rows.Add(line);
                 
             }
             sale_out(line, s.left);
@@ -624,18 +636,11 @@ namespace курсач
 
         private void refresh_users_Click(object sender, EventArgs e)
         {
+            dataGridViewUsersAndSells.Rows.Clear();
             string[] line = new string[6];
             sale_out(line, sales.main);
         }
-
-        private void load_provider_Click_1(object sender, EventArgs e)//добавление провайдеров из файла
-        {
-            StreamWriter file_out = new StreamWriter(@"c:\курсач\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
-            //file_out.WriteLine("РАБОТАЙ");
-            output_for_provider(file_out, provider.main);
-            file_out.Close();
-        }
-
+        
         private void provider_find_title_TextChanged(object sender, EventArgs e)
         {
 
@@ -648,7 +653,7 @@ namespace курсач
 
         private void save_provider_Click_1(object sender, EventArgs e)
         {
-            StreamWriter file_out = new StreamWriter(@"c:\курсач\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
+            StreamWriter file_out = new StreamWriter(@"a:\gitjub\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
             //file_out.WriteLine("РАБОТАЙ");
             output_for_provider(file_out, provider.main);
             file_out.Close();
@@ -656,14 +661,14 @@ namespace курсач
 
         private void load_provider_Click_2(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_user.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
+            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
             input_for_provider(file_in);
             file_in.Close();
         }
 
         private void to_file_Click_1(object sender, EventArgs e)
         {
-            StreamWriter out_file = new StreamWriter(@"c:\курсач\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
+            StreamWriter out_file = new StreamWriter(@"a:\gitjub\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
             spisok_users.nest a = user.first;
             spisok_users.nest temp = a.chain_next;
             string output;
@@ -675,8 +680,10 @@ namespace курсач
                 output += a.date;
                 output += "/";
                 output += a.tariph.name;
+                output += "/";
+                output += a.tariph.provider.title;
                 out_file.WriteLine(output);
-                while (temp != a)
+                while ((temp != a)&&!(temp==null))
                 {
                     output = "";
                     output += temp.login;
@@ -684,12 +691,14 @@ namespace курсач
                     output += temp.date;
                     output += "/";
                     output += temp.tariph.name;
+                    output += "/";
+                    output += temp.tariph.provider.title;
                     out_file.WriteLine(output);
                     temp = temp.chain_next;
 
                 }
-                a = a.next;
-                if (a == null)
+                temp = a.next;
+                if (temp == a)
                     break;
                 temp = a.chain_next;
             }
@@ -700,6 +709,52 @@ namespace курсач
 
         private void from_file_button_Click_1(object sender, EventArgs e)
         {
+            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_user.txt");
+            string[] line = new string[4];
+            string temp = file_in.ReadLine();
+            while (temp != "//")
+            {
+                int j = 0;
+                int i = 0;
+                while (j < temp.Length)
+                {
+                    if (temp[j] == '/')
+                    {
+                        j++;
+                        i++;
+                    }
+                    
+                    line[i] += temp[j];
+                    j++;
+                }
+                user.add(line[0], line[1], tariph.find(line[2], provider.find(line[3])));
+                provider.add_user(line[0], line[3]);
+                line[0] = line[1] = line[2] = line[3] = "";
+                temp = file_in.ReadLine();
+            }
+            
+            while (file_in.Peek() > -1)
+            {
+                temp = file_in.ReadLine();
+                int j = 0;
+                int i = 0;
+                while (j < temp.Length)
+                {
+                    if (temp[j] == '/')
+                    {
+                        j++;
+                        i++;
+                    }
+                    line[i] += temp[j];
+                    j++;
+                }
+                spisok_tariph.nest a = tariph.find(line[2], provider.find(line[3]));
+                sales.add_sale(line[0], line[1], a, a.provider);
+                line[0] = line[1] = line[2] = line[3] = "";
+
+            }
+            file_in.Close();
+           
 
         }
     }
