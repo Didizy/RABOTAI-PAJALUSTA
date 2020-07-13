@@ -8,6 +8,7 @@ namespace курсач
 {
     public class tree_sale
     {
+        public int comparisons = 0;
         public class root
         {
             //public string size;
@@ -101,6 +102,7 @@ namespace курсач
                     {
                         while (curr != null) 
                         {
+                            comparisons++;
                             if (curr.tariph == tariph)
                                 return curr;
                             curr = curr.right;
@@ -108,15 +110,22 @@ namespace курсач
                         return null;
                     }
                     else if (i == -1)
+                    {
+                        comparisons++;
                         if (curr.left != null)
                             curr = curr.left;
                         else
                             return null;
+                    }                        
                     else if (i == 1)
+                    {
+                        comparisons++;
                         if (curr.right != null)
                             curr = curr.right;
                         else
                             return null;
+                    }
+
                 }
             }
 
