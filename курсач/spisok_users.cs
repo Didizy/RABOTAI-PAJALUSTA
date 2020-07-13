@@ -53,7 +53,12 @@ namespace курсач
         }
         public bool free(nest temp)//проверка на пустую ячейку
         {
-             return ((temp.login == "") && (temp.tariph == null));
+            //return ((temp.login == "") && (temp.tariph == null));
+            if (((temp.login == "") && (temp.tariph == null)) || (temp == null))
+                return false;
+            else
+                return true;
+            //return ((temp.login == "") && (temp.tariph == null)) || (temp == null);
         }
 
         public int get_hash (string login)
@@ -63,23 +68,40 @@ namespace курсач
             return h1;
         }
 
+        public int compare(string a, string b)//сравнение строк
+        {
+
+
+            for (int i = 0; ((i < a.Length) && (i < b.Length)); i++)
+            {
+                if (a[i] == b[i])
+                    continue;
+                else if (a[i] < b[i])
+                    return -1;
+                else
+                    return 1;
+
+            }
+            return 0;
+        }
         public void add(string login, string date, spisok_tariph.nest tariph)
         {
             int j = get_hash(login);
             nest curr = first;
             bool added = false;
 
-            if(curr == null)
+            if (curr == null)
             {
-                curr = new nest();
-                first = curr;
-                curr.hash = j;
-                curr.login = login;
-                curr.date = date;
-                curr.next = curr;
-                curr.prev = curr;
-                curr.chain = curr;
-                curr.tariph = tariph;
+                first = new nest();
+                first.hash = j;
+                first.login = login;
+                first.date = date;
+                
+                first.tariph = tariph;
+                first.next = first;
+                first.prev = first;
+                first.chain_next = null;
+
                 num_of_elements++;
             }
             else
@@ -87,33 +109,59 @@ namespace курсач
                 while (!added)
                 {
                     int curr_hash = get_hash(login);
-                    while (curr.hash != curr_hash)
-                        curr = curr.next;
 
-                    if (free(curr))
+                    int a;
+                    
+                    while ((curr.hash != curr_hash)&&(curr!=first))
                     {
-                        curr.login = login;
-                        curr.date = date;
-                        added = true;
-                        num_of_elements++;
-                        curr.tariph = tariph;
-                        curr.prev = curr;
-                        curr.next = first;
+                        /*a = compare(curr.login, first.login);
+                        if (a == 0)
+                            break;*/
+                        curr = curr.next;
+                    }                     
+
+                    if (curr == first)
+                    {
+                        if (num_of_elements != max_elements)
+                        {
+                            //curr = new nest();
+                            nest temp = new nest();
+                            temp.login = login;
+                            temp.date = date;
+                            temp.tariph = tariph;
+                            added = true;
+                            num_of_elements++;
+
+                            curr.next = temp;
+                            temp.prev = curr;
+                            temp.next = first;
+                            first.prev = temp;
+
+                            temp.chain_next = null;
+                        }
+                        else
+                        {
+                            //error
+                        }
+
                     }
                     else
                     {
-                        while (!free(curr))
+                        while (curr.chain_next != null)
                             curr = curr.chain_next;
-
-                        curr.login = login;
-                        curr.date = date;
+                        //curr = new nest();
+                        nest temp = new nest();
+                        temp.login = login;
+                        temp.date = date;
                         added = true;
-                        num_of_elements++;
-                        curr.tariph = tariph;
+                        //num_of_elements++;
+                        temp.tariph = tariph;
 
-                        curr.chain_next = null;
-                        curr.chain_prev = curr;
+                        temp.chain_next = null;
+                        temp.chain_prev = curr;
+                        curr.chain_next = temp;
                     }
+                    
                 }
             }
            
@@ -147,8 +195,10 @@ namespace курсач
 
                 while (curr != first)
                 {
-                    if (curr.login == login)
+                    int a = compare(curr.login, login);
+                    if (a == 0) 
                         return curr;
+                    curr = curr.next;
                 }
                 return null;
             }
