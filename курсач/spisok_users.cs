@@ -208,15 +208,6 @@ namespace курсач
                     curr = curr.next;
                 }    
 
-
-
-               /* while (curr != first)
-                {
-                    int a = compare(curr.login, login);
-                    if (a == 0) 
-                        return curr;
-                    curr = curr.next;
-                }*/
                 return null;
             }
 
