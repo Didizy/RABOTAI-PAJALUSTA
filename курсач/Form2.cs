@@ -444,7 +444,7 @@ namespace курсач
             output_for_sales(file, parent.right);
         }
 
-        private void to_file_Click(object sender, EventArgs e)
+/*        private void to_file_Click(object sender, EventArgs e)
         {
             StreamWriter out_file = new StreamWriter(@"c:\курсач\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
             spisok_users.nest a = user.first;
@@ -486,7 +486,7 @@ namespace курсач
 
 
         }
-
+*/
         public void output_for_provider(StreamWriter file, tree_providers.root pr)
         {
             if (pr == null)
@@ -560,21 +560,21 @@ namespace курсач
             }
         }
      
-
-        private void save_provider_Click(object sender, EventArgs e)
+        
+        /*private void save_provider_Click(object sender, EventArgs e)
         {
             StreamWriter file_out = new StreamWriter(@"c:\курсач\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
             //file_out.WriteLine("РАБОТАЙ");
             output_for_provider(file_out, provider.main);
             file_out.Close();
-        }
+        }*/
 
-        private void load_provider_Click(object sender, EventArgs e)
+        /*private void load_provider_Click(object sender, EventArgs e)
         {
             StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_user.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
             input_for_provider(file_in);
             file_in.Close();
-        }
+        }*/
 
         private void refresh_provider_Click(object sender, EventArgs e)
         {
@@ -612,12 +612,77 @@ namespace курсач
             sale_out(line, sales.main);
         }
 
+        private void load_provider_Click_1(object sender, EventArgs e)//добавление провайдеров из файла
+        {
+            StreamWriter file_out = new StreamWriter(@"c:\курсач\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
+            //file_out.WriteLine("РАБОТАЙ");
+            output_for_provider(file_out, provider.main);
+            file_out.Close();
+        }
+
         private void provider_find_title_TextChanged(object sender, EventArgs e)
         {
 
         }
 
         private void tariph_find_title_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void save_provider_Click_1(object sender, EventArgs e)
+        {
+            StreamWriter file_out = new StreamWriter(@"c:\курсач\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
+            //file_out.WriteLine("РАБОТАЙ");
+            output_for_provider(file_out, provider.main);
+            file_out.Close();
+        }
+
+        private void load_provider_Click_2(object sender, EventArgs e)
+        {
+            StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_user.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
+            input_for_provider(file_in);
+            file_in.Close();
+        }
+
+        private void to_file_Click_1(object sender, EventArgs e)
+        {
+            StreamWriter out_file = new StreamWriter(@"c:\курсач\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
+            spisok_users.nest a = user.first;
+            spisok_users.nest temp = a.chain_next;
+            string output;
+            while (true)
+            {
+                output = "";
+                output += a.login;
+                output += "/";
+                output += a.date;
+                output += "/";
+                output += a.tariph.name;
+                out_file.WriteLine(output);
+                while (temp != a)
+                {
+                    output = "";
+                    output += temp.login;
+                    output += "/";
+                    output += temp.date;
+                    output += "/";
+                    output += temp.tariph.name;
+                    out_file.WriteLine(output);
+                    temp = temp.chain_next;
+
+                }
+                a = a.next;
+                if (a == null)
+                    break;
+                temp = a.chain_next;
+            }
+            out_file.WriteLine("//");
+            output_for_sales(out_file, sales.main);
+            out_file.Close();
+        }
+
+        private void from_file_button_Click_1(object sender, EventArgs e)
         {
 
         }

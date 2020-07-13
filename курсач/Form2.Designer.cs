@@ -30,6 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.load_provider = new System.Windows.Forms.Button();
+            this.save_provider = new System.Windows.Forms.Button();
             this.refresh_provider = new System.Windows.Forms.Button();
             this.dataGridViewProvidersAndTariphs = new System.Windows.Forms.DataGridView();
             this.ColumnProvidersPaT = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,8 +70,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.load_provider = new System.Windows.Forms.Button();
-            this.save_provider = new System.Windows.Forms.Button();
             this.del_tariph_button = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.tariph_del_title = new System.Windows.Forms.TextBox();
@@ -81,6 +81,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.to_file = new System.Windows.Forms.Button();
             this.refresh_users = new System.Windows.Forms.Button();
             this.dataGridViewUsersAndSells = new System.Windows.Forms.DataGridView();
             this.ColumnSaleUaS = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -125,8 +126,6 @@
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.from_file_button = new System.Windows.Forms.Button();
-            this.to_file = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.sale_del_provider = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
@@ -142,6 +141,7 @@
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.from_file_button = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProvidersAndTariphs)).BeginInit();
@@ -176,6 +176,8 @@
             // tabPage7
             // 
             this.tabPage7.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage7.Controls.Add(this.load_provider);
+            this.tabPage7.Controls.Add(this.save_provider);
             this.tabPage7.Controls.Add(this.refresh_provider);
             this.tabPage7.Controls.Add(this.dataGridViewProvidersAndTariphs);
             this.tabPage7.Location = new System.Drawing.Point(4, 25);
@@ -186,15 +188,40 @@
             this.tabPage7.TabIndex = 4;
             this.tabPage7.Text = "Просмотр";
             // 
+            // load_provider
+            // 
+            this.load_provider.BackColor = System.Drawing.Color.Turquoise;
+            this.load_provider.Location = new System.Drawing.Point(1090, 172);
+            this.load_provider.Margin = new System.Windows.Forms.Padding(4);
+            this.load_provider.Name = "load_provider";
+            this.load_provider.Size = new System.Drawing.Size(210, 76);
+            this.load_provider.TabIndex = 28;
+            this.load_provider.Text = "Загрузить";
+            this.load_provider.UseVisualStyleBackColor = false;
+            this.load_provider.Click += new System.EventHandler(this.load_provider_Click_2);
+            // 
+            // save_provider
+            // 
+            this.save_provider.BackColor = System.Drawing.Color.Turquoise;
+            this.save_provider.Location = new System.Drawing.Point(1090, 90);
+            this.save_provider.Margin = new System.Windows.Forms.Padding(4);
+            this.save_provider.Name = "save_provider";
+            this.save_provider.Size = new System.Drawing.Size(210, 74);
+            this.save_provider.TabIndex = 27;
+            this.save_provider.Text = "Сохранить";
+            this.save_provider.UseVisualStyleBackColor = false;
+            this.save_provider.Click += new System.EventHandler(this.save_provider_Click_1);
+            // 
             // refresh_provider
             // 
-            this.refresh_provider.Location = new System.Drawing.Point(1083, 289);
-            this.refresh_provider.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.refresh_provider.BackColor = System.Drawing.Color.Turquoise;
+            this.refresh_provider.Location = new System.Drawing.Point(1090, 6);
+            this.refresh_provider.Margin = new System.Windows.Forms.Padding(4);
             this.refresh_provider.Name = "refresh_provider";
-            this.refresh_provider.Size = new System.Drawing.Size(213, 76);
+            this.refresh_provider.Size = new System.Drawing.Size(210, 76);
             this.refresh_provider.TabIndex = 1;
             this.refresh_provider.Text = "Обновить";
-            this.refresh_provider.UseVisualStyleBackColor = true;
+            this.refresh_provider.UseVisualStyleBackColor = false;
             this.refresh_provider.Click += new System.EventHandler(this.refresh_provider_Click);
             // 
             // dataGridViewProvidersAndTariphs
@@ -285,7 +312,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1305, 701);
+            this.tabPage2.Size = new System.Drawing.Size(1307, 705);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Добавить";
             // 
@@ -575,8 +602,6 @@
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.Gainsboro;
-            this.tabPage5.Controls.Add(this.load_provider);
-            this.tabPage5.Controls.Add(this.save_provider);
             this.tabPage5.Controls.Add(this.del_tariph_button);
             this.tabPage5.Controls.Add(this.label4);
             this.tabPage5.Controls.Add(this.tariph_del_title);
@@ -590,31 +615,9 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1305, 701);
+            this.tabPage5.Size = new System.Drawing.Size(1307, 705);
             this.tabPage5.TabIndex = 2;
             this.tabPage5.Text = "Удалить";
-            // 
-            // load_provider
-            // 
-            this.load_provider.Location = new System.Drawing.Point(704, 512);
-            this.load_provider.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.load_provider.Name = "load_provider";
-            this.load_provider.Size = new System.Drawing.Size(332, 122);
-            this.load_provider.TabIndex = 27;
-            this.load_provider.Text = "Обратно";
-            this.load_provider.UseVisualStyleBackColor = true;
-            this.load_provider.Click += new System.EventHandler(this.load_provider_Click);
-            // 
-            // save_provider
-            // 
-            this.save_provider.Location = new System.Drawing.Point(211, 512);
-            this.save_provider.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.save_provider.Name = "save_provider";
-            this.save_provider.Size = new System.Drawing.Size(345, 122);
-            this.save_provider.TabIndex = 26;
-            this.save_provider.Text = "В файл";
-            this.save_provider.UseVisualStyleBackColor = true;
-            this.save_provider.Click += new System.EventHandler(this.save_provider_Click);
             // 
             // del_tariph_button
             // 
@@ -716,6 +719,8 @@
             // 
             this.tabPage1.AutoScroll = true;
             this.tabPage1.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage1.Controls.Add(this.from_file_button);
+            this.tabPage1.Controls.Add(this.to_file);
             this.tabPage1.Controls.Add(this.refresh_users);
             this.tabPage1.Controls.Add(this.dataGridViewUsersAndSells);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
@@ -726,15 +731,28 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Просмотр";
             // 
+            // to_file
+            // 
+            this.to_file.BackColor = System.Drawing.Color.Turquoise;
+            this.to_file.Location = new System.Drawing.Point(1090, 90);
+            this.to_file.Margin = new System.Windows.Forms.Padding(4);
+            this.to_file.Name = "to_file";
+            this.to_file.Size = new System.Drawing.Size(210, 76);
+            this.to_file.TabIndex = 45;
+            this.to_file.Text = "Сохранить";
+            this.to_file.UseVisualStyleBackColor = false;
+            this.to_file.Click += new System.EventHandler(this.to_file_Click_1);
+            // 
             // refresh_users
             // 
-            this.refresh_users.Location = new System.Drawing.Point(1073, 316);
-            this.refresh_users.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.refresh_users.BackColor = System.Drawing.Color.Turquoise;
+            this.refresh_users.Location = new System.Drawing.Point(1090, 6);
+            this.refresh_users.Margin = new System.Windows.Forms.Padding(4);
             this.refresh_users.Name = "refresh_users";
-            this.refresh_users.Size = new System.Drawing.Size(223, 54);
+            this.refresh_users.Size = new System.Drawing.Size(210, 76);
             this.refresh_users.TabIndex = 1;
-            this.refresh_users.Text = "ОБновить";
-            this.refresh_users.UseVisualStyleBackColor = true;
+            this.refresh_users.Text = "Обновить";
+            this.refresh_users.UseVisualStyleBackColor = false;
             this.refresh_users.Click += new System.EventHandler(this.refresh_users_Click);
             // 
             // dataGridViewUsersAndSells
@@ -754,7 +772,7 @@
             this.dataGridViewUsersAndSells.RowHeadersWidth = 51;
             this.dataGridViewUsersAndSells.RowTemplate.Height = 24;
             this.dataGridViewUsersAndSells.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridViewUsersAndSells.Size = new System.Drawing.Size(1063, 701);
+            this.dataGridViewUsersAndSells.Size = new System.Drawing.Size(1071, 701);
             this.dataGridViewUsersAndSells.TabIndex = 0;
             this.dataGridViewUsersAndSells.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUsersAndSells_CellContentClick);
             // 
@@ -842,7 +860,7 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage3.Size = new System.Drawing.Size(1305, 701);
+            this.tabPage3.Size = new System.Drawing.Size(1307, 705);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Добавить";
             // 
@@ -1050,7 +1068,7 @@
             this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage4.Size = new System.Drawing.Size(1305, 701);
+            this.tabPage4.Size = new System.Drawing.Size(1307, 705);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Найти";
             // 
@@ -1169,8 +1187,6 @@
             // tabPage8
             // 
             this.tabPage8.BackColor = System.Drawing.Color.Gainsboro;
-            this.tabPage8.Controls.Add(this.from_file_button);
-            this.tabPage8.Controls.Add(this.to_file);
             this.tabPage8.Controls.Add(this.label26);
             this.tabPage8.Controls.Add(this.sale_del_provider);
             this.tabPage8.Controls.Add(this.label31);
@@ -1186,31 +1202,9 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 25);
             this.tabPage8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(1305, 701);
+            this.tabPage8.Size = new System.Drawing.Size(1307, 705);
             this.tabPage8.TabIndex = 2;
             this.tabPage8.Text = "Удалить";
-            // 
-            // from_file_button
-            // 
-            this.from_file_button.Location = new System.Drawing.Point(715, 514);
-            this.from_file_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.from_file_button.Name = "from_file_button";
-            this.from_file_button.Size = new System.Drawing.Size(469, 128);
-            this.from_file_button.TabIndex = 45;
-            this.from_file_button.Text = "Обратно";
-            this.from_file_button.UseVisualStyleBackColor = true;
-            this.from_file_button.Click += new System.EventHandler(this.from_file_button_Click);
-            // 
-            // to_file
-            // 
-            this.to_file.Location = new System.Drawing.Point(157, 514);
-            this.to_file.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.to_file.Name = "to_file";
-            this.to_file.Size = new System.Drawing.Size(453, 128);
-            this.to_file.TabIndex = 44;
-            this.to_file.Text = "В файл";
-            this.to_file.UseVisualStyleBackColor = true;
-            this.to_file.Click += new System.EventHandler(this.to_file_Click);
             // 
             // label26
             // 
@@ -1359,6 +1353,18 @@
             this.tabPage10.Text = "Пользователи и скидки";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
+            // from_file_button
+            // 
+            this.from_file_button.BackColor = System.Drawing.Color.Turquoise;
+            this.from_file_button.Location = new System.Drawing.Point(1090, 174);
+            this.from_file_button.Margin = new System.Windows.Forms.Padding(4);
+            this.from_file_button.Name = "from_file_button";
+            this.from_file_button.Size = new System.Drawing.Size(210, 76);
+            this.from_file_button.TabIndex = 46;
+            this.from_file_button.Text = "Загрузить";
+            this.from_file_button.UseVisualStyleBackColor = false;
+            this.from_file_button.Click += new System.EventHandler(this.from_file_button_Click_1);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1504,11 +1510,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLoginUaS;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTariphUaS;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUserDateUaS;
-        private System.Windows.Forms.Button to_file;
-        private System.Windows.Forms.Button from_file_button;
-        private System.Windows.Forms.Button load_provider;
-        private System.Windows.Forms.Button save_provider;
         private System.Windows.Forms.Button refresh_provider;
         private System.Windows.Forms.Button refresh_users;
+        private System.Windows.Forms.Button save_provider;
+        private System.Windows.Forms.Button load_provider;
+        private System.Windows.Forms.Button to_file;
+        private System.Windows.Forms.Button from_file_button;
     }
 }

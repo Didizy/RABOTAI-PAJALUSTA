@@ -54,7 +54,7 @@
             this.dataGridViewSearchUser.ReadOnly = true;
             this.dataGridViewSearchUser.RowHeadersWidth = 51;
             this.dataGridViewSearchUser.RowTemplate.Height = 24;
-            this.dataGridViewSearchUser.Size = new System.Drawing.Size(800, 76);
+            this.dataGridViewSearchUser.Size = new System.Drawing.Size(775, 76);
             this.dataGridViewSearchUser.TabIndex = 0;
             // 
             // ColumnHahLogin
@@ -134,7 +134,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 157);
+            this.ClientSize = new System.Drawing.Size(775, 157);
             this.Controls.Add(this.labelCompareNum);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelLogin);
