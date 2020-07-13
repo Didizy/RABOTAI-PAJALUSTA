@@ -9,6 +9,7 @@ namespace курсач
 {
     public class tree_providers
     {
+        public int comparisons = 0;
         public class root
         {
             public string title;
@@ -33,6 +34,7 @@ namespace курсач
                 max_tariph = 5;
                 max_user = 5;
                 current_user = 0;
+                
             }
         }
         public root main = null;
@@ -99,6 +101,7 @@ namespace курсач
         {
             if (main == null)
             {
+                comparisons++;
                 //error
                 return null;
             }
@@ -108,6 +111,7 @@ namespace курсач
                 while (true)
                 {
                     int i = compare(name, curr.title);
+                    comparisons++;
                     if (i == 0)
                         return curr;
                     else if (i == -1)
