@@ -126,6 +126,7 @@ namespace курсач
             }
             else
             {
+                tariph.comparisons = 0;
                 spisok_tariph.nest a = tariph.find(tariph_find_title.Text, provider.find(tariph_find_provider.Text));
                 search_form_for_tariph searchform = new search_form_for_tariph(a, this);
 
@@ -153,14 +154,11 @@ namespace курсач
 
         private void button6_Click(object sender, EventArgs e)
         {
-            tree_providers.root check1 = provider.find(tariph_del_provider.Text);
-            spisok_tariph.nest check = null;
-            if (check1 != null) 
-                check = tariph.find(tariph_del_title.Text, provider.find(tariph_del_provider.Text));
-            if ((tariph_del_title.Text == "") || (tariph_del_provider.Text == ""))
+            spisok_tariph.nest a = tariph.find(tariph_del_title.Text, provider.find(tariph_del_provider.Text));
+            for(int i = 0; i < a.provider.current_user; i++)
             {
-                error_number = 1;
-                message_box(error_number);
+                if (user.find(a.provider.users[i]).tariph == a)
+                    user.delete(a.provider.users[i]);
             }
             else if (check == null || check1 == null) 
             {
@@ -171,10 +169,8 @@ namespace курсач
             {
                 sales.delete_tariph(tariph.find(tariph_del_title.Text, provider.find(tariph_del_provider.Text)), sales.main);
                 tariph.delete(tariph_del_title.Text, provider.find(tariph_del_provider.Text));
-                error_number = 10;
-                message_box(error_number);               
-            }
-            tariph_del_title.Text = tariph_del_provider.Text = "";
+                tariph_del_title.Text = tariph_del_provider.Text = "";
+            }  
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -313,32 +309,8 @@ namespace курсач
 
         private void button8_Click(object sender, EventArgs e)
         {
-            //tariph.find(user_tariph.Text, provider.find(user_provider.Text))
-            tree_providers.root check1 = provider.find(user_provider.Text);
-            spisok_tariph.nest check = null;
-            if (check1 != null)
-                check = tariph.find(user_tariph.Text, provider.find(user_provider.Text));
-
-            if (user_login.Text == "" || user_date.Text == "" || user_tariph.Text == "" || user_provider.Text == "")
-            {
-                error_number = 1;
-                message_box(error_number);
-            }
-            else if (check == null || check1 == null)
-            {
-                error_number = 3;
-                message_box(error_number);
-            }
-            else if (user.find(user_login.Text)!=null)
-            {
-                error_number = 4;
-                message_box(error_number);
-            }
-            else
-            {
-                user.add(/*user.get_hash(user_login.Text),*/ user_login.Text, user_date.Text, tariph.find(user_tariph.Text, provider.find(user_provider.Text)));
-                provider.add_user(user_login.Text, user_provider.Text);
-            }
+            user.add(/*user.get_hash(user_login.Text),*/ user_login.Text, user_date.Text, tariph.find(user_tariph.Text, provider.find(user_provider.Text)));
+            provider.add_user(user_login.Text, user_provider.Text);
             user_login.Text = user_date.Text = user_tariph.Text = user_provider.Text = "";
         }
 
@@ -358,32 +330,10 @@ namespace курсач
         }
 
         private void add_sale_Click(object sender, EventArgs e)
-        {
-            tree_providers.root check1 = provider.find(sale_provider.Text);
-            spisok_tariph.nest check = null;
-            if (check1 != null)
-                check = tariph.find(sale_tariph.Text, provider.find(sale_provider.Text));
 
-            if (sale_num.Text == "" || sale_length.Text == "" || sale_provider.Text == "" || sale_tariph.Text == "")
-            {
-                error_number = 1;
-                message_box(error_number);
-            }
-            else if (check == null || check1 == null)
-            {
-                error_number = 3;
-                message_box(error_number);
-            }
-            else if (sales.find(sale_num.Text, check) != null)
-            {
-                error_number = 4;
-                message_box(error_number);
-            }
-            else
-            {
-                spisok_tariph.nest a = tariph.find(sale_tariph.Text, provider.find(sale_provider.Text));
-                sales.add_sale(sale_num.Text, sale_length.Text, a, a.provider);              
-            }
+        {
+            spisok_tariph.nest a = tariph.find(sale_tariph.Text, provider.find(sale_provider.Text));
+            sales.add_sale(sale_num.Text, sale_length.Text, a, a.provider);
             sale_num.Text = sale_tariph.Text = sale_provider.Text = sale_length.Text = "";
         }
 
@@ -412,9 +362,6 @@ namespace курсач
                     sales.delete_tariph(tariph.find(pr.arr[0].name,pr), sales.main);
                     tariph.delete(pr.arr[0].name, pr);
                     provider.del_tariph(pr.arr[0].name, pr);
-
-                    error_number = 10;
-                    message_box(error_number);
                 }
                 provider.delete(provider_del_title.Text);
                 provider_del_title.Text = "";
@@ -527,6 +474,7 @@ namespace курсач
             }
             else
             {
+                user.comparisons = 0;
                 spisok_users.nest a = user.find(user_find_login.Text);
                 search_form_user searchform = new search_form_user(a, this);
                 searchform.Show();
@@ -537,25 +485,9 @@ namespace курсач
 
         private void button9_Click(object sender, EventArgs e)
         {
-            tree_providers.root check1 = provider.find(sale_find_provider.Text);
-            spisok_tariph.nest check = null;
-            if (check1 != null)
-                check = tariph.find(sale_find_tariph.Text, provider.find(user_provider.Text));
 
-            if (sale_find_size.Text == "" || sale_find_tariph.Text == "" || sale_find_provider.Text == "")
-            {
-                error_number = 1;
-                message_box(error_number);
-            }
-            else if (check==null||check1==null)
-            {
-                error_number = 3;
-                message_box(error_number);
-            }
-            else
-            {
-                sales.find(sale_find_size.Text, tariph.find(sale_find_tariph.Text, provider.find(sale_find_provider.Text)));
-            }
+
+            sales.find(sale_find_size.Text, tariph.find(sale_find_tariph.Text, provider.find(sale_find_provider.Text)));
             sale_find_provider.Text = sale_find_size.Text = sale_find_tariph.Text = "";
         }
 
@@ -806,7 +738,7 @@ namespace курсач
 
         private void save_provider_Click_1(object sender, EventArgs e)
         {
-            StreamWriter file_out = new StreamWriter(@"c:\курсач\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
+            StreamWriter file_out = new StreamWriter(@"a:\gitjub\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
             //file_out.WriteLine("РАБОТАЙ");
             output_for_provider(file_out, provider.main);
             file_out.Close();
@@ -814,14 +746,14 @@ namespace курсач
 
         private void load_provider_Click_2(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
+            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
             input_for_provider(file_in);
             file_in.Close();
         }
 
         private void to_file_Click_1(object sender, EventArgs e)
         {
-            StreamWriter out_file = new StreamWriter(@"c:\курсач\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
+            StreamWriter out_file = new StreamWriter(@"a:\gitjub\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
             spisok_users.nest a = user.first;
             spisok_users.nest temp = a.chain_next;
             string output;
@@ -862,7 +794,7 @@ namespace курсач
 
         private void from_file_button_Click_1(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_user.txt");
+            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_user.txt");
             string[] line = new string[4];
             string temp = file_in.ReadLine();
             while (temp != "//")
@@ -908,31 +840,6 @@ namespace курсач
             }
             file_in.Close();
            
-
-        }
-
-        private void user_tariph_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void sale_num_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void sale_tariph_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void sale_length_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void sale_provider_TextChanged(object sender, EventArgs e)
-        {
 
         }
 

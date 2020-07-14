@@ -12,6 +12,7 @@ namespace курсач
 
         public class nest
         {
+            public bool deleted;
             public int hash;
             public string name;
             public int type;//1 - интернет, 2 - интернет и тв, 3 - только тв
@@ -24,6 +25,7 @@ namespace курсач
                 name = "";
                 type = 0;
                 speed = 0;
+                deleted = false;
             }
 
         }
@@ -48,7 +50,7 @@ namespace курсач
         }
         public bool free(nest temp)//проверка на пустую ячейку
         {
-            if ((temp.name == "")&&(temp.provider==null))
+            if (((temp.name == "")&&(temp.provider==null))||(temp.deleted))
                 return true;
             else
                 return false;
@@ -101,6 +103,7 @@ namespace курсач
                     added = true;
                     num_of_elements++;
                     curr.provider = provider;
+                    curr.deleted = false;
                 }
                 else
                     j++;
@@ -138,30 +141,31 @@ namespace курсач
             while (true)
             {
                 int curr_hash = (gethash_1(hash) + j * gethash_2(hash)) % max_elements;
+                if ((j > 0) && (curr_hash == gethash_1(hash)))
+                    return null;
                 while (curr.hash != curr_hash)
                 {
                     curr = curr.next;
                 }
-                if ((curr.name == name) &&curr.provider == provider)
+                if ((curr.name == name) && (curr.provider == provider))
                 {
                     comparisons++;
                     return curr;
                 }
                 else
+                    comparisons++;
                     j++;
-                if (j == num_of_elements)//такого элемента ещё нет, хз, что пока выводим, но это есть
-                    return null;
+
+                   
 
             }
 
         }
         public void delete(string name, tree_providers.root provider) {
                 nest curr = find(name, provider);
-            if (curr != null) { 
-                curr.name = "";
-                curr.speed = 0;
-                curr.type = 0;
-                curr.provider = null;
+            if (curr != null) {
+                num_of_elements--;
+                curr.deleted = true;
             }
             else
             {

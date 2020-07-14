@@ -270,6 +270,8 @@ namespace курсач
                 {
                     for (int j = i; j < pr.current_tariph - 1; j++)
                         pr.arr[j] = pr.arr[j + 1];
+                    pr.arr[pr.current_tariph - 1].name = "";
+                    pr.arr[pr.current_tariph - 1].cost = 0;
                     pr.current_tariph--;
                     return true;
                 }
@@ -345,6 +347,7 @@ namespace курсач
                     {
                         pr.users[j] = pr.users[j + 1];
                     }
+                    pr.users[pr.current_user-1] = "";
                     pr.current_user--;
                     return true;
                 }
