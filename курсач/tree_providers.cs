@@ -60,22 +60,26 @@ namespace курсач
             }
             return 0;
         }
-        public void add_Provider(string name)
+        public bool add_Provider(string name)
         {
-            bool placed = false;
+
             if (main == null)
+            {
                 main = new root(name);
+                return true;
+            }
             else
             {
-                root curr= main;
-                while (!placed) { 
-                int i = compare(name, curr.title);
+                root curr = main;
+                while (true)
+                {
+                    int i = compare(name, curr.title);
                     if (i == -1)
                         if (curr.left == null)
                         {
                             root temp = new root(name);
                             curr.left = temp;
-                            placed = true;
+                            return true;
                         }
                         else
                             curr = curr.left;
@@ -84,16 +88,16 @@ namespace курсач
                         {
                             root temp = new root(name);
                             curr.right = temp;
-                            placed = true;
+                            return true;
                         }
                         else
                             curr = curr.right;
                     else if (i == 0)
                     {
-                        //error, уже существует
+                        return false;
                     }
-                    
-                
+
+
                 }
             }
         }

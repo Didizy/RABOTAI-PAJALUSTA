@@ -81,7 +81,7 @@ namespace курсач
             return temp;
 
         }
-        public void add(int k, string name, int type, int speed, tree_providers.root provider)// добавление нового элемента
+        public bool add(int k, string name, int type, int speed, tree_providers.root provider)// добавление нового элемента
         {
             if (num_of_elements == max_elements)
             {
@@ -107,11 +107,15 @@ namespace курсач
                     num_of_elements++;
                     curr.provider = provider;
                     curr.deleted = false;
+                    return true;
                 }
+                else if ((curr.name == name) && (curr.type == type) && (curr.speed == speed) && (curr.provider == provider))
+                    return false;
                 else
                     j++;
 
             }
+            return false;
         }
         public void resize()//увеличиваем размер таблицы
         {
