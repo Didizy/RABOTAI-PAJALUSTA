@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace курсач
 {
@@ -37,8 +38,37 @@ namespace курсач
                     return false;
             return true;
         }
-        
 
+        ///гит в прошлый раз это не сохранил 
+        ///
+        public bool date_check(string date)
+        {
+            string r1 = "[0][1-9].[0][1-9].[2][0][0|1][0-9]";
+            string r4 = "[0][1-9].[1][0-2].[2][0][0|1][0-9]";
+
+            string r2 = "[1-2][0-9].[0][1-9].[2][0][0|1][0-9]";
+            string r5 = "[1-2][0-9].[1][0-2].[2][0][0|1][0-9]";
+
+            string r3 = "[3][0-1].[0][1-9].[2][0][0|1][0-9]";
+            string r6 = "[3][0-1].[1][0-2].[2][0][0|1][0-9]";
+
+
+            string r7 = "[0][1-9].[0][1-9].[2][0][2][0]";
+            string r8 = "[0][1-9].[1][0-2].[2][0][2][0]";
+
+            string r9 = "[1-2][0-9].[0][1-9].[2][0][2][0]";
+            string r10 = "[1-2][0-9].[1][0-2].[2][0][2][0]";
+
+            string r11 = "[3][0-1].[0][1-9].[2][0][2][0]";
+            string r12 = "[3][0-1].[1][0-2].[2][0][2][0]";
+
+            if (Regex.IsMatch(date, r1) || Regex.IsMatch(date, r2) || Regex.IsMatch(date, r3) || Regex.IsMatch(date, r4) || Regex.IsMatch(date, r5)
+                || Regex.IsMatch(date, r6) || Regex.IsMatch(date, r7) || Regex.IsMatch(date, r8) || Regex.IsMatch(date, r9) || Regex.IsMatch(date, r10)
+                || Regex.IsMatch(date, r11) || Regex.IsMatch(date, r12))
+                return true;
+
+            return false;
+        }
 
         public void message_box(int error_number)
         {
