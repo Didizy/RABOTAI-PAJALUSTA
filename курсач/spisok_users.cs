@@ -63,8 +63,16 @@ namespace курсач
 
         public int get_hash (string login)
         {
-            int help = login.GetHashCode();
-            int h1 = help % max_elements;// на (int)login ругается
+            //int help = login.GetHashCode();
+            double hash = 0;
+
+            foreach (char c in login)
+                hash = hash + c;
+
+
+            hash *= 0.618033;
+            hash -= (int)hash;
+            int h1 = (int)(hash * max_elements) % max_elements;// на (int)login ругается
             return h1;
         }
 
@@ -110,8 +118,8 @@ namespace курсач
                 while (true)
                 {
                     curr_hash = get_hash(login);
-                   
-                    while ((curr.hash != curr_hash)&&(curr.next!=first))
+
+                    while ((curr.hash != curr_hash) && (curr.next != first) && (curr_hash > curr.hash))
                     {
                         /*a = compare(curr.login, first.login);
                         if (a == 0)
@@ -147,6 +155,22 @@ namespace курсач
                             return false;
                         }
 
+                    }
+                    else if(curr_hash<curr.hash)
+                    {
+                        nest temp = new nest();
+                        temp.login = login;
+                        temp.date = date;
+                        temp.hash = curr_hash;
+                        // added = true;
+                        num_of_elements++;
+                        temp.tariph = tariph;
+
+                        curr.prev.next = temp;
+                        temp.prev = curr.prev;
+                        curr.prev = temp;
+                        temp.next = curr;
+                        return true;
                     }
                     else
                     {
