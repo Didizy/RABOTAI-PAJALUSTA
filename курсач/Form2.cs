@@ -948,7 +948,7 @@ namespace курсач
                 if (message_choise_resilt == DialogResult.Cancel)
                 {
                     file_in.Close();
-                    return;
+                    return;//ГИТ ХААААААААААААААААААААААААААААААААААААААБ РАБОТАЙ
                 }
                     
 
