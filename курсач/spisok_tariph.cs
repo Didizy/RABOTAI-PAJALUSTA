@@ -67,6 +67,9 @@ namespace курсач
         {
             
             int temp = (k % (max_elements - 1) + 1);
+            if ((temp % 2 == 0)&&(temp>1))
+                temp-=1;
+
             return temp;
 
         }
@@ -137,16 +140,18 @@ namespace курсач
         {
             int hash = getkey(name);
             int j = 0;
+            int tar_checked = 0;
             nest curr = first;
             while (true)
             {
                 int curr_hash = (gethash_1(hash) + j * gethash_2(hash)) % max_elements;
-                if ((j > 0) && (curr_hash == gethash_1(hash)))
+                if (tar_checked == num_of_elements)
                     return null;
                 while (curr.hash != curr_hash)
                 {
                     curr = curr.next;
                 }
+                tar_checked++;
                 if ((curr.name == name) && (curr.provider == provider))
                 {
                     comparisons++;

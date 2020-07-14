@@ -679,7 +679,7 @@ namespace курсач
             file_in.Close();
         }
 
-        private void to_file_Click_1(object sender, EventArgs e)
+        private void to_file_Click_1(object sender, EventArgs e)//исправить
         {
             StreamWriter out_file = new StreamWriter(@"a:\gitjub\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
             spisok_users.nest a = user.first;
@@ -696,7 +696,7 @@ namespace курсач
                 output += "/";
                 output += a.tariph.provider.title;
                 out_file.WriteLine(output);
-                while ((temp != a)&&!(temp==null))
+                while (temp !=null)
                 {
                     output = "";
                     output += temp.login;
@@ -710,8 +710,8 @@ namespace курсач
                     temp = temp.chain_next;
 
                 }
-                temp = a.next;
-                if (temp == a)
+                a = a.next;
+                if (a == user.first)
                     break;
                 temp = a.chain_next;
             }
