@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Text.RegularExpressions;
 
 namespace курсач
 {
@@ -39,34 +38,7 @@ namespace курсач
             return true;
         }
         
-        public bool date_check(string date)
-        {
-            string r1 = "[0][1-9].[0][1-9].[2][0][0|1][0-9]";
-            string r4 = "[0][1-9].[1][0-2].[2][0][0|1][0-9]";
 
-            string r2 = "[1-2][0-9].[0][1-9].[2][0][0|1][0-9]";
-            string r5 = "[1-2][0-9].[1][0-2].[2][0][0|1][0-9]";
-
-            string r3 = "[3][0-1].[0][1-9].[2][0][0|1][0-9]";           
-            string r6 = "[3][0-1].[1][0-2].[2][0][0|1][0-9]";
-
-
-            string r7 = "[0][1-9].[0][1-9].[2][0][2][0]";
-            string r8 = "[0][1-9].[1][0-2].[2][0][2][0]";
-
-            string r9 = "[1-2][0-9].[0][1-9].[2][0][2][0]";
-            string r10 = "[1-2][0-9].[1][0-2].[2][0][2][0]";
-
-            string r11 = "[3][0-1].[0][1-9].[2][0][2][0]";
-            string r12 = "[3][0-1].[1][0-2].[2][0][2][0]";
-
-            if (Regex.IsMatch(date, r1)|| Regex.IsMatch(date, r2)|| Regex.IsMatch(date, r3)|| Regex.IsMatch(date, r4)|| Regex.IsMatch(date, r5)
-                || Regex.IsMatch(date, r6)|| Regex.IsMatch(date, r7)|| Regex.IsMatch(date, r8)|| Regex.IsMatch(date, r9)|| Regex.IsMatch(date, r10)
-                || Regex.IsMatch(date, r11)|| Regex.IsMatch(date, r12))
-                return true;
-
-            return false;
-        }
 
         public void message_box(int error_number)
         {
@@ -185,8 +157,8 @@ namespace курсач
             tree_providers.root check1 = provider.find(tariph_del_provider.Text);
             spisok_tariph.nest check = null;
             if (check1 != null)
-                check = tariph.find(tariph_del_title.Text, provider.find(tariph_del_provider.Text));
-            spisok_tariph.nest a = tariph.find(tariph_del_title.Text, provider.find(tariph_del_provider.Text));
+                check = tariph.find(tariph_del_title.Text, check1);
+            spisok_tariph.nest a = check;
             if (tariph_del_title.Text == "" || tariph_del_provider.Text == "")
             {
                 error_number = 1;
@@ -253,8 +225,11 @@ namespace курсач
 
             else
             {
-                provider.add_tariph(tariph_title.Text, Convert.ToInt32(tariph_cost.Text), tariph_provider.Text);
-
+               bool can_add =  provider.add_tariph(tariph_title.Text, Convert.ToInt32(tariph_cost.Text), tariph_provider.Text);
+                if (!can_add){
+                    error_number = 4;
+                }
+                else
                 tariph.add(tariph.getkey(tariph_title.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));               
             }
 
@@ -353,18 +328,7 @@ namespace курсач
             if (check1 != null)
                 check = tariph.find(user_tariph.Text, provider.find(user_provider.Text));
 
-
-            /*if(user_login.Text==""||user_provider.Text==""||user_tariph.Text==""||user_date.Text=="")
-            {
-                error_number = 1;
-                message_box(error_number);
-            }
-            else*/ if (!date_check(user_date.Text))
-            {
-                error_number = 2;
-                message_box(error_number);
-            }
-            if (user_login.Text == "" || user_provider.Text == "" || user_tariph.Text == "" || user_date.Text == "")
+            if(user_login.Text==""||user_provider.Text==""||user_tariph.Text==""||user_date.Text=="")
             {
                 error_number = 1;
                 message_box(error_number);
@@ -630,7 +594,19 @@ namespace курсач
                 spisok_tariph.nest a = tariph.find(pr.arr[i].name, pr);
                 line[1] = a.hash.ToString();
                 line[2] = pr.arr[i].name;
-                line[3] = a.type.ToString();
+                switch (a.type)
+                {
+                    case 1:
+                        line[3] = "Интеренет";
+                        break;
+                    case 2:
+                        line[3] = "Интернет и ТВ";
+                        break;
+                    case 3:
+                        line[3] = "ТВ";
+                        break;
+                }
+                //line[3] = a.type.ToString();
                 line[4] = a.speed.ToString();
                 line[5] = pr.arr[i].cost.ToString();
                 dataGridViewProvidersAndTariphs.Rows.Add(line);
@@ -752,7 +728,11 @@ namespace курсач
             {
                 temp = file.ReadLine();
                 provider_name = temp;
-                provider.add_Provider(provider_name);
+                bool check_provider = provider.add_Provider(provider_name);
+                if (!check_provider)
+                {
+                    message_choise_resilt = MessageBox.Show("Элемент не может быть добавлен. Перейти к следующему?", "Ошибка", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                }
                 pr = provider.find(provider_name);
                 
                 while (true)
@@ -858,7 +838,7 @@ namespace курсач
 
         private void save_provider_Click_1(object sender, EventArgs e)
         {
-            StreamWriter file_out = new StreamWriter(@"c:\курсач\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
+            StreamWriter file_out = new StreamWriter(@"a:\gitjub\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
             //file_out.WriteLine("РАБОТАЙ");
             output_for_provider(file_out, provider.main);
             file_out.Close();
@@ -866,14 +846,14 @@ namespace курсач
 
         private void load_provider_Click_2(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
+            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
             input_for_provider(file_in);
             file_in.Close();
         }
 
         private void to_file_Click_1(object sender, EventArgs e)//исправить
         {
-            StreamWriter out_file = new StreamWriter(@"c:\курсач\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
+            StreamWriter out_file = new StreamWriter(@"a:\gitjub\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
             spisok_users.nest a = user.first;
             spisok_users.nest temp = a.chain_next;
             string output;
@@ -914,7 +894,7 @@ namespace курсач
 
         private void from_file_button_Click_1(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_user.txt");
+            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_user.txt");
             string[] line = new string[4];
             string temp = file_in.ReadLine();
             while (temp != "//")
@@ -981,11 +961,6 @@ namespace курсач
         }
 
         private void label37_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void user_date_TextChanged(object sender, EventArgs e)
         {
 
         }

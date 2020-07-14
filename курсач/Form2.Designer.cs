@@ -1023,7 +1023,7 @@
             this.user_date.Name = "user_date";
             this.user_date.Size = new System.Drawing.Size(264, 22);
             this.user_date.TabIndex = 25;
-            this.user_date.TextChanged += new System.EventHandler(this.user_date_TextChanged);
+            //this.user_date.TextChanged += new System.EventHandler(this.user_date_TextChanged);
             // 
             // user_login
             // 

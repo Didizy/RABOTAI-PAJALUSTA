@@ -85,6 +85,7 @@
             this.labelCompareNumber.Size = new System.Drawing.Size(58, 22);
             this.labelCompareNumber.TabIndex = 4;
             this.labelCompareNumber.Text = "label1";
+            this.labelCompareNumber.Click += new System.EventHandler(this.labelCompareNumber_Click);
             // 
             // dataGridViewSearchTariph
             // 
@@ -103,6 +104,7 @@
             this.dataGridViewSearchTariph.RowTemplate.Height = 24;
             this.dataGridViewSearchTariph.Size = new System.Drawing.Size(601, 122);
             this.dataGridViewSearchTariph.TabIndex = 5;
+            this.dataGridViewSearchTariph.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSearchTariph_CellContentClick_1);
             // 
             // ColumnProvider
             // 
