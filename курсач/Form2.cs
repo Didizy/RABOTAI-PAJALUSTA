@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Text.RegularExpressions;
 
 namespace курсач
 {
@@ -39,34 +38,7 @@ namespace курсач
             return true;
         }
         
-        public bool date_check(string date)
-        {
-            string r1 = "[0][1-9].[0][1-9].[2][0][0|1][0-9]";
-            string r4 = "[0][1-9].[1][0-2].[2][0][0|1][0-9]";
 
-            string r2 = "[1-2][0-9].[0][1-9].[2][0][0|1][0-9]";
-            string r5 = "[1-2][0-9].[1][0-2].[2][0][0|1][0-9]";
-
-            string r3 = "[3][0-1].[0][1-9].[2][0][0|1][0-9]";           
-            string r6 = "[3][0-1].[1][0-2].[2][0][0|1][0-9]";
-
-
-            string r7 = "[0][1-9].[0][1-9].[2][0][2][0]";
-            string r8 = "[0][1-9].[1][0-2].[2][0][2][0]";
-
-            string r9 = "[1-2][0-9].[0][1-9].[2][0][2][0]";
-            string r10 = "[1-2][0-9].[1][0-2].[2][0][2][0]";
-
-            string r11 = "[3][0-1].[0][1-9].[2][0][2][0]";
-            string r12 = "[3][0-1].[1][0-2].[2][0][2][0]";
-
-            if (Regex.IsMatch(date, r1)|| Regex.IsMatch(date, r2)|| Regex.IsMatch(date, r3)|| Regex.IsMatch(date, r4)|| Regex.IsMatch(date, r5)
-                || Regex.IsMatch(date, r6)|| Regex.IsMatch(date, r7)|| Regex.IsMatch(date, r8)|| Regex.IsMatch(date, r9)|| Regex.IsMatch(date, r10)
-                || Regex.IsMatch(date, r11)|| Regex.IsMatch(date, r12))
-                return true;
-
-            return false;
-        }
 
         public void message_box(int error_number)
         {
@@ -356,18 +328,7 @@ namespace курсач
             if (check1 != null)
                 check = tariph.find(user_tariph.Text, provider.find(user_provider.Text));
 
-
-            /*if(user_login.Text==""||user_provider.Text==""||user_tariph.Text==""||user_date.Text=="")
-            {
-                error_number = 1;
-                message_box(error_number);
-            }
-            else*/ if (!date_check(user_date.Text))
-            {
-                error_number = 2;
-                message_box(error_number);
-            }
-            if (user_login.Text == "" || user_provider.Text == "" || user_tariph.Text == "" || user_date.Text == "")
+            if(user_login.Text==""||user_provider.Text==""||user_tariph.Text==""||user_date.Text=="")
             {
                 error_number = 1;
                 message_box(error_number);
@@ -633,7 +594,19 @@ namespace курсач
                 spisok_tariph.nest a = tariph.find(pr.arr[i].name, pr);
                 line[1] = a.hash.ToString();
                 line[2] = pr.arr[i].name;
-                line[3] = a.type.ToString();
+                switch (a.type)
+                {
+                    case 1:
+                        line[3] = "Интеренет";
+                        break;
+                    case 2:
+                        line[3] = "Интернет и ТВ";
+                        break;
+                    case 3:
+                        line[3] = "ТВ";
+                        break;
+                }
+                //line[3] = a.type.ToString();
                 line[4] = a.speed.ToString();
                 line[5] = pr.arr[i].cost.ToString();
                 dataGridViewProvidersAndTariphs.Rows.Add(line);
@@ -755,7 +728,11 @@ namespace курсач
             {
                 temp = file.ReadLine();
                 provider_name = temp;
-                provider.add_Provider(provider_name);
+                bool check_provider = provider.add_Provider(provider_name);
+                if (!check_provider)
+                {
+                    message_choise_resilt = MessageBox.Show("Элемент не может быть добавлен. Перейти к следующему?", "Ошибка", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                }
                 pr = provider.find(provider_name);
                 
                 while (true)
@@ -984,11 +961,6 @@ namespace курсач
         }
 
         private void label37_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void user_date_TextChanged(object sender, EventArgs e)
         {
 
         }

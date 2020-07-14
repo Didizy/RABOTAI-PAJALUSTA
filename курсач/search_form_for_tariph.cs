@@ -32,14 +32,28 @@ namespace курсач
             string[] line = new string[5];
             line[0] = tariph.provider.title;
             line[1] = tariph.hash.ToString();
-            line[2] = tariph.type.ToString();
+            switch (tariph.type)
+            {
+                  
+                    case 1:
+                        line[2] = "Интеренет";
+                break;
+                    case 2:
+                        line[2] = "Интернет и ТВ";
+                break;
+                    case 3:
+                        line[2] = "ТВ";
+                break;
+           
+            }
+            //line[2] = tariph.type.ToString();
             for (int i = 0; i < tariph.provider.current_tariph; i++)
                 if (tariph.provider.arr[i].name == tariph.name)
                     line[3] = tariph.provider.arr[i].cost.ToString();
             line[4] = tariph.speed.ToString();
             dataGridViewSearchTariph.Rows.Add(line);
             labelFINDNameTariph.Text = tariph.name;
-            labelCompareNamberTEXT.Text = f2.tariph.comparisons.ToString();
+            labelCompareNumber.Text = f2.tariph.comparisons.ToString();
         }
 
         private void dataGridViewSearchTariph_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -48,6 +62,16 @@ namespace курсач
         }
 
         private void labelFINDNameTariph_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewSearchTariph_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void labelCompareNumber_Click(object sender, EventArgs e)
         {
 
         }
