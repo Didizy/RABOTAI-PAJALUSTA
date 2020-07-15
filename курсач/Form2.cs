@@ -219,7 +219,7 @@ namespace курсач
             }
             else if (checkBoxAddTariphTV.Checked && !(checkBoxAddTariphInternet.Checked))
             {
-                if (Convert.ToInt32(tariph_speed) != 0 || tariph_speed.Text != "")
+                if ((Convert.ToInt32(tariph_speed.Text) != 0) || (tariph_speed.Text != ""))
                     error_number = 2;
             }
 
