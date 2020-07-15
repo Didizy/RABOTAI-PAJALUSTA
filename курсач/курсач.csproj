@@ -54,6 +54,12 @@
     <Compile Include="report_all_tariphs_typr.Designer.cs">
       <DependentUpon>report_all_tariphs_typr.cs</DependentUpon>
     </Compile>
+    <Compile Include="report_of_sales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="report_of_sales.Designer.cs">
+      <DependentUpon>report_of_sales.cs</DependentUpon>
+    </Compile>
     <Compile Include="report_sales_of_user.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     <Compile Include="tree_sale.cs" />
     <EmbeddedResource Include="report_all_tariphs_typr.resx">
       <DependentUpon>report_all_tariphs_typr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report_of_sales.resx">
+      <DependentUpon>report_of_sales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="report_sales_of_user.resx">
       <DependentUpon>report_sales_of_user.cs</DependentUpon>

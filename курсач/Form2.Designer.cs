@@ -150,6 +150,7 @@
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.buttonRepAllUsers = new System.Windows.Forms.Button();
+            this.buttonRepSaleOfUser = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTariphs)).BeginInit();
@@ -206,7 +207,7 @@
             // 
             this.buttonReportAllTariphType.BackColor = System.Drawing.Color.PowderBlue;
             this.buttonReportAllTariphType.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonReportAllTariphType.Location = new System.Drawing.Point(6, 520);
+            this.buttonReportAllTariphType.Location = new System.Drawing.Point(5, 514);
             this.buttonReportAllTariphType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonReportAllTariphType.Name = "buttonReportAllTariphType";
             this.buttonReportAllTariphType.Size = new System.Drawing.Size(396, 46);
@@ -785,6 +786,7 @@
             // 
             this.tabPage1.AutoScroll = true;
             this.tabPage1.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage1.Controls.Add(this.buttonRepSaleOfUser);
             this.tabPage1.Controls.Add(this.buttonReportAllSalesForUsers);
             this.tabPage1.Controls.Add(this.dataGridViewUsers);
             this.tabPage1.Controls.Add(this.dataGridViewSales);
@@ -803,10 +805,10 @@
             // 
             this.buttonReportAllSalesForUsers.BackColor = System.Drawing.Color.PowderBlue;
             this.buttonReportAllSalesForUsers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonReportAllSalesForUsers.Location = new System.Drawing.Point(6, 528);
+            this.buttonReportAllSalesForUsers.Location = new System.Drawing.Point(6, 514);
             this.buttonReportAllSalesForUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonReportAllSalesForUsers.Name = "buttonReportAllSalesForUsers";
-            this.buttonReportAllSalesForUsers.Size = new System.Drawing.Size(453, 43);
+            this.buttonReportAllSalesForUsers.Size = new System.Drawing.Size(396, 46);
             this.buttonReportAllSalesForUsers.TabIndex = 49;
             this.buttonReportAllSalesForUsers.Text = "Отчет: какие скидки может получать пользователь";
             this.buttonReportAllSalesForUsers.UseVisualStyleBackColor = false;
@@ -1490,12 +1492,22 @@
             // buttonRepAllUsers
             // 
             this.buttonRepAllUsers.BackColor = System.Drawing.Color.PowderBlue;
-            this.buttonRepAllUsers.Location = new System.Drawing.Point(6, 583);
+            this.buttonRepAllUsers.Location = new System.Drawing.Point(5, 565);
             this.buttonRepAllUsers.Name = "buttonRepAllUsers";
             this.buttonRepAllUsers.Size = new System.Drawing.Size(396, 46);
             this.buttonRepAllUsers.TabIndex = 32;
             this.buttonRepAllUsers.Text = "Отчет: все пользователи провайдера и их скидки";
             this.buttonRepAllUsers.UseVisualStyleBackColor = false;
+            // 
+            // buttonRepSaleOfUser
+            // 
+            this.buttonRepSaleOfUser.BackColor = System.Drawing.Color.PowderBlue;
+            this.buttonRepSaleOfUser.Location = new System.Drawing.Point(6, 565);
+            this.buttonRepSaleOfUser.Name = "buttonRepSaleOfUser";
+            this.buttonRepSaleOfUser.Size = new System.Drawing.Size(396, 46);
+            this.buttonRepSaleOfUser.TabIndex = 50;
+            this.buttonRepSaleOfUser.Text = "Отчет: какие покупатели получают скидку";
+            this.buttonRepSaleOfUser.UseVisualStyleBackColor = false;
             // 
             // Form2
             // 
@@ -1658,5 +1670,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUsersTariph;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUsersDate;
         private System.Windows.Forms.Button buttonRepAllUsers;
+        private System.Windows.Forms.Button buttonRepSaleOfUser;
     }
 }
