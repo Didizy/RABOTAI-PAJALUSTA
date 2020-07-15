@@ -142,6 +142,16 @@
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.dataGridViewProviders = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTariphs = new System.Windows.Forms.DataGridView();
+            this.ColumnTariphPoviderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTariphHash = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTariphName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTariphType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTariphSpeed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnProviderCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnProviderTariph = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnProviderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProvidersAndTariphs)).BeginInit();
@@ -157,6 +167,8 @@
             this.tabControlMain.SuspendLayout();
             this.tabPage9.SuspendLayout();
             this.tabPage10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProviders)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTariphs)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -170,12 +182,14 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1315, 734);
+            this.tabControl1.Size = new System.Drawing.Size(1501, 734);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage7
             // 
             this.tabPage7.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage7.Controls.Add(this.dataGridViewTariphs);
+            this.tabPage7.Controls.Add(this.dataGridViewProviders);
             this.tabPage7.Controls.Add(this.load_provider);
             this.tabPage7.Controls.Add(this.save_provider);
             this.tabPage7.Controls.Add(this.refresh_provider);
@@ -184,17 +198,17 @@
             this.tabPage7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage7.Size = new System.Drawing.Size(1307, 705);
+            this.tabPage7.Size = new System.Drawing.Size(1493, 705);
             this.tabPage7.TabIndex = 4;
             this.tabPage7.Text = "Просмотр";
             // 
             // load_provider
             // 
             this.load_provider.BackColor = System.Drawing.Color.Turquoise;
-            this.load_provider.Location = new System.Drawing.Point(1091, 172);
-            this.load_provider.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.load_provider.Location = new System.Drawing.Point(664, 640);
+            this.load_provider.Margin = new System.Windows.Forms.Padding(4);
             this.load_provider.Name = "load_provider";
-            this.load_provider.Size = new System.Drawing.Size(211, 76);
+            this.load_provider.Size = new System.Drawing.Size(148, 49);
             this.load_provider.TabIndex = 28;
             this.load_provider.Text = "Загрузить";
             this.load_provider.UseVisualStyleBackColor = false;
@@ -203,10 +217,10 @@
             // save_provider
             // 
             this.save_provider.BackColor = System.Drawing.Color.Turquoise;
-            this.save_provider.Location = new System.Drawing.Point(1091, 90);
-            this.save_provider.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.save_provider.Location = new System.Drawing.Point(838, 640);
+            this.save_provider.Margin = new System.Windows.Forms.Padding(4);
             this.save_provider.Name = "save_provider";
-            this.save_provider.Size = new System.Drawing.Size(211, 74);
+            this.save_provider.Size = new System.Drawing.Size(122, 41);
             this.save_provider.TabIndex = 27;
             this.save_provider.Text = "Сохранить";
             this.save_provider.UseVisualStyleBackColor = false;
@@ -215,10 +229,10 @@
             // refresh_provider
             // 
             this.refresh_provider.BackColor = System.Drawing.Color.Turquoise;
-            this.refresh_provider.Location = new System.Drawing.Point(1091, 6);
-            this.refresh_provider.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.refresh_provider.Location = new System.Drawing.Point(979, 640);
+            this.refresh_provider.Margin = new System.Windows.Forms.Padding(4);
             this.refresh_provider.Name = "refresh_provider";
-            this.refresh_provider.Size = new System.Drawing.Size(211, 76);
+            this.refresh_provider.Size = new System.Drawing.Size(107, 46);
             this.refresh_provider.TabIndex = 1;
             this.refresh_provider.Text = "Обновить";
             this.refresh_provider.UseVisualStyleBackColor = false;
@@ -235,14 +249,13 @@
             this.ColumnTypePaT,
             this.ColumnSpeedPaT,
             this.ColumnCostPaT});
-            this.dataGridViewProvidersAndTariphs.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dataGridViewProvidersAndTariphs.Location = new System.Drawing.Point(3, 2);
+            this.dataGridViewProvidersAndTariphs.Location = new System.Drawing.Point(501, 608);
             this.dataGridViewProvidersAndTariphs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewProvidersAndTariphs.Name = "dataGridViewProvidersAndTariphs";
             this.dataGridViewProvidersAndTariphs.RowHeadersWidth = 51;
             this.dataGridViewProvidersAndTariphs.RowTemplate.Height = 24;
             this.dataGridViewProvidersAndTariphs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridViewProvidersAndTariphs.Size = new System.Drawing.Size(1072, 701);
+            this.dataGridViewProvidersAndTariphs.Size = new System.Drawing.Size(156, 81);
             this.dataGridViewProvidersAndTariphs.TabIndex = 0;
             this.dataGridViewProvidersAndTariphs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProvidersAndTariphs_CellContentClick);
             // 
@@ -312,7 +325,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1305, 701);
+            this.tabPage2.Size = new System.Drawing.Size(1307, 705);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Добавить";
             // 
@@ -498,7 +511,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
             this.tabPage6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1305, 701);
+            this.tabPage6.Size = new System.Drawing.Size(1307, 705);
             this.tabPage6.TabIndex = 3;
             this.tabPage6.Text = "Найти";
             // 
@@ -615,7 +628,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1305, 701);
+            this.tabPage5.Size = new System.Drawing.Size(1307, 705);
             this.tabPage5.TabIndex = 2;
             this.tabPage5.Text = "Удалить";
             // 
@@ -735,7 +748,7 @@
             // 
             this.from_file_button.BackColor = System.Drawing.Color.Turquoise;
             this.from_file_button.Location = new System.Drawing.Point(1091, 174);
-            this.from_file_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.from_file_button.Margin = new System.Windows.Forms.Padding(4);
             this.from_file_button.Name = "from_file_button";
             this.from_file_button.Size = new System.Drawing.Size(211, 76);
             this.from_file_button.TabIndex = 46;
@@ -747,7 +760,7 @@
             // 
             this.to_file.BackColor = System.Drawing.Color.Turquoise;
             this.to_file.Location = new System.Drawing.Point(1091, 90);
-            this.to_file.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.to_file.Margin = new System.Windows.Forms.Padding(4);
             this.to_file.Name = "to_file";
             this.to_file.Size = new System.Drawing.Size(211, 76);
             this.to_file.TabIndex = 45;
@@ -759,7 +772,7 @@
             // 
             this.refresh_users.BackColor = System.Drawing.Color.Turquoise;
             this.refresh_users.Location = new System.Drawing.Point(1091, 6);
-            this.refresh_users.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.refresh_users.Margin = new System.Windows.Forms.Padding(4);
             this.refresh_users.Name = "refresh_users";
             this.refresh_users.Size = new System.Drawing.Size(211, 76);
             this.refresh_users.TabIndex = 1;
@@ -1023,7 +1036,6 @@
             this.user_date.Name = "user_date";
             this.user_date.Size = new System.Drawing.Size(264, 22);
             this.user_date.TabIndex = 25;
-            //this.user_date.TextChanged += new System.EventHandler(this.user_date_TextChanged);
             // 
             // user_login
             // 
@@ -1081,7 +1093,7 @@
             this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage4.Size = new System.Drawing.Size(1305, 701);
+            this.tabPage4.Size = new System.Drawing.Size(1307, 705);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Найти";
             // 
@@ -1222,7 +1234,7 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 25);
             this.tabPage8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(1305, 701);
+            this.tabPage8.Size = new System.Drawing.Size(1307, 705);
             this.tabPage8.TabIndex = 2;
             this.tabPage8.Text = "Удалить";
             // 
@@ -1346,7 +1358,7 @@
             this.tabControlMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(1329, 767);
+            this.tabControlMain.Size = new System.Drawing.Size(1515, 767);
             this.tabControlMain.TabIndex = 1;
             // 
             // tabPage9
@@ -1356,7 +1368,7 @@
             this.tabPage9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage9.Size = new System.Drawing.Size(1321, 738);
+            this.tabPage9.Size = new System.Drawing.Size(1507, 738);
             this.tabPage9.TabIndex = 0;
             this.tabPage9.Text = "Провайдеры и тарифы";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -1373,11 +1385,98 @@
             this.tabPage10.Text = "Пользователи и скидки";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewProviders
+            // 
+            this.dataGridViewProviders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProviders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnProviderName,
+            this.ColumnProviderTariph,
+            this.ColumnProviderCost});
+            this.dataGridViewProviders.Location = new System.Drawing.Point(6, 5);
+            this.dataGridViewProviders.Name = "dataGridViewProviders";
+            this.dataGridViewProviders.RowHeadersWidth = 51;
+            this.dataGridViewProviders.RowTemplate.Height = 24;
+            this.dataGridViewProviders.Size = new System.Drawing.Size(570, 504);
+            this.dataGridViewProviders.TabIndex = 29;
+            // 
+            // dataGridViewTariphs
+            // 
+            this.dataGridViewTariphs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTariphs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnTariphPoviderName,
+            this.ColumnTariphHash,
+            this.ColumnTariphName,
+            this.ColumnTariphType,
+            this.ColumnTariphSpeed});
+            this.dataGridViewTariphs.Location = new System.Drawing.Point(582, 5);
+            this.dataGridViewTariphs.Name = "dataGridViewTariphs";
+            this.dataGridViewTariphs.RowHeadersWidth = 51;
+            this.dataGridViewTariphs.RowTemplate.Height = 24;
+            this.dataGridViewTariphs.Size = new System.Drawing.Size(905, 504);
+            this.dataGridViewTariphs.TabIndex = 30;
+            // 
+            // ColumnTariphPoviderName
+            // 
+            this.ColumnTariphPoviderName.HeaderText = "Название провайдера";
+            this.ColumnTariphPoviderName.MinimumWidth = 6;
+            this.ColumnTariphPoviderName.Name = "ColumnTariphPoviderName";
+            this.ColumnTariphPoviderName.Width = 125;
+            // 
+            // ColumnTariphHash
+            // 
+            this.ColumnTariphHash.HeaderText = "Хеш-знаение тарифа";
+            this.ColumnTariphHash.MinimumWidth = 6;
+            this.ColumnTariphHash.Name = "ColumnTariphHash";
+            this.ColumnTariphHash.Width = 125;
+            // 
+            // ColumnTariphName
+            // 
+            this.ColumnTariphName.HeaderText = "Название тарифа";
+            this.ColumnTariphName.MinimumWidth = 6;
+            this.ColumnTariphName.Name = "ColumnTariphName";
+            this.ColumnTariphName.Width = 125;
+            // 
+            // ColumnTariphType
+            // 
+            this.ColumnTariphType.HeaderText = "Вид услуги";
+            this.ColumnTariphType.MinimumWidth = 6;
+            this.ColumnTariphType.Name = "ColumnTariphType";
+            this.ColumnTariphType.Width = 125;
+            // 
+            // ColumnTariphSpeed
+            // 
+            this.ColumnTariphSpeed.HeaderText = "Скорость тарифа";
+            this.ColumnTariphSpeed.MinimumWidth = 6;
+            this.ColumnTariphSpeed.Name = "ColumnTariphSpeed";
+            this.ColumnTariphSpeed.Width = 125;
+            // 
+            // ColumnProviderCost
+            // 
+            this.ColumnProviderCost.HeaderText = "Стоимость тарифа";
+            this.ColumnProviderCost.MinimumWidth = 6;
+            this.ColumnProviderCost.Name = "ColumnProviderCost";
+            this.ColumnProviderCost.Width = 125;
+            // 
+            // ColumnProviderTariph
+            // 
+            this.ColumnProviderTariph.HeaderText = "Название тарифа";
+            this.ColumnProviderTariph.MinimumWidth = 6;
+            this.ColumnProviderTariph.Name = "ColumnProviderTariph";
+            this.ColumnProviderTariph.Width = 125;
+            // 
+            // ColumnProviderName
+            // 
+            this.ColumnProviderName.Frozen = true;
+            this.ColumnProviderName.HeaderText = "Название провайдера";
+            this.ColumnProviderName.MinimumWidth = 6;
+            this.ColumnProviderName.Name = "ColumnProviderName";
+            this.ColumnProviderName.Width = 125;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1329, 767);
+            this.ClientSize = new System.Drawing.Size(1515, 767);
             this.Controls.Add(this.tabControlMain);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form2";
@@ -1404,6 +1503,8 @@
             this.tabControlMain.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
             this.tabPage10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProviders)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTariphs)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1524,5 +1625,15 @@
         private System.Windows.Forms.Button load_provider;
         private System.Windows.Forms.Button to_file;
         private System.Windows.Forms.Button from_file_button;
+        private System.Windows.Forms.DataGridView dataGridViewTariphs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTariphPoviderName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTariphHash;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTariphName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTariphType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTariphSpeed;
+        private System.Windows.Forms.DataGridView dataGridViewProviders;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnProviderName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnProviderTariph;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnProviderCost;
     }
 }

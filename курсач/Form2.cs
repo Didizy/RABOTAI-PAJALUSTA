@@ -14,10 +14,10 @@ namespace курсач
 {
     public partial class Form2 : Form
     {
-       public tree_providers provider;
-       public spisok_tariph tariph;
-       public spisok_users user;
-       public tree_sale sales;
+        public tree_providers provider;
+        public spisok_tariph tariph;
+        public spisok_users user;
+        public tree_sale sales;
         //переменные для окон//лучше будет загнать в отдельный файлл
         int error_number;
         DialogResult message_choise_resilt;
