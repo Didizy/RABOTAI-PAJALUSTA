@@ -34,7 +34,7 @@
             this.buttonSaveInFile = new System.Windows.Forms.Button();
             this.buttonCreateReport = new System.Windows.Forms.Button();
             this.ColumnUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsersRep)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,7 +43,7 @@
             this.dataGridViewUsersRep.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUsersRep.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnUser,
-            this.ColumnDate});
+            this.ColumnSale});
             this.dataGridViewUsersRep.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridViewUsersRep.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewUsersRep.Name = "dataGridViewUsersRep";
@@ -95,12 +95,12 @@
             this.ColumnUser.Name = "ColumnUser";
             this.ColumnUser.Width = 125;
             // 
-            // ColumnDate
+            // ColumnSale
             // 
-            this.ColumnDate.HeaderText = "Дата подключения";
-            this.ColumnDate.MinimumWidth = 6;
-            this.ColumnDate.Name = "ColumnDate";
-            this.ColumnDate.Width = 125;
+            this.ColumnSale.HeaderText = "Скидка";
+            this.ColumnSale.MinimumWidth = 6;
+            this.ColumnSale.Name = "ColumnSale";
+            this.ColumnSale.Width = 125;
             // 
             // report_users_of_provider
             // 
@@ -128,6 +128,6 @@
         private System.Windows.Forms.Button buttonSaveInFile;
         private System.Windows.Forms.Button buttonCreateReport;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUser;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSale;
     }
 }

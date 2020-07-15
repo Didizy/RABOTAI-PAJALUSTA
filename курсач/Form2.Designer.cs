@@ -161,6 +161,8 @@
             this.ColumnUsersHash = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnUsersTariph = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnUsersDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonReportAllTariphType = new System.Windows.Forms.Button();
+            this.buttonReportAllSalesForUsers = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProvidersAndTariphs)).BeginInit();
@@ -199,6 +201,7 @@
             // tabPage7
             // 
             this.tabPage7.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage7.Controls.Add(this.buttonReportAllTariphType);
             this.tabPage7.Controls.Add(this.dataGridViewTariphs);
             this.tabPage7.Controls.Add(this.dataGridViewProviders);
             this.tabPage7.Controls.Add(this.load_provider);
@@ -260,7 +263,7 @@
             this.ColumnTypePaT,
             this.ColumnSpeedPaT,
             this.ColumnCostPaT});
-            this.dataGridViewProvidersAndTariphs.Location = new System.Drawing.Point(501, 608);
+            this.dataGridViewProvidersAndTariphs.Location = new System.Drawing.Point(705, 543);
             this.dataGridViewProvidersAndTariphs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewProvidersAndTariphs.Name = "dataGridViewProvidersAndTariphs";
             this.dataGridViewProvidersAndTariphs.RowHeadersWidth = 51;
@@ -336,7 +339,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1307, 705);
+            this.tabPage2.Size = new System.Drawing.Size(1493, 705);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Добавить";
             // 
@@ -743,6 +746,7 @@
             // 
             this.tabPage1.AutoScroll = true;
             this.tabPage1.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage1.Controls.Add(this.buttonReportAllSalesForUsers);
             this.tabPage1.Controls.Add(this.dataGridViewUsers);
             this.tabPage1.Controls.Add(this.dataGridViewSales);
             this.tabPage1.Controls.Add(this.from_file_button);
@@ -803,7 +807,7 @@
             this.ColumnLoginUaS,
             this.ColumnTariphUaS,
             this.ColumnUserDateUaS});
-            this.dataGridViewUsersAndSells.Location = new System.Drawing.Point(93, 552);
+            this.dataGridViewUsersAndSells.Location = new System.Drawing.Point(894, 539);
             this.dataGridViewUsersAndSells.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewUsersAndSells.Name = "dataGridViewUsersAndSells";
             this.dataGridViewUsersAndSells.RowHeadersWidth = 51;
@@ -897,7 +901,7 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage3.Size = new System.Drawing.Size(1307, 705);
+            this.tabPage3.Size = new System.Drawing.Size(1493, 705);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Добавить";
             // 
@@ -1105,7 +1109,7 @@
             this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage4.Size = new System.Drawing.Size(1307, 705);
+            this.tabPage4.Size = new System.Drawing.Size(1493, 705);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Найти";
             // 
@@ -1563,6 +1567,24 @@
             this.ColumnUsersDate.Name = "ColumnUsersDate";
             this.ColumnUsersDate.Width = 125;
             // 
+            // buttonReportAllTariphType
+            // 
+            this.buttonReportAllTariphType.Location = new System.Drawing.Point(40, 543);
+            this.buttonReportAllTariphType.Name = "buttonReportAllTariphType";
+            this.buttonReportAllTariphType.Size = new System.Drawing.Size(396, 45);
+            this.buttonReportAllTariphType.TabIndex = 31;
+            this.buttonReportAllTariphType.Text = "Отчет: все тарифы определенного вида";
+            this.buttonReportAllTariphType.UseVisualStyleBackColor = true;
+            // 
+            // buttonReportAllSalesForUsers
+            // 
+            this.buttonReportAllSalesForUsers.Location = new System.Drawing.Point(34, 539);
+            this.buttonReportAllSalesForUsers.Name = "buttonReportAllSalesForUsers";
+            this.buttonReportAllSalesForUsers.Size = new System.Drawing.Size(453, 43);
+            this.buttonReportAllSalesForUsers.TabIndex = 49;
+            this.buttonReportAllSalesForUsers.Text = "Отчет: какие скидки может получать пользователь";
+            this.buttonReportAllSalesForUsers.UseVisualStyleBackColor = true;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1737,5 +1759,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSaleSale;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSaleTariph;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSaleDate;
+        private System.Windows.Forms.Button buttonReportAllTariphType;
+        private System.Windows.Forms.Button buttonReportAllSalesForUsers;
     }
 }
