@@ -18,7 +18,7 @@ namespace курсач
         public spisok_tariph tariph;
         public spisok_users user;
         public tree_sale sales;
-        //переменные для окон//лучше будет загнать в отдельный файлл
+        
         int error_number;
         DialogResult message_choise_resilt;
 
@@ -38,9 +38,19 @@ namespace курсач
                     return false;
             return true;
         }
+        
+        public bool sale_check(string sale)
+        {
+            if (sale.Length < 3)
+            {
+                string r1 = "[0-9]{2}";
+                string r2 = "[0-9]{1}";
 
-        ///гит в прошлый раз это не сохранил 
-        ///
+                if (Regex.IsMatch(sale, r1) || Regex.IsMatch(sale, r2))
+                    return true;
+            }
+            return false;
+        }
         public bool date_check(string date)
         {
             string r1 = "[0][1-9].[0][1-9].[2][0][0|1][0-9]";
@@ -1202,6 +1212,21 @@ namespace курсач
         {
             report_all_tariphs_typr otchet = new report_all_tariphs_typr(this);
             otchet.Show();
+        }
+
+        private void label36_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label29_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
