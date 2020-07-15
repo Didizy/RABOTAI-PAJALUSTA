@@ -8,15 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace курсач
 {
     public partial class Form2 : Form
     {
-       public tree_providers provider;
-       public spisok_tariph tariph;
-       public spisok_users user;
-       public tree_sale sales;
+        public tree_providers provider;
+        public spisok_tariph tariph;
+        public spisok_users user;
+        public tree_sale sales;
         //переменные для окон//лучше будет загнать в отдельный файлл
         int error_number;
         DialogResult message_choise_resilt;
@@ -37,8 +38,37 @@ namespace курсач
                     return false;
             return true;
         }
-        
 
+        ///гит в прошлый раз это не сохранил 
+        ///
+        public bool date_check(string date)
+        {
+            string r1 = "[0][1-9].[0][1-9].[2][0][0|1][0-9]";
+            string r4 = "[0][1-9].[1][0-2].[2][0][0|1][0-9]";
+
+            string r2 = "[1-2][0-9].[0][1-9].[2][0][0|1][0-9]";
+            string r5 = "[1-2][0-9].[1][0-2].[2][0][0|1][0-9]";
+
+            string r3 = "[3][0-1].[0][1-9].[2][0][0|1][0-9]";
+            string r6 = "[3][0-1].[1][0-2].[2][0][0|1][0-9]";
+
+
+            string r7 = "[0][1-9].[0][1-9].[2][0][2][0]";
+            string r8 = "[0][1-9].[1][0-2].[2][0][2][0]";
+
+            string r9 = "[1-2][0-9].[0][1-9].[2][0][2][0]";
+            string r10 = "[1-2][0-9].[1][0-2].[2][0][2][0]";
+
+            string r11 = "[3][0-1].[0][1-9].[2][0][2][0]";
+            string r12 = "[3][0-1].[1][0-2].[2][0][2][0]";
+
+            if (Regex.IsMatch(date, r1) || Regex.IsMatch(date, r2) || Regex.IsMatch(date, r3) || Regex.IsMatch(date, r4) || Regex.IsMatch(date, r5)
+                || Regex.IsMatch(date, r6) || Regex.IsMatch(date, r7) || Regex.IsMatch(date, r8) || Regex.IsMatch(date, r9) || Regex.IsMatch(date, r10)
+                || Regex.IsMatch(date, r11) || Regex.IsMatch(date, r12))
+                return true;
+
+            return false;
+        }
 
         public void message_box(int error_number)
         {
@@ -838,7 +868,7 @@ namespace курсач
 
         private void save_provider_Click_1(object sender, EventArgs e)
         {
-            StreamWriter file_out = new StreamWriter(@"a:\gitjub\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
+            StreamWriter file_out = new StreamWriter(@"c:\курсач\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
             //file_out.WriteLine("РАБОТАЙ");
             output_for_provider(file_out, provider.main);
             file_out.Close();
@@ -846,14 +876,14 @@ namespace курсач
 
         private void load_provider_Click_2(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
+            StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
             input_for_provider(file_in);
             file_in.Close();
         }
 
         private void to_file_Click_1(object sender, EventArgs e)//исправить
         {
-            StreamWriter out_file = new StreamWriter(@"a:\gitjub\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
+            StreamWriter out_file = new StreamWriter(@"c:\курсач\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
             spisok_users.nest a = user.first;
             spisok_users.nest temp = a.chain_next;
             string output;
@@ -894,7 +924,7 @@ namespace курсач
 
         private void from_file_button_Click_1(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_user.txt");
+            StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_user.txt");
             string[] line = new string[4];
             string temp = file_in.ReadLine();
             while (temp != "//")
@@ -961,6 +991,11 @@ namespace курсач
         }
 
         private void label37_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
