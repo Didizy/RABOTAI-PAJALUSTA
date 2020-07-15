@@ -619,12 +619,13 @@ namespace курсач
             if (pr == null)
                 return;
             line[0] = pr.title;
-            for(int i = 0; i < pr.current_tariph; i++)
+            for (int i = 0; i < pr.current_tariph; i++)
             {
-                spisok_tariph.nest a = tariph.find(pr.arr[i].name, pr);
-                line[1] = a.hash.ToString();
-                line[2] = pr.arr[i].name;
-                switch (a.type)
+                line[1] = pr.arr[i].name;
+                line[2] = pr.arr[i].cost.ToString();
+                dataGridViewProviders.Rows.Add(line);
+            }
+                /*switch (a.type)
                 {
                     case 1:
                         line[3] = "Интеренет";
@@ -639,8 +640,9 @@ namespace курсач
                 //line[3] = a.type.ToString();
                 line[4] = a.speed.ToString();
                 line[5] = pr.arr[i].cost.ToString();
-                dataGridViewProvidersAndTariphs.Rows.Add(line);
-            }
+                
+            }*/
+            
             get_provider_info(line, pr.left);
             get_provider_info(line, pr.right);
         }
@@ -814,15 +816,73 @@ namespace курсач
 
         private void refresh_provider_Click(object sender, EventArgs e)
         {
-            dataGridViewProvidersAndTariphs.Rows.Clear();
-            string[] prov = new string[6];
+            dataGridViewProviders.Rows.Clear();
+            dataGridViewTariphs.Rows.Clear();
+            string[] prov = new string[3];
+            string[] tar = new string[5];
             get_provider_info(prov, provider.main);
+            spisok_tariph.nest temp = tariph.first;
+            if (!tariph.free(temp))
+            {
+                tar[0] = temp.provider.title;
+                tar[1] = temp.hash.ToString();
+                tar[2] = temp.name;
+                switch (temp.type)
+                {
+
+                    case 1:
+                        tar[3] = "Интеренет";
+                        tar[4] = temp.speed.ToString();
+                        break;
+                    case 2:
+                        tar[3] = "Интернет и ТВ";
+                        tar[4] = temp.speed.ToString();
+                        break;
+                    case 3:
+                        tar[3] = "ТВ";
+                        tar[4] = "Нет интернета";
+                        break;
+
+                }
+                dataGridViewTariphs.Rows.Add(tar);
+            }
+            temp = temp.next;
+            while (temp != tariph.first)
+            {
+                if (!tariph.free(temp))
+                {
+                    tar[0] = temp.provider.title;
+                    tar[1] = temp.hash.ToString();
+                    tar[2] = temp.name;
+                    switch (temp.type)
+                    {
+
+                        case 1:
+                            tar[3] = "Интеренет";
+                            tar[4] = temp.speed.ToString();
+                            break;
+                        case 2:
+                            tar[3] = "Интернет и ТВ";
+                            tar[4] = temp.speed.ToString();
+                            break;
+                        case 3:
+                            tar[3] = "ТВ";
+                            tar[4] = "Нет интернета";
+                            break;
+
+                    }
+                    dataGridViewTariphs.Rows.Add(tar);
+                   
+
+                }
+                temp = temp.next;
+            }
         }
         public void sale_out(string[] line, tree_sale.root s)
         {
             if (s == null)
                 return;
-            for (int i = 0; i < s.tariph.provider.current_user; i++)
+            /*for (int i = 0; i < s.tariph.provider.current_user; i++)
             {
                 spisok_users.nest u = user.find(s.tariph.provider.users[i]);
                 if (s.tariph == u.tariph)
@@ -844,16 +904,59 @@ namespace курсач
 
                 }
                 
-            }
+            }*/
+            line[0] = s.size;
+            line[1] = s.tariph.name;
+            line[2] = s.date;
+            dataGridViewSales.Rows.Add(line);
             sale_out(line, s.left);
             sale_out(line, s.right);
         }
 
         private void refresh_users_Click(object sender, EventArgs e)
         {
-            dataGridViewUsersAndSells.Rows.Clear();
-            string[] line = new string[6];
-            sale_out(line, sales.main);
+            dataGridViewUsers.Rows.Clear();
+            dataGridViewSales.Rows.Clear();
+            string[] sale = new string[3];
+            string[] us = new string[4];
+            sale_out(sale, sales.main);
+            spisok_users.nest temp = user.first;
+            spisok_users.nest curr = temp.chain_next;
+            us[0] = temp.login;
+            us[1] = temp.hash.ToString();
+            us[2] = temp.tariph.name;
+            us[3] = temp.date;
+            dataGridViewUsers.Rows.Add(us);
+            while (curr != null)
+            {
+                us[0] = curr.login;
+                us[1] = curr.hash.ToString();
+                us[2] = curr.tariph.name;
+                us[3] = curr.date;
+                dataGridViewUsers.Rows.Add(us);
+                curr = curr.chain_next;
+            }
+            temp = temp.next;
+            curr = temp.chain_next;
+            while (temp != user.first)
+            {
+                us[0] = temp.login;
+                us[1] = temp.hash.ToString();
+                us[2] = temp.tariph.name;
+                us[3] = temp.date;
+                dataGridViewUsers.Rows.Add(us);
+                while (curr != null)
+                {
+                    us[0] = curr.login;
+                    us[1] = curr.hash.ToString();
+                    us[2] = curr.tariph.name;
+                    us[3] = curr.date;
+                    dataGridViewUsers.Rows.Add(us);
+                    curr = curr.chain_next;
+                }
+                temp = temp.next;
+                curr = temp.chain_next;
+            }
         }
         
         private void provider_find_title_TextChanged(object sender, EventArgs e)
@@ -868,7 +971,7 @@ namespace курсач
 
         private void save_provider_Click_1(object sender, EventArgs e)
         {
-            StreamWriter file_out = new StreamWriter(@"c:\курсач\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
+            StreamWriter file_out = new StreamWriter(@"a:\gitjub\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
             //file_out.WriteLine("РАБОТАЙ");
             output_for_provider(file_out, provider.main);
             file_out.Close();
@@ -876,14 +979,14 @@ namespace курсач
 
         private void load_provider_Click_2(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
+            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
             input_for_provider(file_in);
             file_in.Close();
         }
 
         private void to_file_Click_1(object sender, EventArgs e)//исправить
         {
-            StreamWriter out_file = new StreamWriter(@"c:\курсач\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
+            StreamWriter out_file = new StreamWriter(@"a:\gitjub\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
             spisok_users.nest a = user.first;
             spisok_users.nest temp = a.chain_next;
             string output;
@@ -924,7 +1027,7 @@ namespace курсач
 
         private void from_file_button_Click_1(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_user.txt");
+            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_user.txt");//@"a:\gitjub\курсач\output_user.txt"
             string[] line = new string[4];
             string temp = file_in.ReadLine();
             while (temp != "//")
@@ -998,6 +1101,23 @@ namespace курсач
         private void dataGridViewUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dataGridViewProviders_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void buttonReportAllSalesForUsers_Click(object sender, EventArgs e)
+        {
+            report_sales_of_user otchet = new report_sales_of_user(this);
+            otchet.Show();
+        }
+
+        private void buttonReportAllTariphType_Click(object sender, EventArgs e)
+        {
+            report_all_tariphs_typr otchet = new report_all_tariphs_typr(this);
+            otchet.Show();
         }
     }
 }

@@ -1,0 +1,4 @@
+Провайдер: pod
+Тип: 1
+horosho
+test
