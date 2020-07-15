@@ -1302,6 +1302,21 @@ namespace курсач
         {
 
         }
+
+        private void sale_num_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sale_find_size_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
