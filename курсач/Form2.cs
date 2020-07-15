@@ -104,6 +104,77 @@ namespace курсач
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
+            input_for_provider(file_in);
+            file_in.Close();
+            file_in = new StreamReader(@"a:\gitjub\курсач\output_user.txt");//@"a:\gitjub\курсач\output_user.txt"
+            string[] line = new string[4];
+            string temp = file_in.ReadLine();
+            while (temp != "//")
+            {
+                int j = 0;
+                int i = 0;
+                while (j < temp.Length)
+                {
+                    if (temp[j] == '/')
+                    {
+                        j++;
+                        i++;
+                    }
+
+                    line[i] += temp[j];
+                    j++;
+                }
+                if (provider.find(line[3]) == null)
+                {
+                    message_choise_resilt = MessageBox.Show("Элемент не может быть добавлен. Перейти к следующему?", "Ошибка", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    user.add(line[0], line[1], tariph.find(line[2], provider.find(line[3])));
+                    provider.add_user(line[0], line[3]);
+
+                }
+                line[0] = line[1] = line[2] = line[3] = "";
+                temp = file_in.ReadLine();
+
+                if (message_choise_resilt == DialogResult.Cancel)
+                {
+                    file_in.Close();
+                    return;//ГИТ ХААААААААААААААААААААААААААААААААААААААБ РАБОТАЙ
+                }
+
+
+            }
+
+            while (file_in.Peek() > -1)
+            {
+                temp = file_in.ReadLine();
+                int j = 0;
+                int i = 0;
+                while (j < temp.Length)
+                {
+                    if (temp[j] == '/')
+                    {
+                        j++;
+                        i++;
+                    }
+                    line[i] += temp[j];
+                    j++;
+                }
+                spisok_tariph.nest a = tariph.find(line[2], provider.find(line[3]));
+                sales.add_sale(line[0], line[1], a, a.provider);
+                line[0] = line[1] = line[2] = line[3] = "";
+
+            }
+
+            file_in.Close();
+
+
+
+        }
+        private void Form2_close(object sender, EventArgs e)
+        {
 
         }
 
