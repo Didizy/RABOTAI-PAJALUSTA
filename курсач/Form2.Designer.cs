@@ -149,6 +149,7 @@
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.buttonRepAllUsers = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTariphs)).BeginInit();
@@ -185,6 +186,7 @@
             // tabPage7
             // 
             this.tabPage7.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage7.Controls.Add(this.buttonRepAllUsers);
             this.tabPage7.Controls.Add(this.buttonReportAllTariphType);
             this.tabPage7.Controls.Add(this.dataGridViewTariphs);
             this.tabPage7.Controls.Add(this.dataGridViewProviders);
@@ -204,7 +206,7 @@
             // 
             this.buttonReportAllTariphType.BackColor = System.Drawing.Color.PowderBlue;
             this.buttonReportAllTariphType.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonReportAllTariphType.Location = new System.Drawing.Point(6, 525);
+            this.buttonReportAllTariphType.Location = new System.Drawing.Point(6, 520);
             this.buttonReportAllTariphType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonReportAllTariphType.Name = "buttonReportAllTariphType";
             this.buttonReportAllTariphType.Size = new System.Drawing.Size(396, 46);
@@ -1000,7 +1002,7 @@
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(56, 315);
+            this.label39.Location = new System.Drawing.Point(56, 313);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(155, 17);
             this.label39.TabIndex = 43;
@@ -1009,7 +1011,7 @@
             // 
             // user_provider
             // 
-            this.user_provider.Location = new System.Drawing.Point(248, 306);
+            this.user_provider.Location = new System.Drawing.Point(248, 310);
             this.user_provider.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.user_provider.Name = "user_provider";
             this.user_provider.Size = new System.Drawing.Size(264, 22);
@@ -1032,6 +1034,7 @@
             this.sale_length.Name = "sale_length";
             this.sale_length.Size = new System.Drawing.Size(264, 22);
             this.sale_length.TabIndex = 40;
+            this.sale_length.TextChanged += new System.EventHandler(this.sale_length_TextChanged);
             // 
             // label17
             // 
@@ -1072,7 +1075,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(56, 278);
+            this.label24.Location = new System.Drawing.Point(56, 277);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(151, 17);
             this.label24.TabIndex = 35;
@@ -1081,7 +1084,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(53, 234);
+            this.label23.Location = new System.Drawing.Point(56, 236);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(135, 17);
             this.label23.TabIndex = 33;
@@ -1484,6 +1487,16 @@
             this.tabPage10.Text = "Пользователи и скидки";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
+            // buttonRepAllUsers
+            // 
+            this.buttonRepAllUsers.BackColor = System.Drawing.Color.PowderBlue;
+            this.buttonRepAllUsers.Location = new System.Drawing.Point(6, 583);
+            this.buttonRepAllUsers.Name = "buttonRepAllUsers";
+            this.buttonRepAllUsers.Size = new System.Drawing.Size(396, 46);
+            this.buttonRepAllUsers.TabIndex = 32;
+            this.buttonRepAllUsers.Text = "Отчет: все пользователи провайдера и их скидки";
+            this.buttonRepAllUsers.UseVisualStyleBackColor = false;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1644,5 +1657,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUsersHash;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUsersTariph;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUsersDate;
+        private System.Windows.Forms.Button buttonRepAllUsers;
     }
 }

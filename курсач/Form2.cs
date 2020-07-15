@@ -93,7 +93,7 @@ namespace курсач
                     message_choise_resilt = MessageBox.Show("Заполнены не все поля", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case 2://некоректный ввод данных
-                    message_choise_resilt = MessageBox.Show("Введены некореектные данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    message_choise_resilt = MessageBox.Show("Введены некорректные данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case 3://элемент не существует
                     message_choise_resilt = MessageBox.Show("Элемент не существует", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -151,7 +151,7 @@ namespace курсач
                 if (message_choise_resilt == DialogResult.Cancel)
                 {
                     file_in.Close();
-                    return;//ГИТ ХААААААААААААААААААААААААААААААААААААААБ РАБОТАЙ
+                    return;
                 }
 
 
@@ -230,6 +230,11 @@ namespace курсач
                 error_number = 1;
                 message_box(error_number);
             }
+            else if (tariph_find_provider.Text.Length > 30 || tariph_find_provider.Text.Length > 30)
+            {
+                error_number = 2;
+                message_box(error_number);
+            }
             else if ((provider.find(tariph_find_provider.Text) == null) || (tariph.find(tariph_find_title.Text, provider.find(tariph_find_provider.Text)) == null))
             {
                 error_number = 3;
@@ -273,6 +278,11 @@ namespace курсач
             if (tariph_del_title.Text == "" || tariph_del_provider.Text == "")
             {
                 error_number = 1;
+                message_box(error_number);
+            }
+            else if (tariph_del_title.Text.Length > 30 || tariph_del_provider.Text.Length > 30)
+            {
+                error_number = 2;
                 message_box(error_number);
             }
             else if (check == null || check1 == null)
@@ -327,6 +337,11 @@ namespace курсач
             {
                 error_number = 1;
                 //message_box(error_number);
+            }
+            else if (tariph_title.Text.Length > 30 || tariph_provider.Text.Length > 30 || tariph_cost.Text.Length > 8 || tariph_speed.Text.Length > 10) 
+            {
+                error_number = 2;
+                message_box(error_number);
             }
             else if (checkBoxAddTariphTV.Checked && !(checkBoxAddTariphInternet.Checked))
             {
@@ -415,6 +430,11 @@ namespace курсач
             {
                 error_number = 1;
             }
+            else if (Provider_title.Text.Length > 30)
+            {
+                error_number = 2;
+                message_box(error_number);
+            }
             else if (provider.find(Provider_title.Text) != null)
             {
                 error_number = 4;
@@ -443,6 +463,11 @@ namespace курсач
             if (user_login.Text == "" || user_provider.Text == "" || user_tariph.Text == "" || user_date.Text == "")
             {
                 error_number = 1;
+                message_box(error_number);
+            }
+            else if (!date_check(user_date.Text) || user_login.Text.Length > 30 || user_provider.Text.Length > 30 || user_tariph.Text.Length > 30)
+            {
+                error_number = 2;
                 message_box(error_number);
             }
             else if (check == null || check1 == null)
@@ -493,6 +518,11 @@ namespace курсач
                 error_number = 1;
                 message_box(error_number);
             }
+            else if (!sale_check(sale_provider.Text) || check_for_int(sale_length.Text) || sale_length.Text.Length > 3 || sale_provider.Text.Length > 30 || sale_tariph.Text.Length > 30)
+            {
+                error_number = 2;
+                message_box(error_number);
+            }
             else if (check == null || check1 == null)
             {
                 error_number = 3;
@@ -520,6 +550,11 @@ namespace курсач
             if (provider_del_title.Text == "")
             {
                 error_number = 1;
+                message_box(error_number);
+            }
+            else if (provider_del_title.Text.Length > 30)
+            {
+                error_number = 2;
                 message_box(error_number);
             }
             else if (pr == null)
@@ -554,6 +589,11 @@ namespace курсач
                 error_number = 1;
                 message_box(error_number);
             }
+            else if (provider_find_title.Text.Length > 30)
+            {
+                error_number = 2;
+                message_box(error_number);
+            }
             else if (provider.find(provider_find_title.Text) == null)
             {
                 error_number = 3;
@@ -583,6 +623,11 @@ namespace курсач
                 error_number = 1;
                 message_box(error_number);
             }
+            else if (user_del_login.Text.Length > 30)
+            {
+                error_number = 2;
+                message_box(error_number);
+            }
             else if (a == null)
             {
                 error_number = 3;
@@ -608,6 +653,11 @@ namespace курсач
             if (sale_del_size.Text == "" || sale_del_tar.Text == "" || sale_del_provider.Text == "")
             {
                 error_number = 1;
+                message_box(error_number);
+            }
+            else if (!sale_check(sale_del_size.Text) || sale_del_tar.Text.Length > 30 || sale_find_provider.Text.Length > 30)
+            {
+                error_number = 2;
                 message_box(error_number);
             }
             else if (check1 == null || check == null)
@@ -646,6 +696,11 @@ namespace курсач
                 error_number = 1;
                 message_box(error_number);
             }
+            else if (user_find_login.Text.Length > 30)
+            {
+                error_number = 2;
+                message_box(error_number);
+            }
             else if (user.find(user_find_login.Text) == null)
             {
                 error_number = 3;
@@ -674,7 +729,12 @@ namespace курсач
                 error_number = 1;
                 message_box(error_number);
             }
-            else if (check == null || check1 == null)
+            else if (!sale_check(sale_find_size.Text) || sale_find_provider.Text.Length > 30 || sale_find_tariph.Text.Length > 30)
+            {
+                error_number = 2;
+                message_box(error_number);
+            }
+            else if (check == null || check1 == null || sales.find(sale_find_size.Text, tariph.find(sale_find_tariph.Text, provider.find(sale_find_provider.Text))) == null)
             {
                 error_number = 3;
                 message_box(error_number);
@@ -1225,6 +1285,11 @@ namespace курсач
         }
 
         private void tabPage7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sale_length_TextChanged(object sender, EventArgs e)
         {
 
         }

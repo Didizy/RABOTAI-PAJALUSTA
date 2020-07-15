@@ -41,6 +41,7 @@
             // 
             // dataGridViewSalesRep
             // 
+            this.dataGridViewSalesRep.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridViewSalesRep.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSalesRep.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnSale,
@@ -48,11 +49,11 @@
             this.ColumnTariph});
             this.dataGridViewSalesRep.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridViewSalesRep.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewSalesRep.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewSalesRep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewSalesRep.Name = "dataGridViewSalesRep";
             this.dataGridViewSalesRep.RowHeadersWidth = 51;
             this.dataGridViewSalesRep.RowTemplate.Height = 24;
-            this.dataGridViewSalesRep.Size = new System.Drawing.Size(408, 366);
+            this.dataGridViewSalesRep.Size = new System.Drawing.Size(544, 450);
             this.dataGridViewSalesRep.TabIndex = 0;
             // 
             // ColumnSale
@@ -80,27 +81,26 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.label1.Location = new System.Drawing.Point(490, 46);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(653, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 18);
+            this.label1.Size = new System.Drawing.Size(171, 24);
             this.label1.TabIndex = 1;
             this.label1.Text = "Логин покупателя";
             // 
             // textBoxLogin
             // 
-            this.textBoxLogin.Location = new System.Drawing.Point(493, 86);
-            this.textBoxLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxLogin.Location = new System.Drawing.Point(657, 106);
+            this.textBoxLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxLogin.Name = "textBoxLogin";
-            this.textBoxLogin.Size = new System.Drawing.Size(156, 20);
+            this.textBoxLogin.Size = new System.Drawing.Size(207, 22);
             this.textBoxLogin.TabIndex = 2;
             // 
             // buttonCreateReport
             // 
-            this.buttonCreateReport.Location = new System.Drawing.Point(506, 155);
-            this.buttonCreateReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCreateReport.Location = new System.Drawing.Point(675, 191);
+            this.buttonCreateReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCreateReport.Name = "buttonCreateReport";
-            this.buttonCreateReport.Size = new System.Drawing.Size(112, 37);
+            this.buttonCreateReport.Size = new System.Drawing.Size(149, 46);
             this.buttonCreateReport.TabIndex = 8;
             this.buttonCreateReport.Text = "Создать отчет";
             this.buttonCreateReport.UseVisualStyleBackColor = true;
@@ -108,10 +108,10 @@
             // 
             // buttonSaveInFile
             // 
-            this.buttonSaveInFile.Location = new System.Drawing.Point(506, 271);
-            this.buttonSaveInFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSaveInFile.Location = new System.Drawing.Point(675, 334);
+            this.buttonSaveInFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSaveInFile.Name = "buttonSaveInFile";
-            this.buttonSaveInFile.Size = new System.Drawing.Size(112, 41);
+            this.buttonSaveInFile.Size = new System.Drawing.Size(149, 50);
             this.buttonSaveInFile.TabIndex = 7;
             this.buttonSaveInFile.Text = "Сохранить в файл";
             this.buttonSaveInFile.UseVisualStyleBackColor = true;
@@ -119,15 +119,15 @@
             // 
             // report_sales_of_user
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(705, 366);
+            this.ClientSize = new System.Drawing.Size(940, 450);
             this.Controls.Add(this.buttonCreateReport);
             this.Controls.Add(this.buttonSaveInFile);
             this.Controls.Add(this.textBoxLogin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewSalesRep);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "report_sales_of_user";
             this.Text = "Скидки, которые может получать пользователь";
             this.Load += new System.EventHandler(this.report_sales_of_user_Load);
