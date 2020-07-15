@@ -106,6 +106,7 @@
             this.buttonCreateReport.TabIndex = 4;
             this.buttonCreateReport.Text = "Создать отчет";
             this.buttonCreateReport.UseVisualStyleBackColor = true;
+            this.buttonCreateReport.Click += new System.EventHandler(this.buttonCreateReport_Click);
             // 
             // report_users_of_provider
             // 
