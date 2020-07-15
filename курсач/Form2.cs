@@ -907,35 +907,45 @@ namespace курсач
                 {
                     message_choise_resilt = MessageBox.Show("Элемент не может быть добавлен. Перейти к следующему?", "Ошибка", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                 }
-                pr = provider.find(provider_name);
-
-                while (true)
+                else
                 {
-                    temp = file.ReadLine();
-                    helper = "";
-                    if (temp == "//")
-                        break;
-                    for (int i = 0; i < temp.Length; i++)
-                    {
-                        if (temp[i] == '/')
-                        {
-                            i++;
-                            info[j] = helper;
-                            j++;
-                            helper = "";
-                        }
-                        helper += temp[i];
-                    }
-                    j = 0;
-                    info[3] = helper;
-                    if ((!check_for_int(info[1])) && (!check_for_int(info[2])) && (!check_for_int(info[3])))
-                    {
-                        error_number = 2;
-                        message_box(error_number);
-                    }
-                    provider.add_tariph(info[0], Convert.ToInt32(info[1]), provider_name);
+                    pr = provider.find(provider_name);
 
-                    tariph.add(tariph.getkey(info[0]), info[0], Convert.ToInt32(info[2]), Convert.ToInt32(info[3]), pr);
+                    while (true)
+                    {
+                        temp = file.ReadLine();
+                        helper = "";
+                        if (temp == "//")
+                            break;
+                        for (int i = 0; i < temp.Length; i++)
+                        {
+                            if (temp[i] == '/')
+                            {
+                                i++;
+                                info[j] = helper;
+                                j++;
+                                helper = "";
+                            }
+                            helper += temp[i];
+                        }
+                        j = 0;
+                        info[3] = helper;
+                        if ((!check_for_int(info[1])) && (!check_for_int(info[2])) && (!check_for_int(info[3])))
+                        {
+                            error_number = 2;
+                            message_box(error_number);
+                        }
+                        provider.add_tariph(info[0], Convert.ToInt32(info[1]), provider_name);
+
+                        tariph.add(tariph.getkey(info[0]), info[0], Convert.ToInt32(info[2]), Convert.ToInt32(info[3]), pr);
+                    }
+
+
+                }
+                if (message_choise_resilt == DialogResult.Cancel)
+                {
+                    file.Close();
+                    return;
                 }
             }
         }
@@ -1114,7 +1124,6 @@ namespace курсач
         private void save_provider_Click_1(object sender, EventArgs e)
         {
             StreamWriter file_out = new StreamWriter(@"c:\курсач\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
-            //file_out.WriteLine("РАБОТАЙ");
             output_for_provider(file_out, provider.main);
             file_out.Close();
         }
@@ -1203,7 +1212,7 @@ namespace курсач
                 if (message_choise_resilt == DialogResult.Cancel)
                 {
                     file_in.Close();
-                    return;//ГИТ ХААААААААААААААААААААААААААААААААААААААБ РАБОТАЙ
+                    return;
                 }
 
 
