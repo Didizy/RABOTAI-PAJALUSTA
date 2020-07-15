@@ -33,8 +33,8 @@ namespace курсач
 
         public bool check_for_int(string a)
         {
-            for(int i = 0; i<a.Length;i++)
-                if(((int)a[i]<48)||((int)a[i]>57))
+            for (int i = 0; i < a.Length; i++)
+                if (((int)a[i] < 48) || ((int)a[i] > 57))
                     return false;
             return true;
         }
@@ -98,16 +98,16 @@ namespace курсач
             }
 
 
-            
+
         }
 
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
+            StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
             input_for_provider(file_in);
             file_in.Close();
-            file_in = new StreamReader(@"a:\gitjub\курсач\output_user.txt");//@"a:\gitjub\курсач\output_user.txt"
+            file_in = new StreamReader(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_user.txt"
             string[] line = new string[4];
             string temp = file_in.ReadLine();
             while (temp != "//")
@@ -200,7 +200,7 @@ namespace курсач
 
         private void label6_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void textBox9_TextChanged(object sender, EventArgs e)
@@ -265,7 +265,7 @@ namespace курсач
                 error_number = 1;
                 message_box(error_number);
             }
-            else if (check == null || check1 == null) 
+            else if (check == null || check1 == null)
             {
                 error_number = 3;
                 message_box(error_number);
@@ -301,7 +301,7 @@ namespace курсач
             {
                 type = 3;
             }
-            else 
+            else
             {
                 error_number = 1;
             }
@@ -326,12 +326,13 @@ namespace курсач
 
             else
             {
-               bool can_add =  provider.add_tariph(tariph_title.Text, Convert.ToInt32(tariph_cost.Text), tariph_provider.Text);
-                if (!can_add){
+                bool can_add = provider.add_tariph(tariph_title.Text, Convert.ToInt32(tariph_cost.Text), tariph_provider.Text);
+                if (!can_add)
+                {
                     error_number = 4;
                 }
                 else
-                tariph.add(tariph.getkey(tariph_title.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));               
+                    tariph.add(tariph.getkey(tariph_title.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));
             }
 
             message_box(error_number);
@@ -378,12 +379,12 @@ namespace курсач
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int i = 0;
-            int ind_to_show = 1 ;
+            int ind_to_show = 1;
             bool end = false;
             tree_providers.root a;
             while (!end)
             {
-                i = 0;   
+                i = 0;
                 a = provider.print_provider(ind_to_show, provider.main, ref i);
                 //Провайдеры.Items.Add(a.title);
                 ind_to_show++;
@@ -394,12 +395,12 @@ namespace курсач
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
-           // provider.add_Provider(Provider_title.Text);
+
+            // provider.add_Provider(Provider_title.Text);
             error_number = 0;
 
-            
-            
+
+
             if (Provider_title.Text == "")
             {
                 error_number = 1;
@@ -429,12 +430,12 @@ namespace курсач
             if (check1 != null)
                 check = tariph.find(user_tariph.Text, provider.find(user_provider.Text));
 
-            if(user_login.Text==""||user_provider.Text==""||user_tariph.Text==""||user_date.Text=="")
+            if (user_login.Text == "" || user_provider.Text == "" || user_tariph.Text == "" || user_date.Text == "")
             {
                 error_number = 1;
                 message_box(error_number);
             }
-            else if (check==null||check1==null)
+            else if (check == null || check1 == null)
             {
                 error_number = 3;
                 message_box(error_number);
@@ -451,7 +452,7 @@ namespace курсач
                 error_number = 0;
                 message_box(error_number);
             }
-            
+
             user_login.Text = user_date.Text = user_tariph.Text = user_provider.Text = "";
         }//
 
@@ -500,7 +501,7 @@ namespace курсач
                 error_number = 0;
                 message_box(error_number);
             }
-            sale_num.Text = sale_tariph.Text = sale_provider.Text = sale_length.Text = "";           
+            sale_num.Text = sale_tariph.Text = sale_provider.Text = sale_length.Text = "";
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -511,7 +512,7 @@ namespace курсач
                 error_number = 1;
                 message_box(error_number);
             }
-            else if (pr == null) 
+            else if (pr == null)
             {
                 error_number = 3;
                 message_box(error_number);
@@ -523,9 +524,9 @@ namespace курсач
                     user.delete(pr.users[0]);
                     provider.delete_user(pr.users[0], pr.title);
                 }
-                while (pr.current_tariph > 0) 
+                while (pr.current_tariph > 0)
                 {
-                    sales.delete_tariph(tariph.find(pr.arr[0].name,pr), sales.main);
+                    sales.delete_tariph(tariph.find(pr.arr[0].name, pr), sales.main);
                     tariph.delete(pr.arr[0].name, pr);
                     provider.del_tariph(pr.arr[0].name, pr);
                 }
@@ -537,13 +538,13 @@ namespace курсач
         }
 
         private void find_provider_Click(object sender, EventArgs e)
-        {                    
+        {
             if (provider_find_title.Text == "")
             {
                 error_number = 1;
                 message_box(error_number);
             }
-            else if (provider.find(provider_find_title.Text)==null)
+            else if (provider.find(provider_find_title.Text) == null)
             {
                 error_number = 3;
                 message_box(error_number);
@@ -604,7 +605,7 @@ namespace курсач
                 error_number = 3;
                 message_box(error_number);
             }
-            else if (sales.delete(sale_del_size.Text, tariph.find(sale_del_tar.Text, provider.find(sale_del_provider.Text)))==false)
+            else if (sales.delete(sale_del_size.Text, tariph.find(sale_del_tar.Text, provider.find(sale_del_provider.Text))) == false)
             {
                 error_number = 3;
                 message_box(error_number);
@@ -614,7 +615,7 @@ namespace курсач
                 sales.delete(sale_del_size.Text, tariph.find(sale_del_tar.Text, provider.find(sale_del_provider.Text)));
                 error_number = 10;
                 message_box(error_number);
-            }            
+            }
             sale_del_tar.Text = sale_del_size.Text = sale_del_provider.Text = "";
         }
 
@@ -672,7 +673,7 @@ namespace курсач
             {
                 sales.find(sale_find_size.Text, tariph.find(sale_find_tariph.Text, provider.find(sale_find_provider.Text)));
             }
-            
+
             sale_find_provider.Text = sale_find_size.Text = sale_find_tariph.Text = "";
         }
 
@@ -696,31 +697,31 @@ namespace курсач
                 line[2] = pr.arr[i].cost.ToString();
                 dataGridViewProviders.Rows.Add(line);
             }
-                /*switch (a.type)
-                {
-                    case 1:
-                        line[3] = "Интеренет";
-                        break;
-                    case 2:
-                        line[3] = "Интернет и ТВ";
-                        break;
-                    case 3:
-                        line[3] = "ТВ";
-                        break;
-                }
-                //line[3] = a.type.ToString();
-                line[4] = a.speed.ToString();
-                line[5] = pr.arr[i].cost.ToString();
-                
-            }*/
-            
+            /*switch (a.type)
+            {
+                case 1:
+                    line[3] = "Интеренет";
+                    break;
+                case 2:
+                    line[3] = "Интернет и ТВ";
+                    break;
+                case 3:
+                    line[3] = "ТВ";
+                    break;
+            }
+            //line[3] = a.type.ToString();
+            line[4] = a.speed.ToString();
+            line[5] = pr.arr[i].cost.ToString();
+
+        }*/
+
             get_provider_info(line, pr.left);
             get_provider_info(line, pr.right);
         }
 
         private void dataGridViewProvidersAndTariphs_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void dataGridViewUsersAndSells_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -732,7 +733,7 @@ namespace курсач
         {
 
         }
-        public void output_for_sales(StreamWriter file,tree_sale.root parent)
+        public void output_for_sales(StreamWriter file, tree_sale.root parent)
         {
             if (parent == null)
                 return;
@@ -749,56 +750,56 @@ namespace курсач
             output_for_sales(file, parent.right);
         }
 
-/*        private void to_file_Click(object sender, EventArgs e)
-        {
-            StreamWriter out_file = new StreamWriter(@"c:\курсач\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
-            spisok_users.nest a = user.first;
-            spisok_users.nest temp = a.chain_next;
-            string output;
-            while (true)
-            {
-                output = "";
-                output += a.login;
-                output += "/";
-                output += a.date;
-                output += "/";
-                output += a.tariph.name;
-                out_file.WriteLine(output);
-                while (temp != a)
+        /*        private void to_file_Click(object sender, EventArgs e)
                 {
-                    output = "";
-                    output += temp.login;
-                    output += "/";
-                    output += temp.date;
-                    output += "/";
-                    output += temp.tariph.name;
-                    out_file.WriteLine(output);
-                    temp = temp.chain_next;
+                    StreamWriter out_file = new StreamWriter(@"c:\курсач\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
+                    spisok_users.nest a = user.first;
+                    spisok_users.nest temp = a.chain_next;
+                    string output;
+                    while (true)
+                    {
+                        output = "";
+                        output += a.login;
+                        output += "/";
+                        output += a.date;
+                        output += "/";
+                        output += a.tariph.name;
+                        out_file.WriteLine(output);
+                        while (temp != a)
+                        {
+                            output = "";
+                            output += temp.login;
+                            output += "/";
+                            output += temp.date;
+                            output += "/";
+                            output += temp.tariph.name;
+                            out_file.WriteLine(output);
+                            temp = temp.chain_next;
+
+                        }
+                        a = a.next;
+                        if (a == null)
+                            break;
+                        temp = a.chain_next;
+                    }
+                    out_file.WriteLine("//");
+                    output_for_sales(out_file, sales.main);
+                    out_file.Close();
 
                 }
-                a = a.next;
-                if (a == null)
-                    break;
-                temp = a.chain_next;
-            }
-            out_file.WriteLine("//");
-            output_for_sales(out_file, sales.main);
-            out_file.Close();
-
-        }
-        private void from_file_button_Click(object sender, EventArgs e)
-        {
+                private void from_file_button_Click(object sender, EventArgs e)
+                {
 
 
-        }
-*/
+                }
+        */
         public void output_for_provider(StreamWriter file, tree_providers.root pr)
         {
             if (pr == null)
                 return;
             file.WriteLine(pr.title);
-           // file.Write("\n");
-            for(int i = 0; i < pr.current_tariph; i++)
+            // file.Write("\n");
+            for (int i = 0; i < pr.current_tariph; i++)
             {
                 string temp = "";
                 temp += pr.arr[i].name;
@@ -810,14 +811,14 @@ namespace курсач
                 temp += "/";
                 temp += a.speed.ToString();
                 file.WriteLine(temp);
-               // file.Write("\n");
+                // file.Write("\n");
 
             }
             file.WriteLine("//");
             output_for_provider(file, pr.left);
             output_for_provider(file, pr.right);
         }
-       
+
 
         public void input_for_provider(StreamReader file)
         {
@@ -837,7 +838,7 @@ namespace курсач
                     message_choise_resilt = MessageBox.Show("Элемент не может быть добавлен. Перейти к следующему?", "Ошибка", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                 }
                 pr = provider.find(provider_name);
-                
+
                 while (true)
                 {
                     temp = file.ReadLine();
@@ -868,8 +869,8 @@ namespace курсач
                 }
             }
         }
-     
-        
+
+
         /*private void save_provider_Click(object sender, EventArgs e)
         {
             StreamWriter file_out = new StreamWriter(@"c:\курсач\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
@@ -943,7 +944,7 @@ namespace курсач
 
                     }
                     dataGridViewTariphs.Rows.Add(tar);
-                   
+
 
                 }
                 temp = temp.next;
@@ -1029,7 +1030,7 @@ namespace курсач
                 curr = temp.chain_next;
             }
         }
-        
+
         private void provider_find_title_TextChanged(object sender, EventArgs e)
         {
 
@@ -1042,7 +1043,7 @@ namespace курсач
 
         private void save_provider_Click_1(object sender, EventArgs e)
         {
-            StreamWriter file_out = new StreamWriter(@"a:\gitjub\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
+            StreamWriter file_out = new StreamWriter(@"c:\курсач\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
             //file_out.WriteLine("РАБОТАЙ");
             output_for_provider(file_out, provider.main);
             file_out.Close();
@@ -1050,14 +1051,14 @@ namespace курсач
 
         private void load_provider_Click_2(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
+            StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
             input_for_provider(file_in);
             file_in.Close();
         }
 
         private void to_file_Click_1(object sender, EventArgs e)//исправить
         {
-            StreamWriter out_file = new StreamWriter(@"a:\gitjub\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
+            StreamWriter out_file = new StreamWriter(@"c:\курсач\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
             spisok_users.nest a = user.first;
             spisok_users.nest temp = a.chain_next;
             string output;
@@ -1072,7 +1073,7 @@ namespace курсач
                 output += "/";
                 output += a.tariph.provider.title;
                 out_file.WriteLine(output);
-                while (temp !=null)
+                while (temp != null)
                 {
                     output = "";
                     output += temp.login;
@@ -1098,7 +1099,7 @@ namespace курсач
 
         private void from_file_button_Click_1(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_user.txt");//@"a:\gitjub\курсач\output_user.txt"
+            StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_user.txt"
             string[] line = new string[4];
             string temp = file_in.ReadLine();
             while (temp != "//")
@@ -1112,11 +1113,11 @@ namespace курсач
                         j++;
                         i++;
                     }
-                    
+
                     line[i] += temp[j];
                     j++;
                 }
-                if (provider.find(line[3])==null)
+                if (provider.find(line[3]) == null || user.find(line[0])!=null)
                 {
                     message_choise_resilt = MessageBox.Show("Элемент не может быть добавлен. Перейти к следующему?", "Ошибка", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                 }
@@ -1124,7 +1125,7 @@ namespace курсач
                 {
                     user.add(line[0], line[1], tariph.find(line[2], provider.find(line[3])));
                     provider.add_user(line[0], line[3]);
-                    
+
                 }
                 line[0] = line[1] = line[2] = line[3] = "";
                 temp = file_in.ReadLine();
@@ -1134,10 +1135,10 @@ namespace курсач
                     file_in.Close();
                     return;//ГИТ ХААААААААААААААААААААААААААААААААААААААБ РАБОТАЙ
                 }
-                    
+
 
             }
-            
+
             while (file_in.Peek() > -1)
             {
                 temp = file_in.ReadLine();
@@ -1153,14 +1154,26 @@ namespace курсач
                     line[i] += temp[j];
                     j++;
                 }
-                spisok_tariph.nest a = tariph.find(line[2], provider.find(line[3]));
-                sales.add_sale(line[0], line[1], a, a.provider);
+                if (provider.find(line[3]) == null || tariph.find(line[2], provider.find(line[3])) == null || sales.find(line[0], tariph.find(line[2], provider.find(line[3]))) != null)
+                {
+                    message_choise_resilt = MessageBox.Show("Элемент не может быть добавлен. Перейти к следующему?", "Ошибка", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    spisok_tariph.nest a = tariph.find(line[2], provider.find(line[3]));
+                    sales.add_sale(line[0], line[1], a, a.provider);
+                }
+                
                 line[0] = line[1] = line[2] = line[3] = "";
-
+                if (message_choise_resilt == DialogResult.Cancel)
+                {
+                    file_in.Close();
+                    return;//ГИТ ХААААААААААААААААААААААААААААААААААААААБ РАБОТАЙ
+                }
             }
 
             file_in.Close();
-           
+
 
         }
 
@@ -1192,3 +1205,4 @@ namespace курсач
         }
     }
 }
+
