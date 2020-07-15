@@ -46,6 +46,7 @@ namespace курсач
             user = f2.user.find(textBoxLogin.Text);
             tree_sale.root sale = f2.sales.main;
             string[] line = new string[3];
+            if(user != null)
             potential_sale(line, sale, user);
             //textBoxLogin;
         }
