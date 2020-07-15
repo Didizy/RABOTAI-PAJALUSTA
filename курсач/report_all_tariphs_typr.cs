@@ -79,5 +79,10 @@ namespace курсач
         {
 
         }
+
+        private void report_all_tariphs_typr_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

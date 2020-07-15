@@ -153,6 +153,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "report_all_tariphs_typr";
             this.Text = "Тарифы провайдера определенного вида услуги";
+            this.Load += new System.EventHandler(this.report_all_tariphs_typr_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTypeRep)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

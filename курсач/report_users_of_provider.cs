@@ -21,5 +21,10 @@ namespace курсач
         {
 
         }
+
+        private void report_users_of_provider_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -70,5 +70,10 @@ namespace курсач
                 file.Close();
             }
         }
+
+        private void report_sales_of_user_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

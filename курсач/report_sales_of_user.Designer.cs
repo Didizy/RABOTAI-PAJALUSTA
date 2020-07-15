@@ -130,6 +130,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "report_sales_of_user";
             this.Text = "Скидки, которые может получать пользователь";
+            this.Load += new System.EventHandler(this.report_sales_of_user_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalesRep)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
