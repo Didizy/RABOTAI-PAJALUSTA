@@ -48,6 +48,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="report_all_tariphs_typr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="report_all_tariphs_typr.Designer.cs">
+      <DependentUpon>report_all_tariphs_typr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="report_sales_of_user.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="report_sales_of_user.Designer.cs">
+      <DependentUpon>report_sales_of_user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="report_users_of_provider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="report_users_of_provider.Designer.cs">
+      <DependentUpon>report_users_of_provider.cs</DependentUpon>
+    </Compile>
     <Compile Include="searchform_provider.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +108,15 @@
     <Compile Include="spisok_tariph.cs" />
     <Compile Include="spisok_users.cs" />
     <Compile Include="tree_sale.cs" />
+    <EmbeddedResource Include="report_all_tariphs_typr.resx">
+      <DependentUpon>report_all_tariphs_typr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report_sales_of_user.resx">
+      <DependentUpon>report_sales_of_user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report_users_of_provider.resx">
+      <DependentUpon>report_users_of_provider.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="searchform_provider.resx">
       <DependentUpon>searchform_provider.cs</DependentUpon>
     </EmbeddedResource>
