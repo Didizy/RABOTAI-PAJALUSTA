@@ -152,6 +152,15 @@
             this.ColumnProviderCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnProviderTariph = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnProviderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewSales = new System.Windows.Forms.DataGridView();
+            this.ColumnSaleSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSaleTariph = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSaleDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
+            this.ColumnUsersLogin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUsersHash = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUsersTariph = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnUsersDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProvidersAndTariphs)).BeginInit();
@@ -169,6 +178,8 @@
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProviders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTariphs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSales)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -732,6 +743,8 @@
             // 
             this.tabPage1.AutoScroll = true;
             this.tabPage1.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage1.Controls.Add(this.dataGridViewUsers);
+            this.tabPage1.Controls.Add(this.dataGridViewSales);
             this.tabPage1.Controls.Add(this.from_file_button);
             this.tabPage1.Controls.Add(this.to_file);
             this.tabPage1.Controls.Add(this.refresh_users);
@@ -740,17 +753,17 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(1307, 705);
+            this.tabPage1.Size = new System.Drawing.Size(1493, 705);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Просмотр";
             // 
             // from_file_button
             // 
             this.from_file_button.BackColor = System.Drawing.Color.Turquoise;
-            this.from_file_button.Location = new System.Drawing.Point(1091, 174);
+            this.from_file_button.Location = new System.Drawing.Point(684, 643);
             this.from_file_button.Margin = new System.Windows.Forms.Padding(4);
             this.from_file_button.Name = "from_file_button";
-            this.from_file_button.Size = new System.Drawing.Size(211, 76);
+            this.from_file_button.Size = new System.Drawing.Size(143, 29);
             this.from_file_button.TabIndex = 46;
             this.from_file_button.Text = "Загрузить";
             this.from_file_button.UseVisualStyleBackColor = false;
@@ -759,10 +772,10 @@
             // to_file
             // 
             this.to_file.BackColor = System.Drawing.Color.Turquoise;
-            this.to_file.Location = new System.Drawing.Point(1091, 90);
+            this.to_file.Location = new System.Drawing.Point(835, 652);
             this.to_file.Margin = new System.Windows.Forms.Padding(4);
             this.to_file.Name = "to_file";
-            this.to_file.Size = new System.Drawing.Size(211, 76);
+            this.to_file.Size = new System.Drawing.Size(143, 29);
             this.to_file.TabIndex = 45;
             this.to_file.Text = "Сохранить";
             this.to_file.UseVisualStyleBackColor = false;
@@ -771,10 +784,10 @@
             // refresh_users
             // 
             this.refresh_users.BackColor = System.Drawing.Color.Turquoise;
-            this.refresh_users.Location = new System.Drawing.Point(1091, 6);
+            this.refresh_users.Location = new System.Drawing.Point(533, 652);
             this.refresh_users.Margin = new System.Windows.Forms.Padding(4);
             this.refresh_users.Name = "refresh_users";
-            this.refresh_users.Size = new System.Drawing.Size(211, 76);
+            this.refresh_users.Size = new System.Drawing.Size(143, 29);
             this.refresh_users.TabIndex = 1;
             this.refresh_users.Text = "Обновить";
             this.refresh_users.UseVisualStyleBackColor = false;
@@ -790,14 +803,13 @@
             this.ColumnLoginUaS,
             this.ColumnTariphUaS,
             this.ColumnUserDateUaS});
-            this.dataGridViewUsersAndSells.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dataGridViewUsersAndSells.Location = new System.Drawing.Point(3, 2);
+            this.dataGridViewUsersAndSells.Location = new System.Drawing.Point(93, 552);
             this.dataGridViewUsersAndSells.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewUsersAndSells.Name = "dataGridViewUsersAndSells";
             this.dataGridViewUsersAndSells.RowHeadersWidth = 51;
             this.dataGridViewUsersAndSells.RowTemplate.Height = 24;
             this.dataGridViewUsersAndSells.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridViewUsersAndSells.Size = new System.Drawing.Size(1071, 701);
+            this.dataGridViewUsersAndSells.Size = new System.Drawing.Size(84, 85);
             this.dataGridViewUsersAndSells.TabIndex = 0;
             this.dataGridViewUsersAndSells.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUsersAndSells_CellContentClick);
             // 
@@ -855,7 +867,7 @@
             this.tabControl2.Multiline = true;
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1315, 734);
+            this.tabControl2.Size = new System.Drawing.Size(1501, 734);
             this.tabControl2.TabIndex = 1;
             // 
             // tabPage3
@@ -1380,7 +1392,7 @@
             this.tabPage10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage10.Size = new System.Drawing.Size(1321, 738);
+            this.tabPage10.Size = new System.Drawing.Size(1507, 738);
             this.tabPage10.TabIndex = 1;
             this.tabPage10.Text = "Пользователи и скидки";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -1472,6 +1484,85 @@
             this.ColumnProviderName.Name = "ColumnProviderName";
             this.ColumnProviderName.Width = 125;
             // 
+            // dataGridViewSales
+            // 
+            this.dataGridViewSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnSaleSale,
+            this.ColumnSaleTariph,
+            this.ColumnSaleDate});
+            this.dataGridViewSales.Location = new System.Drawing.Point(6, 5);
+            this.dataGridViewSales.Name = "dataGridViewSales";
+            this.dataGridViewSales.RowHeadersWidth = 51;
+            this.dataGridViewSales.RowTemplate.Height = 24;
+            this.dataGridViewSales.Size = new System.Drawing.Size(572, 504);
+            this.dataGridViewSales.TabIndex = 47;
+            // 
+            // ColumnSaleSale
+            // 
+            this.ColumnSaleSale.HeaderText = "Скидка";
+            this.ColumnSaleSale.MinimumWidth = 6;
+            this.ColumnSaleSale.Name = "ColumnSaleSale";
+            this.ColumnSaleSale.Width = 125;
+            // 
+            // ColumnSaleTariph
+            // 
+            this.ColumnSaleTariph.HeaderText = "Тариф";
+            this.ColumnSaleTariph.MinimumWidth = 6;
+            this.ColumnSaleTariph.Name = "ColumnSaleTariph";
+            this.ColumnSaleTariph.Width = 125;
+            // 
+            // ColumnSaleDate
+            // 
+            this.ColumnSaleDate.HeaderText = "Срок пользования тарифом";
+            this.ColumnSaleDate.MinimumWidth = 6;
+            this.ColumnSaleDate.Name = "ColumnSaleDate";
+            this.ColumnSaleDate.Width = 125;
+            // 
+            // dataGridViewUsers
+            // 
+            this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnUsersLogin,
+            this.ColumnUsersHash,
+            this.ColumnUsersTariph,
+            this.ColumnUsersDate});
+            this.dataGridViewUsers.Location = new System.Drawing.Point(584, 5);
+            this.dataGridViewUsers.Name = "dataGridViewUsers";
+            this.dataGridViewUsers.RowHeadersWidth = 51;
+            this.dataGridViewUsers.RowTemplate.Height = 24;
+            this.dataGridViewUsers.Size = new System.Drawing.Size(903, 504);
+            this.dataGridViewUsers.TabIndex = 48;
+            this.dataGridViewUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUsers_CellContentClick);
+            // 
+            // ColumnUsersLogin
+            // 
+            this.ColumnUsersLogin.HeaderText = "Логин покупателя";
+            this.ColumnUsersLogin.MinimumWidth = 6;
+            this.ColumnUsersLogin.Name = "ColumnUsersLogin";
+            this.ColumnUsersLogin.Width = 125;
+            // 
+            // ColumnUsersHash
+            // 
+            this.ColumnUsersHash.HeaderText = "Хеш-значени логина";
+            this.ColumnUsersHash.MinimumWidth = 6;
+            this.ColumnUsersHash.Name = "ColumnUsersHash";
+            this.ColumnUsersHash.Width = 125;
+            // 
+            // ColumnUsersTariph
+            // 
+            this.ColumnUsersTariph.HeaderText = "Тариф";
+            this.ColumnUsersTariph.MinimumWidth = 6;
+            this.ColumnUsersTariph.Name = "ColumnUsersTariph";
+            this.ColumnUsersTariph.Width = 125;
+            // 
+            // ColumnUsersDate
+            // 
+            this.ColumnUsersDate.HeaderText = "Срок пользования тарифом";
+            this.ColumnUsersDate.MinimumWidth = 6;
+            this.ColumnUsersDate.Name = "ColumnUsersDate";
+            this.ColumnUsersDate.Width = 125;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1505,6 +1596,8 @@
             this.tabPage10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProviders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTariphs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSales)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1635,5 +1728,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnProviderName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnProviderTariph;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnProviderCost;
+        private System.Windows.Forms.DataGridView dataGridViewUsers;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUsersLogin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUsersHash;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUsersTariph;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUsersDate;
+        private System.Windows.Forms.DataGridView dataGridViewSales;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSaleSale;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSaleTariph;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSaleDate;
     }
 }
