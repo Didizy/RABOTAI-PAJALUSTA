@@ -19,9 +19,6 @@ namespace курсач
         public spisok_users user;
         public tree_sale sales;
         
-        int error_number;
-        DialogResult message_choise_resilt;
-
         public Form2()
         {
             InitializeComponent();
@@ -80,6 +77,9 @@ namespace курсач
             return false;
         }
 
+        int error_number;
+        DialogResult message_choise_resilt;
+
         public void message_box(int error_number)
         {
             int switch_on = error_number;//код ошибки или ее отсутсвие
@@ -100,6 +100,9 @@ namespace курсач
                     break;
                 case 4://элемент уже существует
                     message_choise_resilt = MessageBox.Show("Элемент уже существует", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                case 5://отчет не был создан
+                    message_choise_resilt = MessageBox.Show("Отчен не сформирован", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case 10://удаление прошло
                     MessageBox.Show("Элемент удален", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1247,7 +1250,7 @@ namespace курсач
                 if (message_choise_resilt == DialogResult.Cancel)
                 {
                     file_in.Close();
-                    return;//ГИТ ХААААААААААААААААААААААААААААААААААААААБ РАБОТАЙ
+                    return;
                 }
             }
 

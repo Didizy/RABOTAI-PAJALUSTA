@@ -16,6 +16,7 @@ namespace курсач
     {
         Form2 f2;
         spisok_users.nest user;
+        int error_number;
 
         public report_sales_of_user()
         {
@@ -43,11 +44,29 @@ namespace курсач
         private void buttonCreateReport_Click(object sender, EventArgs e)
         {
             dataGridViewSalesRep.Rows.Clear();
+
+            if (textBoxLogin.Text=="")
+            {
+                error_number = 1;
+                f2.message_box(error_number);
+                return;
+            }
+            else if (textBoxLogin.Text.Length>30)
+            {
+                error_number = 2;
+                f2.message_box(error_number);
+                return;
+            }
             user = f2.user.find(textBoxLogin.Text);
             tree_sale.root sale = f2.sales.main;
             string[] line = new string[3];
             if(user != null)
-            potential_sale(line, sale, user);
+                potential_sale(line, sale, user);
+            else
+            {
+                error_number = 3;
+                f2.message_box(error_number);
+            }
             //textBoxLogin;
         }
 
@@ -57,7 +76,8 @@ namespace курсач
             if (user == null)
             {
                 file.Close();
-                //отчёт ещё не сделан, еррор
+                error_number = 5;
+                f2.message_box(error_number);
             }
             else
             {

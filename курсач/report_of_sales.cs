@@ -16,5 +16,10 @@ namespace курсач
         {
             InitializeComponent();
         }
+
+        private void buttonCreateReport_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

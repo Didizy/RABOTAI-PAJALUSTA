@@ -1532,7 +1532,7 @@
             this.Controls.Add(this.tabControlMain);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Справочники";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage7.ResumeLayout(false);

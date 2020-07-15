@@ -93,6 +93,7 @@
             this.textBoxProvider.Name = "textBoxProvider";
             this.textBoxProvider.Size = new System.Drawing.Size(279, 22);
             this.textBoxProvider.TabIndex = 8;
+            this.textBoxProvider.TextChanged += new System.EventHandler(this.textBoxProvider_TextChanged);
             // 
             // label1
             // 

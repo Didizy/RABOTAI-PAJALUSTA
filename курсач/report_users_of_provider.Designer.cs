@@ -86,6 +86,7 @@
             this.textBoxProvider.Name = "textBoxProvider";
             this.textBoxProvider.Size = new System.Drawing.Size(257, 22);
             this.textBoxProvider.TabIndex = 2;
+            this.textBoxProvider.TextChanged += new System.EventHandler(this.textBoxProvider_TextChanged);
             // 
             // buttonSaveInFile
             // 
@@ -96,6 +97,7 @@
             this.buttonSaveInFile.TabIndex = 3;
             this.buttonSaveInFile.Text = "Сохранить в файл";
             this.buttonSaveInFile.UseVisualStyleBackColor = true;
+            this.buttonSaveInFile.Click += new System.EventHandler(this.buttonSaveInFile_Click);
             // 
             // buttonCreateReport
             // 
