@@ -309,6 +309,38 @@ namespace курсач
             }
             return true;
         }
-      
+
+        public tree_sale.root check_for_sale(spisok_tariph.nest tar, tree_sale.root s, spisok_users.nest u)
+        {
+            if (s == null)
+                return null;
+            tree_sale.root s1 = check_for_sale(tar, s.left, u);
+            tree_sale.root s2 = check_for_sale(tar, s.right, u);
+            if ((u.tariph == s.tariph) && (Can_get_sale(u, s)))
+            {
+                if (s2 != null)
+                {
+                    if (s2.size.Length > s.size.Length)
+                        return s2;
+                    else if (s2.size[0] > s.size[0])
+                        return s2;
+                    else if (s2.size[1] > s.size[1])
+                        return s2;
+                }
+                else
+                    return s;
+            }
+            else
+                if ((s1 != null) || (s2 != null))
+                {
+                    if (s2 != null)
+                        return s2;
+                    else
+                        return s1;
+                }
+                  return null;
+            
+            
+        }
     }
 }
