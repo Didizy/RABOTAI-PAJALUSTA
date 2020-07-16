@@ -527,7 +527,7 @@ namespace курсач
             tree_providers.root check1 = provider.find(sale_provider.Text);
             spisok_tariph.nest check = null;
             if (check1 != null)
-                check = tariph.find(sale_tariph.Text, provider.find(sale_provider.Text));
+                check = tariph.find(sale_tariph.Text, check1);
 
             if (sale_num.Text == "" || sale_length.Text == "" || sale_provider.Text == "" || sale_tariph.Text == "")
             {
@@ -539,7 +539,7 @@ namespace курсач
                 error_number = 3;
                 message_box(error_number);
             }
-            else if (!sale_check(sale_provider.Text) || check_for_int(sale_length.Text) || sale_length.Text.Length > 3 || sale_provider.Text.Length > 30 || sale_tariph.Text.Length > 30)
+            else if (!sale_check(sale_num.Text) || !check_for_int(sale_length.Text) || sale_length.Text.Length > 3 || sale_provider.Text.Length > 30 || sale_tariph.Text.Length > 30)
             {
                 error_number = 2;
                 message_box(error_number);
@@ -551,8 +551,8 @@ namespace курсач
             }
             else
             {
-                spisok_tariph.nest a = tariph.find(sale_tariph.Text, provider.find(sale_provider.Text));
-                sales.add_sale(sale_num.Text, sale_length.Text, a);//, a.provider);
+                //spisok_tariph.nest a = tariph.find(sale_tariph.Text, provider.find(sale_provider.Text));
+                sales.add_sale(sale_num.Text, sale_length.Text, check);//, a.provider);
 
                 error_number = 0;
                 message_box(error_number);
@@ -757,7 +757,9 @@ namespace курсач
             }
             else
             {
-                sales.find(sale_find_size.Text, tariph.find(sale_find_tariph.Text, provider.find(sale_find_provider.Text)));
+                tree_sale.root s = sales.find(sale_find_size.Text, tariph.find(sale_find_tariph.Text, provider.find(sale_find_provider.Text)));
+                searchform_sale searchform = new searchform_sale(s, this);
+                searchform.Show();
             }
 
             sale_find_provider.Text = sale_find_size.Text = sale_find_tariph.Text = "";
