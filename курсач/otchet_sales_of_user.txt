@@ -1,5 +1,4 @@
-Пользователь: Vasya
-10/pod/ELDORADO
+Пользователь: LUPA
 5/pod/ELDORADO
 5/Ростелеком/Звёздный
 5/pod/horosho

@@ -154,6 +154,8 @@ namespace курсач
                     file.WriteLine(users[i] + "/" + sale[i]);
                 }
                 file.Close();
+                error_number = 11;
+                f2.message_box(error_number);
             }
         }
     }

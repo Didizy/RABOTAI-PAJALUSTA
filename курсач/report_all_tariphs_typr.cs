@@ -163,6 +163,8 @@ namespace курсач
                 for (i = 0; i < n; i++)
                     file.WriteLine(tariphs[i]);
                 file.Close();
+                error_number = 11;
+                f2.message_box(error_number);
             }
         }
 
