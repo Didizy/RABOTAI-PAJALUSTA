@@ -24,37 +24,40 @@ namespace курсач
             file_out.Close();
             StreamWriter out_file = new StreamWriter(@"a:\gitjub\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
             spisok_users.nest a = user.first;
-            spisok_users.nest temp = a.chain_next;
-            string output;
-            while (true)
+            if (a != null)
             {
-                output = "";
-                output += a.login;
-                output += "/";
-                output += a.date;
-                output += "/";
-                output += a.tariph.name;
-                output += "/";
-                output += a.tariph.provider.title;
-                out_file.WriteLine(output);
-                while (temp != null)
+                spisok_users.nest temp = a.chain_next;
+                string output;
+                while (true)
                 {
                     output = "";
-                    output += temp.login;
+                    output += a.login;
                     output += "/";
-                    output += temp.date;
+                    output += a.date;
                     output += "/";
-                    output += temp.tariph.name;
+                    output += a.tariph.name;
                     output += "/";
-                    output += temp.tariph.provider.title;
+                    output += a.tariph.provider.title;
                     out_file.WriteLine(output);
-                    temp = temp.chain_next;
+                    while (temp != null)
+                    {
+                        output = "";
+                        output += temp.login;
+                        output += "/";
+                        output += temp.date;
+                        output += "/";
+                        output += temp.tariph.name;
+                        output += "/";
+                        output += temp.tariph.provider.title;
+                        out_file.WriteLine(output);
+                        temp = temp.chain_next;
 
+                    }
+                    a = a.next;
+                    if (a == user.first)
+                        break;
+                    temp = a.chain_next;
                 }
-                a = a.next;
-                if (a == user.first)
-                    break;
-                temp = a.chain_next;
             }
             out_file.WriteLine("//");
             output_for_sales(out_file, sales.main);

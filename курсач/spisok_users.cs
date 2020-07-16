@@ -29,14 +29,14 @@ namespace курсач
             }*/
         }
 
-        public int num_of_elements, max_elements;
+        public int  max_elements;
         public nest first;
 
         public spisok_users()
         {
             first = null;
             max_elements = 100;
-            num_of_elements = 0;
+            //num_of_elements = 0;
             /*first = new nest(0);
             nest curr = first;
             for (int i = 1; i < max_elements; i++)
@@ -110,7 +110,7 @@ namespace курсач
                 first.prev = first;
                 first.chain_next = null;
 
-                num_of_elements++;
+                //num_of_elements++;
                 return true;
             }
             else
@@ -136,7 +136,7 @@ namespace курсач
                         temp.date = date;
                         temp.tariph = tariph;
                         temp.hash = curr_hash;
-                        num_of_elements++;
+                        //num_of_elements++;
                         first.prev.next = temp;
                         temp.prev = first.prev;
                         first.prev = temp;
@@ -147,8 +147,7 @@ namespace курсач
                     }
                     if ((curr.next == first)&&(curr_hash>curr.hash))
                     {
-                        if (num_of_elements != max_elements)
-                        {
+                        
                             //curr = new nest();
                             nest temp = new nest();
                             temp.login = login;
@@ -156,7 +155,7 @@ namespace курсач
                             temp.tariph = tariph;
                             temp.hash = curr_hash;
                            // added = true;
-                            num_of_elements++;
+                            //num_of_elements++;
 
                             curr.next = temp;
                             temp.prev = curr;
@@ -165,11 +164,8 @@ namespace курсач
 
                             temp.chain_next = null;
                             return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
+                       
+                       
 
                     }
                     else if(curr_hash<curr.hash)
@@ -179,7 +175,7 @@ namespace курсач
                         temp.date = date;
                         temp.hash = curr_hash;
                         // added = true;
-                        num_of_elements++;
+                       // num_of_elements++;
                         temp.tariph = tariph;
 
                         curr.prev.next = temp;
@@ -275,6 +271,11 @@ namespace курсач
                     curr.next.prev = temp;
                     temp.prev = curr.prev;
                     temp.next = curr.next;
+                }
+                else if((curr.next == curr)&&(curr.prev == curr))
+                {
+                    first = null;
+
                 }
                 else
                 {
