@@ -17,19 +17,19 @@ namespace курсач
             public spisok_tariph.nest tariph;
             //public tree_providers.root provider;
             public root left, right;
-            public struct info
-            {
-                public string size;// name;
-                public string date;//int cost;
-            }
-            public info[] arr = new info[5];
+            /*    public struct info
+                {
+                    public string size;// name;
+                    public string date;//int cost;
+                }
+                public info[] arr = new info[5];*/
 
             public root(string _size, string _date, spisok_tariph.nest _tariph)//, tree_providers.root _provider)
             {
                 this.size = _size;
                 //this.provider = _provider;
                 this.tariph = _tariph;
-                this.date = _date;   
+                this.date = _date;
                 left = right = null;
             }
         }
@@ -37,8 +37,6 @@ namespace курсач
         public tree_sale() { }
         public int compare(string a, string b)//сравнение строк
         {
-            if (a == b)
-                return 0;
             for (int i = 0; ((i < a.Length) && (i < b.Length)); i++)
             {
                 if (a[i] == b[i])
@@ -49,9 +47,9 @@ namespace курсач
                     return 1;
 
             }
-            return 5;
+            return 0;
         }
-        public void add_sale(string size, string date, spisok_tariph.nest tariph, tree_providers.root provider)
+        public void add_sale(string size, string date, spisok_tariph.nest tariph)//, tree_providers.root provider)
         {
             bool placed = false;
             if (main == null)
@@ -71,7 +69,7 @@ namespace курсач
                         }
                         else
                             curr = curr.left;
-                    else if ((i == 1) | (i == 0)) 
+                    else if ((i == 1) | (i == 0))
                         if (curr.right == null)
                         {
                             root temp = new root(size, date, tariph);//, provider);
@@ -100,7 +98,7 @@ namespace курсач
                     //int j = compare(tariph, curr.tariph);
                     if (i == 0)
                     {
-                        while (curr != null) 
+                        while (curr != null)
                         {
                             comparisons++;
                             if (curr.tariph == tariph)
@@ -116,7 +114,7 @@ namespace курсач
                             curr = curr.left;
                         else
                             return null;
-                    }                        
+                    }
                     else if (i == 1)
                     {
                         comparisons++;
@@ -130,7 +128,7 @@ namespace курсач
             }
 
         }
-        public root find_max(root from_this)//поиск мин справа, если не находит ищет макс слева
+        public root find_max(root from_this)
         {
             root curr;
             //root check;
@@ -141,31 +139,9 @@ namespace курсач
                     curr = curr.left;
                 return curr;
             }
-            else 
+            else
             {
                 return null;
-                //curr.left = curr.left.left;
-                 
-               /* if (from_this.left != null)
-                {
-                    curr = from_this.left;
-                    check = from_this;
-                }
-                else
-                    return null;
-                while (true)
-                {
-                    if (curr.right == null)
-                    {
-                        check.right = curr.left;
-                        return curr;
-                    }
-                    else
-                    {
-                        check = curr;
-                        curr = curr.right;
-                    }
-                }*/
             }
         }
         public bool delete(string size, spisok_tariph.nest tariph)//удаление 
@@ -176,18 +152,28 @@ namespace курсач
             int i = compare(size, main.size);
             if (i == 0)//удаляем корень дерева, проверка на что заменить
             {
-                root swap = find_max(main);
-                if (swap == null)
+                if (curr.tariph == tariph)
                 {
-                    main = main.left;
+                    root swap = find_max(main);
+                    if (swap == null)
+                    {
+                        main = main.left;
+                    }
+                    else
+                    {
+                        swap.left = main.left;
+                        if (main.right != swap)
+                            swap.right = main.right;
+                        main = swap;
+                    }
+                    return true;
                 }
                 else
                 {
-                    swap.left = main.left;
-                    swap.right = main.right;
-                    main = swap;
+                    curr = curr.right;
+                    left = false;
                 }
-                return true;
+
             }
             else if (i == -1)
             {
@@ -220,34 +206,43 @@ namespace курсач
 
                 else if (i == 0)
                 {
-                    if (curr.tariph == tariph)
+                    while (curr != null)
                     {
-                        root swap = find_max(curr);
-                        if (swap == null)
+                        if (curr.tariph == tariph)
                         {
-                            if (left)
-                                parent.left = curr.right;
+
+                            root swap = find_max(curr);
+                            if (swap == null)
+                            {
+                                if (left)
+                                    parent.left = curr.right;
+                                else
+                                    parent.right = curr.right;
+                            }
                             else
-                                parent.right = curr.right;
+                            {
+                                if (left)
+                                    parent.left = swap;
+                                else
+                                    parent.right = swap;
+                            }
+                            return true;
                         }
                         else
                         {
-                            if (left)
-                                parent.left = swap;
-                            else
-                                parent.right = swap;
+                            parent = curr;
+                            curr = curr.right;
                         }
-                        return true;
+
                     }
-                    else
-                        curr = curr.right;
+
 
                 }
                 else if (curr == null)
                     return false;
             }
         }
-        public void delete_tariph(spisok_tariph.nest tar,tree_sale.root current)
+        public void delete_tariph(spisok_tariph.nest tar, tree_sale.root current)
         {
             if (current == null)
                 return;
@@ -256,6 +251,6 @@ namespace курсач
             if (current.tariph == tar)
                 delete(current.size, current.tariph);
         }
-     
+
     }
 }
