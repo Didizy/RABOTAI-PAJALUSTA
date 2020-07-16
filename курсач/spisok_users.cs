@@ -28,7 +28,7 @@ namespace курсач
         public spisok_users()
         {
             first = null;
-            max_elements = 100;
+            max_elements = 10;
             //num_of_elements = 0;
         }
 /*        public bool free(nest temp)//проверка на пустую ячейку
@@ -205,7 +205,15 @@ namespace курсач
             nest curr = find(login);
             if (curr != null)
             {
-                if ((curr.chain_next != null) && (curr.chain_prev == null))
+                /*if (curr==first)
+                {
+                    if (curr.chain_next==null)
+                    {
+
+                        curr.next = first;
+                    }
+                }
+                else if ((curr.chain_next != null) && (curr.chain_prev == null))
                 {
                     nest temp = new nest();
 
@@ -216,11 +224,11 @@ namespace курсач
                     temp.prev = curr.prev;
                     temp.next = curr.next;
                 }
-                else
+                if else()
                 {
                     curr.prev.next = curr.next;
                     curr.next.prev = curr.prev;
-                }
+                }*/
                 return true;
             }
             else

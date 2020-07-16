@@ -93,7 +93,7 @@ namespace курсач
                     message_choise_resilt = MessageBox.Show("Заполнены не все поля", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case 2://некоректный ввод данных
-                    message_choise_resilt = MessageBox.Show("Введены некореектные данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    message_choise_resilt = MessageBox.Show("Введены некорректные данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case 3://элемент не существует
                     message_choise_resilt = MessageBox.Show("Элемент не существует", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -102,7 +102,7 @@ namespace курсач
                     message_choise_resilt = MessageBox.Show("Элемент уже существует", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case 5://отчет не был создан
-                    message_choise_resilt = MessageBox.Show("Отчен не сформирован", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    message_choise_resilt = MessageBox.Show("Отчет не сформирован", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 case 10://удаление прошло
                     MessageBox.Show("Элемент удален", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
