@@ -370,7 +370,10 @@ namespace курсач
                 bool can_add = provider.add_tariph(tariph_title.Text, Convert.ToInt32(tariph_cost.Text), tariph_provider.Text);
                 if (!can_add)
                 {
-                    error_number = 4;
+                    if (provider.find(tariph_provider.Text) != null)
+                        error_number = 4;
+                    else
+                        error_number = 3;
                 }
                 else
                     tariph.add(tariph.getkey(tariph_title.Text, tariph_provider.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));
