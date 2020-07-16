@@ -168,6 +168,8 @@ namespace курсач
                     curr = curr.next;
                 }
                 tar_checked++;
+                if (free(curr))
+                    return null;
                 if ((curr.name == name) && (curr.provider == provider)&&(!curr.deleted))
                 {
                     comparisons++;

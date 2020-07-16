@@ -151,7 +151,7 @@
             this.Controls.Add(this.labelTariphName);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "search_form_for_tariph";
-            this.Text = "search_form_for_tariph";
+            this.Text = "Информация о тарифе";
             this.Load += new System.EventHandler(this.search_form_for_tariph_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearchTariph)).EndInit();
             this.ResumeLayout(false);
