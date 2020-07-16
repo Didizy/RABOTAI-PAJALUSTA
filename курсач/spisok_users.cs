@@ -63,16 +63,14 @@ namespace курсач
 
         public int get_hash (string login)
         {
-            //int help = login.GetHashCode();
             double hash = 0;
 
             foreach (char c in login)
                 hash = hash + c;
 
-
             hash *= 0.618033;
             hash -= (int)hash;
-            int h1 = (int)(hash * max_elements) % max_elements;// на (int)login ругается
+            int h1 = (int)(hash * max_elements) % max_elements;
             return h1;
         }
 
