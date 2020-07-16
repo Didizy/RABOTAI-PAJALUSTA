@@ -117,7 +117,7 @@ namespace курсач
             {
                 while (true)
                 {
-                    curr_hash = get_hash(login);
+                    //curr_hash = get_hash(login);
 
                     while ((curr.hash != curr_hash) && (curr.next != first) && (curr_hash > curr.hash))
                     {
@@ -129,7 +129,23 @@ namespace курсач
                     /*if (curr.next == first)
                         curr = curr.next;*/
 
-                    if (curr.next == first)
+                    if ((curr.hash > curr_hash)&&(curr == first))
+                    {
+                        nest temp = new nest();
+                        temp.login = login;
+                        temp.date = date;
+                        temp.tariph = tariph;
+                        temp.hash = curr_hash;
+                        num_of_elements++;
+                        first.prev.next = temp;
+                        temp.prev = first.prev;
+                        first.prev = temp;
+                        temp.next = first;
+                        first = temp;
+                        temp.chain_next = null;
+                        return true;
+                    }
+                    if ((curr.next == first)&&(curr_hash>curr.hash))
                     {
                         if (num_of_elements != max_elements)
                         {
@@ -170,6 +186,7 @@ namespace курсач
                         temp.prev = curr.prev;
                         curr.prev = temp;
                         temp.next = curr;
+                        temp.chain_next = null;
                         return true;
                     }
                     else
