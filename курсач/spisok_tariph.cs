@@ -73,11 +73,17 @@ namespace курсач
             return temp;
 
         }
-        public int getkey(string name)//рандомная хеш функция
+        public int getkey(string name, string provider_title)//рандомная хеш функция
         {
             int temp = 0;
             for (int i = 0; i < name.Length; i++)
-                temp += (int)name[i] * i;
+            {
+                temp += (int)name[i] *i;
+            }
+            for (int i = 0; i < provider_title.Length; i++)
+                temp += (int)provider_title[i] * i;
+               
+            
             return temp;
 
         }
@@ -86,7 +92,7 @@ namespace курсач
             if (num_of_elements == max_elements)
             {
                 resize();
-                k = getkey(name);
+                k = getkey(name, provider.title);
             }
             int j = 0;
             nest curr = first;
@@ -133,7 +139,7 @@ namespace курсач
             first.prev = curr;
             for (int i = 0; i < num_of_elements; i++)//перезаписывание в новую таблицу
             {
-                add(getkey(temp_first.name), temp_first.name, temp_first.type, temp_first.speed, temp_first.provider);
+                add(getkey(temp_first.name,temp_first.provider.title), temp_first.name, temp_first.type, temp_first.speed, temp_first.provider);
                 num_of_elements--;
                 temp_first = temp_first.next;
 
@@ -142,7 +148,7 @@ namespace курсач
 
         public nest find(string name,tree_providers.root provider)
         {
-            int hash = getkey(name);
+            int hash = getkey(name,provider.title);
             int j = 0;
             int tar_checked = 0;
             nest curr = first;
