@@ -357,6 +357,8 @@ namespace курсач
                 if ((Convert.ToInt32(tariph_speed.Text) != 0) || (tariph_speed.Text != ""))
                     error_number = 2;
             }
+            else if ((checkBoxAddTariphInternet.Checked) && ((Convert.ToInt32(tariph_speed.Text) > 200)))
+                error_number = 2;
 
             else
             {
@@ -366,7 +368,7 @@ namespace курсач
                     error_number = 4;
                 }
                 else
-                    tariph.add(tariph.getkey(tariph_title.Text,tariph_provider.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));
+                    tariph.add(tariph.getkey(tariph_title.Text, tariph_provider.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));
             }
 
             message_box(error_number);

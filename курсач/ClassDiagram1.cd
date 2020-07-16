@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="курсач.Form2">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/yWDVIcQCLbgVhk3IPb+aCQXBphtkD/iyP3vlVgRfTA=</HashCode>
+      <FileName>Form2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="курсач.Program">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="курсач.report_all_tariphs_typr">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAACIAQBAAAACQAAQCgAAxBQABAAAAABABgAA=</HashCode>
+      <FileName>report_all_tariphs_typr.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="курсач.report_of_sales">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAgACAQACAAQBAAAACQAAASgIAQDAAAAQAAABAAQAA=</HashCode>
+      <FileName>report_of_sales.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="курсач.report_sales_of_user">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQAAAAAgACAAQhAAAACQAAACgAAQDAAAAAAAABAAQQA=</HashCode>
+      <FileName>report_sales_of_user.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="курсач.report_users_of_provider">
+    <Position X="10.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQAAAAQAACAAUBAAAACQEAACgAAgBQABAAAAARAAgAA=</HashCode>
+      <FileName>report_users_of_provider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="курсач.search_form_for_tariph">
+    <Position X="19.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAIAEAAEECAAgAAAAAGCBAACAAAgBQAQgAAAAAAEQAA=</HashCode>
+      <FileName>search_form_for_tariph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="курсач.search_form_user">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAARATCAABAAAACAAAAGAAASBAAAAAIABAAAAAA=</HashCode>
+      <FileName>search_form_user.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="курсач.searchform_provider">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BEAAAACAACAEACIAAACAgAQCAAggBRAAAAAAAUABAAA=</HashCode>
+      <FileName>searchform_provider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="курсач.searchform_sale">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAQAACACABAAAACCAAAGAAAQBAAAAIAAAAAAAQA=</HashCode>
+      <FileName>searchform_sale.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="курсач.spisok_tariph">
+    <Position X="2.5" Y="3.25" Width="1.5" />
+    <NestedTypes>
+      <Class Name="курсач.spisok_tariph.nest" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>spisok_tariph.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAwAAAAAAAAIAAAEAAQQQAAAAAAAACQAAAAADAAA=</HashCode>
+      <FileName>spisok_tariph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="курсач.spisok_users">
+    <Position X="4" Y="3.25" Width="1.5" />
+    <NestedTypes>
+      <Class Name="курсач.spisok_users.nest" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>spisok_users.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAwAAAAAAAAIQAAEAAQAQAAAACAQACAAAAAACQAA=</HashCode>
+      <FileName>spisok_users.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="курсач.tree_providers">
+    <Position X="5.5" Y="3.25" Width="1.5" />
+    <NestedTypes>
+      <Class Name="курсач.tree_providers.root" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>tree_providers.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAwCAgIAQAAAAAAAAAACAAAAEAAQAQ=</HashCode>
+      <FileName>tree_providers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="курсач.tree_sale">
+    <Position X="7" Y="3.25" Width="1.5" />
+    <NestedTypes>
+      <Class Name="курсач.tree_sale.root" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>tree_sale.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAABAQACAAAAQAAAAAAAAAACAAAAAAAQAQ=</HashCode>
+      <FileName>tree_sale.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="курсач.Properties.Resources">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="курсач.Properties.Settings">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -8,7 +8,7 @@ namespace курсач
 {
     public class spisok_tariph
     {
-      public int comparisons = 0;
+        public int comparisons = 0;
 
         public class nest
         {
@@ -50,7 +50,7 @@ namespace курсач
         }
         public bool free(nest temp)//проверка на пустую ячейку
         {
-            if (((temp.name == "")&&(temp.provider==null))||(temp.deleted))
+            if (((temp.name == "") && (temp.provider == null)) || (temp.deleted))
                 return true;
             else
                 return false;
@@ -59,16 +59,16 @@ namespace курсач
         }
         public int gethash_1(int k)//k -ключ, достаём из getkey
         {
-            int temp =  ((k / max_elements) + 1) * (max_elements / 10 + 1);
+            int temp = ((k / max_elements) + 1) * (max_elements / 10 + 1);
             return temp;
 
         }
         public int gethash_2(int k)//k -ключ, достаём из getkey
         {
-            
+
             int temp = (k % (max_elements - 1) + 1);
             if (temp % 2 == 0)
-                temp-=1;
+                temp -= 1;
 
             return temp;
 
@@ -76,14 +76,16 @@ namespace курсач
         public int getkey(string name, string provider_title)//рандомная хеш функция
         {
             int temp = 0;
-            for (int i = 0; i < name.Length; i++)
+            int i = 0;
+            for (i = 0; i < name.Length; i++)
             {
-                temp += (int)name[i] *i;
+                temp += (int)name[i] * i;
             }
-            for (int i = 0; i < provider_title.Length; i++)
-                temp += (int)provider_title[i] * i;
-               
-            
+            for (int j = 0; j < provider_title.Length; j++)
+            {
+                temp += (int)provider_title[j] * i;
+                i++;
+            }
             return temp;
 
         }
@@ -97,9 +99,12 @@ namespace курсач
             int j = 0;
             nest curr = first;
             bool added = false;
+            int hash_1 = gethash_1(k);
+            int hash_2 = gethash_2(k);
             while (!added)
             {
-                int curr_hash = (gethash_1(k) + j * gethash_2(k)) % max_elements;
+
+                int curr_hash = (hash_1 + j * hash_2) % max_elements;
                 while (curr.hash != curr_hash)
                 {
                     curr = curr.next;
@@ -139,16 +144,16 @@ namespace курсач
             first.prev = curr;
             for (int i = 0; i < num_of_elements; i++)//перезаписывание в новую таблицу
             {
-                add(getkey(temp_first.name,temp_first.provider.title), temp_first.name, temp_first.type, temp_first.speed, temp_first.provider);
+                add(getkey(temp_first.name, temp_first.provider.title), temp_first.name, temp_first.type, temp_first.speed, temp_first.provider);
                 num_of_elements--;
                 temp_first = temp_first.next;
 
             }
         }
 
-        public nest find(string name,tree_providers.root provider)
+        public nest find(string name, tree_providers.root provider)
         {
-            int hash = getkey(name,provider.title);
+            int hash = getkey(name, provider.title);
             int j = 0;
             int tar_checked = 0;
             nest curr = first;
@@ -162,23 +167,25 @@ namespace курсач
                     curr = curr.next;
                 }
                 tar_checked++;
-                if ((curr.name == name) && (curr.provider == provider))
+                if ((curr.name == name) && (curr.provider == provider)&&(!curr.deleted))
                 {
                     comparisons++;
                     return curr;
                 }
                 else
                     comparisons++;
-                    j++;
+                j++;
 
-                   
+
 
             }
 
         }
-        public void delete(string name, tree_providers.root provider) {
-                nest curr = find(name, provider);
-            if (curr != null) {
+        public void delete(string name, tree_providers.root provider)
+        {
+            nest curr = find(name, provider);
+            if (curr != null)
+            {
                 num_of_elements--;
                 curr.deleted = true;
             }
@@ -188,5 +195,5 @@ namespace курсач
             }
         }
     }
-   
+
 }
