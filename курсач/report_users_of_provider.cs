@@ -14,6 +14,7 @@ namespace курсач
     {
         tree_providers.root pr;
         Form2 f2;
+        int error_number;
         public report_users_of_provider()
         {
             InitializeComponent();
@@ -38,15 +39,53 @@ namespace курсач
         private void buttonCreateReport_Click(object sender, EventArgs e)
         {
             dataGridViewUsersRep.Rows.Clear();
+
+            if (textBoxProvider.Text=="")
+            {
+                error_number = 1;
+                f2.message_box(error_number);
+            }
+            else if (textBoxProvider.Text.Length>30)
+            {
+                error_number = 2;
+                f2.message_box(error_number);
+            }
+
             string[] line = new string[2];
             for(int i = 0; i < pr.current_user; i++)
             {
                 spisok_users.nest u = f2.user.find(pr.users[i]);
-                tree_sale.root s = f2.user.check_for_sale(u.tariph, f2.sales.main, u);
-                line[0] = u.login;
-                line[1] = s.size;
-                dataGridViewUsersRep.Rows.Add(line);
+                if (u == null)
+                {
+                    error_number = 3;
+                    f2.message_box(error_number);
+                }
+                else
+                {
+                    tree_sale.root s = f2.user.check_for_sale(u.tariph, f2.sales.main, u);
+                    if (s == null)
+                    {
+                        error_number = 3;
+                        f2.message_box(error_number);
+                    }
+                    else
+                    {
+                        line[0] = u.login;
+                        line[1] = s.size;
+                        dataGridViewUsersRep.Rows.Add(line);
+                    }
+                }
             }
+        }
+
+        private void textBoxProvider_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSaveInFile_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

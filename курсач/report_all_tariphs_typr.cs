@@ -16,6 +16,7 @@ namespace курсач
         Form2 f2;
         tree_providers.root pr;
         int type;
+        int error_number;
         public report_all_tariphs_typr()
         {
             InitializeComponent();
@@ -36,21 +37,39 @@ namespace курсач
                 type = 3;
             else if ((checkBoxAddTariphTV.Checked) && (checkBoxAddTariphInternet.Checked))
                 type = 2;
-            if(type == 0)
+            if (type == 0)
             {
-                //ЕРРОР я не разбирался с ошибками
+                error_number = 1;
+                f2.message_box(error_number);
             }
-            string name = "";
-            for (int i = 0; i < pr.current_tariph; i++)
+            else if (textBoxProvider.Text == "")
             {
-                spisok_tariph.nest a = f2.tariph.find(pr.arr[i].name, pr);
-                if (a.type == type)
+                error_number = 1;
+                f2.message_box(error_number);
+            }
+            else if (pr == null)
+            {
+                error_number = 3;
+                f2.message_box(error_number);
+            }
+            else if (textBoxProvider.Text.Length > 30)
+            {
+                error_number = 2;
+                f2.message_box(error_number);
+            }
+            else
+            {
+                string name = "";
+                for (int i = 0; i < pr.current_tariph; i++)
                 {
-                    name = a.name;
-                    dataGridViewTypeRep.Rows.Add(name);
+                    spisok_tariph.nest a = f2.tariph.find(pr.arr[i].name, pr);
+                    if (a.type == type)
+                    {
+                        name = a.name;
+                        dataGridViewTypeRep.Rows.Add(name);
+                    }
                 }
             }
-
         }
 
         private void buttonSaveInFile_Click(object sender, EventArgs e)
@@ -59,7 +78,8 @@ namespace курсач
             if (pr == null)
             {
                 file.Close();
-                //Ошибка, отчёт не был создан
+                error_number = 5;
+                f2.message_box(error_number);
             }
             else
             {
@@ -81,6 +101,11 @@ namespace курсач
         }
 
         private void report_all_tariphs_typr_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxProvider_TextChanged(object sender, EventArgs e)
         {
 
         }

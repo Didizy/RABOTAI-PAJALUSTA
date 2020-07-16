@@ -1,6 +1,6 @@
 ﻿namespace курсач
 {
-    partial class report_sales_of_user
+    partial class report_of_sales
     {
         /// <summary>
         /// Required designer variable.
@@ -28,40 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridViewSalesRep = new System.Windows.Forms.DataGridView();
-            this.ColumnSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewSaleForUsers = new System.Windows.Forms.DataGridView();
+            this.ColumnLogin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnProvider = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTariph = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxLogin = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonCreateReport = new System.Windows.Forms.Button();
             this.buttonSaveInFile = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalesRep)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSaleForUsers)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridViewSalesRep
+            // dataGridViewSaleForUsers
             // 
-            this.dataGridViewSalesRep.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridViewSalesRep.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSalesRep.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnSale,
+            this.dataGridViewSaleForUsers.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dataGridViewSaleForUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSaleForUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnLogin,
             this.ColumnProvider,
             this.ColumnTariph});
-            this.dataGridViewSalesRep.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dataGridViewSalesRep.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewSalesRep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridViewSalesRep.Name = "dataGridViewSalesRep";
-            this.dataGridViewSalesRep.RowHeadersWidth = 51;
-            this.dataGridViewSalesRep.RowTemplate.Height = 24;
-            this.dataGridViewSalesRep.Size = new System.Drawing.Size(544, 450);
-            this.dataGridViewSalesRep.TabIndex = 0;
+            this.dataGridViewSaleForUsers.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dataGridViewSaleForUsers.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewSaleForUsers.Name = "dataGridViewSaleForUsers";
+            this.dataGridViewSaleForUsers.RowHeadersWidth = 51;
+            this.dataGridViewSaleForUsers.RowTemplate.Height = 24;
+            this.dataGridViewSaleForUsers.Size = new System.Drawing.Size(528, 450);
+            this.dataGridViewSaleForUsers.TabIndex = 0;
             // 
-            // ColumnSale
+            // ColumnLogin
             // 
-            this.ColumnSale.HeaderText = "Скидка";
-            this.ColumnSale.MinimumWidth = 6;
-            this.ColumnSale.Name = "ColumnSale";
-            this.ColumnSale.Width = 125;
+            this.ColumnLogin.HeaderText = "Логин покупателя";
+            this.ColumnLogin.MinimumWidth = 6;
+            this.ColumnLogin.Name = "ColumnLogin";
+            this.ColumnLogin.Width = 125;
             // 
             // ColumnProvider
             // 
@@ -81,23 +80,22 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.label1.Location = new System.Drawing.Point(653, 57);
+            this.label1.Location = new System.Drawing.Point(601, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(171, 24);
+            this.label1.Size = new System.Drawing.Size(74, 24);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Логин покупателя";
+            this.label1.Text = "Скидка";
             // 
-            // textBoxLogin
+            // textBox1
             // 
-            this.textBoxLogin.Location = new System.Drawing.Point(657, 106);
-            this.textBoxLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxLogin.Name = "textBoxLogin";
-            this.textBoxLogin.Size = new System.Drawing.Size(207, 22);
-            this.textBoxLogin.TabIndex = 2;
+            this.textBox1.Location = new System.Drawing.Point(605, 96);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(201, 22);
+            this.textBox1.TabIndex = 2;
             // 
             // buttonCreateReport
             // 
-            this.buttonCreateReport.Location = new System.Drawing.Point(675, 191);
+            this.buttonCreateReport.Location = new System.Drawing.Point(624, 165);
             this.buttonCreateReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCreateReport.Name = "buttonCreateReport";
             this.buttonCreateReport.Size = new System.Drawing.Size(149, 46);
@@ -108,30 +106,28 @@
             // 
             // buttonSaveInFile
             // 
-            this.buttonSaveInFile.Location = new System.Drawing.Point(675, 334);
+            this.buttonSaveInFile.Location = new System.Drawing.Point(624, 337);
             this.buttonSaveInFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSaveInFile.Name = "buttonSaveInFile";
             this.buttonSaveInFile.Size = new System.Drawing.Size(149, 50);
             this.buttonSaveInFile.TabIndex = 7;
             this.buttonSaveInFile.Text = "Сохранить в файл";
             this.buttonSaveInFile.UseVisualStyleBackColor = true;
-            this.buttonSaveInFile.Click += new System.EventHandler(this.buttonSaveInFile_Click);
             // 
-            // report_sales_of_user
+            // report_of_sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(940, 450);
+            this.ClientSize = new System.Drawing.Size(860, 450);
             this.Controls.Add(this.buttonCreateReport);
             this.Controls.Add(this.buttonSaveInFile);
-            this.Controls.Add(this.textBoxLogin);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridViewSalesRep);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "report_sales_of_user";
-            this.Text = "Скидки, которые может получать пользователь";
-            this.Load += new System.EventHandler(this.report_sales_of_user_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalesRep)).EndInit();
+            this.Controls.Add(this.dataGridViewSaleForUsers);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Name = "report_of_sales";
+            this.Text = "report_of_sales";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSaleForUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,12 +135,12 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridViewSalesRep;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSale;
+        private System.Windows.Forms.DataGridView dataGridViewSaleForUsers;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLogin;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnProvider;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTariph;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxLogin;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonCreateReport;
         private System.Windows.Forms.Button buttonSaveInFile;
     }
