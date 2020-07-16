@@ -253,7 +253,7 @@ namespace курсач
             this.buttonRepAllUsers.Name = "buttonRepAllUsers";
             this.buttonRepAllUsers.Size = new System.Drawing.Size(297, 37);
             this.buttonRepAllUsers.TabIndex = 32;
-            this.buttonRepAllUsers.Text = "Отчет: все пользователи провайдера и их скидки";
+            this.buttonRepAllUsers.Text = "Отчет: все покупатели провайдера и их скидки";
             this.buttonRepAllUsers.UseVisualStyleBackColor = false;
             this.buttonRepAllUsers.Click += new System.EventHandler(this.buttonRepAllUsers_Click);
             // 

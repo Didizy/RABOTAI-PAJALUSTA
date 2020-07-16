@@ -263,6 +263,10 @@ namespace курсач
                 {
                     curr.prev.next = curr.next;
                     curr.next.prev = curr.prev;
+                    if(first == curr)
+                    {
+                        first = curr.next;
+                    }
                 }
                 return true;
             }

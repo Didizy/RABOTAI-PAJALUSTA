@@ -147,6 +147,16 @@ namespace курсач
             }
             else
                 return null;
+            if(curr.right == null)
+            {
+                check.left = curr.left;
+                return curr;
+            }
+            else
+            {
+                check = curr;
+                curr = curr.right;
+            }
             while (true)
             {
                 if (curr.right == null)
@@ -176,6 +186,8 @@ namespace курсач
                     main = main.right;
                 else
                 {
+                   
+                    
                     swap.left = main.left;
                     swap.right = main.right;
                     main = swap;

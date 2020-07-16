@@ -115,6 +115,7 @@ namespace курсач
                     curr.type = type;
                     curr.speed = speed;
                     added = true;
+                    if(curr.deleted == false)
                     num_of_elements++;
                     curr.provider = provider;
                     curr.deleted = false;
@@ -186,7 +187,7 @@ namespace курсач
             nest curr = find(name, provider);
             if (curr != null)
             {
-                num_of_elements--;
+                //num_of_elements;
                 curr.deleted = true;
             }
             else

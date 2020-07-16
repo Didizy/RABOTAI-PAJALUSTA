@@ -352,6 +352,11 @@ namespace курсач
                 error_number = 2;
                 message_box(error_number);
             }
+            else if ((Convert.ToInt32(tariph_speed.Text) > 2000)&&(Convert.ToInt32(tariph_speed.Text)<0))
+            {
+                error_number = 2;
+                message_box(error_number);
+            }
             else if (checkBoxAddTariphTV.Checked && !(checkBoxAddTariphInternet.Checked))
             {
                 if ((Convert.ToInt32(tariph_speed.Text) != 0) || (tariph_speed.Text != ""))
@@ -469,7 +474,7 @@ namespace курсач
             tree_providers.root check1 = provider.find(user_provider.Text);
             spisok_tariph.nest check = null;
             if (check1 != null)
-                check = tariph.find(user_tariph.Text, provider.find(user_provider.Text));
+                check = tariph.find(user_tariph.Text, check1);
 
             if (user_login.Text == "" || user_provider.Text == "" || user_tariph.Text == "" || user_date.Text == "")
             {
@@ -1091,37 +1096,53 @@ namespace курсач
             string[] us = new string[4];
             sale_out(sale, sales.main);
             spisok_users.nest temp = user.first;
+            if (temp == null)
+                return;
             spisok_users.nest curr = temp.chain_next;
-            us[0] = temp.login;
-            us[1] = temp.hash.ToString();
-            us[2] = temp.tariph.name;
-            us[3] = temp.date;
-            dataGridViewUsers.Rows.Add(us);
-            while (curr != null)
-            {
-                us[0] = curr.login;
-                us[1] = curr.hash.ToString();
-                us[2] = curr.tariph.name;
-                us[3] = curr.date;
-                dataGridViewUsers.Rows.Add(us);
-                curr = curr.chain_next;
-            }
-            temp = temp.next;
-            curr = temp.chain_next;
-            while (temp != user.first)
+            if (!tariph.free(temp.tariph))
             {
                 us[0] = temp.login;
                 us[1] = temp.hash.ToString();
                 us[2] = temp.tariph.name;
                 us[3] = temp.date;
                 dataGridViewUsers.Rows.Add(us);
-                while (curr != null)
+            }
+            while (curr != null)
+            {
+                if (!tariph.free(curr.tariph))
                 {
                     us[0] = curr.login;
                     us[1] = curr.hash.ToString();
                     us[2] = curr.tariph.name;
                     us[3] = curr.date;
                     dataGridViewUsers.Rows.Add(us);
+                }
+                curr = curr.chain_next;
+            }
+            temp = temp.next;
+            curr = temp.chain_next;
+            while (temp != user.first)
+            {
+                if (!tariph.free(temp.tariph))
+                {
+
+                    us[0] = temp.login;
+                    us[1] = temp.hash.ToString();
+                    us[2] = temp.tariph.name;
+                    us[3] = temp.date;
+                    dataGridViewUsers.Rows.Add(us);
+                }
+                while (curr != null)
+                {
+                    if (!tariph.free(curr.tariph))
+                    {
+
+                        us[0] = curr.login;
+                        us[1] = curr.hash.ToString();
+                        us[2] = curr.tariph.name;
+                        us[3] = curr.date;
+                        dataGridViewUsers.Rows.Add(us);
+                    }
                     curr = curr.chain_next;
                 }
                 temp = temp.next;
