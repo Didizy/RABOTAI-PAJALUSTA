@@ -342,7 +342,7 @@ namespace курсач
                     error_number = 4;
                 }
                 else
-                    tariph.add(tariph.getkey(tariph_title.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));
+                    tariph.add(tariph.getkey(tariph_title.Text,tariph_provider.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));
             }
 
             message_box(error_number);
@@ -875,7 +875,7 @@ namespace курсач
                     }
                     provider.add_tariph(info[0], Convert.ToInt32(info[1]), provider_name);
 
-                    tariph.add(tariph.getkey(info[0]), info[0], Convert.ToInt32(info[2]), Convert.ToInt32(info[3]), pr);
+                    tariph.add(tariph.getkey(info[0],provider_name), info[0], Convert.ToInt32(info[2]), Convert.ToInt32(info[3]), pr);
                 }
             }
         }
