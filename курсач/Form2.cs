@@ -107,6 +107,9 @@ namespace курсач
                 case 10://удаление прошло
                     MessageBox.Show("Элемент удален", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
+                case 11://отчет сохранен в файл
+                    MessageBox.Show("Отчет сохранен", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
                 default: break;
             }
 
@@ -154,7 +157,7 @@ namespace курсач
                 if (message_choise_resilt == DialogResult.Cancel)
                 {
                     file_in.Close();
-                    return;//ГИТ ХААААААААААААААААААААААААААААААААААААААБ РАБОТАЙ
+                    return;
                 }
 
 
@@ -1326,4 +1329,3 @@ namespace курсач
         }
     }
 }
-

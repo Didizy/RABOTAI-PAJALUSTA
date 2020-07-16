@@ -67,13 +67,13 @@ namespace курсач
                 error_number = 3;
                 f2.message_box(error_number);
             }
-            //textBoxLogin;
         }
 
         private void buttonSaveInFile_Click(object sender, EventArgs e)
         {
-            StreamWriter file = new StreamWriter(@"a:\gitjub\курсач\otchet_sales_of_user.txt");
-            if (user == null)
+            //StreamWriter file = new StreamWriter(@"a:\gitjub\курсач\otchet_sales_of_user.txt");
+            StreamWriter file = new StreamWriter(@"c:\курсач\курсач\otchet_sales_of_user.txt");
+            if (dataGridViewSalesRep.Rows[0].Cells[0].Value == null)
             {
                 file.Close();
                 error_number = 5;
@@ -89,6 +89,8 @@ namespace курсач
                     i++;
                 }
                 file.Close();
+                error_number = 11;
+                f2.message_box(error_number);
             }
         }
 
