@@ -26,16 +26,39 @@ namespace курсач
             f2 = a;
             InitializeComponent();
         }
-
+        public int sedgvik(int[] mas, int n)
+        {
+            int p1 = 1;
+            int p2 = 1;
+            int i = -1;
+            do
+            {
+                if (++i % 2 == 1)
+                    mas[i] = 8 * p1 - 6 * p2 + 1;
+                else
+                {
+                    mas[i] = 9 * p1 - 9 * p2 + 1;
+                    p2 *= 2;
+                }
+                p1 *= 2;
+            }
+            while (3 * mas[i] <= n);
+            if (i > 0)
+                return --i;
+            return 0;
+        }
+    
+        
         private void buttonCreateReport_Click(object sender, EventArgs e)
         {
+            dataGridViewTypeRep.Rows.Clear();
             pr = f2.provider.find(textBoxProvider.Text);
             type = 0;
-            if (checkBoxAddTariphInternet.Checked)
-                type = 1;
+            if ((checkBoxAddTariphInternet.Checked)&& (checkBoxAddTariphTV.Checked))
+                type = 2;
             else if (checkBoxAddTariphTV.Checked)
                 type = 3;
-            else if ((checkBoxAddTariphTV.Checked) && (checkBoxAddTariphInternet.Checked))
+            else if  (checkBoxAddTariphInternet.Checked)
                 type = 2;
             if (type == 0)
             {
@@ -84,13 +107,61 @@ namespace курсач
             else
             {
                 file.WriteLine("Провайдер: " + pr.title);
-                file.WriteLine("Тип: " + type);
+                string str = "";
+                switch(type)
+                {
+                    case 1:
+                        str = "Интернет";
+                        break;
+                    case 2:
+                        str = "Интернет и ТВ";
+                        break;
+                    case 3:
+                        str = "ТВ";
+                        break;
+                }
+                file.WriteLine("Тип: " + str);
                 int i = 0;
+                int n = 10;
+                string[] tariphs = new string[n];
+                
                 while (dataGridViewTypeRep.Rows[i].Cells[0].Value != null)
                 {
-                    file.WriteLine(dataGridViewTypeRep.Rows[i].Cells[0].Value.ToString());
+                    if (i == n - 1)
+                    {
+                        Array.Resize(ref tariphs, n + 10);
+                        n += 10;
+                    }
+                    tariphs[i] = dataGridViewTypeRep.Rows[i].Cells[0].Value.ToString();
+                    //file.WriteLine(dataGridViewTypeRep.Rows[i].Cells[0].Value.ToString());
                     i++;
                 }
+                int di, m, j;
+                n = 0;
+                while (tariphs[n] != null)
+                    n++;
+                //n++;
+                int[] d = new int[20] ;
+                string temp;
+                for (int k = 0; k < 20; k++)
+                    d[k] = 0;
+                j = sedgvik(d, n);
+                while (j >= 0)
+                {
+                    di = d[j--];
+                    for(int k = di; k < n; k++)
+                    {
+                        temp = tariphs[k];
+                        for( m = k - di; (m >= 0) && (f2.provider.compare(tariphs[m], temp) == 1); m -= di)
+                        {
+                            tariphs[m + di] = tariphs[m];
+
+                        }
+                        tariphs[m + di] = temp;
+                    }
+                }
+                for (i = 0; i < n; i++)
+                    file.WriteLine(tariphs[i]);
                 file.Close();
             }
         }

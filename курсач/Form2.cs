@@ -615,7 +615,7 @@ namespace курсач
                 error_number = 3;
                 message_box(error_number);
             }
-            else if (sales.delete(sale_del_size.Text, tariph.find(sale_del_tar.Text, provider.find(sale_del_provider.Text))) == false)
+            else if (sales.delete(sale_del_size.Text,check) == false)
             {
                 error_number = 3;
                 message_box(error_number);
@@ -1210,6 +1210,7 @@ namespace курсач
 
         private void buttonReportAllTariphType_Click(object sender, EventArgs e)
         {
+            
             report_all_tariphs_typr otchet = new report_all_tariphs_typr(this);
             otchet.Show();
         }
@@ -1227,6 +1228,18 @@ namespace курсач
         private void tabPage7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonRepSaleOfUser_Click(object sender, EventArgs e)
+        {
+            report_of_sales otchet = new report_of_sales(this);
+            otchet.Show();
+        }
+
+        private void buttonRepAllUsers_Click(object sender, EventArgs e)
+        {
+            report_users_of_provider othet = new report_users_of_provider(this);
+            othet.Show();
         }
     }
 }
