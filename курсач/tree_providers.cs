@@ -28,7 +28,7 @@ namespace курсач
 
 
             public root(string name) {
-                this.title = name;
+                title = name;
                 current_tariph = 0;
                 left = right = null;
                 max_tariph = 5;
@@ -196,7 +196,8 @@ namespace курсач
 
             while (!deleted)
             {
-
+                if (curr == null)
+                    return false;
                 i = compare(name, curr.title);
                 if (i == -1)
                 {
@@ -232,26 +233,27 @@ namespace курсач
                     {
                         if (left)
                         {
+                            swap.left = curr.left;
+                            swap.right = curr.right;
                             parent.left = swap;
                         }
                         else
                         {
+                            swap.left = curr.left;
+                            swap.right = curr.right;
                             parent.right = swap;
                         }
                     }
                     return true;
                 }
-                if (curr == null)
-                    return false;
-                
-
-                
             }
             return false;
         }
         public bool add_tariph(string name, int cost,string provider_name)
         {
             root pr = find(provider_name);
+            if (pr == null)
+                return false;
             if (pr.current_tariph == pr.max_tariph)
             {
                 Array.Resize(ref pr.arr, pr.max_tariph + 10);
@@ -282,7 +284,7 @@ namespace курсач
             return false;
            
         }
-        public void change_tariph(string name,int cost, string new_name,int new_cost, root pr)
+       /* public void change_tariph(string name,int cost, string new_name,int new_cost, root pr)
         {
             for(int i = 0; i<pr.current_tariph;i++)
                 if ((pr.arr[i].name == name) && (pr.arr[i].cost == cost))
@@ -293,13 +295,15 @@ namespace курсач
                         pr.arr[i].cost = new_cost;
                 }
 
-        }
+        }*/
         /*private root.info get_tariph(root pr,int ind)
         {
             return pr.arr[ind];
         }*/
-        public root print_provider(int ind,root parent,ref int curr)
+        /*public root print_provider(int ind,root parent,ref int curr)
         {
+            if (parent == null)
+                return null;
             if (parent.left != null)
             {
                 root left = print_provider(ind, parent.left, ref curr);
@@ -319,7 +323,7 @@ namespace курсач
             }
             return null;
 
-        }
+        }*/
         public bool add_user(string login, string provider_name)
         {
             root a = find(provider_name);

@@ -117,10 +117,10 @@ namespace курсач
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
+            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
             input_for_provider(file_in);
             file_in.Close();
-            file_in = new StreamReader(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_user.txt"@"c:\курсач\курсач\output_user.txt"
+            file_in = new StreamReader(@"a:\gitjub\курсач\output_user.txt");//@"a:\gitjub\курсач\output_user.txt"@"c:\курсач\курсач\output_user.txt"
             string[] line = new string[4];
             string temp = file_in.ReadLine();
             while (temp != "//")
@@ -295,10 +295,16 @@ namespace курсач
                 for (int i = 0; i < a.provider.current_user; i++)
                 {
                     if (user.find(a.provider.users[i]).tariph == a)
+                    {
                         user.delete(a.provider.users[i]);
+                        provider.delete_user(a.provider.users[i], a.provider.title);
+                    }
+                       
+
                 }
-                sales.delete_tariph(tariph.find(tariph_del_title.Text, provider.find(tariph_del_provider.Text)), sales.main);
-                tariph.delete(tariph_del_title.Text, provider.find(tariph_del_provider.Text));
+                sales.delete_tariph(a, sales.main);
+                provider.del_tariph(a.name, a.provider);
+                tariph.delete(a.name, check1);
                 error_number = 10;
                 message_box(error_number);
             }
@@ -357,7 +363,7 @@ namespace курсач
                     error_number = 4;
                 }
                 else
-                    tariph.add(tariph.getkey(tariph_title.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));
+                    tariph.add(tariph.getkey(tariph_title.Text,tariph_provider.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));
             }
 
             message_box(error_number);
@@ -401,7 +407,7 @@ namespace курсач
 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        /*private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int i = 0;
             int ind_to_show = 1;
@@ -416,7 +422,7 @@ namespace курсач
                 if (a == null)
                     end = true;
             }
-        }
+        }*/
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -761,6 +767,13 @@ namespace курсач
             if (pr == null)
                 return;
             line[0] = pr.title;
+            if (pr.current_tariph == 0)
+            {
+                line[1] = "Нет тарифов";
+                line[2] = "";
+                dataGridViewProviders.Rows.Add(line);
+            }
+            else
             for (int i = 0; i < pr.current_tariph; i++)
             {
                 line[1] = pr.arr[i].name;
@@ -937,7 +950,7 @@ namespace курсач
                         }
                         provider.add_tariph(info[0], Convert.ToInt32(info[1]), provider_name);
 
-                        tariph.add(tariph.getkey(info[0]), info[0], Convert.ToInt32(info[2]), Convert.ToInt32(info[3]), pr);
+                        tariph.add(tariph.getkey(info[0],provider_name), info[0], Convert.ToInt32(info[2]), Convert.ToInt32(info[3]), pr);
                     }
 
 
@@ -1123,7 +1136,7 @@ namespace курсач
 
         private void save_provider_Click_1(object sender, EventArgs e)
         {
-            StreamWriter file_out = new StreamWriter(@"c:\курсач\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
+            StreamWriter file_out = new StreamWriter(@"a:\gitjub\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
             //file_out.WriteLine("РАБОТАЙ");
             output_for_provider(file_out, provider.main);
             file_out.Close();
@@ -1131,14 +1144,14 @@ namespace курсач
 
         private void load_provider_Click_2(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
+            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
             input_for_provider(file_in);
             file_in.Close();
         }
 
         private void to_file_Click_1(object sender, EventArgs e)//исправить
         {
-            StreamWriter out_file = new StreamWriter(@"c:\курсач\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
+            StreamWriter out_file = new StreamWriter(@"a:\gitjub\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
             spisok_users.nest a = user.first;
             spisok_users.nest temp = a.chain_next;
             string output;
@@ -1179,7 +1192,7 @@ namespace курсач
 
         private void from_file_button_Click_1(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_user.txt"//c:\курсач\курсач\output_user.txt
+            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_user.txt");//@"a:\gitjub\курсач\output_user.txt"//c:\курсач\курсач\output_user.txt
             string[] line = new string[4];
             string temp = file_in.ReadLine();
             while (temp != "//")

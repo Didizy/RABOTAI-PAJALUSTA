@@ -67,7 +67,7 @@ namespace курсач
         {
             
             int temp = (k % (max_elements - 1) + 1);
-            if ((temp % 2 == 0)&&(temp>1))
+            if (temp % 2 == 0)
                 temp-=1;
 
             return temp;
