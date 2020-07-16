@@ -20,18 +20,38 @@ namespace курсач
             public spisok_users.nest chain;//для метода цепочек
 
             public nest next, prev, chain_next, chain_prev;
+            /*public nest(int i)
+            {
+                hash = i;
+                login = "";
+                date = "";
+
+            }*/
         }
 
-        public int max_elements; //num_of_elements, 
+        public int num_of_elements, max_elements;
         public nest first;
 
         public spisok_users()
         {
             first = null;
-            max_elements = 10;
-            //num_of_elements = 0;
+            max_elements = 100;
+            num_of_elements = 0;
+            /*first = new nest(0);
+            nest curr = first;
+            for (int i = 1; i < max_elements; i++)
+            {
+                curr.next = new nest(i);
+                curr.next.prev = curr;
+                curr = curr.next;
+            }
+            curr.next = first;
+            first.prev = curr;
+            curr.chain_next = null;
+            curr.chain_prev = curr;*/
+
         }
-/*        public bool free(nest temp)//проверка на пустую ячейку
+        public bool free(nest temp)//проверка на пустую ячейку
         {
             //return ((temp.login == "") && (temp.tariph == null));
             if (((temp.login == "") && (temp.tariph == null)) || (temp == null))
@@ -40,7 +60,7 @@ namespace курсач
                 return true;
             //return ((temp.login == "") && (temp.tariph == null)) || (temp == null);
         }
-*/
+
         public int get_hash (string login)
         {
             //int help = login.GetHashCode();
@@ -49,14 +69,17 @@ namespace курсач
             foreach (char c in login)
                 hash = hash + c;
 
+
             hash *= 0.618033;
             hash -= (int)hash;
-            int h1 = (int)(hash * max_elements) % max_elements;
+            int h1 = (int)(hash * max_elements) % max_elements;// на (int)login ругается
             return h1;
         }
 
         public int compare(string a, string b)//сравнение строк
         {
+
+
             for (int i = 0; ((i < a.Length) && (i < b.Length)); i++)
             {
                 if (a[i] == b[i])
@@ -87,37 +110,66 @@ namespace курсач
                 first.prev = first;
                 first.chain_next = null;
 
-                //num_of_elements++;
+                num_of_elements++;
                 return true;
             }
             else
             {
                 while (true)
                 {
-                    curr_hash = get_hash(login);
+                    //curr_hash = get_hash(login);
 
                     while ((curr.hash != curr_hash) && (curr.next != first) && (curr_hash > curr.hash))
                     {
-
+                        /*a = compare(curr.login, first.login);
+                        if (a == 0)
+                            break;*/
                         curr = curr.next;
                     }
+                    /*if (curr.next == first)
+                        curr = curr.next;*/
 
-                    if (curr.next == first)
+                    if ((curr.hash > curr_hash)&&(curr == first))
                     {
                         nest temp = new nest();
                         temp.login = login;
                         temp.date = date;
                         temp.tariph = tariph;
                         temp.hash = curr_hash;
-
-                        curr.next = temp;
-                        temp.prev = curr;
-                        temp.next = first;
+                        num_of_elements++;
+                        first.prev.next = temp;
+                        temp.prev = first.prev;
                         first.prev = temp;
-
+                        temp.next = first;
+                        first = temp;
                         temp.chain_next = null;
                         return true;
-                   
+                    }
+                    if ((curr.next == first)&&(curr_hash>curr.hash))
+                    {
+                        if (num_of_elements != max_elements)
+                        {
+                            //curr = new nest();
+                            nest temp = new nest();
+                            temp.login = login;
+                            temp.date = date;
+                            temp.tariph = tariph;
+                            temp.hash = curr_hash;
+                           // added = true;
+                            num_of_elements++;
+
+                            curr.next = temp;
+                            temp.prev = curr;
+                            temp.next = first;
+                            first.prev = temp;
+
+                            temp.chain_next = null;
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
 
                     }
                     else if(curr_hash<curr.hash)
@@ -126,34 +178,42 @@ namespace курсач
                         temp.login = login;
                         temp.date = date;
                         temp.hash = curr_hash;
+                        // added = true;
+                        num_of_elements++;
                         temp.tariph = tariph;
 
                         curr.prev.next = temp;
                         temp.prev = curr.prev;
                         curr.prev = temp;
                         temp.next = curr;
+                        temp.chain_next = null;
                         return true;
                     }
                     else
                     {
                         while (curr.chain_next != null)
                             curr = curr.chain_next;
+                        //curr = new nest();
                         nest temp = new nest();
                         temp.login = login;
                         temp.date = date;
                         temp.hash = curr_hash;
+                        // added = true;
+                        //num_of_elements++;
                         temp.tariph = tariph;
 
                         temp.chain_next = null;
                         temp.chain_prev = curr;
                         curr.chain_next = temp;
                         return true;
-                    }                  
+                    }
+                    
                 }
             }
            
 
         }
+
         public nest find(string login)/*spisok_tariph.nest tariph*///исправить, циклится
         {
             nest curr = first;
@@ -200,20 +260,12 @@ namespace курсач
             }
         }
 
-        public bool delete(string login)/*, spisok_tariph.nest tariph*/
+        public bool delete(string login/*, spisok_tariph.nest tariph*/)
         {
             nest curr = find(login);
             if (curr != null)
             {
-                /*if (curr==first)
-                {
-                    if (curr.chain_next==null)
-                    {
-
-                        curr.next = first;
-                    }
-                }
-                else if ((curr.chain_next != null) && (curr.chain_prev == null))
+                if ((curr.chain_next != null) && (curr.chain_prev == null))
                 {
                     nest temp = new nest();
 
@@ -224,11 +276,15 @@ namespace курсач
                     temp.prev = curr.prev;
                     temp.next = curr.next;
                 }
-                if else()
+                else
                 {
                     curr.prev.next = curr.next;
                     curr.next.prev = curr.prev;
-                }*/
+                    if(first == curr)
+                    {
+                        first = curr.next;
+                    }
+                }
                 return true;
             }
             else
@@ -304,7 +360,8 @@ namespace курсач
                         return s1;
                 }
                   return null;
-                       
+            
+            
         }
     }
 }

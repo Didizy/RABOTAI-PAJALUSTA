@@ -352,11 +352,18 @@ namespace курсач
                 error_number = 2;
                 message_box(error_number);
             }
+            else if ((Convert.ToInt32(tariph_speed.Text) > 2000)&&(Convert.ToInt32(tariph_speed.Text)<0))
+            {
+                error_number = 2;
+                message_box(error_number);
+            }
             else if (checkBoxAddTariphTV.Checked && !(checkBoxAddTariphInternet.Checked))
             {
                 if ((Convert.ToInt32(tariph_speed.Text) != 0) || (tariph_speed.Text != ""))
                     error_number = 2;
             }
+            else if ((checkBoxAddTariphInternet.Checked) && ((Convert.ToInt32(tariph_speed.Text) > 200)))
+                error_number = 2;
 
             else
             {
@@ -366,7 +373,7 @@ namespace курсач
                     error_number = 4;
                 }
                 else
-                    tariph.add(tariph.getkey(tariph_title.Text,tariph_provider.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));
+                    tariph.add(tariph.getkey(tariph_title.Text, tariph_provider.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));
             }
 
             message_box(error_number);
@@ -467,7 +474,7 @@ namespace курсач
             tree_providers.root check1 = provider.find(user_provider.Text);
             spisok_tariph.nest check = null;
             if (check1 != null)
-                check = tariph.find(user_tariph.Text, provider.find(user_provider.Text));
+                check = tariph.find(user_tariph.Text, check1);
 
             if (user_login.Text == "" || user_provider.Text == "" || user_tariph.Text == "" || user_date.Text == "")
             {
@@ -520,7 +527,7 @@ namespace курсач
             tree_providers.root check1 = provider.find(sale_provider.Text);
             spisok_tariph.nest check = null;
             if (check1 != null)
-                check = tariph.find(sale_tariph.Text, provider.find(sale_provider.Text));
+                check = tariph.find(sale_tariph.Text, check1);
 
             if (sale_num.Text == "" || sale_length.Text == "" || sale_provider.Text == "" || sale_tariph.Text == "")
             {
@@ -532,7 +539,7 @@ namespace курсач
                 error_number = 3;
                 message_box(error_number);
             }
-            else if (!sale_check(sale_provider.Text) || check_for_int(sale_length.Text) || sale_length.Text.Length > 3 || sale_provider.Text.Length > 30 || sale_tariph.Text.Length > 30)
+            else if (!sale_check(sale_num.Text) || !check_for_int(sale_length.Text) || sale_length.Text.Length > 3 || sale_provider.Text.Length > 30 || sale_tariph.Text.Length > 30)
             {
                 error_number = 2;
                 message_box(error_number);
@@ -544,8 +551,8 @@ namespace курсач
             }
             else
             {
-                spisok_tariph.nest a = tariph.find(sale_tariph.Text, provider.find(sale_provider.Text));
-                sales.add_sale(sale_num.Text, sale_length.Text, a);//, a.provider);
+                //spisok_tariph.nest a = tariph.find(sale_tariph.Text, provider.find(sale_provider.Text));
+                sales.add_sale(sale_num.Text, sale_length.Text, check);//, a.provider);
 
                 error_number = 0;
                 message_box(error_number);
@@ -750,7 +757,9 @@ namespace курсач
             }
             else
             {
-                sales.find(sale_find_size.Text, tariph.find(sale_find_tariph.Text, provider.find(sale_find_provider.Text)));
+                tree_sale.root s = sales.find(sale_find_size.Text, tariph.find(sale_find_tariph.Text, provider.find(sale_find_provider.Text)));
+                searchform_sale searchform = new searchform_sale(s, this);
+                searchform.Show();
             }
 
             sale_find_provider.Text = sale_find_size.Text = sale_find_tariph.Text = "";
@@ -1089,37 +1098,53 @@ namespace курсач
             string[] us = new string[4];
             sale_out(sale, sales.main);
             spisok_users.nest temp = user.first;
+            if (temp == null)
+                return;
             spisok_users.nest curr = temp.chain_next;
-            us[0] = temp.login;
-            us[1] = temp.hash.ToString();
-            us[2] = temp.tariph.name;
-            us[3] = temp.date;
-            dataGridViewUsers.Rows.Add(us);
-            while (curr != null)
-            {
-                us[0] = curr.login;
-                us[1] = curr.hash.ToString();
-                us[2] = curr.tariph.name;
-                us[3] = curr.date;
-                dataGridViewUsers.Rows.Add(us);
-                curr = curr.chain_next;
-            }
-            temp = temp.next;
-            curr = temp.chain_next;
-            while (temp != user.first)
+            if (!tariph.free(temp.tariph))
             {
                 us[0] = temp.login;
                 us[1] = temp.hash.ToString();
                 us[2] = temp.tariph.name;
                 us[3] = temp.date;
                 dataGridViewUsers.Rows.Add(us);
-                while (curr != null)
+            }
+            while (curr != null)
+            {
+                if (!tariph.free(curr.tariph))
                 {
                     us[0] = curr.login;
                     us[1] = curr.hash.ToString();
                     us[2] = curr.tariph.name;
                     us[3] = curr.date;
                     dataGridViewUsers.Rows.Add(us);
+                }
+                curr = curr.chain_next;
+            }
+            temp = temp.next;
+            curr = temp.chain_next;
+            while (temp != user.first)
+            {
+                if (!tariph.free(temp.tariph))
+                {
+
+                    us[0] = temp.login;
+                    us[1] = temp.hash.ToString();
+                    us[2] = temp.tariph.name;
+                    us[3] = temp.date;
+                    dataGridViewUsers.Rows.Add(us);
+                }
+                while (curr != null)
+                {
+                    if (!tariph.free(curr.tariph))
+                    {
+
+                        us[0] = curr.login;
+                        us[1] = curr.hash.ToString();
+                        us[2] = curr.tariph.name;
+                        us[3] = curr.date;
+                        dataGridViewUsers.Rows.Add(us);
+                    }
                     curr = curr.chain_next;
                 }
                 temp = temp.next;

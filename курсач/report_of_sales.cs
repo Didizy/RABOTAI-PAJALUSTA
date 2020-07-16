@@ -89,7 +89,7 @@ namespace курсач
             }
             else
             {
-                string[] line = new string[3];
+                string[] line = new string[3];//затестить
 
 
                 size_of_sale = sale_size.Text;

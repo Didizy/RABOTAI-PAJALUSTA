@@ -1,4 +1,5 @@
-﻿namespace курсач
+﻿using System.IO;
+namespace курсач
 {
     partial class Form2
     {
@@ -15,8 +16,49 @@
         {
             if (disposing && (components != null))
             {
-                components.Dispose();
+            components.Dispose();
             }
+            StreamWriter file_out = new StreamWriter(@"a:\gitjub\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
+                                                                                              //file_out.WriteLine("РАБОТАЙ");
+            output_for_provider(file_out, provider.main);
+            file_out.Close();
+            StreamWriter out_file = new StreamWriter(@"a:\gitjub\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
+            spisok_users.nest a = user.first;
+            spisok_users.nest temp = a.chain_next;
+            string output;
+            while (true)
+            {
+                output = "";
+                output += a.login;
+                output += "/";
+                output += a.date;
+                output += "/";
+                output += a.tariph.name;
+                output += "/";
+                output += a.tariph.provider.title;
+                out_file.WriteLine(output);
+                while (temp != null)
+                {
+                    output = "";
+                    output += temp.login;
+                    output += "/";
+                    output += temp.date;
+                    output += "/";
+                    output += temp.tariph.name;
+                    output += "/";
+                    output += temp.tariph.provider.title;
+                    out_file.WriteLine(output);
+                    temp = temp.chain_next;
+
+                }
+                a = a.next;
+                if (a == user.first)
+                    break;
+                temp = a.chain_next;
+            }
+            out_file.WriteLine("//");
+            output_for_sales(out_file, sales.main);
+            out_file.Close();
             base.Dispose(disposing);
         }
 
@@ -211,7 +253,7 @@
             this.buttonRepAllUsers.Name = "buttonRepAllUsers";
             this.buttonRepAllUsers.Size = new System.Drawing.Size(297, 37);
             this.buttonRepAllUsers.TabIndex = 32;
-            this.buttonRepAllUsers.Text = "Отчет: все пользователи провайдера и их скидки";
+            this.buttonRepAllUsers.Text = "Отчет: все покупатели провайдера и их скидки";
             this.buttonRepAllUsers.UseVisualStyleBackColor = false;
             this.buttonRepAllUsers.Click += new System.EventHandler(this.buttonRepAllUsers_Click);
             // 
