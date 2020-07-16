@@ -15,6 +15,7 @@ namespace курсач
     public partial class report_of_sales : Form
     {
         Form2 f2;
+        string size_of_sale;
         public report_of_sales()
         {
             InitializeComponent();
@@ -72,6 +73,7 @@ namespace курсач
         {
             dataGridViewSaleForUsers.Rows.Clear();
             string[] line = new string[3];
+            size_of_sale = sale_size.Text;
             sale_obhod_po_skidke(f2.sales.main, sale_size.Text, line);
             
         }
@@ -84,6 +86,15 @@ namespace курсач
                 file.Close();
                 
             }
+            file.WriteLine("Размер скидки: " + size_of_sale);
+            int i = 0;
+            while (dataGridViewSaleForUsers.Rows[i].Cells[0].Value != null)
+            {
+                file.WriteLine(dataGridViewSaleForUsers.Rows[i].Cells[0].Value.ToString() + "/" + dataGridViewSaleForUsers.Rows[i].Cells[1].Value.ToString() + "/" + dataGridViewSaleForUsers.Rows[i].Cells[2].Value.ToString());
+                i++;
+            }
+            file.Close();
+
 
         }
     }
