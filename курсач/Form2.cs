@@ -333,7 +333,7 @@ namespace курсач
             else
             {
                 error_number = 1;
-            }
+            }            
             if (!check_for_int(tariph_cost.Text))
             {
                 error_number = 2;
@@ -342,7 +342,7 @@ namespace курсач
             {
                 error_number = 2;
             }
-            else if (tariph_title.Text == "" || tariph_provider.Text == "" || tariph_cost.Text == "")
+            else if (tariph_title.Text == "" || tariph_provider.Text == "" || tariph_cost.Text == "" )//|| tariph_speed.Text == "")
             {
                 error_number = 1;
                 //message_box(error_number);
@@ -352,20 +352,22 @@ namespace курсач
                 error_number = 2;
                 message_box(error_number);
             }
+            else if (type == 3)
+            {
+                if(tariph_speed.Text != "")
+                    if (Convert.ToInt32(tariph_speed.Text) != 0) 
+                        error_number = 2;
+            }
             else if ((Convert.ToInt32(tariph_speed.Text) > 2000)&&(Convert.ToInt32(tariph_speed.Text)<0))
             {
                 error_number = 2;
                 message_box(error_number);
             }
-            else if (checkBoxAddTariphTV.Checked && !(checkBoxAddTariphInternet.Checked))
-            {
-                if ((Convert.ToInt32(tariph_speed.Text) != 0) || (tariph_speed.Text != ""))
-                    error_number = 2;
-            }
+           
             else if ((checkBoxAddTariphInternet.Checked) && ((Convert.ToInt32(tariph_speed.Text) > 200)))
                 error_number = 2;
 
-            else
+            if (error_number == 0)
             {
                 bool can_add = provider.add_tariph(tariph_title.Text, Convert.ToInt32(tariph_cost.Text), tariph_provider.Text);
                 if (!can_add)
@@ -375,6 +377,8 @@ namespace курсач
                     else
                         error_number = 3;
                 }
+                if(tariph_speed.Text=="")
+                    tariph.add(tariph.getkey(tariph_title.Text, tariph_provider.Text), tariph_title.Text, type, 0, provider.find(tariph_provider.Text));
                 else
                     tariph.add(tariph.getkey(tariph_title.Text, tariph_provider.Text), tariph_title.Text, type, Convert.ToInt32(tariph_speed.Text), provider.find(tariph_provider.Text));
             }

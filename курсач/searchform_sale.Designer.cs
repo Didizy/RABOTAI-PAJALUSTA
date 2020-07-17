@@ -48,7 +48,7 @@
             this.ColumnDateOfUse});
             this.dataGridViewSearchSale.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridViewSearchSale.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewSearchSale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewSearchSale.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewSearchSale.Name = "dataGridViewSearchSale";
             this.dataGridViewSearchSale.RowHeadersWidth = 51;
             this.dataGridViewSearchSale.RowTemplate.Height = 24;
@@ -133,9 +133,9 @@
             this.Controls.Add(this.labelSale);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewSearchSale);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "searchform_sale";
-            this.Text = "searchform_sale";
+            this.Text = "Информация о скидке";
             this.Load += new System.EventHandler(this.searchform_sale_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearchSale)).EndInit();
             this.ResumeLayout(false);

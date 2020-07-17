@@ -249,6 +249,5 @@ namespace курсач
             if (current.tariph == tar)
                 delete(current.size, current.tariph);
         }
-
     }
 }

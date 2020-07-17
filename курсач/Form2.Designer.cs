@@ -900,7 +900,7 @@ namespace курсач
             this.buttonReportAllSalesForUsers.Name = "buttonReportAllSalesForUsers";
             this.buttonReportAllSalesForUsers.Size = new System.Drawing.Size(297, 37);
             this.buttonReportAllSalesForUsers.TabIndex = 49;
-            this.buttonReportAllSalesForUsers.Text = "Отчет: какие скидки может получать пользователь";
+            this.buttonReportAllSalesForUsers.Text = "Отчет: какие скидки может получать покупатель";
             this.buttonReportAllSalesForUsers.UseVisualStyleBackColor = false;
             this.buttonReportAllSalesForUsers.Click += new System.EventHandler(this.buttonReportAllSalesForUsers_Click);
             // 
@@ -1255,9 +1255,9 @@ namespace курсач
             this.label21.Location = new System.Drawing.Point(128, 129);
             this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(180, 18);
+            this.label21.Size = new System.Drawing.Size(161, 18);
             this.label21.TabIndex = 21;
-            this.label21.Text = "Добавить пользователя";
+            this.label21.Text = "Добавить покупателя";
             this.label21.Click += new System.EventHandler(this.label21_Click);
             // 
             // label22
@@ -1266,9 +1266,9 @@ namespace курсач
             this.label22.Location = new System.Drawing.Point(42, 177);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(112, 13);
+            this.label22.Size = new System.Drawing.Size(99, 13);
             this.label22.TabIndex = 20;
-            this.label22.Text = "Логин пользователя";
+            this.label22.Text = "Логин покупателя";
             // 
             // tabPage4
             // 
@@ -1316,9 +1316,9 @@ namespace курсач
             this.label36.AutoSize = true;
             this.label36.Location = new System.Drawing.Point(62, 228);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(112, 13);
+            this.label36.Size = new System.Drawing.Size(99, 13);
             this.label36.TabIndex = 45;
-            this.label36.Text = "Логин пользователя";
+            this.label36.Text = "Логин покупателя";
             this.label36.Click += new System.EventHandler(this.label36_Click);
             // 
             // user_find_login
@@ -1407,9 +1407,9 @@ namespace курсач
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.label28.Location = new System.Drawing.Point(155, 176);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(153, 18);
+            this.label28.Size = new System.Drawing.Size(134, 18);
             this.label28.TabIndex = 24;
-            this.label28.Text = "Найти пользователя";
+            this.label28.Text = "Найти покупателя";
             this.label28.Click += new System.EventHandler(this.label28_Click);
             // 
             // tabPage8
@@ -1494,9 +1494,9 @@ namespace курсач
             this.label33.Location = new System.Drawing.Point(60, 208);
             this.label33.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(112, 13);
+            this.label33.Size = new System.Drawing.Size(99, 13);
             this.label33.TabIndex = 37;
-            this.label33.Text = "Логин пользователя";
+            this.label33.Text = "Логин покупателя";
             // 
             // user_del_login
             // 
@@ -1551,9 +1551,9 @@ namespace курсач
             this.label35.Location = new System.Drawing.Point(157, 157);
             this.label35.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(170, 18);
+            this.label35.Size = new System.Drawing.Size(151, 18);
             this.label35.TabIndex = 26;
-            this.label35.Text = "Удалить пользователя";
+            this.label35.Text = "Удалить покупателя";
             // 
             // tabControlMain
             // 
@@ -1588,7 +1588,7 @@ namespace курсач
             this.tabPage10.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage10.Size = new System.Drawing.Size(1128, 597);
             this.tabPage10.TabIndex = 1;
-            this.tabPage10.Text = "Пользователи и скидки";
+            this.tabPage10.Text = "Покупатели и скидки";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
             // Form2

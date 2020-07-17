@@ -49,12 +49,13 @@
             this.ColumnTariph,
             this.ColumnDate});
             this.dataGridViewSearchUser.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridViewSearchUser.Location = new System.Drawing.Point(0, 81);
+            this.dataGridViewSearchUser.Location = new System.Drawing.Point(0, 66);
+            this.dataGridViewSearchUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewSearchUser.Name = "dataGridViewSearchUser";
             this.dataGridViewSearchUser.ReadOnly = true;
             this.dataGridViewSearchUser.RowHeadersWidth = 51;
             this.dataGridViewSearchUser.RowTemplate.Height = 24;
-            this.dataGridViewSearchUser.Size = new System.Drawing.Size(775, 76);
+            this.dataGridViewSearchUser.Size = new System.Drawing.Size(581, 62);
             this.dataGridViewSearchUser.TabIndex = 0;
             // 
             // ColumnHahLogin
@@ -93,19 +94,21 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(9, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(195, 24);
+            this.label1.Size = new System.Drawing.Size(134, 18);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Логин пользователя";
+            this.label1.Text = "Логин покупателя";
             // 
             // labelLogin
             // 
             this.labelLogin.AutoSize = true;
             this.labelLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
-            this.labelLogin.Location = new System.Drawing.Point(255, 9);
+            this.labelLogin.Location = new System.Drawing.Point(191, 7);
+            this.labelLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelLogin.Name = "labelLogin";
-            this.labelLogin.Size = new System.Drawing.Size(70, 26);
+            this.labelLogin.Size = new System.Drawing.Size(58, 22);
             this.labelLogin.TabIndex = 2;
             this.labelLogin.Text = "label2";
             // 
@@ -113,9 +116,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.label2.Location = new System.Drawing.Point(12, 47);
+            this.label2.Location = new System.Drawing.Point(9, 38);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(219, 24);
+            this.label2.Size = new System.Drawing.Size(168, 18);
             this.label2.TabIndex = 3;
             this.label2.Text = "Количество сравнений";
             // 
@@ -123,25 +127,27 @@
             // 
             this.labelCompareNum.AutoSize = true;
             this.labelCompareNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
-            this.labelCompareNum.Location = new System.Drawing.Point(255, 45);
+            this.labelCompareNum.Location = new System.Drawing.Point(191, 37);
+            this.labelCompareNum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCompareNum.Name = "labelCompareNum";
-            this.labelCompareNum.Size = new System.Drawing.Size(70, 26);
+            this.labelCompareNum.Size = new System.Drawing.Size(58, 22);
             this.labelCompareNum.TabIndex = 4;
             this.labelCompareNum.Text = "label3";
             this.labelCompareNum.Click += new System.EventHandler(this.labelCompareNum_Click);
             // 
             // search_form_user
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(775, 157);
+            this.ClientSize = new System.Drawing.Size(581, 128);
             this.Controls.Add(this.labelCompareNum);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelLogin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewSearchUser);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "search_form_user";
-            this.Text = "search_form_user";
+            this.Text = "Информация о покупателе";
             this.Load += new System.EventHandler(this.search_form_user_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSearchUser)).EndInit();
             this.ResumeLayout(false);

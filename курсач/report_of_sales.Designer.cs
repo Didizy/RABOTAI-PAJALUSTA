@@ -49,7 +49,7 @@
             this.ColumnTariph});
             this.dataGridViewSaleForUsers.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridViewSaleForUsers.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewSaleForUsers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewSaleForUsers.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewSaleForUsers.Name = "dataGridViewSaleForUsers";
             this.dataGridViewSaleForUsers.RowHeadersWidth = 51;
             this.dataGridViewSaleForUsers.RowTemplate.Height = 24;
@@ -91,7 +91,7 @@
             // sale_size
             // 
             this.sale_size.Location = new System.Drawing.Point(454, 78);
-            this.sale_size.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sale_size.Margin = new System.Windows.Forms.Padding(2);
             this.sale_size.Name = "sale_size";
             this.sale_size.Size = new System.Drawing.Size(152, 20);
             this.sale_size.TabIndex = 2;
@@ -99,7 +99,7 @@
             // buttonCreateReport
             // 
             this.buttonCreateReport.Location = new System.Drawing.Point(468, 134);
-            this.buttonCreateReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCreateReport.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCreateReport.Name = "buttonCreateReport";
             this.buttonCreateReport.Size = new System.Drawing.Size(112, 37);
             this.buttonCreateReport.TabIndex = 8;
@@ -110,7 +110,7 @@
             // buttonSaveInFile
             // 
             this.buttonSaveInFile.Location = new System.Drawing.Point(468, 274);
-            this.buttonSaveInFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSaveInFile.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSaveInFile.Name = "buttonSaveInFile";
             this.buttonSaveInFile.Size = new System.Drawing.Size(112, 41);
             this.buttonSaveInFile.TabIndex = 7;
@@ -129,9 +129,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewSaleForUsers);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "report_of_sales";
-            this.Text = "report_of_sales";
+            this.Text = "Отчёт: какие скидки может получать покупатель";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSaleForUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
