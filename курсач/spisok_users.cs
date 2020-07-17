@@ -108,24 +108,16 @@ namespace курсач
                 first.prev = first;
                 first.chain_next = null;
 
-                //num_of_elements++;
                 return true;
             }
             else
             {
                 while (true)
                 {
-                    //curr_hash = get_hash(login);
-
                     while ((curr.hash != curr_hash) && (curr.next != first) && (curr_hash > curr.hash))
                     {
-                        /*a = compare(curr.login, first.login);
-                        if (a == 0)
-                            break;*/
                         curr = curr.next;
                     }
-                    /*if (curr.next == first)
-                        curr = curr.next;*/
 
                     if ((curr.hash > curr_hash)&&(curr == first))
                     {
@@ -134,7 +126,6 @@ namespace курсач
                         temp.date = date;
                         temp.tariph = tariph;
                         temp.hash = curr_hash;
-                        //num_of_elements++;
                         first.prev.next = temp;
                         temp.prev = first.prev;
                         first.prev = temp;
@@ -145,15 +136,11 @@ namespace курсач
                     }
                     if ((curr.next == first)&&(curr_hash>curr.hash))
                     {
-                        
-                            //curr = new nest();
                             nest temp = new nest();
                             temp.login = login;
                             temp.date = date;
                             temp.tariph = tariph;
                             temp.hash = curr_hash;
-                           // added = true;
-                            //num_of_elements++;
 
                             curr.next = temp;
                             temp.prev = curr;
@@ -162,9 +149,6 @@ namespace курсач
 
                             temp.chain_next = null;
                             return true;
-                       
-                       
-
                     }
                     else if(curr_hash<curr.hash)
                     {
@@ -172,8 +156,6 @@ namespace курсач
                         temp.login = login;
                         temp.date = date;
                         temp.hash = curr_hash;
-                        // added = true;
-                       // num_of_elements++;
                         temp.tariph = tariph;
 
                         curr.prev.next = temp;
@@ -187,13 +169,10 @@ namespace курсач
                     {
                         while (curr.chain_next != null)
                             curr = curr.chain_next;
-                        //curr = new nest();
                         nest temp = new nest();
                         temp.login = login;
                         temp.date = date;
                         temp.hash = curr_hash;
-                        // added = true;
-                        //num_of_elements++;
                         temp.tariph = tariph;
 
                         temp.chain_next = null;
