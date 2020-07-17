@@ -37,17 +37,13 @@ namespace курсач
         public tree_sale() { }
         public int compare(string a, string b)//сравнение строк
         {
-            for (int i = 0; ((i < a.Length) && (i < b.Length)); i++)
-            {
-                if (a[i] == b[i])
-                    continue;
-                else if (a[i] < b[i])
-                    return -1;
-                else
-                    return 1;
-
-            }
-            return 0;
+            int t = Convert.ToInt32(a);
+            int k = Convert.ToInt32(b);
+            if (t == k)
+                return 0;
+            else if (t < k)
+                return -1;
+            return 1 ;
         }
         public void add_sale(string size, string date, spisok_tariph.nest tariph)//, tree_providers.root provider)
         {

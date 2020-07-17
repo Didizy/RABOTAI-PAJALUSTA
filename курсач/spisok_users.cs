@@ -299,8 +299,8 @@ namespace курсач
             int user_day = (Convert.ToInt32(u.date[0])-48) * 10 + (Convert.ToInt32(u.date[1])-48);
             int user_month = (Convert.ToInt32(u.date[3])-48) * 10 + (Convert.ToInt32(u.date[4])-48);
             int user_year = (Convert.ToInt32(u.date[8])-48) * 10 + (Convert.ToInt32(u.date[9])-48);
-            int compare_day = 1;
-            int compare_month = 1;
+            int compare_day = 10;
+            int compare_month = 7;
             int compare_year = 20;
             int years = 0;
             while (time >= 12)
@@ -313,16 +313,16 @@ namespace курсач
             {
                 return false;
             }
-            if (user_month + time > 12)
+            else if (user_month + time > 12)
             {
                 user_month -= 12 + time;
                 user_year++;
             }
-            if (user_year + years > compare_year)
+            else if (user_year + years > compare_year)
             {
                 return false;
             }
-            if ((user_day > compare_day)&&(user_month>=compare_month))
+            else if ((user_day > compare_day)&&(user_month>=compare_month)&&(user_year+years==compare_year))
             {
                 return false;
 
