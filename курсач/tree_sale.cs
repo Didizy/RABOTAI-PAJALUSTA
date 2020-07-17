@@ -45,15 +45,14 @@ namespace курсач
                     return -1;
                 else
                     return 1;
-
             }
             return 0;
         }
-        public void add_sale(string size, string date, spisok_tariph.nest tariph)//, tree_providers.root provider)
+        public void add_sale(string size, string date, spisok_tariph.nest tariph)
         {
             bool placed = false;
             if (main == null)
-                main = new root(size, date, tariph);//, provider);   
+                main = new root(size, date, tariph);
             else
             {
                 root curr = main;
@@ -63,7 +62,7 @@ namespace курсач
                     if (i == -1)
                         if (curr.left == null)
                         {
-                            root temp = new root(size, date, tariph);//, provider);
+                            root temp = new root(size, date, tariph);
                             curr.left = temp;
                             placed = true;
                         }
@@ -72,13 +71,12 @@ namespace курсач
                     else if ((i == 1) | (i == 0))
                         if (curr.right == null)
                         {
-                            root temp = new root(size, date, tariph);//, provider);
+                            root temp = new root(size, date, tariph);
                             curr.right = temp;
                             placed = true;
                         }
                         else
                             curr = curr.right;
-
                 }
             }
         }
