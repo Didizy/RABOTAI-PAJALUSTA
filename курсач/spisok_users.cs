@@ -73,7 +73,16 @@ namespace курсач
             int h1 = (int)(hash * max_elements) % max_elements;
             return h1;
         }
-
+        public int compare_int(string a, string b)//сравнение строк
+        {
+            int t = Convert.ToInt32(a);
+            int k = Convert.ToInt32(b);
+            if (t == k)
+                return 0;
+            else if (t < k)
+                return -1;
+            return 1;
+        }
         public int compare(string a, string b)//сравнение строк
         {
 
