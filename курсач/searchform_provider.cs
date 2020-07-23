@@ -36,7 +36,7 @@ namespace курсач
             {
                 spisok_tariph.nest a = f2.tariph.find(pr.arr[curr].name, pr);
                 comp += f2.tariph.comparisons;
-                temp[0] = a.hash.ToString();
+                //temp[0] = a.hash.ToString();
                 temp[1] = pr.arr[curr].name;
                 temp[2] = a.speed.ToString();
                 temp[3] = pr.arr[curr].cost.ToString();
