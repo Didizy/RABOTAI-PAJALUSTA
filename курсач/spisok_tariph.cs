@@ -94,11 +94,11 @@ namespace курсач
             {
                 temp += (int)name[i] * i;
             }
-            for (int j = 0; j < provider_title.Length; j++)
+            /*for (int j = 0; j < provider_title.Length; j++)
             {
                 temp += (int)provider_title[j] * i;
                 i++;
-            }
+            }*/
             return temp;
 
         }
