@@ -48,7 +48,7 @@ namespace курсач
         {
             if (s == null)
                 return;
-            int i = f2.provider.compare(s.size, size);
+            int i = f2.user.compare_int(s.size, size);
             if (i == -1)
                 sale_obhod_po_skidke(s.right, size, line);
             else if (i == 0)
@@ -114,7 +114,7 @@ namespace курсач
         private void buttonSaveInFile_Click(object sender, EventArgs e)
         {
             //StreamWriter file = new StreamWriter(@"A:\gitjub\курсач\otchet_sales.txt");
-            StreamWriter file = new StreamWriter(@"c:\курсач\курсач\otchet_sales.txt");
+            StreamWriter file = new StreamWriter(@"A:\gitjub\курсач\otchet_sales.txt");
             if (dataGridViewSaleForUsers.Rows[0].Cells[0].Value == null)
             {
                 file.Close();

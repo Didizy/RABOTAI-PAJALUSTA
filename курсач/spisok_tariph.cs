@@ -73,7 +73,7 @@ namespace курсач
             return temp;
 
         }
-        public int getkey(string name, string provider_title)//рандомная хеш функция
+        public int getkey(string name, string provider_title)
         {
             int temp = 0;
             int i = 0;
@@ -103,7 +103,7 @@ namespace курсач
             int hash_2 = gethash_2(k);
             while (!added)
             {
-
+                
                 int curr_hash = (hash_1 + j * hash_2) % max_elements;
                 while (curr.hash != curr_hash)
                 {
@@ -121,7 +121,7 @@ namespace курсач
                     curr.deleted = false;
                     return true;
                 }
-                else if ((curr.name == name) && (curr.type == type) && (curr.speed == speed) && (curr.provider == provider))
+                else if ((curr.name == name)  && (curr.provider == provider))
                     return false;
                 else
                     j++;

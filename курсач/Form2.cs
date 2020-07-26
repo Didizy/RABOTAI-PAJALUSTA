@@ -41,6 +41,8 @@ namespace курсач
         
         public bool sale_check(string sale)
         {
+            if (sale == "0")
+                return false;
             if (sale.Length < 3)
             {
                 string r1 = "[0-9]{2}";
@@ -71,6 +73,8 @@ namespace курсач
 
             string r11 = "[3][0-1].[0][1-9].[2][0][2][0]";
             string r12 = "[3][0-1].[1][0-2].[2][0][2][0]";
+            if ((date[2] != '.') || (date[5] != '.'))
+                return false;
 
             if (Regex.IsMatch(date, r1) || Regex.IsMatch(date, r2) || Regex.IsMatch(date, r3) || Regex.IsMatch(date, r4) || Regex.IsMatch(date, r5)
                 || Regex.IsMatch(date, r6) || Regex.IsMatch(date, r7) || Regex.IsMatch(date, r8) || Regex.IsMatch(date, r9) || Regex.IsMatch(date, r10)
@@ -358,7 +362,7 @@ namespace курсач
                     if (Convert.ToInt32(tariph_speed.Text) != 0) 
                         error_number = 2;
             }
-            else if ((Convert.ToInt32(tariph_speed.Text) > 2000)&&(Convert.ToInt32(tariph_speed.Text)<0))
+            else if ((Convert.ToInt32(tariph_speed.Text) > 200)&&(Convert.ToInt32(tariph_speed.Text)<0))
             {
                 error_number = 2;
                 message_box(error_number);

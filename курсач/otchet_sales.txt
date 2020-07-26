@@ -1,5 +1,3 @@
-Размер скидки: 5
-Anron/pod/ELDORADO
-LUPA/pod/horosho
-Vasya/pod/ELDORADO
-qwerty/pod/horosho
+Размер скидки: 20
+Василий белый/Подряд/ВсеРос
+Жук-навозник/Подряд/ВсеРос

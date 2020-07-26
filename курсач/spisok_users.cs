@@ -10,8 +10,39 @@ namespace курсач
 {
    public class spisok_users
     {
-        public int comparisons = 0;
+        //тут должна появится хт
+
         public class nest
+        {
+            //public int hash;
+            public string login;
+            public string date;
+            public spisok_tariph.nest tariph;
+            public nest chain_next, chain_prev, first;//для метода цепочек
+
+            public nest(string login, string date, spisok_tariph.nest tariph)
+            {
+                this.login = login;
+                this.date = date;
+                this.tariph = tariph;
+
+                //chain_next = first;
+            }
+
+        }
+
+        public int max_elements;
+        public nest[] table;
+        public int comparisons = 0;
+
+        public spisok_users()
+        {
+            table = new nest[max_elements];
+            for (int i = 0; i < max_elements; i++)
+                table[i] = null;
+        }
+
+/*        public class nest
         {
             public int hash;
             public string login;
@@ -20,22 +51,22 @@ namespace курсач
             public spisok_users.nest chain;//для метода цепочек
 
             public nest next, prev, chain_next, chain_prev;
-            /*public nest(int i)
+            *//*public nest(int i)
             {
                 hash = i;
                 login = "";
                 date = "";
 
-            }*/
-        }
+            }*//*
+        }*/
 
-        public int  max_elements;
-        public nest first;
 
-        public spisok_users()
+        //public nest first;
+
+ /*        public spisok_users()
         {
-            first = null;
-            max_elements = 100;
+           first = null;
+            max_elements = 100;*/
             //num_of_elements = 0;
             /*first = new nest(0);
             nest curr = first;
@@ -48,9 +79,9 @@ namespace курсач
             curr.next = first;
             first.prev = curr;
             curr.chain_next = null;
-            curr.chain_prev = curr;*/
+            curr.chain_prev = curr;
 
-        }
+        }*/
         public bool free(nest temp)//проверка на пустую ячейку
         {
             //return ((temp.login == "") && (temp.tariph == null));
@@ -73,7 +104,16 @@ namespace курсач
             int h1 = (int)(hash * max_elements) % max_elements;
             return h1;
         }
-
+        public int compare_int(string a, string b)//сравнение строк
+        {
+            int t = Convert.ToInt32(a);
+            int k = Convert.ToInt32(b);
+            if (t == k)
+                return 0;
+            else if (t < k)
+                return -1;
+            return 1;
+        }
         public int compare(string a, string b)//сравнение строк
         {
 
@@ -90,7 +130,7 @@ namespace курсач
             }
             return 0;
         }
-        public bool add(string login, string date, spisok_tariph.nest tariph)
+/*        public bool add(string login, string date, spisok_tariph.nest tariph)
         {
             int curr_hash = get_hash(login);
             nest curr = first;
@@ -185,6 +225,23 @@ namespace курсач
             }
            
 
+        }*/
+
+        public bool add(string login, string date, spisok_tariph.nest tariph)
+        {
+            nest temp = new nest(login, date, tariph);
+            int hash = get_hash(login);
+
+            if (table[hash] == null)
+            {
+                table[hash] = temp;
+                
+                return true;
+            }
+            else
+            {
+
+            }
         }
 
         public nest find(string login)/*spisok_tariph.nest tariph*///исправить, циклится
