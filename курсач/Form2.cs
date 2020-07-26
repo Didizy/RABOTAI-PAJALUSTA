@@ -1009,22 +1009,24 @@ namespace курсач
             string[] prov = new string[3];
             string[] tar = new string[5];
             get_provider_info(prov, provider.main);
-            spisok_tariph.nest temp = tariph.first;
-            if (!tariph.free(temp))
+            //spisok_tariph.nest temp = tariph.first;
+            int temp = 0;
+            /*if (!tariph.free(tariph.mas[temp]))
             {
-                tar[0] = temp.provider.title;
-                tar[1] = temp.hash.ToString();
-                tar[2] = temp.name;
-                switch (temp.type)
+                tar[0] = tariph.mas[temp].provider.title;
+                //tar[1] = tariph.mas[temp].hash.ToString();
+                tar[1] = temp.ToString();
+                tar[2] = tariph.mas[temp].name;
+                switch (tariph.mas[temp].type)
                 {
 
                     case 1:
                         tar[3] = "Интеренет";
-                        tar[4] = temp.speed.ToString();
+                        tar[4] = tariph.mas[temp].speed.ToString();
                         break;
                     case 2:
                         tar[3] = "Интернет и ТВ";
-                        tar[4] = temp.speed.ToString();
+                        tar[4] = tariph.mas[temp].speed.ToString();
                         break;
                     case 3:
                         tar[3] = "ТВ";
@@ -1034,24 +1036,25 @@ namespace курсач
                 }
                 dataGridViewTariphs.Rows.Add(tar);
             }
-            temp = temp.next;
-            while (temp != tariph.first)
+            temp++;*/
+            while (temp<tariph.max_elements)
             {
-                if (!tariph.free(temp))
+                if (!tariph.free(tariph.mas[temp]))
                 {
-                    tar[0] = temp.provider.title;
-                    tar[1] = temp.hash.ToString();
-                    tar[2] = temp.name;
-                    switch (temp.type)
+                    tar[0] = tariph.mas[temp].provider.title;
+                    //tar[1] = tariph.mas[temp].hash.ToString();
+                    tar[1] = temp.ToString();
+                    tar[2] = tariph.mas[temp].name;
+                    switch (tariph.mas[temp].type)
                     {
 
                         case 1:
                             tar[3] = "Интеренет";
-                            tar[4] = temp.speed.ToString();
+                            tar[4] = tariph.mas[temp].speed.ToString();
                             break;
                         case 2:
                             tar[3] = "Интернет и ТВ";
-                            tar[4] = temp.speed.ToString();
+                            tar[4] = tariph.mas[temp].speed.ToString();
                             break;
                         case 3:
                             tar[3] = "ТВ";
@@ -1063,7 +1066,7 @@ namespace курсач
 
 
                 }
-                temp = temp.next;
+                temp++;
             }
         }
         public void sale_out(string[] line, tree_sale.root s)
