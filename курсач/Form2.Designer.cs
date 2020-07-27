@@ -18,11 +18,11 @@ namespace курсач
             {
                 components.Dispose();
             }
-            StreamWriter file_out = new StreamWriter(@"c:\gitjub\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"c:\gitjub\курсач\output_provider.txt
+            StreamWriter file_out = new StreamWriter(@"a:\gitjub\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"c:\gitjub\курсач\output_provider.txt
                                                                                               //file_out.WriteLine("РАБОТАЙ");
-            output_for_provider(file_out, provider.main);
+           // output_for_provider(file_out, provider.main);
             file_out.Close();
-            StreamWriter out_file = new StreamWriter(@"c:\gitjub\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"c:\gitjub\курсач\output_user.txt"
+            StreamWriter out_file = new StreamWriter(@"a:\gitjub\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"c:\gitjub\курсач\output_user.txt"
             /*spisok_users.nest a = user.first;
             if (a != null)
             {
@@ -60,7 +60,7 @@ namespace курсач
                 }
             }*/
 
-            int it = 0;
+            /*int it = 0;
             string output;
             while (it<user.max_elements)
             {
@@ -98,7 +98,7 @@ namespace курсач
 
             out_file.WriteLine("//");
             output_for_sales(out_file, sales.main);
-            out_file.Close();
+            out_file.Close();*/
             base.Dispose(disposing);
         }
 
@@ -233,6 +233,7 @@ namespace курсач
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTariphs)).BeginInit();
@@ -269,6 +270,7 @@ namespace курсач
             // tabPage7
             // 
             this.tabPage7.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage7.Controls.Add(this.button2);
             this.tabPage7.Controls.Add(this.buttonRepAllUsers);
             this.tabPage7.Controls.Add(this.buttonReportAllTariphType);
             this.tabPage7.Controls.Add(this.dataGridViewTariphs);
@@ -1628,6 +1630,17 @@ namespace курсач
             this.tabPage10.Text = "Покупатели и скидки";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.button2.Location = new System.Drawing.Point(6, 502);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(295, 66);
+            this.button2.TabIndex = 33;
+            this.button2.Text = "Сравнение ХФ";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1790,5 +1803,6 @@ namespace курсач
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUsersDate;
         private System.Windows.Forms.Button buttonRepAllUsers;
         private System.Windows.Forms.Button buttonRepSaleOfUser;
+        private System.Windows.Forms.Button button2;
     }
 }

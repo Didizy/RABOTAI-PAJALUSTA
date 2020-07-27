@@ -9,6 +9,7 @@ namespace курсач
     public class spisok_tariph
     {
         public int comparisons = 0;
+        public int collisions = 0;
 
         public class nest
         {
@@ -70,6 +71,19 @@ namespace курсач
 
 
         }
+        public int gethash_different(string name)
+        {
+            double hash = 0;
+
+            foreach (char c in name)
+                hash = hash + c;
+
+            hash *= 0.618033;
+            hash -= (int)hash;
+            int h1 = (int)(hash * max_elements) % max_elements;
+            return h1;
+        }
+
         public int gethash_1(int k)//k -ключ, достаём из getkey
         {
             int temp = ((k / max_elements) + 1) * (max_elements / 10 + 1)%max_elements;
@@ -102,12 +116,52 @@ namespace курсач
             return temp;
 
         }
+        public bool add(string name, int type, int speed, tree_providers.root provider)
+        {
+            if (num_of_elements == max_elements)
+            {
+                resize(false);
+            }
+            int j = 0;
+            //bool added = false;
+            int hash_1 = gethash_different(name);
+            int hash_2 = gethash_2(getkey(name, ""));
+            while (true)
+            {
+
+                int curr_hash = (hash_1 + j * hash_2) % max_elements;
+                /*while (curr.hash != curr_hash)
+                {
+                    curr = curr.next;
+                }*/
+                if ((j == 0) && (free(mas[curr_hash])))
+                    collisions++;
+                if (free(mas[curr_hash]))
+                {
+                    if (mas[curr_hash].deleted == false)
+                        num_of_elements++;
+                    mas[curr_hash].name = name;
+                    mas[curr_hash].type = type;
+                    mas[curr_hash].speed = speed;
+                    mas[curr_hash].provider = provider;
+                    mas[curr_hash].deleted = false;
+                    mas[curr_hash].hash = curr_hash;
+
+                    return true;
+                }
+                else if ((mas[curr_hash].name == name) && (mas[curr_hash].provider == provider))
+                    return false;
+                else
+                    j++;
+            }
+        }
         public bool add(int k, string name, int type, int speed, tree_providers.root provider)// добавление нового элемента
         {
             if (num_of_elements == max_elements)
             {
-                resize();
-                k = getkey(name, provider.title);
+                resize(true);
+                //k = getkey(name, provider.title);
+                k = getkey(name, "");
             }
             int j = 0;
             //bool added = false;
@@ -121,6 +175,8 @@ namespace курсач
                 {
                     curr = curr.next;
                 }*/
+                if ((j == 0) && (!free(mas[curr_hash])))
+                    collisions++;
                 if (free(mas[curr_hash]))
                 {
                     if(mas[curr_hash].deleted == false)
@@ -157,7 +213,7 @@ namespace курсач
 
             }
         }
-        public void resize()//увеличиваем размер таблицы
+        public void resize(bool hash)//увеличиваем размер таблицы
         {
             max_elements *= 2;
             nest[] temp = mas;
@@ -170,7 +226,11 @@ namespace курсач
             {
                 if (!free(temp[i]))
                 {
-                    add(getkey(temp[i].name, temp[i].provider.title), temp[i].name, temp[i].type, temp[i].speed, temp[i].provider);
+                    if (hash)
+                        add(getkey(temp[i].name, ""), temp[i].name, temp[i].type, temp[i].speed, temp[i].provider);
+                    else
+                        add(temp[i].name, temp[i].type, temp[i].speed, temp[i].provider);
+                    num_of_elements--;
                 }
             }
             //nest temp_first = first;
