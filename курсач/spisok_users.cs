@@ -1,6 +1,7 @@
 ﻿using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -17,8 +18,9 @@ namespace курсач
             //public int hash;
             public string login;
             public string date;
+            public int hash;
             public spisok_tariph.nest tariph;
-            public nest chain_next, chain_prev, first;//для метода цепочек
+            public nest next, prev;//, first;//для метода цепочек
 
             public nest(string login, string date, spisok_tariph.nest tariph)
             {
@@ -31,7 +33,7 @@ namespace курсач
 
         }
 
-        public int max_elements;
+        public int max_elements = 2;
         public nest[] table;
         public int comparisons = 0;
 
@@ -235,21 +237,56 @@ namespace курсач
             if (table[hash] == null)
             {
                 table[hash] = temp;
-                
+                table[hash].next = table[hash];
+                table[hash].prev = table[hash];
                 return true;
             }
             else
             {
 
+                temp.next = table[hash].next;
+                table[hash].next.prev = temp;
+                table[hash].next = temp;
+                temp.prev = table[hash];
+                /*nest newtemp = table[hash].next;
+                table[hash].next = newtemp;
+                newtemp.prev = table[hash];
+                newtemp.next = table[hash].next.next;
+                table[hash].next.next.prev = newtemp*/
+                return true;
             }
         }
 
         public nest find(string login)/*spisok_tariph.nest tariph*///исправить, циклится
         {
-            nest curr = first;
+            //nest curr = first;
             int hash = get_hash(login);
+            nest start = table[hash];
 
-            if (curr == null)
+            if (start == null)
+            {
+                return null;
+            }
+            else
+            {
+                if (start.login == login)
+                    return start;
+                else
+                {
+                    nest temp = start.next;
+                    while (temp != start)
+                    {
+                        if (temp.login == login)
+                            return temp;
+                        else
+                            temp = temp.next;
+                    }
+                }
+
+                return null;
+            }
+
+            /*if (curr == null)
             {
                 return null;
             }
@@ -287,47 +324,35 @@ namespace курсач
                 }    
 
                 return null;
-            }
+            }*/
         }
 
-        public bool delete(string login/*, spisok_tariph.nest tariph*/)
+        public bool delete(string login)//*, spisok_tariph.nest tariph*//*)
         {
             nest curr = find(login);
             if (curr != null)
             {
-                if ((curr.chain_next != null) && (curr.chain_prev == null))
-                {
-                    nest temp = new nest();
-
-                    curr.chain_next = null;
-                    temp.chain_prev = null;
-                    curr.prev.next = temp;
-                    curr.next.prev = temp;
-                    temp.prev = curr.prev;
-                    temp.next = curr.next;
-                }
-                else if((curr.next == curr)&&(curr.prev == curr))
-                {
-                    first = null;
-
-                }
-                else
+                if (curr != curr.prev && curr !=curr.next)
                 {
                     curr.prev.next = curr.next;
                     curr.next.prev = curr.prev;
-                    if(first == curr)
-                    {
-                        first = curr.next;
-                    }
+
+                    curr.next = null;
+                    curr.prev = null;
+                }
+                else
+                {
+                    curr.next = null;
+                    curr.prev = null;
+                    curr = null;
                 }
                 return true;
+
             }
             else
             {
                 return false;
             }
-
-
         }
         public bool Can_get_sale(spisok_users.nest u, tree_sale.root s)
         {
