@@ -332,13 +332,19 @@ namespace курсач
             nest curr = find(login);
             if (curr != null)
             {
-                if (curr != curr.prev && curr !=curr.next)
+                if (curr != curr.prev && curr != curr.next)
                 {
+                    if (curr == table[get_hash(login)])
+                    {
+                        table[get_hash(login)] = curr.next;
+                    }
+
                     curr.prev.next = curr.next;
                     curr.next.prev = curr.prev;
 
                     curr.next = null;
                     curr.prev = null;
+
                 }
                 else
                 {
