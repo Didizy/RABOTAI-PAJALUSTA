@@ -14,20 +14,39 @@ namespace курсач
 
         public class nest
         {
-            //public int hash;
+            public int hash;
             public string login;
             public string date;
-            public spisok_tariph.nest tariph;
-            public nest chain_next, chain_prev, first;//для метода цепочек
+            
 
-            public nest(string login, string date, spisok_tariph.nest tariph)
+            public class nest
+            {
+                public int hash;
+                public string login;
+                public string date;
+                public spisok_tariph.nest tariph;
+                public spisok_users.nest chain;//для метода цепочек
+
+                public nest next, prev, chain_next, chain_prev;
+            public nest(int i)
+            {
+                hash = i;
+                login = "";
+                date = "";
+
+            }
+                public spisok_tariph.nest tariph;
+                public nest chain_next, chain_prev, first;//для метода цепочек
+            }
+
+       /* public nest(string login, string date, spisok_tariph.nest tariph)
             {
                 this.login = login;
                 this.date = date;
                 this.tariph = tariph;
 
                 //chain_next = first;
-            }
+            }*/
 
         }
 
@@ -42,23 +61,7 @@ namespace курсач
                 table[i] = null;
         }
 
-/*        public class nest
-        {
-            public int hash;
-            public string login;
-            public string date;
-            public spisok_tariph.nest tariph;
-            public spisok_users.nest chain;//для метода цепочек
-
-            public nest next, prev, chain_next, chain_prev;
-            *//*public nest(int i)
-            {
-                hash = i;
-                login = "";
-                date = "";
-
-            }*//*
-        }*/
+      
 
 
         //public nest first;
@@ -130,7 +133,7 @@ namespace курсач
             }
             return 0;
         }
-/*        public bool add(string login, string date, spisok_tariph.nest tariph)
+        public bool add(string login, string date, spisok_tariph.nest tariph)
         {
             int curr_hash = get_hash(login);
             nest curr = first;
@@ -225,9 +228,9 @@ namespace курсач
             }
            
 
-        }*/
+        }
 
-        public bool add(string login, string date, spisok_tariph.nest tariph)
+        /*public bool add(string login, string date, spisok_tariph.nest tariph)
         {
             nest temp = new nest(login, date, tariph);
             int hash = get_hash(login);
@@ -242,7 +245,7 @@ namespace курсач
             {
 
             }
-        }
+        }*/
 
         public nest find(string login)/*spisok_tariph.nest tariph*///исправить, циклится
         {
