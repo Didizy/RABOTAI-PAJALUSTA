@@ -124,10 +124,10 @@ namespace курсач
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
+            StreamReader file_in = new StreamReader(@"c:\gitjub\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"c:\gitjub\курсач\output_provider.txt"
             input_for_provider(file_in);
             file_in.Close();
-            file_in = new StreamReader(@"a:\gitjub\курсач\output_user.txt");//@"a:\gitjub\курсач\output_user.txt"@"c:\курсач\курсач\output_user.txt"
+            file_in = new StreamReader(@"c:\gitjub\курсач\output_user.txt");//@"c:\gitjub\курсач\output_user.txt"@"c:\курсач\курсач\output_user.txt"
             string[] line = new string[4];
             string temp = file_in.ReadLine();
             while (temp != "//")
@@ -858,7 +858,7 @@ namespace курсач
 
         /*        private void to_file_Click(object sender, EventArgs e)
                 {
-                    StreamWriter out_file = new StreamWriter(@"c:\курсач\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
+                    StreamWriter out_file = new StreamWriter(@"c:\курсач\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"c:\gitjub\курсач\output_user.txt"
                     spisok_users.nest a = user.first;
                     spisok_users.nest temp = a.chain_next;
                     string output;
@@ -989,7 +989,7 @@ namespace курсач
 
         /*private void save_provider_Click(object sender, EventArgs e)
         {
-            StreamWriter file_out = new StreamWriter(@"c:\курсач\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
+            StreamWriter file_out = new StreamWriter(@"c:\курсач\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"c:\gitjub\курсач\output_provider.txt
             //file_out.WriteLine("РАБОТАЙ");
             output_for_provider(file_out, provider.main);
             file_out.Close();
@@ -997,7 +997,7 @@ namespace курсач
 
         /*private void load_provider_Click(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_user.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
+            StreamReader file_in = new StreamReader(@"c:\курсач\курсач\output_user.txt");//(@"c:\курсач\курсач\output_user.txt");//@"c:\gitjub\курсач\output_provider.txt"
             input_for_provider(file_in);
             file_in.Close();
         }*/
@@ -1111,8 +1111,37 @@ namespace курсач
             string[] sale = new string[3];
             string[] us = new string[4];
             sale_out(sale, sales.main);
-            spisok_users.nest temp = user.first;
-            if (temp == null)
+
+            int it = 0;
+            //spisok_users.nest temp = user.table[it];
+
+            while (it < user.max_elements)
+            {
+                if (user.table[it] != null)
+                {
+                    us[0] = user.table[it].login;
+                    us[1] = it.ToString();//temp.hash.ToString();
+                    us[2] = user.table[it].tariph.name;
+                    us[3] = user.table[it].date;
+                    dataGridViewUsers.Rows.Add(us);
+
+                    spisok_users.nest curr = user.table[it].next;
+                    //spisok_users.nest start = user.table[it];
+                    while (curr != user.table[it])
+                    {
+                        us[0] = curr.login;
+                        us[1] = it.ToString();//curr.hash.ToString();
+                        us[2] = curr.tariph.name;
+                        us[3] = curr.date;
+                        dataGridViewUsers.Rows.Add(us);
+                        curr = curr.next;
+                    }
+                }
+                it++;
+            }
+
+
+            /*if (temp == null)
                 return;
             spisok_users.nest curr = temp.chain_next;
             if (!tariph.free(temp.tariph))
@@ -1163,7 +1192,7 @@ namespace курсач
                 }
                 temp = temp.next;
                 curr = temp.chain_next;
-            }
+            }*/
         }
 
         private void provider_find_title_TextChanged(object sender, EventArgs e)
@@ -1178,7 +1207,7 @@ namespace курсач
 
         private void save_provider_Click_1(object sender, EventArgs e)
         {
-            StreamWriter file_out = new StreamWriter(@"a:\gitjub\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
+            StreamWriter file_out = new StreamWriter(@"c:\gitjub\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"c:\gitjub\курсач\output_provider.txt
             //file_out.WriteLine("РАБОТАЙ");
             output_for_provider(file_out, provider.main);
             file_out.Close();
@@ -1186,14 +1215,14 @@ namespace курсач
 
         private void load_provider_Click_2(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"a:\gitjub\курсач\output_provider.txt"
+            StreamReader file_in = new StreamReader(@"c:\gitjub\курсач\output_provider.txt");//(@"c:\курсач\курсач\output_user.txt");//@"c:\gitjub\курсач\output_provider.txt"
             input_for_provider(file_in);
             file_in.Close();
         }
 
-        private void to_file_Click_1(object sender, EventArgs e)//исправить
+        private void to_file_Click_1(object sender, EventArgs e)
         {
-            StreamWriter out_file = new StreamWriter(@"a:\gitjub\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
+            /*StreamWriter out_file = new StreamWriter(@"c:\gitjub\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"c:\gitjub\курсач\output_user.txt"
             spisok_users.nest a = user.first;
             spisok_users.nest temp = a.chain_next;
             string output;
@@ -1229,12 +1258,12 @@ namespace курсач
             }
             out_file.WriteLine("//");
             output_for_sales(out_file, sales.main);
-            out_file.Close();
+            out_file.Close();*/
         }
 
         private void from_file_button_Click_1(object sender, EventArgs e)
         {
-            StreamReader file_in = new StreamReader(@"a:\gitjub\курсач\output_user.txt");//@"a:\gitjub\курсач\output_user.txt"//c:\курсач\курсач\output_user.txt
+            StreamReader file_in = new StreamReader(@"c:\gitjub\курсач\output_user.txt");//@"c:\gitjub\курсач\output_user.txt"//c:\курсач\курсач\output_user.txt
             string[] line = new string[4];
             string temp = file_in.ReadLine();
             while (temp != "//")

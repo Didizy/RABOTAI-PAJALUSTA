@@ -16,14 +16,14 @@ namespace курсач
         {
             if (disposing && (components != null))
             {
-            components.Dispose();
+                components.Dispose();
             }
-            StreamWriter file_out = new StreamWriter(@"a:\gitjub\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"a:\gitjub\курсач\output_provider.txt
+            StreamWriter file_out = new StreamWriter(@"c:\gitjub\курсач\output_provider.txt");//@"c:\курсач\курсач\output_provider.txt"c:\gitjub\курсач\output_provider.txt
                                                                                               //file_out.WriteLine("РАБОТАЙ");
             output_for_provider(file_out, provider.main);
             file_out.Close();
-            StreamWriter out_file = new StreamWriter(@"a:\gitjub\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"a:\gitjub\курсач\output_user.txt"
-            spisok_users.nest a = user.first;
+            StreamWriter out_file = new StreamWriter(@"c:\gitjub\курсач\output_user.txt"); //(@"c:\курсач\курсач\output_user.txt"); @"c:\gitjub\курсач\output_user.txt"
+            /*spisok_users.nest a = user.first;
             if (a != null)
             {
                 spisok_users.nest temp = a.chain_next;
@@ -58,7 +58,44 @@ namespace курсач
                         break;
                     temp = a.chain_next;
                 }
+            }*/
+
+            int it = 0;
+            string output;
+            while (it<user.max_elements)
+            {
+                if (user.table[it] != null)//пишу удаление
+                {
+                    output = "";
+                    output += user.table[it].login;
+                    output += "/";
+                    output += user.table[it].date;
+                    output += "/";
+                    output += user.table[it].tariph.name;
+                    output += "/";
+                    output += user.table[it].tariph.provider.title;
+                    out_file.WriteLine(output);
+                    
+
+                    spisok_users.nest curr = user.table[it].next;
+                    while (curr != user.table[it])
+                    {
+                        output = "";
+                        output += curr.login;
+                        output += "/";
+                        output += curr.date;
+                        output += "/";
+                        output += curr.tariph.name;
+                        output += "/";
+                        output += curr.tariph.provider.title;
+                        out_file.WriteLine(output);
+
+                        curr = curr.next;
+                    }
+                }
+                it++;
             }
+
             out_file.WriteLine("//");
             output_for_sales(out_file, sales.main);
             out_file.Close();
