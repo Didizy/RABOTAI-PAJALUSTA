@@ -124,18 +124,16 @@ namespace курсач
             }
             int j = 0;
             //bool added = false;
-            int hash_1 = gethash_different(name);
-            int hash_2 = gethash_2(getkey(name, ""));
+            //int hash_1 = gethash_different(name);
+            int curr_hash = gethash_different(name);
+            //int hash_2 = gethash_2(getkey(name, ""));
             while (true)
             {
-
-                int curr_hash = (hash_1 + j * hash_2) % max_elements;
                 /*while (curr.hash != curr_hash)
                 {
                     curr = curr.next;
                 }*/
-                if ((j == 0) && (free(mas[curr_hash])))
-                    collisions++;
+
                 if (free(mas[curr_hash]))
                 {
                     if (mas[curr_hash].deleted == false)
@@ -152,7 +150,10 @@ namespace курсач
                 else if ((mas[curr_hash].name == name) && (mas[curr_hash].provider == provider))
                     return false;
                 else
-                    j++;
+                {
+                    collisions++;
+                    curr_hash=(curr_hash+1)%max_elements;
+                }
             }
         }
         public bool add(int k, string name, int type, int speed, tree_providers.root provider)// добавление нового элемента
@@ -175,11 +176,10 @@ namespace курсач
                 {
                     curr = curr.next;
                 }*/
-                if ((j == 0) && (!free(mas[curr_hash])))
-                    collisions++;
+
                 if (free(mas[curr_hash]))
                 {
-                    if(mas[curr_hash].deleted == false)
+                    if (mas[curr_hash].deleted == false)
                         num_of_elements++;
                     mas[curr_hash].name = name;
                     mas[curr_hash].type = type;
@@ -187,13 +187,16 @@ namespace курсач
                     mas[curr_hash].provider = provider;
                     mas[curr_hash].deleted = false;
                     mas[curr_hash].hash = curr_hash;
-                    
+
                     return true;
                 }
                 else if ((mas[curr_hash].name == name) && (mas[curr_hash].provider == provider))
                     return false;
                 else
+                {
+                    collisions++;
                     j++;
+                }
                 /*if (free(curr))
                 {
                     curr.name = name;
